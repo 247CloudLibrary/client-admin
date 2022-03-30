@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route,Routes} from "react-router-dom";
+import AdminPage from "./pages/AdminPage";
+import BlacklistPage from "./pages/BlacklistPage";
+import BoardsPage from "./pages/BoardsPage";
+import BooksPage from "./pages/BooksPage";
+import Home from "./pages/Home";
+import LendingPage from "./pages/LendingPage";
+import LibrariesRulePage from "./pages/LibrariesRulePage";
+import UserListPage from "./pages/UserListPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/admin" element={<AdminPage />} />
+      <Route path="/lending/blacklist" element={<BlacklistPage />} />
+      <Route path="/boards" element={<BoardsPage />} />
+      <Route path="/books" element={<BooksPage />} />
+      <Route path="/lending" element={<LendingPage />} />
+      <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
+      <Route path="/auth" element={<UserListPage />} />
+    </Routes>
   );
-}
+};
 
 export default App;
