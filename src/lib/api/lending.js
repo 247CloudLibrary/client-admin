@@ -1,5 +1,4 @@
 import client from "./client";
-import qs from "qs";
 
 //대출 요청
 export const lendingRentalgPost = ({uid, bookId, libraryId, barcord, rfid, lendingstatus, lendingDateTime, returnDateTime}) => {
@@ -20,27 +19,18 @@ export const rulesPost = (
 };
 
 // 대출 상태 조회
-export const lendingList = ({uid, bookId, libraryId, barcord, rfid, lendingstatus, lendingDateTime ,returnDateTime}) => {
-    const queryString = qs.stringify({
-        uid, 
-        bookId, 
-        libraryId, 
-        barcord, 
-        rfid, 
-        lendingstatus, 
-        lendingDateTime, 
-        returnDateTime,
-    });
-    return client.get( `/lending?${queryString}`);
+export const lendingList = () => {
+   client.get( `/lending`);
 };
 
 // 대출 가능 여부 및 기록 조회
-export const lendingGet = (uid, libraryId) => {
-    client.get(`/lending/${uid}`, {libraryId});
+export const lendingGet = () => {
+    client.get(`/lending/${uid}`);
 };
+
 // 블랙리스트 조회
-export const blacklistGet = ({uid, libraryId, username, address, email, tel}) => {
-    client.get('/lending/blacklist', {uid, libraryId, username, address, email, tel});
+export const blacklistGet = () => {
+    client.get('/lending/blacklist');
 };
 
 // 블랙리스트 등록
