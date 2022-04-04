@@ -1,21 +1,21 @@
 import client from "./client";
 
 //대출 요청
-export const lendingRentalgPost = ({uid, bookId, libraryId, barcord, rfid, lendingstatus, lendingDateTime, returnDateTime}) => {
-    client.post('/lending', {uid, bookId, libraryId, barcord, rfid, lendingstatus, lendingDateTime, returnDateTime});
+export const lendingRentalgPost = ({uid, bookId, libraryId, libraryName, barcord, rfid, lendingstatus, lendingDateTime, returnDateTime}) => {
+    client.post('/lending', {uid, bookId, libraryId, libraryName, barcord, rfid, lendingstatus, lendingDateTime, returnDateTime});
 };
 
 //도서 반납 요청
-export const lendingReturnPost = ({uid, bookId, libraryId, barcord, rfid, lendingstatus, returnDateTime}) => {
-    client.post(`/lending/${uid}`, {bookId, libraryId, barcord, rfid, lendingstatus, returnDateTime});
+export const lendingReturnPost = ({uid, bookId, libraryId, libraryName, barcord, rfid, lendingstatus, returnDateTime}) => {
+    client.post(`/lending/${uid}`, {bookId, libraryId, libraryName, barcord, rfid, lendingstatus, returnDateTime});
 };
 
 // 도서관 이용 규정 등록
 export const rulesPost = (
-    {libraryId, libraryname, lendingAvailableCount, lendingAvailableDays, overdueCount, 
-    longtermOVerdueDays, lendingLimitDay, loanAvailability}) => {
-    client.post('/lending/libraries/rules', {libraryId, libraryname, lendingAvailableCount, lendingAvailableDays, overdueCount, 
-        longtermOVerdueDays, lendingLimitDay, loanAvailability});
+    {libraryId, libraryName, lendingAvailableCount, lendingAvailableDays, overdueCount, 
+    longtermOverdueDays, lendingLimitDays, loanAvailability}) => {
+    client.post('/lending/libraries/rules', {libraryId, libraryName, lendingAvailableCount, lendingAvailableDays, overdueCount, 
+        longtermOverdueDays, lendingLimitDays, loanAvailability});
 };
 
 // 대출 상태 조회
