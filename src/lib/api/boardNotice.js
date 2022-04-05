@@ -8,6 +8,7 @@ export const writeNoticeBoard = ({ type, title, contents, libraryName }) =>
 //게시판 목록 조회
 export const listNoticeBoards = ({
   boardId,
+  type,
   title,
   adminName,
   createdAt,
@@ -16,6 +17,7 @@ export const listNoticeBoards = ({
 }) => {
   const queryString = qs.stringify({
     boardId,
+    type,
     title,
     adminName,
     createdAt,
