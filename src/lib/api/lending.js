@@ -13,9 +13,9 @@ export const lendingReturnPost = ({uid, bookId, libraryId, libraryName, barcord,
 // 도서관 이용 규정 등록
 export const rulesPost = (
     {libraryId, libraryName, lendingAvailableCount, lendingAvailableDays, overdueCount, 
-    longtermOverdueDays, lendingLimitDays, loanAvailability}) => {
+    longtermOverdueDays, lendingLimitDays}) => {
     client.post('/lending/libraries/rules', {libraryId, libraryName, lendingAvailableCount, lendingAvailableDays, overdueCount, 
-        longtermOverdueDays, lendingLimitDays, loanAvailability});
+        longtermOverdueDays, lendingLimitDays});
 };
 
 // 대출 상태 조회
