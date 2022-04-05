@@ -32,18 +32,32 @@ export const writeLibrary = ({
   });
 
 //도서관 조회(슈퍼 어드민)
-export const listLibraries = ({ libraryId, name, address, email, tel }) => {
+export const listLibraries = ({
+  libraryId,
+  name,
+  address,
+  email,
+  tel,
+  operatingTime,
+  holiday,
+  createdAt,
+  updatedAt,
+}) => {
   const queryString = qs.stringify({
     libraryId,
     name,
     address,
     email,
     tel,
+    operatingTime,
+    holiday,
+    createdAt,
+    updatedAt,
   });
   return client.get(`/libraries?${queryString}`);
 };
 
-//도서관 상세조회
+//도서관 상세조회(어드민 마이페이지)
 export const readLibrary = (libraryId) => client.get(`/libraries/${libraryId}`);
 
 //도서관 수정
