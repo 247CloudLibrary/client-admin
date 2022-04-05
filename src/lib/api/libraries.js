@@ -12,7 +12,7 @@ export const writeLibrary = ({
   lendingAvailableDays,
   overdueCount,
   longtermOverdueDays,
-  lendingLimit,
+  lendingLimitDays,
   operatingTime,
   loanAvailability,
 }) =>
@@ -26,7 +26,7 @@ export const writeLibrary = ({
     lendingAvailableDays,
     overdueCount,
     longtermOverdueDays,
-    lendingLimit,
+    lendingLimitDays,
     operatingTime,
     loanAvailability,
   });
@@ -72,7 +72,7 @@ export const updateLibrary = ({
   lendingAvailableDays,
   overdueCount,
   longtermOverdueDays,
-  lendingLimit,
+  lendingLimitDays,
   operatingTime,
   loanAvailability,
 }) =>
@@ -86,7 +86,7 @@ export const updateLibrary = ({
     lendingAvailableDays,
     overdueCount,
     longtermOverdueDays,
-    lendingLimit,
+    lendingLimitDays,
     operatingTime,
     loanAvailability,
   });
