@@ -2,17 +2,13 @@ import qs from "qs";
 import client from "./client";
 
 //게시글 등록
-export const writeInfoBoard = ({
-  type,
-  title,
-  contents,
-  libraryName,
-  adminName,
-}) => client.post("/boards", { type, title, contents, libraryName, adminName });
+export const writeInfoBoard = ({ type, title, contents, libraryName }) =>
+  client.post("/boards", { type, title, contents, libraryName });
 
 //게시판 목록 조회
 export const listInfoBoards = ({
   boardId,
+  type,
   title,
   adminName,
   createdAt,
@@ -21,6 +17,7 @@ export const listInfoBoards = ({
 }) => {
   const queryString = qs.stringify({
     boardId,
+    type,
     title,
     adminName,
     createdAt,
