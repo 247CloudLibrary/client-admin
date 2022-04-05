@@ -9,6 +9,7 @@ export const writeNoticeBoard = ({ type, title, contents, libraryName }) =>
 export const listNoticeBoards = ({
   boardId,
   title,
+  adminName,
   createdAt,
   updatedAt,
   readCounts,
@@ -16,6 +17,7 @@ export const listNoticeBoards = ({
   const queryString = qs.stringify({
     boardId,
     title,
+    adminName,
     createdAt,
     updatedAt,
     readCounts,
