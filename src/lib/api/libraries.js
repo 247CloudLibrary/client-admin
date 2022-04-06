@@ -1,4 +1,3 @@
-import qs from "qs";
 import client from "./client";
 
 //도서관 등록
@@ -14,7 +13,8 @@ export const writeLibrary = ({
   longtermOverdueDays,
   lendingLimitDays,
   operatingTime,
-  loanAvailability,
+  createdAt,
+  updatedAt
 }) =>
   client.post("/libraries", {
     name,
@@ -28,37 +28,18 @@ export const writeLibrary = ({
     longtermOverdueDays,
     lendingLimitDays,
     operatingTime,
-    loanAvailability,
+    createdAt,
+    updatedAt
+  
   });
 
 //도서관 조회(슈퍼 어드민)
-export const listLibraries = ({
-  libraryId,
-  name,
-  address,
-  email,
-  tel,
-  operatingTime,
-  holiday,
-  createdAt,
-  updatedAt,
-}) => {
-  const queryString = qs.stringify({
-    libraryId,
-    name,
-    address,
-    email,
-    tel,
-    operatingTime,
-    holiday,
-    createdAt,
-    updatedAt,
-  });
-  return client.get(`/libraries?${queryString}`);
+export const listLibraries = () => {
+   client.get(`/libraries`);
 };
 
 //도서관 상세조회(어드민 마이페이지)
-export const readLibrary = (libraryId) => client.get(`/libraries/${libraryId}`);
+export const readLibrary = () => {client.get(`/libraries/${libraryId}`)};
 
 //도서관 수정
 export const updateLibrary = ({
@@ -75,6 +56,8 @@ export const updateLibrary = ({
   lendingLimitDays,
   operatingTime,
   loanAvailability,
+  createdAt,
+  updatedAt
 }) =>
   client.put(`/libraries/${libraryId}`, {
     name,
@@ -89,6 +72,8 @@ export const updateLibrary = ({
     lendingLimitDays,
     operatingTime,
     loanAvailability,
+    createdAt,
+    updatedAt
   });
 
 //도서관 삭제
