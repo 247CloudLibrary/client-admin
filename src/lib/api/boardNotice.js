@@ -2,61 +2,52 @@ import client from "./client";
 
 //게시글 등록
 export const writeNoticeBoard = ({
-  boardId,
-  adminId,
+  id,
+  // adminId,
   type,
   title,
-  contents,
-  libraryId,
+  // libraryId,
   libraryName,
-  createdAt,
-  updatedAt,
-  readCounts,
+  // adminName,
+  contents,
 }) =>
   client.post("/boards", {
-    boardId,
-    adminId,
+    id,
+    // adminId,
     type,
     title,
-    contents,
-    libraryId,
+    // libraryId,
     libraryName,
-    createdAt,
-    updatedAt,
-    readCounts,
+    // adminName,
+    contents,
   });
 
 //게시판 목록 조회
 export const listNoticeBoards = () => client.get("/boards");
 
 //게시글 조회
-export const readNoticeBoard = () => client.get(`/boards/${boardId}`);
+export const readNoticeBoard = () => client.get(`/boards/${id}`);
 
 //게시글 수정
 export const updateNoticeBoard = ({
-  boardId,
-  adminId,
+  id,
+  // adminId,
   type,
   title,
-  contents,
-  libraryId,
+  // libraryId,
   libraryName,
-  createdAt,
-  updatedAt,
-  readCounts,
+  // adminName,
+  contents,
 }) =>
-  client.put(`/boards/${boardId}`, {
-    adminId,
+  client.put(`/boards/${id}`, {
+    // adminId,
     type,
     title,
-    contents,
-    libraryId,
+    // libraryId,
     libraryName,
-    createdAt,
-    updatedAt,
-    readCounts,
+    // adminName,
+    contents,
   });
 
 //게시글 삭제
-export const removeNoticeBoard = (boardId) =>
-  client.delete(`/boards/${boardId}`);
+export const removeNoticeBoard = (id) => client.delete(`/boards/${id}`);
