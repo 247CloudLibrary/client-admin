@@ -8,8 +8,9 @@
 # testing
 /coverage
 
+# build 제외
 # production
-/build
+
 
 # misc
 .DS_Store
