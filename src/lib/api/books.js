@@ -1,8 +1,9 @@
-import qs from "qs";
 import client from "./client";
 
 //도서 등록
 export const writeBook = ({
+  bookId,
+  rid,
   libraryId,
   isbn,
   title,
@@ -17,10 +18,14 @@ export const writeBook = ({
   genre,
   barcode,
   bookstatus,
-  rfid,
+  createdAt,
+  updatedAt,
+  rifd,
   category,
 }) =>
   client.post("/books", {
+    bookId,
+    rid,
     libraryId,
     isbn,
     title,
@@ -35,39 +40,23 @@ export const writeBook = ({
     genre,
     barcode,
     bookstatus,
-    rfid,
+    createdAt,
+    updatedAt,
+    rifd,
     category,
   });
 
 //도서 목록 조회
-export const listBooks = ({
-  rid,
-  isbn,
-  bookId,
-  title,
-  thumbnailImage,
-  author,
-  translator,
-}) => {
-  const queryString = qs.stringify({
-    rid,
-    isbn,
-    bookId,
-    title,
-    thumbnailImage,
-    author,
-    translator,
-  });
-  return client.get(`/books?${queryString}`);
-};
+export const listBooks = () => client.get("/books");
 
 //도서 상세 조회
-export const readBook = (bookId) => client.get(`/books/${bookId}`);
+export const readBook = () => client.get(`/books/${bookId}`);
 
 //도서 수정
 export const updateBook = ({
-  libraryId,
   bookId,
+  rid,
+  libraryId,
   isbn,
   title,
   thumbnailImage,
@@ -76,14 +65,18 @@ export const updateBook = ({
   translator,
   contents,
   publisher,
+  publishDate,
   type,
   genre,
   barcode,
   bookstatus,
-  rfid,
+  createdAt,
+  updatedAt,
+  rifd,
   category,
 }) =>
   client.put(`/books/${bookId}`, {
+    rid,
     libraryId,
     isbn,
     title,
@@ -93,11 +86,14 @@ export const updateBook = ({
     translator,
     contents,
     publisher,
+    publishDate,
     type,
     genre,
     barcode,
     bookstatus,
-    rfid,
+    createdAt,
+    updatedAt,
+    rifd,
     category,
   });
 //도서 삭제
