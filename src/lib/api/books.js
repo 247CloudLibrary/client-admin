@@ -3,7 +3,6 @@ import client from "./client";
 
 //도서 등록
 export const writeBook = ({
-  rid,
   libraryId,
   isbn,
   title,
@@ -22,7 +21,6 @@ export const writeBook = ({
   category,
 }) =>
   client.post("/books", {
-    rid,
     libraryId,
     isbn,
     title,
@@ -43,6 +41,7 @@ export const writeBook = ({
 
 //도서 목록 조회
 export const listBooks = ({
+  rid,
   isbn,
   bookId,
   title,
@@ -51,6 +50,7 @@ export const listBooks = ({
   translator,
 }) => {
   const queryString = qs.stringify({
+    rid,
     isbn,
     bookId,
     title,
@@ -66,7 +66,6 @@ export const readBook = (bookId) => client.get(`/books/${bookId}`);
 
 //도서 수정
 export const updateBook = ({
-  rid,
   libraryId,
   bookId,
   isbn,
@@ -85,7 +84,6 @@ export const updateBook = ({
   category,
 }) =>
   client.put(`/books/${bookId}`, {
-    rid,
     libraryId,
     isbn,
     title,
