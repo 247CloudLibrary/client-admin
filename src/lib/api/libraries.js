@@ -59,6 +59,7 @@ export const updateLibrary = ({
     address,
     email,
     holiday,
+    id,
     lendingAvailableCount,
     lendingAvailableDays,
     lendingLimitDays,
