@@ -1,0 +1,51 @@
+
+
+
+
+name: clientAdmin
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code. # Repo checkout
+        uses: actions/checkout@v3
+      
+      - name: Check Node v
+        run: node -v
+      
+      - name: Install Dependencies
+        run: npm install --frozen-lockfile
+      
+      - name: Build
+        run: npm run build
+      
+      - name: zip create 
+        run: zip -qq -r ./build-admin.zip .
+        shell: bash
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.SECRET_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          
+      - name: Upload to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SECRET_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+
+        run: |
+          aws s3 cp --region ap-southeast-1 ./build-admin.zip s3:/client-admin-s3/build-admin.zip
+          
+      - name: Deploy
+        run: aws deploy create-deployment
+          --application-name client-admin-code-deploy
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name client-admin-code-deploy-group
+          --s3-location bucket=client-admin-s3,key=build-admin.zip,bundleType=zip
