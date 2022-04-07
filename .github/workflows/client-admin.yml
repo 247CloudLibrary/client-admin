@@ -41,7 +41,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
 
         run: |
-          aws s3 cp --region ap-southeast-1 ./build-admin.zip s3:/client-admin-s3/build-admin.zip
+          aws s3 cp --region ap-southeast-1 ./build-admin.zip s3://client-admin-s3/build-admin.zip
           
       - name: Deploy
         run: aws deploy create-deployment
