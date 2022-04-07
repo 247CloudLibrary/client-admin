@@ -2,80 +2,73 @@ import client from "./client";
 
 //도서관 등록
 export const writeLibrary = ({
-  name,
   address,
   email,
-  tel,
   holiday,
+  id,
   lendingAvailableCount,
   lendingAvailableDays,
-  overdueCount,
-  longtermOverdueDays,
   lendingLimitDays,
+  longtermOverdueDays,
+  name,
   operatingTime,
-  createdAt,
-  updatedAt
+  overdueCount,
+  tel,
 }) =>
   client.post("/libraries", {
-    name,
     address,
     email,
-    tel,
     holiday,
+    id,
     lendingAvailableCount,
     lendingAvailableDays,
-    overdueCount,
-    longtermOverdueDays,
     lendingLimitDays,
+    longtermOverdueDays,
+    name,
     operatingTime,
-    createdAt,
-    updatedAt
-  
+    overdueCount,
+    tel,
   });
 
 //도서관 조회(슈퍼 어드민)
 export const listLibraries = () => {
-   client.get(`/libraries`);
+  client.get(`/libraries`);
 };
 
 //도서관 상세조회(어드민 마이페이지)
-export const readLibrary = () => {client.get(`/libraries/${libraryId}`)};
+export const readLibrary = () => {
+  client.get(`/libraries/${id}`);
+};
 
 //도서관 수정
 export const updateLibrary = ({
-  libraryId,
-  name,
   address,
   email,
-  tel,
   holiday,
+  id,
   lendingAvailableCount,
   lendingAvailableDays,
-  overdueCount,
-  longtermOverdueDays,
   lendingLimitDays,
+  longtermOverdueDays,
+  name,
   operatingTime,
-  loanAvailability,
-  createdAt,
-  updatedAt
+  overdueCount,
+  tel,
 }) =>
-  client.put(`/libraries/${libraryId}`, {
-    name,
+  client.put(`/libraries/${id}`, {
     address,
     email,
-    tel,
     holiday,
+    id,
     lendingAvailableCount,
     lendingAvailableDays,
-    overdueCount,
-    longtermOverdueDays,
     lendingLimitDays,
+    longtermOverdueDays,
+    name,
     operatingTime,
-    loanAvailability,
-    createdAt,
-    updatedAt
+    overdueCount,
+    tel,
   });
 
 //도서관 삭제
-export const removeLibrary = (libraryId) =>
-  client.delete(`/libraries/${libraryId}`);
+export const removeLibrary = (id) => client.delete(`/libraries/${id}`);
