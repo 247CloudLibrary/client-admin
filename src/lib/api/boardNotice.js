@@ -40,6 +40,7 @@ export const updateNoticeBoard = ({
   contents,
 }) =>
   client.put(`/boards/${id}`, {
+    id,
     // adminId,
     type,
     title,
