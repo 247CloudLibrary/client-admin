@@ -76,6 +76,7 @@ export const updateBook = ({
   category,
 }) =>
   client.put(`/books/${bookId}`, {
+    bookId,
     rid,
     libraryId,
     isbn,
