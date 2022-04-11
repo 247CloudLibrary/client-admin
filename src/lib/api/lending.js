@@ -94,8 +94,3 @@ export const blacklistPatch = ({ uid, libraryId }) => {
 export const deleteBlacklist = ({ uid }) => {
   client.delete(`/lending/blacklist/${uid}`);
 };
-
-//도서 분실시 예약 취소 - 서버에서 알아서 해준다고 해서 일단 주석 처리
-// export const deleteReservation = () => {
-//     client.delete('/lending/{bookId}')
-// }
