@@ -1,24 +1,12 @@
 import client from "./client";
 
 //게시글 등록
-export const writeInfoBoard = ({
-  id,
-  // adminId,
-  type,
-  title,
-  // libraryId,
-  libraryName,
-  // adminName,
-  contents,
-}) =>
+export const writeInfoBoard = ({ id, type, title, libraryName, contents }) =>
   client.post("/boards", {
     id,
-    // adminId,
     type,
     title,
-    // libraryId,
     libraryName,
-    // adminName,
     contents,
   });
 
@@ -29,24 +17,12 @@ export const listInfoBoards = () => client.get("/boards");
 export const readInfoBoard = () => client.get(`/boards/${id}`);
 
 //게시글 수정
-export const updateInfoBoard = ({
-  id,
-  // adminId,
-  type,
-  title,
-  // libraryId,
-  libraryName,
-  // adminName,
-  contents,
-}) =>
+export const updateInfoBoard = ({ id, type, title, libraryName, contents }) =>
   client.put(`/boards/${id}`, {
     id,
-    // adminId,
     type,
     title,
-    // libraryId,
     libraryName,
-    // adminName,
     contents,
   });
 
