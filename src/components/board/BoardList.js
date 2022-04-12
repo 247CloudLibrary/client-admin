@@ -64,8 +64,16 @@ const BoardList = () => {
             <BoardMap />
           </div>
         ) : (
-          <div className="listitem-box">
-            {showList ? <BoardNoticeListItem /> : <BoardInfoListItem />}
+          <div>
+            {showList ? (
+              <div className="listitem-box">
+                <BoardNoticeListItem />
+              </div>
+            ) : (
+              <div className="listitem-box">
+                <BoardInfoListItem />
+              </div>
+            )}
           </div>
         )}
       </div>
