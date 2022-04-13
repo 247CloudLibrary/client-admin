@@ -2,21 +2,24 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import LendingListItem from "./LendingListItem";
 
+
 const LendingListForm = () => {
-  const [data, setData] = useState([]);
+  const [listItem, setListItem] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending")
-      .then((response) => setData(response.data));
+      .then((response) => setListItem(response.data)
+      );
   });
 
   return (
     <div className="lending-list">
       <div className="lendingListItem">검색</div>
-      {data.map(
-        ({data}) => (
-          <div className="list-box">
+      
+      {listItem.data && listItem.data.map(
+        (data) => (
+          <div className="list-box" key={data.uid}>
             <LendingListItem
               uid={data.uid}
               thumnailImage={data.thumnailImage}
