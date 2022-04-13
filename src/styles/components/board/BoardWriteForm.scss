@@ -57,10 +57,21 @@
     justify-content: center;
     margin: auto;
     .submit-btn {
-      position: relative;
-      font-size: 1.2rem;
-      height: 3rem;
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      margin-top: 0.7rem;
       width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        background-color: #2b3c4e;
+      }
     }
   }
 }
