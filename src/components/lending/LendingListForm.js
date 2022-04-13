@@ -11,12 +11,11 @@ const LendingListForm = () => {
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending")
       .then((response) => setListItem(response.data)
       );
-  });
+  }, []);
 
   return (
     <div className="lending-list">
       <div className="lendingListItem">검색</div>
-      
       {listItem.data && listItem.data.map(
         (data) => (
           <div className="list-box" key={data.uid}>
