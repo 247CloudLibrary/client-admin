@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Quill from "quill";
 import "quill/dist/quill.bubble.css";
-import "../../styles/components/board/BoardWriteForm.scss";
 
 const LibraryName = "OOO 도서관";
 
