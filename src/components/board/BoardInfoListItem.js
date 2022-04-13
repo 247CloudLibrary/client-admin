@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-const id = "1";
-const title = "안내제목";
-const adminName = "관리자";
-const createdAt = "2022-22-22";
-// const updatedAt = "안내수정일";
-const readCounts = "222";
+// const id = "1";
+// const title = "안내제목";
+// const adminName = "관리자";
+// const createdAt = "2022-22-22";
+// // const updatedAt = "안내수정일";
+// const readCounts = "222";
 
-const BoardInfoListItem = () => {
+const BoardInfoListItem = ({ id, title, adminName, createdAt, readCounts }) => {
   const BoardInfoListItemArray = [
     { value: id, className: "num" },
     { value: title, className: "title" },

@@ -4,23 +4,18 @@ const notice = "공지사항";
 const information = "이용안내";
 const map = "오시는 길";
 
-const BoardSidebar = ({ getText, getList, getMap }) => {
+const BoardSidebar = ({ getMode }) => {
   const [mode, setMode] = useState("공지사항");
 
   useEffect(() => {
-    if (mode === "공지사항") {
-      getMap(false);
-      getList(true);
-      getText("공지사항");
+    if (mode === "오시는 길") {
+      getMode("오시는 길");
     } else if (mode === "이용안내") {
-      getMap(false);
-      getList(false);
-      getText("이용안내");
-    } else {
-      getMap(true);
-      getText("오시는 길");
+      getMode("이용안내");
     }
-  }, [mode, getList, getText, getMap]);
+
+    getMode(mode);
+  }, [mode, getMode]);
 
   useEffect(() => {
     console.log("Mode:", mode);

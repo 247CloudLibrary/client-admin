@@ -3,24 +3,36 @@ import BoardSidebar from "./BoardSideBar";
 import BoardNoticeListItem from "./BoardNoticeListItem";
 import BoardInfoListItem from "./BoardInfoListItem";
 import BoardMap from "./BoardMap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const BoardList = () => {
   const [content, setContent] = useState("");
-  const [showList, setShowList] = useState();
-  const [mapList, setMapList] = useState();
+  const [btn, setBtn] = useState(false);
+  const [boardData, setBoardData] = useState([]);
+  const [mode, setMode] = useState("공지사항");
 
-  const getText = (content) => {
-    setContent(content);
+  const getMode = (mode) => {
+    setMode(mode);
+    if (mode === "공지사항") {
+      setContent("공지사항");
+      setBtn(false);
+    } else if (mode === "이용안내") {
+      setContent("이용안내");
+      setBtn(false);
+    } else {
+      setContent("오시는 길");
+      setBtn(true);
+    }
   };
 
-  const getList = (showList) => {
-    setShowList(showList);
-  };
-
-  const getMap = (mapList) => {
-    setMapList(mapList);
-  };
+  useEffect(() => {
+    axios
+      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
+      .then((response) => {
+        setBoardData(response.data);
+      });
+  }, []);
 
   const ListArray = [
     { listName: "번호", className: "id" },
@@ -34,17 +46,16 @@ const BoardList = () => {
   return (
     <main id="board-list">
       <h1 className="content">{content}</h1>
-
       <div className="write">
         <Link to="/boards/write" style={{ textDecoration: "none", width: "0" }}>
-          <button className="write-btn" style={mapList ? { opacity: 0 } : null}>
+          <button className="write-btn" style={btn ? { opacity: 0 } : null}>
             게시글 등록
           </button>
         </Link>
       </div>
       <table className="list">
         <thead>
-          <tr className="list-title" style={mapList ? { opacity: 0 } : null}>
+          <tr className="list-title" style={btn ? { opacity: 0 } : null}>
             {ListArray.map((la) => (
               <th className={la.className} key={la.listName}>
                 {la.listName}
@@ -53,27 +64,46 @@ const BoardList = () => {
           </tr>
         </thead>
       </table>
-
       <div className="form-box">
         <div className="sidebar-box">
-          <BoardSidebar getText={getText} getList={getList} getMap={getMap} />
+          <BoardSidebar getMode={getMode} />
         </div>
 
-        {mapList ? (
-          <div className="map-box">
-            <BoardMap />
+        {mode === "공지사항" && (
+          <div className="item-box">
+            {boardData.data &&
+              boardData.data.map((data) => (
+                <div className="listitem-box" key={data.id}>
+                  <BoardNoticeListItem
+                    id={data.id}
+                    title={data.title}
+                    adminName={data.adminName}
+                    createdAt={data.createdAt}
+                    readCounts={data.readCounts}
+                  />
+                </div>
+              ))}
           </div>
-        ) : (
+        )}
+        {mode === "이용안내" && (
+          <div className="item-box">
+            {boardData.data &&
+              boardData.data.map((data) => (
+                <div className="listitem-box" key={data.id}>
+                  <BoardInfoListItem
+                    id={data.id}
+                    title={data.title}
+                    adminName={data.adminName}
+                    createdAt={data.createdAt}
+                    readCounts={data.readCounts}
+                  />
+                </div>
+              ))}
+          </div>
+        )}
+        {mode === "오시는 길" && (
           <div>
-            {showList ? (
-              <div className="listitem-box">
-                <BoardNoticeListItem />
-              </div>
-            ) : (
-              <div className="listitem-box">
-                <BoardInfoListItem />
-              </div>
-            )}
+            <BoardMap />
           </div>
         )}
       </div>
