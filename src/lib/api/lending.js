@@ -12,7 +12,7 @@ export const lendingRentalgPost = ({
   lendingDateTime,
   returnDateTime,
 }) => {
-  client.post("/lending", {
+  client.post("/v1/lending", {
     uid,
     bookId,
     libraryId,
@@ -37,7 +37,7 @@ export const lendingReturnPost = ({
   lendingDateTime,
   returnDateTime,
 }) => {
-  client.post(`/lending/${uid}`, {
+  client.patch(`/v1/lending?uid=${uid}&lendingStatus=${lendingStatus}`, {
     bookId,
     libraryId,
     libraryName,
@@ -49,53 +49,29 @@ export const lendingReturnPost = ({
   });
 };
 
-// 도서관 이용 규정 등록
-export const rulesPost = ({
-  libraryId,
-  libraryName,
-  lendingAvailableCount,
-  lendingAvailableDays,
-  overdueCount,
-  longtermOverdueDays,
-  lendingLimitDays,
-}) => {
-  client.post("/lending/libraries/rules", {
-    libraryId,
-    libraryName,
-    lendingAvailableCount,
-    lendingAvailableDays,
-    overdueCount,
-    longtermOverdueDays,
-    lendingLimitDays,
-  });
-};
-
 // 대출 상태 조회
-export const lendingList = () => {
-  client.get(`/lending`);
+export const lendingListGet = () => {
+  client.get(`/v1/lending`);
 };
 
 // 대출 가능 여부 및 기록 조회
-export const lendingGet = () => {
-  client.get(`/lending/${uid}`);
+export const lendingGet = ({uid}) => {
+  client.get(`/v1/lending?uid=${uid}`);
 };
 
 // 블랙리스트 조회
 export const blacklistGet = () => {
-  client.get("/lending/blacklist");
+  client.get("/v1/lending/blacklist");
 };
 
 // 블랙리스트 등록
 export const blacklistPatch = ({ uid, libraryId }) => {
-  client.patch("/lending/blacklist", { uid, libraryId });
+  client.patch("/v1/lending/blacklist", { uid, libraryId });
 };
 
 // 블랙리스트 제거
-export const deleteBlacklist = ({ uid }) => {
-  client.delete(`/lending/blacklist/${uid}`);
+export const blacklistDelete = ({uid}) => {
+  client.delete(`/v1/lending/blacklist?uid=${uid}`);
 };
 
-//도서 분실시 예약 취소 - 서버에서 알아서 해준다고 해서 일단 주석 처리
-// export const deleteReservation = () => {
-//     client.delete('/lending/{bookId}')
-// }
+//0412 blakList mock api 아직 안되어 있음
