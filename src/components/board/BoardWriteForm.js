@@ -1,28 +1,25 @@
-import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Quill from "quill";
-import "quill/dist/quill.bubble.css";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useState } from "react";
 
 const LibraryName = "OOO 도서관";
 
 const BoardWriteForm = () => {
-  const quillElement = useRef(null);
-  const quillInstance = useRef(null);
+  const [boardContent, setBoardContent] = useState({
+    type: "",
+    title: "",
+    content: "",
+  });
 
-  useEffect(() => {
-    quillInstance.current = new Quill(quillElement.current, {
-      theme: "bubble",
-      placeholder: "내용을 입력하세요...",
-      modules: {
-        toolbar: [
-          [{ header: "1" }, { header: "2" }],
-          ["bold", "italic", "underline", "strike"],
-          [{ list: "ordered" }, { list: "bullet" }],
-          ["blockquote", "code-block", "link", "image"],
-        ],
-      },
+  const getValue = (e) => {
+    const { name, value } = e.target;
+    setBoardContent({
+      ...boardContent,
+      [name]: value,
     });
-  }, []);
+    console.log(boardContent);
+  };
 
   return (
     <div className="BoardWrite">
@@ -39,11 +36,30 @@ const BoardWriteForm = () => {
           <input
             type="text"
             className="title-input"
+            onChange={getValue}
+            name="title"
             placeholder="제목을 입력해 주세요."
           />
         </div>
-        <div className="content">
-          <div className="content-quill" ref={quillElement} />
+        <div className="content-box">
+          <div className="content">
+            <div className="content-quill">
+              <CKEditor
+                editor={ClassicEditor}
+                onReady={(editor) => {}}
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setBoardContent({
+                    ...boardContent,
+                    content: data,
+                  });
+                  console.log(boardContent);
+                }}
+                onBlur={(event, editor) => {}}
+                onFocus={(event, editor) => {}}
+              />
+            </div>
+          </div>
         </div>
         <Link to="/boards/list" style={{ textDecoration: "none" }}>
           <div className="btn">

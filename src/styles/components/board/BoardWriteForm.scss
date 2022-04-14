@@ -36,21 +36,20 @@
       padding: 0;
     }
   }
-  .content {
+  .content-box {
     display: flex;
     position: relative;
     justify-content: center;
     margin-top: 5rem;
-    .content-quill {
-      position: relative;
-      background-color: white;
-      text-align: center;
-      height: 30rem;
-      width: 50rem;
-      padding: 0;
-      border: 1px solid black;
+    .content {
+      .ck-content {
+        height: 30rem;
+        width: 50rem;
+        padding: 0;
+      }
     }
   }
+
   .btn {
     display: flex;
     position: relative;
