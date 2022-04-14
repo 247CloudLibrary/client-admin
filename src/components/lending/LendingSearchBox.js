@@ -10,7 +10,7 @@ const LendingSearchBox = () => {
     return(
         <div>
             <input type="text" placeholder="검색창" onChange={handleChange} value={searchTerm} />
-            <button> 검색</button>
+            {/* <button onClick={}> 검색</button> */}
         </div>
     );
 

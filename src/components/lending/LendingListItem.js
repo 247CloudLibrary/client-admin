@@ -1,8 +1,8 @@
-
 const LendingListItem = ({
   uid,
   thumnailImage,
   bookId,
+  title,
   libraryName,
   barcode,
   lendingStatus,
@@ -14,7 +14,7 @@ const LendingListItem = ({
       <input type="checkbox" value={bookId} />
       <div className="thumnailImage">{thumnailImage}</div>
       <div className="bookData">
-        <span>책 제목: {bookId}</span>
+        <span>책 제목: {title}</span>
         <span>도서관: {libraryName}</span>
         <span>빌린이: {uid}</span>
         <span>청구기호: {barcode}</span>
