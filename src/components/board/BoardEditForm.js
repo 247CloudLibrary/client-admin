@@ -1,31 +1,12 @@
-import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Quill from "quill";
-import "quill/dist/quill.bubble.css";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const LibraryName = "OOO 도서관";
 const title = "게시판 제목";
 const content = "입력했던 내용들....";
 
 const BoardEditForm = () => {
-  const quillElement = useRef(null);
-  const quillInstance = useRef(null);
-
-  useEffect(() => {
-    quillInstance.current = new Quill(quillElement.current, {
-      theme: "bubble",
-      placeholder: content,
-      modules: {
-        toolbar: [
-          [{ header: "1" }, { header: "2" }],
-          ["bold", "italic", "underline", "strike"],
-          [{ list: "ordered" }, { list: "bullet" }],
-          ["blockquote", "code-block", "link", "image"],
-        ],
-      },
-    });
-  }, []);
-
   return (
     <div className="BoardEdit">
       <form>
@@ -40,8 +21,20 @@ const BoardEditForm = () => {
         <div className="title">
           <input type="text" className="title-input" defaultValue={title} />
         </div>
-        <div className="content">
-          <div className="content-quill" ref={quillElement} />
+        <div className="content-box">
+          <div className="content">
+            <div className="content-quill">
+              <CKEditor
+                editor={ClassicEditor}
+                onReady={(editor) => editor.data.set(content)}
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                }}
+                onBlur={(event, editor) => {}}
+                onFocus={(event, editor) => {}}
+              />
+            </div>
+          </div>
         </div>
         <Link to="/boards/list" style={{ textDecoration: "none" }}>
           <div className="btn">
