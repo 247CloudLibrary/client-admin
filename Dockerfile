@@ -27,13 +27,13 @@ RUN npm run build
 FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nginx:latest
 
 # Copy the react build from Stage 1
-COPY --from=build /app/build /var/www
+COPY --from=build /build /var/www
 
 # Copy our custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 3000 to the Docker host, so we can access it 
 # from the outside.
-EXPOSE 80
+EXPOSE 3001
 
 ENTRYPOINT ["nginx","-g","daemon off;"]
