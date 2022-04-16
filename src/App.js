@@ -16,7 +16,7 @@ const App = () => {
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
-      <Route path="boards/list" element={<BoardListPage />} />
+      <Route path="/boards/list" element={<BoardListPage />} />
       <Route path="/books" element={<BooksPage />} />
       <Route path="/lending" element={<LendingPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
