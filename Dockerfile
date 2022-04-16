@@ -24,10 +24,10 @@ ENV REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL}
 RUN npm run build
 
 #### Stage 2: Serve the React application from Nginx 
-FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nginx:latest
+FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nginx:latest AS build
 
 # Copy the react build from Stage 1
-COPY --from=builder /app/build /var/www
+COPY --from=build /app/build /var/www
 
 # Copy our custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
