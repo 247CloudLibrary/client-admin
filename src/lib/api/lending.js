@@ -1,7 +1,6 @@
 import client from "./client";
 
-//대출 요청
-export const lendingRentalgPost = ({
+export const createLendingRental = ({
   uid,
   bookId,
   libraryId,
@@ -25,8 +24,7 @@ export const lendingRentalgPost = ({
   });
 };
 
-//도서 반납 요청
-export const lendingReturnPost = ({
+export const createLendingReturn = ({
   uid,
   bookId,
   libraryId,
@@ -49,29 +47,22 @@ export const lendingReturnPost = ({
   });
 };
 
-// 대출 상태 조회
-export const lendingListGet = () => {
+export const readLendingList = () => {
   client.get(`/v1/lending`);
 };
 
-// 대출 가능 여부 및 기록 조회
-export const lendingGet = ({uid}) => {
+export const readLending = ({ uid }) => {
   client.get(`/v1/lending?uid=${uid}`);
 };
 
-// 블랙리스트 조회
-export const blacklistGet = () => {
+export const readBlacklist = () => {
   client.get("/v1/lending/blacklist");
 };
 
-// 블랙리스트 등록
-export const blacklistPatch = ({ uid, libraryId }) => {
+export const updateBlacklist = ({ uid, libraryId }) => {
   client.patch("/v1/lending/blacklist", { uid, libraryId });
 };
 
-// 블랙리스트 제거
-export const blacklistDelete = ({uid}) => {
+export const deleteBlacklist = ({ uid }) => {
   client.delete(`/v1/lending/blacklist?uid=${uid}`);
 };
-
-//0412 blakList mock api 아직 안되어 있음

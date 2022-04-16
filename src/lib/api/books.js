@@ -1,7 +1,6 @@
 import client from "./client";
 
-//도서 등록
-export const writeBook = ({
+export const createBook = ({
   bookId,
   rid,
   libraryId,
@@ -47,7 +46,7 @@ export const writeBook = ({
   });
 
 //도서 목록 조회
-export const listBooks = () => client.get("/books");
+export const readBookList = () => client.get("/books");
 
 //도서 상세 조회
 export const readBook = () => client.get(`/books/${bookId}`);
@@ -98,5 +97,5 @@ export const updateBook = ({
     category,
   });
 //도서 삭제
-export const removeBook = ({ bookId, bookstatus }) =>
+export const deleteBook = ({ bookId, bookstatus }) =>
   client.patch(`/books/${bookId}`, { bookstatus });
