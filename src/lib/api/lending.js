@@ -1,6 +1,6 @@
 import client from "./client";
 
-export const createLendingRental = ({
+export const createLendingBook = ({
   uid,
   bookId,
   libraryId,
@@ -24,7 +24,7 @@ export const createLendingRental = ({
   });
 };
 
-export const createLendingReturn = ({
+export const createReturnBook = ({
   uid,
   bookId,
   libraryId,
