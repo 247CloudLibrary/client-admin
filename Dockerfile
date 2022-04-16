@@ -1,5 +1,5 @@
 #### Stage 1: Build the react application
-FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nodeimage:latest
+FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nodeimage:latest AS build
 
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
@@ -24,7 +24,7 @@ ENV REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL}
 RUN npm run build
 
 #### Stage 2: Serve the React application from Nginx 
-FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nginx:latest AS build
+FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nginx:latest
 
 # Copy the react build from Stage 1
 COPY --from=build /app/build /var/www
