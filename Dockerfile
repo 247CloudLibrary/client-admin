@@ -1,5 +1,5 @@
 #### Stage 1: Build the react application
-FROM node:12.4.0-alpine as build
+FROM 844148244640.dkr.ecr.us-east-1.amazonaws.com/nodeimage:latest
 
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
