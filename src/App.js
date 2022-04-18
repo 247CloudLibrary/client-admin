@@ -3,6 +3,8 @@ import AdminPage from "./pages/AdminPage";
 import BlacklistPage from "./pages/BlacklistPage";
 import BoardsPage from "./pages/BoardsPage";
 import BoardListPage from "./pages/BoardListPage";
+import BoardWritePage from "./pages/BoardWritePage";
+import BoardEditPage from "./pages/BoardEditPage";
 import BooksPage from "./pages/BooksPage";
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
@@ -17,6 +19,8 @@ const App = () => {
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
       <Route path="/boards/list" element={<BoardListPage />} />
+      <Route path="/boards/edit" element={<BoardEditPage />} />
+      <Route path="/boards/write" element={<BoardWritePage />} />
       <Route path="/books" element={<BooksPage />} />
       <Route path="/lending" element={<LendingPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
