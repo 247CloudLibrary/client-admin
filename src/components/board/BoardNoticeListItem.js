@@ -1,12 +1,5 @@
 import { Link } from "react-router-dom";
 
-// const id = "1";
-// const title = "공지사항 제목";
-// const adminName = "관리자";
-// const createdAt = "2022-02-02";
-// // const updatedAt = "공지수정일";
-// const readCounts = "11";
-
 const BoardNoticeListItem = ({
   id,
   title,

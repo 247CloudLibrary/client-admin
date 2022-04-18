@@ -1,34 +1,73 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const LibraryName = "OOO 도서관";
-const title = "게시판 제목";
-const content = "입력했던 내용들....";
 
 const BoardEditForm = () => {
+  const [editContent, setEditContent] = useState({
+    type: "Notice",
+    title: "",
+    contents: "",
+  });
+
+  const { type, title, contents } = editContent;
+
+  const getValue = (e) => {
+    setEditContent({
+      ...editContent,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(type, title, contents);
   return (
     <div className="BoardEdit">
       <form>
         <h1 className="library-name">{LibraryName}</h1>
         <div className="type">
-          <select className="type-item">
-            <option disabled>---게시판 선택---</option>
+          <select
+            value={type}
+            name="type"
+            className="type-item"
+            onChange={getValue}
+          >
             <option value="Notice">공지사항 게시판</option>
-            <option value="Information">이용안내 게시판</option>
+            <option value="Info">이용안내 게시판</option>
           </select>
         </div>
         <div className="title">
-          <input type="text" className="title-input" defaultValue={title} />
+          <input
+            type="text"
+            className="title-input"
+            defaultValue={title}
+            name="title"
+            onChange={getValue}
+          />
         </div>
         <div className="content-box">
           <div className="content">
             <div className="content-quill">
               <CKEditor
                 editor={ClassicEditor}
-                onReady={(editor) => editor.data.set(content)}
+                config={{
+                  toolbar: [
+                    "heading",
+                    "|",
+                    "bold",
+                    "italic",
+                    "link",
+                    "bulletedList",
+                  ],
+                  placeholder: "내용을 작성해주세요...",
+                }}
+                onReady={(editor) => editor.data.set(contents)}
                 onChange={(event, editor) => {
                   const data = editor.getData();
+                  setEditContent({
+                    ...editContent,
+                    contents: data,
+                  });
                 }}
                 onBlur={(event, editor) => {}}
                 onFocus={(event, editor) => {}}
@@ -39,10 +78,7 @@ const BoardEditForm = () => {
         <Link to="/boards/list" style={{ textDecoration: "none" }}>
           <div className="btn">
             <button className="save-btn" type="submit">
-              수정
-            </button>
-            <button className="delete-btn" type="submit">
-              삭제
+              저장
             </button>
           </div>
         </Link>

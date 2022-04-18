@@ -1,0 +1,21 @@
+#board-info {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  justify-content: center;
+
+  .text-form {
+    position: relative;
+    width: 60rem;
+    .title-form {
+      font-size: 3rem;
+    }
+    .contents-form {
+      margin-top: 3rem;
+    }
+  }
+}

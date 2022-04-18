@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BoardSidebar from "./BoardSideBar";
 import BoardNoticeListItem from "./BoardNoticeListItem";
-import BoardInfoListItem from "./BoardInfoListItem";
+import BoardInfo from "./BoardInfo";
 import BoardMap from "./BoardMap";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,6 +9,7 @@ import axios from "axios";
 const BoardList = () => {
   const [content, setContent] = useState("");
   const [btn, setBtn] = useState(false);
+  const [head, setHead] = useState(false);
   const [boardData, setBoardData] = useState([]);
   const [mode, setMode] = useState("공지사항");
 
@@ -16,13 +17,16 @@ const BoardList = () => {
     setMode(mode);
     if (mode === "공지사항") {
       setContent("공지사항");
+      setHead(false);
       setBtn(false);
     } else if (mode === "이용안내") {
       setContent("이용안내");
+      setHead(true);
       setBtn(false);
     } else {
       setContent("오시는 길");
       setBtn(true);
+      setHead(true);
     }
   };
 
@@ -55,7 +59,7 @@ const BoardList = () => {
       </div>
       <table className="list">
         <thead>
-          <tr className="list-title" style={btn ? { opacity: 0 } : null}>
+          <tr className="list-title" style={head ? { opacity: 0 } : null}>
             {ListArray.map((la) => (
               <th className={la.className} key={la.listName}>
                 {la.listName}
@@ -86,19 +90,8 @@ const BoardList = () => {
           </div>
         )}
         {mode === "이용안내" && (
-          <div className="item-box">
-            {boardData.data &&
-              boardData.data.map((data) => (
-                <div className="listitem-box" key={data.id}>
-                  <BoardInfoListItem
-                    id={data.id}
-                    title={data.title}
-                    adminName={data.adminName}
-                    createdAt={data.createdAt}
-                    readCounts={data.readCounts}
-                  />
-                </div>
-              ))}
+          <div className="info-box">
+            <BoardInfo />
           </div>
         )}
         {mode === "오시는 길" && (

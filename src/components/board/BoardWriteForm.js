@@ -7,35 +7,41 @@ const LibraryName = "OOO 도서관";
 
 const BoardWriteForm = () => {
   const [boardContent, setBoardContent] = useState({
-    type: "",
+    type: "Notice",
     title: "",
-    content: "",
+    contents: "",
   });
 
+  const { type, title, contents } = boardContent;
+
   const getValue = (e) => {
-    const { name, value } = e.target;
     setBoardContent({
       ...boardContent,
-      [name]: value,
+      [e.target.name]: e.target.value,
     });
-    console.log(boardContent);
   };
+  console.log(type, title, contents);
 
   return (
     <div className="BoardWrite">
       <form>
         <h1 className="library-name">{LibraryName}</h1>
         <div className="type">
-          <select className="type-item">
-            <option disabled>---게시판 선택---</option>
+          <select
+            value={type}
+            name="type"
+            className="type-item"
+            onChange={getValue}
+          >
             <option value="Notice">공지사항 게시판</option>
-            <option value="Information">이용안내 게시판</option>
+            <option value="Info">이용안내 게시판</option>
           </select>
         </div>
         <div className="title">
           <input
             type="text"
             className="title-input"
+            value={title}
             onChange={getValue}
             name="title"
             placeholder="제목을 입력해 주세요."
@@ -46,12 +52,24 @@ const BoardWriteForm = () => {
             <div className="content-quill">
               <CKEditor
                 editor={ClassicEditor}
+                config={{
+                  toolbar: [
+                    "heading",
+                    "|",
+                    "bold",
+                    "italic",
+                    "link",
+                    "bulletedList",
+                  ],
+                  placeholder: "내용을 작성해주세요...",
+                }}
+                value={contents}
                 onReady={(editor) => {}}
                 onChange={(event, editor) => {
                   const data = editor.getData();
                   setBoardContent({
                     ...boardContent,
-                    content: data,
+                    contents: data,
                   });
                   console.log(boardContent);
                 }}
