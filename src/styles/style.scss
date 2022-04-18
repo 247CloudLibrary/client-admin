@@ -2,8 +2,12 @@
 @import "./config/_reset.scss";
 
 // Components
+@import "./components/board/NoticesList.scss";
+@import "./components/board/NoticesListItem.scss";
+@import "./components/board/GuideForm.scss";
 @import "./components/board/BoardList.scss";
 @import "./components/board/BoardListItem.scss";
+@import "./components/board/BoardInfo.scss";
 @import "./components/board/BoardSideBar.scss";
 @import "./components/board/BoardWriteForm.scss";
 @import "./components/board/BoardDetail.scss";

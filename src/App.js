@@ -2,10 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import AdminPage from "./pages/AdminPage";
 import BlacklistPage from "./pages/BlacklistPage";
 import BoardsPage from "./pages/board/BoardsPage";
+import NoticesPage from "./pages/board/NoticesPage";
+import GuidePage from "./pages/board/GuidePage";
 import BoardListPage from "./pages/board/BoardListPage";
-import BoardWritePage from "./pages/board/BoardWritePage";
 import BoardDetailPage from "./pages/board/BoardDetailPage";
 import BoardEditPage from "./pages/board/BoardEditPage";
+import BoardWritePage from "./pages/board/BoardWritePage";
 import BooksPage from "./pages/BooksPage";
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
@@ -19,6 +21,8 @@ const App = () => {
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
+      <Route path="/notices" element={<NoticesPage />} />
+      <Route path="/guide" element={<GuidePage />} />
       <Route path="/boards/list" element={<BoardListPage />} />
       <Route path="/boards/detail" element={<BoardDetailPage />} />
       <Route path="/boards/edit" element={<BoardEditPage />} />

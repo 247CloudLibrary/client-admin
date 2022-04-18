@@ -1,0 +1,23 @@
+#guide-form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  text-align: center;
+  .board-guide {
+    font-size: 3rem;
+  }
+  .text-form {
+    position: relative;
+    margin-top: 5rem;
+    .title-form {
+      font-size: 2rem;
+    }
+    .contents-form {
+    }
+  }
+}
