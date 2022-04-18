@@ -1,7 +1,7 @@
 import BoardEditForm from "../components/board/BoardEditForm";
 
-const BoardDetailPage = () => {
+const BoardEditPage = () => {
   return <BoardEditForm />;
 };
 
-export default BoardDetailPage;
+export default BoardEditPage;
