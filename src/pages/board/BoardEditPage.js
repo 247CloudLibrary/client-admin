@@ -1,4 +1,4 @@
-import BoardEditForm from "../components/board/BoardEditForm";
+import BoardEditForm from "../../components/board/BoardEditForm";
 
 const BoardEditPage = () => {
   return <BoardEditForm />;
