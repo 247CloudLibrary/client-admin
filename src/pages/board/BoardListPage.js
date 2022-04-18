@@ -1,4 +1,4 @@
-import BoardList from "../components/board/BoardList";
+import BoardList from "../../components/board/BoardList";
 
 const BoardListPage = () => {
   return (
