@@ -1,6 +1,8 @@
 // Config
 @import "./config/_reset.scss";
 
+@import "./components/auth/LoginForm.scss";
+
 // Components
 // libraries
 @import "./components/board/NoticesList.scss";
@@ -20,3 +22,9 @@
 @import "./components/books/BooksEditForm.scss";
 @import "./components/books/BooksList.scss";
 @import "./components/books/BooksDetail.scss";
+
+//Default
+a {
+  color: inherit;
+  text-decoration: none;
+}
