@@ -15,7 +15,7 @@ const FindIdForm = ({ email, onChange, onSubmit }) => {
           value={email}
           onChange={onChange}
         />
-        <button className="btn">제출하기</button>
+        <button className="btn">아이디 찾기</button>
       </form>
     </div>
   );
