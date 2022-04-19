@@ -8,7 +8,10 @@ import BoardListPage from "./pages/board/BoardListPage";
 import BoardDetailPage from "./pages/board/BoardDetailPage";
 import BoardEditPage from "./pages/board/BoardEditPage";
 import BoardWritePage from "./pages/board/BoardWritePage";
-import BooksPage from "./pages/BooksPage";
+import BooksEditPage from "./pages/books/BooksEditPage";
+import BooksListPage from "./pages/books/BooksListPage";
+import BooksWritePage from "./pages/books/BooksWritePage";
+import BooksDetailPage from "./pages/books/BooksDetailPage";
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
 import LibrariesRulePage from "./pages/LibrariesRulePage";
@@ -27,7 +30,10 @@ const App = () => {
       <Route path="/boards/detail" element={<BoardDetailPage />} />
       <Route path="/boards/edit" element={<BoardEditPage />} />
       <Route path="/boards/write" element={<BoardWritePage />} />
-      <Route path="/books" element={<BooksPage />} />
+      <Route path="/books" element={<BooksListPage />} />
+      <Route path="/books/write" element={<BooksWritePage />} />
+      <Route path="/books/edit" element={<BooksEditPage />} />
+      <Route path="/books/detail" element={<BooksDetailPage />} />
       <Route path="/lending" element={<LendingPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
       <Route path="/auth" element={<UserListPage />} />
