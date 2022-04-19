@@ -4,6 +4,7 @@
 @import "./components/auth/LoginForm.scss";
 
 // Components
+// libraries
 @import "./components/board/NoticesList.scss";
 @import "./components/board/NoticesListItem.scss";
 @import "./components/board/GuideForm.scss";
@@ -15,6 +16,12 @@
 @import "./components/board/BoardDetail.scss";
 @import "./components/board/BoardDetailForm.scss";
 @import "./components/board/BoardEditForm.scss";
+
+// books
+@import "./components/books/BooksWriteForm.scss";
+@import "./components/books/BooksEditForm.scss";
+@import "./components/books/BooksList.scss";
+@import "./components/books/BooksDetail.scss";
 
 //Default
 a {

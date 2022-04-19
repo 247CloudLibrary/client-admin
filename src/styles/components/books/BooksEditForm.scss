@@ -1,0 +1,175 @@
+#BookEditForm {
+  position: relative;
+  display: flex;
+  background-color: aliceblue;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  justify-content: center;
+  .input-form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80rem;
+    .input-box {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      .image-area {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        width: 50rem;
+        background-color: white;
+        .image-box {
+          position: relative;
+          justify-content: center;
+          height: 15rem;
+
+          .thumbnailImage {
+          }
+          .coverImage {
+          }
+          .preview {
+            display: flex;
+
+            .image {
+              height: 140px;
+              width: 100px;
+              border: 1px solid black;
+            }
+            .image-remove {
+            }
+          }
+          .thumbnail-label {
+            position: relative;
+          }
+          .cover-label {
+            position: relative;
+          }
+        }
+      }
+    }
+    .text {
+      display: flex;
+      position: relative;
+      text-align: center;
+      justify-content: center;
+      .text-form {
+        display: flex;
+        position: relative;
+        flex-wrap: wrap;
+        width: 50rem;
+        justify-content: center;
+        background-color: white;
+        input,
+        select,
+        textarea {
+          position: relative;
+          font-size: 1.5rem;
+          width: 10rem;
+          margin-left: 3rem;
+        }
+        label {
+          position: relative;
+          width: 20rem;
+          font-size: 1.2rem;
+          margin-top: 3rem;
+        }
+        .libraryName {
+        }
+        .title {
+        }
+        .author {
+          margin-left: 7rem;
+        }
+        .translator {
+          margin-left: 4.6rem;
+        }
+        .publisher {
+          margin-left: 5.8rem;
+        }
+        .barcode {
+          margin-left: 3.5rem;
+        }
+        .isbn {
+          margin-left: 6.8rem;
+        }
+        .publishDate {
+          margin-left: 3.5rem;
+        }
+        .type {
+          margin-left: 7rem;
+        }
+        .genre {
+          margin-left: 4.8rem;
+        }
+        .bookStatus {
+          margin-left: 4.1rem;
+        }
+        .category {
+          margin-left: 2.5rem;
+        }
+      }
+    }
+
+    .btn-box {
+      margin-top: 10rem;
+      .edit-btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-right: 1rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          background-color: #2b3c4e;
+        }
+      }
+      .delete-btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-left: 1rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          background-color: #2b3c4e;
+        }
+      }
+    }
+  }
+  form input {
+    &::file-selector-button {
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.5rem 0.5rem;
+      width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        background-color: #2b3c4e;
+      }
+    }
+  }
+}
