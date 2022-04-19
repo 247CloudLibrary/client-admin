@@ -11,7 +11,7 @@ const FindIdForm = ({ email, onChange, onSubmit }) => {
       <form onSubmit={onSubmit}>
         <input
           type="text"
-          placeholder="이메일을 입력해주세요"
+          placeholder="이메일을 입력하세요"
           value={email}
           onChange={onChange}
         />
