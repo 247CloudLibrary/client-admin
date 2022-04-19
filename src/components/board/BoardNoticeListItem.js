@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 
-const BoardNoticeListItem = ({
-  id,
-  title,
-  adminName,
-  createdAt,
-  readCounts,
-}) => {
+const id = "1";
+const title = "아아아아아아아";
+const adminName = "관리자";
+const createdAt = "2222-22-22";
+const readCounts = "222";
+
+const BoardNoticeListItem = (
+  {
+    // id,
+    // title,
+    // adminName,
+    // createdAt,
+    // readCounts,
+  }
+) => {
   const BoardNoticeListItemArray = [
     { value: id, className: "num" },
     { value: title, className: "title" },
