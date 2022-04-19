@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import AdminPage from "./pages/AdminPage";
 import BlacklistPage from "./pages/BlacklistPage";
+
+/*Board*/
 import BoardsPage from "./pages/board/BoardsPage";
 import NoticesPage from "./pages/board/NoticesPage";
 import NoticesDetail from "./components/board/NoticesDetail";
@@ -9,10 +11,16 @@ import BoardListPage from "./pages/board/BoardListPage";
 import BoardDetailPage from "./pages/board/BoardDetailPage";
 import BoardEditPage from "./pages/board/BoardEditPage";
 import BoardWritePage from "./pages/board/BoardWritePage";
+
+/* Book */
 import BooksEditPage from "./pages/books/BooksEditPage";
 import BooksListPage from "./pages/books/BooksListPage";
 import BooksWritePage from "./pages/books/BooksWritePage";
 import BooksDetailPage from "./pages/books/BooksDetailPage";
+
+import FindIdPage from "./pages/auth/FindIdPage";
+import FindPwPage from "./pages/auth/FindPwPage";
+
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
 import LibrariesRulePage from "./pages/LibrariesRulePage";
@@ -41,6 +49,8 @@ const App = () => {
       <Route path="/lending" element={<LendingPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
       <Route path="/auth" element={<UserListPage />} />
+      <Route path="/find-id" element={<FindIdPage />} />
+      <Route path="/find-pw" element={<FindPwPage />} />
     </Routes>
   );
 };
