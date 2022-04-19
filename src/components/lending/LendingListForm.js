@@ -16,6 +16,7 @@ const mergeArrayObjects = (arr1, arr2) => {
 
 const LendingListForm = () => {
   const [listItem, setListItem] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios.all([axios.get("/books"), axios.get("/lending")]).then((result) => {
@@ -28,11 +29,24 @@ const LendingListForm = () => {
     });
   }, []);
 
+  const uidSearch = listItem.filter((searchList) => {
+    return searchList.uid.includes(searchTerm);
+  });
+
+  const onSubmit = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <div className="lending-list">
+      <form className="searchBox">
+        <input type="text" placeholder="검색창" onSubmit={onSubmit} />
+        <button> 🔍</button>
+      </form>
       <div className="lendingListItem">검 색</div>
-      {listItem &&
-        listItem.map((data) => (
+      console.log(uidSearch) console.log(uidSearch.data)
+      {uidSearch &&
+        uidSearch.map((data) => (
           <LendingListItem
             key={data.bookId}
             uid={data.uid}
