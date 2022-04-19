@@ -3,6 +3,7 @@ import AdminPage from "./pages/AdminPage";
 import BlacklistPage from "./pages/BlacklistPage";
 import BoardsPage from "./pages/board/BoardsPage";
 import NoticesPage from "./pages/board/NoticesPage";
+import NoticesDetail from "./components/board/NoticesDetail";
 import GuidePage from "./pages/board/GuidePage";
 import BoardListPage from "./pages/board/BoardListPage";
 import BoardDetailPage from "./pages/board/BoardDetailPage";
@@ -27,6 +28,7 @@ const App = () => {
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
       <Route path="/notices" element={<NoticesPage />} />
+      <Route path="/notices/detail" element={<NoticesDetail />} />
       <Route path="/guide" element={<GuidePage />} />
       <Route path="/boards/list" element={<BoardListPage />} />
       <Route path="/boards/detail" element={<BoardDetailPage />} />

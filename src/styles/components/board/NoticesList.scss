@@ -68,4 +68,17 @@
       }
     }
   }
+  .item-box {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    .listitem-box {
+      position: relative;
+      justify-content: center;
+      height: 3rem;
+      border-bottom: 1px solid #57707cc5;
+    }
+  }
 }
