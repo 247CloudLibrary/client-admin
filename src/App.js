@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import AdminPage from "./pages/AdminPage";
 import BlacklistPage from "./pages/BlacklistPage";
 
 /*Board*/
@@ -26,13 +25,13 @@ import LendingPage from "./pages/LendingPage";
 import LibrariesRulePage from "./pages/LibrariesRulePage";
 import UserListPage from "./pages/UserListPage";
 import LoginPage from "./pages/auth/LoginPage";
+import ProfilePage from "./pages/auth/ProfilePage";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/admin" element={<AdminPage />} />
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
       <Route path="/notices" element={<NoticesPage />} />
@@ -51,6 +50,7 @@ const App = () => {
       <Route path="/auth" element={<UserListPage />} />
       <Route path="/find-id" element={<FindIdPage />} />
       <Route path="/find-pw" element={<FindPwPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 };

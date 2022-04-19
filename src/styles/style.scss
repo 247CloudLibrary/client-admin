@@ -5,6 +5,7 @@
 @import "./components/auth/LoginForm.scss";
 @import "./components/auth/FindIdForm.scss";
 @import "./components/auth/FindPwForm.scss";
+@import "./components/auth/ProfileForm.scss";
 
 /* Libraries */
 @import "./components/board/NoticesList.scss";
@@ -29,6 +30,7 @@
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap");
 
 /* Defaults */
 a {
