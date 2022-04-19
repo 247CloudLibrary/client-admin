@@ -1,10 +1,12 @@
-// Config
+/* Config */
 @import "./config/_reset.scss";
 
+/* Admin */
 @import "./components/auth/LoginForm.scss";
+@import "./components/auth/FindIdForm.scss";
+@import "./components/auth/FindPwForm.scss";
 
-// Components
-// libraries
+/* Libraries */
 @import "./components/board/NoticesList.scss";
 @import "./components/board/NoticesListItem.scss";
 @import "./components/board/GuideForm.scss";
@@ -17,13 +19,17 @@
 @import "./components/board/BoardDetailForm.scss";
 @import "./components/board/BoardEditForm.scss";
 
-// books
+/* Books */
 @import "./components/books/BooksWriteForm.scss";
 @import "./components/books/BooksEditForm.scss";
 @import "./components/books/BooksList.scss";
 @import "./components/books/BooksDetail.scss";
 
-//Default
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+/* Defaults */
 a {
   color: inherit;
   text-decoration: none;

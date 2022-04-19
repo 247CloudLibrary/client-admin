@@ -18,7 +18,7 @@ import BooksWritePage from "./pages/books/BooksWritePage";
 import BooksDetailPage from "./pages/books/BooksDetailPage";
 
 import FindIdPage from "./pages/auth/FindIdPage";
-import FindPasswordPage from "./pages/auth/FindPasswordPage";
+import FindPwPage from "./pages/auth/FindPwPage";
 
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
@@ -48,7 +48,7 @@ const App = () => {
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
       <Route path="/auth" element={<UserListPage />} />
       <Route path="/find-id" element={<FindIdPage />} />
-      <Route path="/find-pw" element={<FindPasswordPage />} />
+      <Route path="/find-pw" element={<FindPwPage />} />
     </Routes>
   );
 };
