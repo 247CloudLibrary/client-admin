@@ -11,7 +11,7 @@ const NoticesListItem = ({ id, title, adminName, createdAt, readCounts }) => {
   ];
   return (
     <div id="noticesListItem">
-      <Link to="/boards/detail" style={{ textDecoration: "none" }}>
+      <Link to="/notices/detail" style={{ textDecoration: "none" }}>
         <table className="list">
           <tbody>
             <tr className="list-value">
