@@ -33,10 +33,10 @@ const LoginForm = ({ onChange, onSubmit, form }) => {
         </button>
       </form>
       <footer>
-        <Link to="/">
+        <Link to="/find-id">
           <span>아이디찾기</span>
         </Link>
-        <Link to="/">
+        <Link to="/find-pw">
           <span>비밀번호찾기</span>
         </Link>
       </footer>
