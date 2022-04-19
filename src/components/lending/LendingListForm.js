@@ -44,7 +44,6 @@ const LendingListForm = () => {
         <button> 🔍</button>
       </form>
       <div className="lendingListItem">검 색</div>
-      console.log(uidSearch) console.log(uidSearch.data)
       {uidSearch &&
         uidSearch.map((data) => (
           <LendingListItem
@@ -60,6 +59,8 @@ const LendingListForm = () => {
             returnDateTime={data.returnDateTime}
           />
         ))}
+      {console.log(uidSearch)}
+      {console.log(uidSearch.data)}
     </div>
   );
 };
