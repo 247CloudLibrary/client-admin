@@ -2,17 +2,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import BlacklistItem from "./BlacklistItem";
 
-const BlacklistForm = () => {
+const BlacklistForm = ({}) => {
   const [listItem, setListItem] = useState([]);
 
   useEffect(() => {
-    axios.get("/lendingBlacklist").then((result) => {
-      console.log(result.data);
-      setListItem(result.data);
-    });
+    axios
+      .get(
+        "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending/blacklist"
+      )
+      .then((result) => {
+        console.log(result.data.data);
+        setListItem(result.data.data);
+      });
   }, []);
-
-  const handleRegister = () => {};
 
   return (
     <div className="lending-list">
@@ -21,15 +23,10 @@ const BlacklistForm = () => {
         listItem.map((data) => (
           <BlacklistItem
             key={data.uid}
-            libraryId={data.libraryId}
+            uid={data.uid}
             libraryName={data.libraryName}
           />
         ))}
-      <span>
-        이것은 아무 내용도 없어서 써보는 글. 블랙리스트 불러오면 리스트로 나올
-        예정
-      </span>
-      <input type="button" value="등록 해제" onClick={handleRegister} />
     </div>
   );
 };
