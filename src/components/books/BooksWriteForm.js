@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const BooksWriteForm = () => {
-  const [thumbNailImage, setThumbnailImage] = useState();
+  const [thumbNailImage, setThumbNailImage] = useState();
   const [coverImage, setCoverImage] = useState();
   const [inputs, setInputs] = useState({
     libraryName: "",
@@ -44,7 +44,7 @@ const BooksWriteForm = () => {
   };
 
   const imageChange1 = (e) => {
-    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
+    setThumbNailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
     setCoverImage(URL.createObjectURL(e.target.files[0]));

@@ -5,7 +5,7 @@ import axios from "axios";
 const BooksEditForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [thumbnailImage, setThumbnailImage] = useState(
+  const [thumbNailImage, setThumbNailImage] = useState(
     location.state.thumbNailImage
   );
   const [coverImage, setCoverImage] = useState(location.state.coverImage);
@@ -51,16 +51,16 @@ const BooksEditForm = () => {
   };
 
   const imageChange1 = (e) => {
-    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
+    setThumbNailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
     setCoverImage(URL.createObjectURL(e.target.files[0]));
   };
 
-  console.log(thumbnailImage, coverImage);
+  console.log(thumbNailImage, coverImage);
 
   imageChange1.onload = () => {
-    URL.revokeObjectURL(thumbnailImage);
+    URL.revokeObjectURL(thumbNailImage);
   };
   imageChange2.onload = () => {
     URL.revokeObjectURL(coverImage);
@@ -133,7 +133,7 @@ const BooksEditForm = () => {
               `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books/${id}`,
               {
                 id: id,
-                thumbNailImage: thumbnailImage,
+                thumbNailImage: thumbNailImage,
                 coverImage: coverImage,
                 libraryName: libraryName,
                 title: title,
@@ -161,9 +161,9 @@ const BooksEditForm = () => {
             <div className="image-area">
               <div className="image-box">
                 <div className="preview">
-                  {thumbnailImage && (
+                  {thumbNailImage && (
                     <div>
-                      <img className="image" src={thumbnailImage} alt="Thumb" />
+                      <img className="image" src={thumbNailImage} alt="Thumb" />
                     </div>
                   )}
                 </div>
@@ -172,8 +172,8 @@ const BooksEditForm = () => {
                   <input
                     type="file"
                     accept="image/*"
-                    name="thumbnailImage"
-                    className="thumbnailImage"
+                    name="thumbNailImage"
+                    className="thumbNailImage"
                     onChange={imageChange1}
                   />
                 </label>
