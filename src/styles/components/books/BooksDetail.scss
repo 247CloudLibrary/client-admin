@@ -1,0 +1,154 @@
+#book-detail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  .head {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .detail-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .title-area {
+      display: flex;
+      justify-content: center;
+      .title-box {
+        display: flex;
+        width: 50rem;
+        position: relative;
+        height: 3rem;
+        align-items: center;
+        background-color: rgb(205, 248, 245);
+        border-bottom: none;
+        .type {
+          font-size: 1.3rem;
+          padding: 0.3rem;
+          margin-left: 1rem;
+          position: relative;
+          background-color: rgb(235, 235, 235);
+          border: 1px solid rgb(71, 71, 71);
+        }
+        .title {
+          position: relative;
+          top: 0;
+          font-size: 1.7rem;
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .info-area {
+      display: flex;
+      justify-content: center;
+      .info-box {
+        display: flex;
+        width: 50rem;
+        padding-top: 2rem;
+
+        .image-box {
+          .coverImage {
+            width: 190px;
+            height: 260px;
+
+            box-shadow: 0.1rem 0.1rem 0.1rem rgb(108, 156, 175);
+          }
+        }
+        .text-box {
+          display: flex;
+          width: 40rem;
+          flex-direction: column;
+          font-size: 1.1rem;
+          margin: auto 0 auto 3rem;
+          .label {
+            margin-top: 0.5rem;
+            .label-tag {
+              display: inline-block;
+              font-weight: 600;
+            }
+            .author,
+            .translator,
+            .genre,
+            .category,
+            .isbn,
+            .publisher,
+            .publishDate,
+            .libraryName {
+              padding-left: 10rem;
+            }
+            .author {
+            }
+            .translator {
+            }
+            .genre {
+            }
+            .category {
+              padding-left: 7.8rem;
+            }
+            .isbn {
+              padding-left: 9.65rem;
+            }
+            .publisher {
+              padding-left: 8.85rem;
+            }
+            .publishDate {
+              padding-left: 8.8rem;
+            }
+            .libraryName {
+              padding-left: 8.75rem;
+            }
+            .rid {
+              padding-left: 10.6rem;
+              text-align: left;
+            }
+            .rfid {
+              padding-left: 10.2rem;
+            }
+          }
+        }
+      }
+    }
+    .minititle-box {
+      display: flex;
+      justify-content: center;
+      .minititle {
+        display: flex;
+        width: 50rem;
+        font-size: 2rem;
+        margin-top: 2rem;
+        font-weight: 600;
+      }
+    }
+    .contents-area {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      .contents-box {
+        width: 50rem;
+      }
+    }
+    .btn-box {
+      .btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-top: 0.7rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          background-color: #2b3c4e;
+        }
+      }
+    }
+  }
+}

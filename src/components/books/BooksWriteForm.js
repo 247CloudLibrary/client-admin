@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 const BooksWriteForm = () => {
-  const [thumbnailImage, setThumbnailImage] = useState();
+  const [thumbNailImage, setThumbnailImage] = useState();
   const [coverImage, setCoverImage] = useState();
   const [inputs, setInputs] = useState({
     libraryName: "",
@@ -13,7 +13,8 @@ const BooksWriteForm = () => {
     contents: "",
     publisher: "",
     publishDate: "",
-    type: "BOOK",
+    rfid: "",
+    bookType: "BOOK",
     genre: "ACTION",
     barcode: "",
     bookStatus: "AVAILABLE",
@@ -29,7 +30,8 @@ const BooksWriteForm = () => {
     contents,
     publisher,
     publishDate,
-    type,
+    rfid,
+    bookType,
     genre,
     barcode,
     bookStatus,
@@ -42,18 +44,14 @@ const BooksWriteForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  console.log(inputs);
   const imageChange1 = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setThumbnailImage(e.target.files[0]);
-    }
+    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setCoverImage(e.target.files[0]);
-    }
+    setCoverImage(URL.createObjectURL(e.target.files[0]));
   };
-  console.log(thumbnailImage, coverImage);
+  // console.log(thumbNailImage, coverImage);
 
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
@@ -62,6 +60,8 @@ const BooksWriteForm = () => {
     { value: translator, name: "translator", label: "번역" },
     { value: publisher, name: "publisher", label: "출판사" },
     { value: barcode, name: "barcode", label: "바코드" },
+    { value: isbn, name: "isbn", label: "ISBN" },
+    { value: rfid, name: "rfid", label: "rfid" },
   ];
 
   const GenreOptionArray = [
@@ -93,22 +93,48 @@ const BooksWriteForm = () => {
     { value: "역사", label: "역사" },
   ];
 
-  console.log(inputs);
+  // console.log(inputs);
   return (
     <div id="BookWriteForm">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          axios
+            .post(
+              "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books",
+              {
+                libraryName: libraryName,
+                isbn: isbn,
+                title: title,
+                author: author,
+                translator: translator,
+                contents: contents,
+                publisher: publisher,
+                publishDate: publishDate,
+                thumbNailImage: thumbNailImage,
+                coverImage: coverImage,
+                bookType: bookType,
+                genre: genre,
+                rfid: rfid,
+                barcode: barcode,
+                bookStatus: bookStatus,
+                category: category,
+              }
+            )
+            .then(function (response) {
+              console.log(response);
+              alert("도서가 등록되었습니다.");
+            });
+        }}
+      >
         <div className="input-form">
           <div className="input-box">
             <div className="image-area">
               <div className="image-box">
                 <div className="preview">
-                  {thumbnailImage && (
+                  {thumbNailImage && (
                     <div>
-                      <img
-                        className="image"
-                        src={URL.createObjectURL(thumbnailImage)}
-                        alt="Thumb"
-                      />
+                      <img className="image" src={thumbNailImage} alt="Thumb" />
                     </div>
                   )}
                 </div>
@@ -117,8 +143,8 @@ const BooksWriteForm = () => {
                   <input
                     type="file"
                     accept="image/*"
-                    name="thumbnailImage"
-                    className="thumbnailImage"
+                    name="thumbNailImage"
+                    className="thumbNailImage"
                     onChange={imageChange1}
                   />
                 </label>
@@ -128,11 +154,7 @@ const BooksWriteForm = () => {
                 <div className="preview">
                   {coverImage && (
                     <div>
-                      <img
-                        className="image"
-                        src={URL.createObjectURL(coverImage)}
-                        alt="Thumb"
-                      />
+                      <img className="image" src={coverImage} alt="Thumb" />
                     </div>
                   )}
                 </div>
@@ -163,16 +185,7 @@ const BooksWriteForm = () => {
                   />
                 </label>
               ))}
-              <label>
-                ISBN
-                <input
-                  type="number"
-                  name="isbn"
-                  value={isbn}
-                  className="isbn"
-                  onChange={onChange}
-                />
-              </label>
+
               <label>
                 출판일
                 <input
@@ -187,8 +200,8 @@ const BooksWriteForm = () => {
                 타입
                 <select
                   id="types"
-                  name="type"
-                  value={type}
+                  name="bookType"
+                  value={bookType}
                   className="type"
                   onChange={onChange}
                 >
@@ -228,7 +241,7 @@ const BooksWriteForm = () => {
                   ))}
                 </select>
               </label>
-              <label>
+              <label className="category-box">
                 카테고리
                 <select
                   name="category"
@@ -244,24 +257,20 @@ const BooksWriteForm = () => {
                   ))}
                 </select>
               </label>
-              <div className="contents">
-                <textarea
-                  name="contents"
-                  id="contents"
-                  value={contents}
-                  className="contents"
-                  onChange={onChange}
-                ></textarea>
-              </div>
+              <textarea
+                name="contents"
+                id="contents"
+                value={contents}
+                className="contents"
+                onChange={onChange}
+              ></textarea>
             </div>
           </div>
 
           <div className="btn-box">
-            <Link to="/books">
-              <button type="submit" className="edit-btn">
-                등록
-              </button>
-            </Link>
+            <button type="submit" className="edit-btn">
+              등록
+            </button>
           </div>
         </div>
       </form>

@@ -66,8 +66,7 @@
         justify-content: center;
         background-color: white;
         input,
-        select,
-        textarea {
+        select {
           position: relative;
           font-size: 1.5rem;
           width: 10rem;
@@ -93,25 +92,43 @@
           margin-left: 5.8rem;
         }
         .barcode {
-          margin-left: 3.5rem;
+          margin-left: 3.4rem;
         }
         .isbn {
           margin-left: 6.8rem;
         }
+        .rfid {
+          margin-left: 5.2rem;
+        }
         .publishDate {
-          margin-left: 3.5rem;
+          margin-left: 6rem;
         }
         .type {
-          margin-left: 7rem;
+          margin-left: 5rem;
         }
         .genre {
-          margin-left: 4.8rem;
+          margin-left: 7.5rem;
         }
         .bookStatus {
-          margin-left: 4.1rem;
+          margin-left: 2.2rem;
         }
-        .category {
-          margin-left: 2.5rem;
+        .category-box {
+          width: 100%;
+          text-align: center;
+          .category {
+            margin-left: 5rem;
+          }
+        }
+        textarea {
+          resize: none;
+        }
+        .contents {
+          position: relative;
+          font-size: 1.5rem;
+          width: 40rem;
+          height: 15rem;
+          margin-left: 0;
+          margin-top: 3rem;
         }
       }
     }
@@ -133,24 +150,6 @@
         &:hover {
           background-color: #2b3c4e;
         }
-      }
-    }
-  }
-  form input {
-    &::file-selector-button {
-      border: none;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 0.5rem 0.5rem;
-      width: auto;
-      border-radius: 4px;
-      background-color: #435769;
-      color: azure;
-      outline: none;
-      cursor: pointer;
-      transition: 0.8s;
-      &:hover {
-        background-color: #2b3c4e;
       }
     }
   }
