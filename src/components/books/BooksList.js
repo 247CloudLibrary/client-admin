@@ -12,13 +12,12 @@ const BooksList = () => {
       .then((response) => setBookList(response.data));
   }, [setBookList]);
   return (
-    <div id="BooksManagement">
-      <div className="BooksList">
+    <div id="BookList">
+      <div className="book-list">
         <Link to="/books/write">
-          <button type="button">도서 등록</button>
-        </Link>
-        <Link to="/books/detail">
-          <button type="button">도서 상세</button>
+          <button type="button" className="create-btn">
+            도서 등록
+          </button>
         </Link>
       </div>
       {bookList.data &&
@@ -28,7 +27,7 @@ const BooksList = () => {
               id={data.id}
               thumbNailImage={data.thumbNailImage}
               title={data.title}
-              type={data.type}
+              bookType={data.bookType}
               author={data.author}
               translator={data.translator}
               publisher={data.publisher}

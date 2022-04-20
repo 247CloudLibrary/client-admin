@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const BooksDetail = () => {
+  const [code, setCode] = useState("(0)");
   const [bookData, setBookData] = useState([]);
   const location = useLocation();
   const id = location.state.id;
@@ -23,12 +24,38 @@ const BooksDetail = () => {
     { value: bookData.author, key: "author", tag: "저자" },
     { value: bookData.translator, key: "translator", tag: "역자" },
     { value: bookData.genre, key: "genre", tag: "장르" },
-    { value: bookData.category, key: "category", tag: "카테고리" },
+    { value: `${bookData.category}${code}`, key: "category", tag: "카테고리" },
     { value: bookData.isbn, key: "isbn", tag: "ISBN" },
     { value: bookData.publisher, key: "publisher", tag: "출판사" },
     { value: bookData.publishDate, key: "publishDate", tag: "출판일" },
     { value: bookData.libraryName, key: "libraryName", tag: "도서관" },
+    { value: bookData.rid, key: "rid", tag: "rid" },
+    { value: bookData.rfid, key: "rfid", tag: "rfid" },
   ];
+
+  useEffect(() => {
+    if (bookData.category === "철학") {
+      setCode("(100)");
+    } else if (bookData.category === "종교") {
+      setCode("(200)");
+    } else if (bookData.category === "사회과학") {
+      setCode("(300)");
+    } else if (bookData.category === "순수과학") {
+      setCode("(400)");
+    } else if (bookData.category === "기술과학") {
+      setCode("(500)");
+    } else if (bookData.category === "예술") {
+      setCode("(600)");
+    } else if (bookData.category === "언어") {
+      setCode("(700)");
+    } else if (bookData.category === "문학") {
+      setCode("(800)");
+    } else if (bookData.category === "역사") {
+      setCode("(900)");
+    } else {
+      setCode(code);
+    }
+  }, []);
 
   const handleBtn = (e) => {
     navigate(`/books/edit/${id}`, {
@@ -44,9 +71,11 @@ const BooksDetail = () => {
         barcode: bookData.barcode,
         isbn: bookData.isbn,
         publishDate: bookData.publishDate,
-        type: bookData.type,
+        bookType: bookData.bookType,
         genre: bookData.genre,
         bookStatus: bookData.bookStatus,
+        rid: bookData.rid,
+        rfid: bookData.rfid,
         category: bookData.category,
         contents: bookData.contents,
       },
@@ -59,7 +88,7 @@ const BooksDetail = () => {
       <div className="detail-box">
         <div className="title-area">
           <div className="title-box">
-            <span className="type">{bookData.type}</span>
+            <span className="type">{bookData.bookType}</span>
             <span className="title">{bookData.title}</span>
           </div>
         </div>

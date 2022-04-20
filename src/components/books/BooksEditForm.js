@@ -5,7 +5,7 @@ import axios from "axios";
 const BooksEditForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [thumbNailImage, setThumbNailImage] = useState(
+  const [thumbNailImage, setThumbnailImage] = useState(
     location.state.thumbNailImage
   );
   const [coverImage, setCoverImage] = useState(location.state.coverImage);
@@ -20,11 +20,13 @@ const BooksEditForm = () => {
     contents: location.state.contents,
     publisher: location.state.publisher,
     publishDate: location.state.publishDate,
-    type: location.state.type,
+    bookType: location.state.bookType,
     genre: location.state.genre,
     barcode: location.state.barcode,
     bookStatus: location.state.bookStatus,
     category: location.state.category,
+    rid: location.state.rid,
+    rfid: location.state.rfid,
   });
 
   const {
@@ -36,11 +38,13 @@ const BooksEditForm = () => {
     contents,
     publisher,
     publishDate,
-    type,
+    bookType,
     genre,
     barcode,
     bookStatus,
     category,
+    rid,
+    rfid,
   } = inputs;
 
   const onChange = (e) => {
@@ -51,7 +55,7 @@ const BooksEditForm = () => {
   };
 
   const imageChange1 = (e) => {
-    setThumbNailImage(URL.createObjectURL(e.target.files[0]));
+    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
     setCoverImage(URL.createObjectURL(e.target.files[0]));
@@ -73,6 +77,8 @@ const BooksEditForm = () => {
     { value: translator, name: "translator", label: "번역" },
     { value: publisher, name: "publisher", label: "출판사" },
     { value: barcode, name: "barcode", label: "바코드" },
+    { value: rid, name: "rid", label: "rid" },
+    { value: rfid, name: "rfid", label: "rfid" },
   ];
 
   const GenreOptionArray = [
@@ -92,16 +98,16 @@ const BooksEditForm = () => {
   ];
 
   const CategoryOptionArray = [
-    { value: "총류(0)", label: "총류" },
-    { value: "철학(100)", label: "철학" },
-    { value: "종교(200)", label: "종교" },
-    { value: "사회과학(300)", label: "사회과학" },
-    { value: "순수과학(400)", label: "순수과학" },
-    { value: "기술과학(500)", label: "기술과학" },
-    { value: "예술(600)", label: "예술" },
-    { value: "언어(700)", label: "언어" },
-    { value: "문학(800)", label: "문학" },
-    { value: "역사(900)", label: "역사" },
+    { value: "총류", label: "총류" },
+    { value: "철학", label: "철학" },
+    { value: "종교", label: "종교" },
+    { value: "사회과학", label: "사회과학" },
+    { value: "순수과학", label: "순수과학" },
+    { value: "기술과학", label: "기술과학" },
+    { value: "예술", label: "예술" },
+    { value: "언어", label: "언어" },
+    { value: "문학", label: "문학" },
+    { value: "역사", label: "역사" },
   ];
 
   console.log(inputs);
@@ -132,7 +138,6 @@ const BooksEditForm = () => {
             .put(
               `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books/${id}`,
               {
-                id: id,
                 thumbNailImage: thumbNailImage,
                 coverImage: coverImage,
                 libraryName: libraryName,
@@ -143,8 +148,10 @@ const BooksEditForm = () => {
                 barcode: barcode,
                 isbn: isbn,
                 publishDate: publishDate,
-                type: type,
+                bookType: bookType,
                 genre: genre,
+                rid: rid,
+                rfid: rfid,
                 bookStatus: bookStatus,
                 category: category,
                 contents: contents,
@@ -202,7 +209,7 @@ const BooksEditForm = () => {
           </div>
           <div className="text">
             <div className="text-form">
-              {TextFormArray.map((tfa) => (
+              {TextFormArray.map((tfa, index) => (
                 <label key={tfa.name}>
                   {tfa.label}
                   <input
@@ -211,6 +218,7 @@ const BooksEditForm = () => {
                     className={tfa.name}
                     defaultValue={tfa.value}
                     onChange={onChange}
+                    disabled={index === 6}
                   />
                 </label>
               ))}
@@ -238,9 +246,9 @@ const BooksEditForm = () => {
                 타입
                 <select
                   id="types"
-                  name="type"
-                  defaultValue={type}
-                  defaultinputvalue={type}
+                  name="bookType"
+                  defaultValue={bookType}
+                  defaultinputvalue={bookType}
                   className="type"
                   onChange={onChange}
                 >
@@ -299,6 +307,7 @@ const BooksEditForm = () => {
                   ))}
                 </select>
               </label>
+
               <div className="contents">
                 <textarea
                   name="contents"

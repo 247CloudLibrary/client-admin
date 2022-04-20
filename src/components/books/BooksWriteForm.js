@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const BooksWriteForm = () => {
-  const [thumbNailImage, setThumbNailImage] = useState();
+  const [thumbNailImage, setThumbnailImage] = useState();
   const [coverImage, setCoverImage] = useState();
   const [inputs, setInputs] = useState({
     libraryName: "",
@@ -13,7 +13,8 @@ const BooksWriteForm = () => {
     contents: "",
     publisher: "",
     publishDate: "",
-    type: "BOOK",
+    rfid: "",
+    bookType: "BOOK",
     genre: "ACTION",
     barcode: "",
     bookStatus: "AVAILABLE",
@@ -29,7 +30,8 @@ const BooksWriteForm = () => {
     contents,
     publisher,
     publishDate,
-    type,
+    rfid,
+    bookType,
     genre,
     barcode,
     bookStatus,
@@ -42,9 +44,9 @@ const BooksWriteForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  console.log(inputs);
   const imageChange1 = (e) => {
-    setThumbNailImage(URL.createObjectURL(e.target.files[0]));
+    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
     setCoverImage(URL.createObjectURL(e.target.files[0]));
@@ -58,6 +60,8 @@ const BooksWriteForm = () => {
     { value: translator, name: "translator", label: "번역" },
     { value: publisher, name: "publisher", label: "출판사" },
     { value: barcode, name: "barcode", label: "바코드" },
+    { value: isbn, name: "isbn", label: "ISBN" },
+    { value: rfid, name: "rfid", label: "rfid" },
   ];
 
   const GenreOptionArray = [
@@ -109,8 +113,9 @@ const BooksWriteForm = () => {
                 publishDate: publishDate,
                 thumbNailImage: thumbNailImage,
                 coverImage: coverImage,
-                type: type,
+                bookType: bookType,
                 genre: genre,
+                rfid: rfid,
                 barcode: barcode,
                 bookStatus: bookStatus,
                 category: category,
@@ -180,16 +185,7 @@ const BooksWriteForm = () => {
                   />
                 </label>
               ))}
-              <label>
-                ISBN
-                <input
-                  type="text"
-                  name="isbn"
-                  value={isbn}
-                  className="isbn"
-                  onChange={onChange}
-                />
-              </label>
+
               <label>
                 출판일
                 <input
@@ -204,8 +200,8 @@ const BooksWriteForm = () => {
                 타입
                 <select
                   id="types"
-                  name="type"
-                  value={type}
+                  name="bookType"
+                  value={bookType}
                   className="type"
                   onChange={onChange}
                 >
@@ -245,7 +241,7 @@ const BooksWriteForm = () => {
                   ))}
                 </select>
               </label>
-              <label>
+              <label className="category-box">
                 카테고리
                 <select
                   name="category"
@@ -261,15 +257,13 @@ const BooksWriteForm = () => {
                   ))}
                 </select>
               </label>
-              <div className="contents">
-                <textarea
-                  name="contents"
-                  id="contents"
-                  value={contents}
-                  className="contents"
-                  onChange={onChange}
-                ></textarea>
-              </div>
+              <textarea
+                name="contents"
+                id="contents"
+                value={contents}
+                className="contents"
+                onChange={onChange}
+              ></textarea>
             </div>
           </div>
 
