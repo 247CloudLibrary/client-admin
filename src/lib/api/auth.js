@@ -9,17 +9,15 @@ export const profile = () => {
 };
 
 export const updateProfile = ({
-  userName,
-  gender,
-  birth,
+  adminName,
+  libraryName,
   address,
   email,
   tel,
 }) => {
   client.patch("/auth/update-state", {
-    userName,
-    gender,
-    birth,
+    adminName,
+    libraryName,
     address,
     email,
     tel,
