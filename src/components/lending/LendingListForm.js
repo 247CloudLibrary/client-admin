@@ -6,7 +6,7 @@ const mergeArrayObjects = (arr1, arr2) => {
   let start = 0;
   let merge = [];
   while (start < arr1.length) {
-    if (arr1[start].id === arr2[start].bookId) {
+    if (arr1[start].bookId === arr2[start].id) {
       merge.push({ ...arr1[start], ...arr2[start] });
     }
     start = start + 1;
@@ -16,36 +16,31 @@ const mergeArrayObjects = (arr1, arr2) => {
 
 const LendingListForm = () => {
   const [listItem, setListItem] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    axios.all([axios.get("/books"), axios.get("/lending")]).then((result) => {
-      const resultArray = mergeArrayObjects(
-        result[0].data.data,
-        result[1].data.data
-      );
-      console.log(resultArray);
-      setListItem(resultArray);
-    });
+    axios
+      .all([
+        axios.get(
+          "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending"
+        ),
+        axios.get(
+          "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books"
+        ),
+      ])
+      .then((result) => {
+        const resultArray = mergeArrayObjects(
+          result[0].data.data,
+          result[1].data.data
+        );
+        console.log(resultArray);
+        setListItem(resultArray);
+      });
   }, []);
-
-  const uidSearch = listItem.filter((searchList) => {
-    return searchList.uid.includes(searchTerm);
-  });
-
-  const onSubmit = (e) => {
-    setSearchTerm(e.target.value);
-  };
 
   return (
     <div className="lending-list">
-      <form className="searchBox">
-        <input type="text" placeholder="검색창" onSubmit={onSubmit} />
-        <button> 🔍</button>
-      </form>
-      <div className="lendingListItem">검 색</div>
-      {uidSearch &&
-        uidSearch.map((data) => (
+      {listItem &&
+        listItem.map((data) => (
           <LendingListItem
             key={data.bookId}
             uid={data.uid}
@@ -59,8 +54,6 @@ const LendingListForm = () => {
             returnDateTime={data.returnDateTime}
           />
         ))}
-      {console.log(uidSearch)}
-      {console.log(uidSearch.data)}
     </div>
   );
 };
