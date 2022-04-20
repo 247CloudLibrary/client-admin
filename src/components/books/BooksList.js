@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
-
-const ThumbnailImage = "썸네일 이미지 ";
-
-const BooksTitle = "도서 제목 ";
-export { ThumbnailImage, BooksTitle };
+import BooksListItem from "./BooksListItem";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const BooksList = () => {
+  const [bookList, setBookList] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books")
+      .then((response) => setBookList(response.data));
+  }, [setBookList]);
   return (
     <div id="BooksManagement">
       <div className="BooksList">
@@ -16,7 +21,26 @@ const BooksList = () => {
           <button type="button">도서 상세</button>
         </Link>
       </div>
-      <div className="BooksList-body">TODO 도서 리스트..</div>
+      {bookList.data &&
+        bookList.data.map((data) => (
+          <div className="BooksList-body" key={data.id}>
+            <BooksListItem
+              id={data.id}
+              thumbNailImage={data.thumbNailImage}
+              title={data.title}
+              type={data.type}
+              author={data.author}
+              translator={data.translator}
+              publisher={data.publisher}
+              publishDate={data.publishDate}
+              isbn={data.isbn}
+              genre={data.genre}
+              category={data.category}
+              libraryName={data.libraryName}
+              bookStatus={data.bookStatus}
+            />
+          </div>
+        ))}
     </div>
   );
 };

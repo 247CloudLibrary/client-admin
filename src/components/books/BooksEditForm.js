@@ -1,23 +1,30 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const BooksEditForm = () => {
-  const [thumbnailImage, setThumbnailImage] = useState();
-  const [coverImage, setCoverImage] = useState();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [thumbnailImage, setThumbnailImage] = useState(
+    location.state.thumbNailImage
+  );
+  const [coverImage, setCoverImage] = useState(location.state.coverImage);
+
+  const id = location.state.id;
   const [inputs, setInputs] = useState({
-    libraryName: "",
-    isbn: "",
-    title: "",
-    author: "",
-    translator: "",
-    contents: "",
-    publisher: "",
-    publishDate: "",
-    type: "BOOK",
-    genre: "ACTION",
-    barcode: "",
-    bookStatus: "AVAILABLE",
-    category: "총류",
+    libraryName: location.state.libraryName,
+    isbn: location.state.isbn,
+    title: location.state.title,
+    author: location.state.author,
+    translator: location.state.translator,
+    contents: location.state.contents,
+    publisher: location.state.publisher,
+    publishDate: location.state.publishDate,
+    type: location.state.type,
+    genre: location.state.genre,
+    barcode: location.state.barcode,
+    bookStatus: location.state.bookStatus,
+    category: location.state.category,
   });
 
   const {
@@ -44,16 +51,20 @@ const BooksEditForm = () => {
   };
 
   const imageChange1 = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setThumbnailImage(e.target.files[0]);
-    }
+    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setCoverImage(e.target.files[0]);
-    }
+    setCoverImage(URL.createObjectURL(e.target.files[0]));
   };
+
   console.log(thumbnailImage, coverImage);
+
+  imageChange1.onload = () => {
+    URL.revokeObjectURL(thumbnailImage);
+  };
+  imageChange2.onload = () => {
+    URL.revokeObjectURL(coverImage);
+  };
 
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
@@ -81,22 +92,70 @@ const BooksEditForm = () => {
   ];
 
   const CategoryOptionArray = [
-    { value: 0, label: "총류" },
-    { value: 100, label: "철학" },
-    { value: 200, label: "종교" },
-    { value: 300, label: "사회과학" },
-    { value: 400, label: "순수과학" },
-    { value: 500, label: "기술과학" },
-    { value: 600, label: "예술" },
-    { value: 700, label: "언어" },
-    { value: 800, label: "문학" },
-    { value: 900, label: "역사" },
+    { value: "총류(0)", label: "총류" },
+    { value: "철학(100)", label: "철학" },
+    { value: "종교(200)", label: "종교" },
+    { value: "사회과학(300)", label: "사회과학" },
+    { value: "순수과학(400)", label: "순수과학" },
+    { value: "기술과학(500)", label: "기술과학" },
+    { value: "예술(600)", label: "예술" },
+    { value: "언어(700)", label: "언어" },
+    { value: "문학(800)", label: "문학" },
+    { value: "역사(900)", label: "역사" },
   ];
 
   console.log(inputs);
+
+  const deleteClick = (e) => {
+    e.preventDefault();
+
+    if (window.confirm("정말 삭제하시겠습니까?") === false) {
+      return;
+    } else {
+      axios
+        .patch(
+          `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books/${id}`,
+          { id: id }
+        )
+        .then(() => {
+          alert("도서관이 삭제되었습니다.");
+        });
+    }
+  };
   return (
     <div id="BookEditForm">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+
+          axios
+            .put(
+              `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books/${id}`,
+              {
+                id: id,
+                thumbNailImage: thumbnailImage,
+                coverImage: coverImage,
+                libraryName: libraryName,
+                title: title,
+                author: author,
+                translator: translator,
+                publisher: publisher,
+                barcode: barcode,
+                isbn: isbn,
+                publishDate: publishDate,
+                type: type,
+                genre: genre,
+                bookStatus: bookStatus,
+                category: category,
+                contents: contents,
+              }
+            )
+            .then(function (response) {
+              console.log(response);
+              navigate("/books");
+            });
+        }}
+      >
         <div className="input-form">
           <div className="input-box">
             <div className="image-area">
@@ -104,11 +163,7 @@ const BooksEditForm = () => {
                 <div className="preview">
                   {thumbnailImage && (
                     <div>
-                      <img
-                        className="image"
-                        src={URL.createObjectURL(thumbnailImage)}
-                        alt="Thumb"
-                      />
+                      <img className="image" src={thumbnailImage} alt="Thumb" />
                     </div>
                   )}
                 </div>
@@ -128,11 +183,7 @@ const BooksEditForm = () => {
                 <div className="preview">
                   {coverImage && (
                     <div>
-                      <img
-                        className="image"
-                        src={URL.createObjectURL(coverImage)}
-                        alt="Thumb"
-                      />
+                      <img className="image" src={coverImage} alt="Thumb" />
                     </div>
                   )}
                 </div>
@@ -166,7 +217,7 @@ const BooksEditForm = () => {
               <label>
                 ISBN
                 <input
-                  type="number"
+                  type="text"
                   name="isbn"
                   defaultValue={isbn}
                   className="isbn"
@@ -189,6 +240,7 @@ const BooksEditForm = () => {
                   id="types"
                   name="type"
                   defaultValue={type}
+                  defaultinputvalue={type}
                   className="type"
                   onChange={onChange}
                 >
@@ -202,6 +254,7 @@ const BooksEditForm = () => {
                   id="genres"
                   name="genre"
                   defaultValue={genre}
+                  defaultinputvalue={genre}
                   className="genre"
                   onChange={onChange}
                 >
@@ -218,6 +271,7 @@ const BooksEditForm = () => {
                   id="bookStatuses"
                   name="bookStatus"
                   defaultValue={bookStatus}
+                  defaultinputvalue={bookStatus}
                   className="bookStatus"
                   onChange={onChange}
                 >
@@ -234,6 +288,7 @@ const BooksEditForm = () => {
                   name="category"
                   id="categories"
                   defaultValue={category}
+                  defaultinputvalue={category}
                   className="category"
                   onChange={onChange}
                 >
@@ -255,14 +310,11 @@ const BooksEditForm = () => {
               </div>
             </div>
           </div>
-
           <div className="btn-box">
-            <Link to="/books">
-              <button type="submit" className="edit-btn">
-                수정
-              </button>
-            </Link>
-            <button type="button" className="delete-btn">
+            <button type="submit" className="edit-btn">
+              수정
+            </button>
+            <button type="button" className="delete-btn" onClick={deleteClick}>
               삭제
             </button>
           </div>

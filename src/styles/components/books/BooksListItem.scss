@@ -1,0 +1,39 @@
+#booksListItem {
+  display: flex;
+  position: relative;
+  width: 40rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  .list-item {
+    display: flex;
+    .image-area {
+      position: relative;
+      .image {
+        height: 140px;
+        width: 100px;
+      }
+    }
+    .list {
+      display: flex;
+      padding: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      flex-wrap: wrap;
+      .items {
+        .type {
+          font-size: 1.3rem;
+        }
+        .title {
+          position: relative;
+          display: inline-block;
+          font-size: 1.3rem;
+          width: 30rem;
+        }
+      }
+    }
+  }
+}
