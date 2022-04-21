@@ -17,12 +17,15 @@ import BooksListPage from "./pages/books/BooksListPage";
 import BooksWritePage from "./pages/books/BooksWritePage";
 import BooksDetailPage from "./pages/books/BooksDetailPage";
 
+/* Libraries */
+import LibrariesListPage from "./pages/libraries/LibrariesListPage";
+import LibrariesRulePage from "./pages/libraries/LibrariesRulePage";
+import LibrariesEditPage from "./pages/libraries/LibrariesEditPage";
+
 import FindIdPage from "./pages/auth/FindIdPage";
 import FindPwPage from "./pages/auth/FindPwPage";
-
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
-import LibrariesRulePage from "./pages/LibrariesRulePage";
 import UserListPage from "./pages/UserListPage";
 import LoginPage from "./pages/auth/LoginPage";
 import ProfilePage from "./pages/auth/ProfilePage";
@@ -45,8 +48,10 @@ const App = () => {
       <Route path="/books/write" element={<BooksWritePage />} />
       <Route path="/books/edit/:id" element={<BooksEditPage />} />
       <Route path="/books/detail/:id" element={<BooksDetailPage />} />
-      <Route path="/lending" element={<LendingPage />} />
+      <Route path="/libraries/list" element={<LibrariesListPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
+      <Route path="/libraries/edit/:id" element={<LibrariesEditPage />} />
+      <Route path="/lending" element={<LendingPage />} />
       <Route path="/auth" element={<UserListPage />} />
       <Route path="/find-id" element={<FindIdPage />} />
       <Route path="/find-pw" element={<FindPwPage />} />

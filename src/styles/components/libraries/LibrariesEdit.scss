@@ -1,0 +1,117 @@
+#libraries-edit {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  text-align: center;
+  justify-content: center;
+  .edit-contents {
+    position: relative;
+    .library-name {
+      position: relative;
+      font-size: 3rem;
+    }
+    .edit-form {
+      display: flex;
+      flex-wrap: wrap;
+      width: 51rem;
+      .input-box {
+        position: relative;
+        width: 20rem;
+        .name {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-right: 6.969rem;
+        }
+        .address {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+        }
+        .email {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-right: 6.969rem;
+          margin-left: 2rem;
+        }
+        .holiday {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-right: 6.969rem;
+          margin-left: 2.35rem;
+        }
+        .tel {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-left: 1rem;
+        }
+        .operatingTime {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-left: 1.354rem;
+        }
+        .createdAt {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-right: 6.969rem;
+          margin-left: 2.35rem;
+        }
+        .updatedAt {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-left: 2.354rem;
+        }
+      }
+    }
+    .edit-btn {
+      position: relative;
+      margin-top: 5rem;
+      .edit-btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-top: 0.7rem;
+        margin-right: 1rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          background-color: #2b3c4e;
+        }
+      }
+      .delete-btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-top: 0.7rem;
+        margin-left: 1rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          background-color: #2b3c4e;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+#libraries-list {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: aliceblue;
+  text-align: center;
+  align-items: center;
+  .page-title {
+    position: relative;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
+  .list-box {
+    position: relative;
+    background-color: rgb(207, 229, 248);
+    width: 60rem;
+    height: 10rem;
+    margin: auto;
+    border-top: 1px solid #b6b6b6;
+  }
+}

@@ -79,6 +79,7 @@ const BooksEditForm = () => {
     { value: barcode, name: "barcode", label: "바코드" },
     { value: rid, name: "rid", label: "rid" },
     { value: rfid, name: "rfid", label: "rfid" },
+    { value: isbn, name: "isbn", label: "ISBN" },
   ];
 
   const GenreOptionArray = [
@@ -222,16 +223,6 @@ const BooksEditForm = () => {
                   />
                 </label>
               ))}
-              <label>
-                ISBN
-                <input
-                  type="text"
-                  name="isbn"
-                  defaultValue={isbn}
-                  className="isbn"
-                  onChange={onChange}
-                />
-              </label>
               <label>
                 출판일
                 <input
