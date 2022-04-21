@@ -14,9 +14,10 @@ const mergeArrayObjects = (arr1, arr2) => {
   return merge;
 };
 
-const LendingListForm = () => {
+const LendingListForm = ({ dropValue }) => {
   const [listItem, setListItem] = useState([]);
 
+  console.log(dropValue);
   useEffect(() => {
     axios
       .all([
@@ -32,10 +33,17 @@ const LendingListForm = () => {
           result[0].data.data,
           result[1].data.data
         );
-        console.log(resultArray);
-        setListItem(resultArray);
+
+        console.log(dropValue);
+
+        const filted =
+          dropValue !== ""
+            ? resultArray.filter((i) => i.lendingStatus === dropValue)
+            : resultArray;
+        console.log(filted);
+        setListItem(filted);
       });
-  }, []);
+  }, [dropValue]);
 
   return (
     <div className="lending-list">
@@ -54,6 +62,7 @@ const LendingListForm = () => {
             returnDateTime={data.returnDateTime}
           />
         ))}
+      ;
     </div>
   );
 };
