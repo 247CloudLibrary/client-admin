@@ -7,7 +7,7 @@
 @import "./components/auth/FindPwForm.scss";
 @import "./components/auth/ProfileForm.scss";
 
-/* Libraries */
+/* Board */
 @import "./components/board/NoticesList.scss";
 @import "./components/board/NoticesListItem.scss";
 @import "./components/board/NoticeDetail.scss";
@@ -27,6 +27,12 @@
 @import "./components/books/BooksList.scss";
 @import "./components/books/BooksListItem.scss";
 @import "./components/books/BooksDetail.scss";
+
+/* Libraries */
+@import "./components/libraries/LibrariesList.scss";
+@import "./components/libraries/LibrariesListItem.scss";
+@import "./components/libraries/LibrariesDetail.scss";
+@import "./components/libraries/LibrariesRuleForm.scss";
 
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
