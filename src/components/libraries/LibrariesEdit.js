@@ -2,18 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const LibrariesDetail = () => {
-  const [detail, setDetail] = useState([]);
+const LibrariesEdit = () => {
+  const [edit, setEdit] = useState([]);
   const location = useLocation();
   console.log("state", location.state);
   const id = location.state.id;
   const navigate = useNavigate();
 
-  const { name, address, holiday, operatingTime, email, tel } = detail;
+  const { name, address, holiday, operatingTime, email, tel } = edit;
 
   const onChange = (e) => {
-    setDetail({
-      ...detail,
+    setEdit({
+      ...edit,
       [e.target.name]: e.target.value,
     });
   };
@@ -23,7 +23,7 @@ const LibrariesDetail = () => {
         `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/libraries/${id}`
       )
       .then(function (response) {
-        setDetail(response.data.data);
+        setEdit(response.data.data);
         console.log(response);
       });
   }, []);
@@ -45,17 +45,19 @@ const LibrariesDetail = () => {
     }
   };
 
-  const LibrariesDetailArray = [
+  const LibrariesEditArray = [
     { val: name, key: "name", tag: "도서관 이름" },
     { val: address, key: "address", tag: "도서관 주소" },
-    { val: detail.createdAt, key: "createdAt", tag: "등록일" },
-    { val: detail.updatedAt, key: "updatedAt", tag: "수정일" },
+    { val: holiday, key: "holiday", tag: "휴관일" },
+    { val: operatingTime, key: "operatingTime", tag: "운영시간" },
+    { val: edit.createdAt, key: "createdAt", tag: "등록일" },
+    { val: edit.updatedAt, key: "updatedAt", tag: "수정일" },
   ];
 
   return (
-    <div id="libraries-detail">
-      <div className="detail-contents">
-        <h1 className="library-name">{detail.name}</h1>
+    <div id="libraries-edit">
+      <div className="edit-contents">
+        <h1 className="library-name">{edit.name}</h1>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -78,8 +80,8 @@ const LibrariesDetail = () => {
               });
           }}
         >
-          <div className="detail-form">
-            {LibrariesDetailArray.map((lda, index) => (
+          <div className="edit-form">
+            {LibrariesEditArray.map((lda, index) => (
               <div key={lda.key}>
                 <label name={lda.key} className="input-box">
                   {`${lda.tag}  `}
@@ -120,7 +122,7 @@ const LibrariesDetail = () => {
               </label>
             </div>
           </div>
-          <div className="detail-btn">
+          <div className="edit-btn">
             <button className="edit-btn" type="submit">
               수정
             </button>
@@ -134,4 +136,4 @@ const LibrariesDetail = () => {
   );
 };
 
-export default LibrariesDetail;
+export default LibrariesEdit;

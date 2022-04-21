@@ -1,4 +1,4 @@
-#libraries-detail {
+#libraries-edit {
   display: flex;
   position: absolute;
   left: 0;
@@ -8,13 +8,13 @@
   background-color: aliceblue;
   text-align: center;
   justify-content: center;
-  .detail-contents {
+  .edit-contents {
     position: relative;
     .library-name {
       position: relative;
       font-size: 3rem;
     }
-    .detail-form {
+    .edit-form {
       display: flex;
       flex-wrap: wrap;
       width: 51rem;
@@ -73,7 +73,7 @@
         }
       }
     }
-    .detail-btn {
+    .edit-btn {
       position: relative;
       margin-top: 5rem;
       .edit-btn {
