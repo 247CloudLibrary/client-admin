@@ -19,6 +19,7 @@ import BooksDetailPage from "./pages/books/BooksDetailPage";
 
 /* Libraries */
 import LibrariesListPage from "./pages/libraries/LibrariesListPage";
+import LibrariesDetailPage from "./pages/libraries/LibrariesDetailPage";
 import LibrariesRulePage from "./pages/libraries/LibrariesRulePage";
 import LibrariesEditPage from "./pages/libraries/LibrariesEditPage";
 
@@ -49,6 +50,7 @@ const App = () => {
       <Route path="/books/edit/:id" element={<BooksEditPage />} />
       <Route path="/books/detail/:id" element={<BooksDetailPage />} />
       <Route path="/libraries/list" element={<LibrariesListPage />} />
+      <Route path="/libraries/detail/:id" element={<LibrariesDetailPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
       <Route path="/libraries/edit/:id" element={<LibrariesEditPage />} />
       <Route path="/lending" element={<LendingPage />} />

@@ -4,12 +4,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const LibrariesEdit = () => {
   const [edit, setEdit] = useState([]);
+  const [num, setNum] = useState([]);
   const location = useLocation();
-  console.log("state", location.state);
+  console.log("state", location.state.id);
   const id = location.state.id;
   const navigate = useNavigate();
 
   const { name, address, holiday, operatingTime, email, tel } = edit;
+  const {
+    lendingAvailableCount,
+    lendingAvailableDays,
+    overdueCount,
+    longtermOverdueDays,
+    lendingLimitDays,
+  } = num;
 
   const onChange = (e) => {
     setEdit({
@@ -17,6 +25,14 @@ const LibrariesEdit = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const onNumChange = (e) => {
+    setNum({
+      ...num,
+      [e.target.name]: e.target.valueAsNumber,
+    });
+  };
+  console.log(edit);
   useEffect(() => {
     axios
       .get(
@@ -24,7 +40,7 @@ const LibrariesEdit = () => {
       )
       .then(function (response) {
         setEdit(response.data.data);
-        console.log(response);
+        setNum(response.data.data);
       });
   }, []);
 
@@ -54,6 +70,34 @@ const LibrariesEdit = () => {
     { val: edit.updatedAt, key: "updatedAt", tag: "수정일" },
   ];
 
+  const LibrariesNumArray = [
+    {
+      val: lendingAvailableCount,
+      key: "lendingAvailableCount",
+      tag: "대출 가능 권수",
+    },
+    {
+      val: lendingAvailableDays,
+      key: "lendingAvailableDays",
+      tag: "대출 가능 일수",
+    },
+    {
+      val: overdueCount,
+      key: "overdueCount",
+      tag: "대출 제한 연체 횟수",
+    },
+    {
+      val: longtermOverdueDays,
+      key: "longtermOverdueDays",
+      tag: "장기 연체 구분 일수",
+    },
+    {
+      val: lendingLimitDays,
+      key: "lendingLimitDays",
+      tag: "대출 제한 일수",
+    },
+  ];
+
   return (
     <div id="libraries-edit">
       <div className="edit-contents">
@@ -72,6 +116,11 @@ const LibrariesEdit = () => {
                   tel: tel,
                   holiday: holiday,
                   operatingTime: operatingTime,
+                  lendingAvailableCount: lendingAvailableCount,
+                  lendingAvailableDays: lendingAvailableDays,
+                  overdueCount: overdueCount,
+                  longtermOverdueDays: longtermOverdueDays,
+                  lendingLimitDays: lendingLimitDays,
                 }
               )
               .then(function (response) {
@@ -121,6 +170,21 @@ const LibrariesEdit = () => {
                 />
               </label>
             </div>
+            {LibrariesNumArray.map((lna) => (
+              <div key={lna.key}>
+                <label name={lna.key} className="number-box">
+                  {`${lna.tag}  `}
+                  <input
+                    className={lna.key}
+                    type="number"
+                    defaultValue={lna.val}
+                    name={lna.key}
+                    min="0"
+                    onChange={onNumChange}
+                  />
+                </label>
+              </div>
+            ))}
           </div>
           <div className="edit-btn">
             <button className="edit-btn" type="submit">

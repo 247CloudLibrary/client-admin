@@ -17,7 +17,7 @@
     .edit-form {
       display: flex;
       flex-wrap: wrap;
-      width: 51rem;
+      width: 61rem;
       .input-box {
         position: relative;
         width: 20rem;
@@ -25,51 +25,88 @@
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-right: 6.969rem;
+          margin-left: 3.73rem;
+          margin-right: 3.73rem;
         }
         .address {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
+          margin-left: 3.73rem;
         }
         .email {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-right: 6.969rem;
-          margin-left: 2rem;
+          margin-right: 3.73rem;
+          margin-left: 5.7rem;
         }
         .holiday {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-right: 6.969rem;
-          margin-left: 2.35rem;
+          margin-right: 3.73rem;
+          margin-left: 6.05rem;
         }
         .tel {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-left: 1rem;
+          margin-left: 4.8rem;
         }
         .operatingTime {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-left: 1.354rem;
+          margin-left: 5.17rem;
         }
         .createdAt {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-right: 6.969rem;
-          margin-left: 2.35rem;
+          margin-right: 3.73rem;
+          margin-left: 6.05rem;
         }
         .updatedAt {
           position: relative;
           font-size: 1.3rem;
           margin-top: 3rem;
-          margin-left: 2.354rem;
+          margin-left: 6.17rem;
+        }
+      }
+      .number-box {
+        position: relative;
+        width: 20rem;
+        .lendingAvailableCount {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-right: 3.73rem;
+          margin-left: 2.35rem;
+        }
+        .lendingAvailableDays {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-left: 2.45rem;
+        }
+        .overdueCount {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-right: 3.73rem;
+        }
+        .longtermOverdueDays {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-left: 0.1rem;
+        }
+        .lendingLimitDays {
+          position: relative;
+          font-size: 1.3rem;
+          margin-top: 3rem;
+          margin-left: 2.35rem;
         }
       }
     }
