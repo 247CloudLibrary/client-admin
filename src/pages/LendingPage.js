@@ -1,7 +1,9 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import LendingListForm from "../components/lending/LendingListForm";
 import LendingStatusFilter from "../components/lending/LendingStatusFilter";
 import SearchFilter from "../components/lending/SearchFilter";
+import LibraryFilter from "../components/lending/LibraryFilter";
 
 const STATUS_DATA = [
   { id: "", value: "대출 상태 조회" },
@@ -14,6 +16,16 @@ const STATUS_DATA = [
 const LendingPage = () => {
   const [dropValue, setDropValue] = useState("");
   const [text, setText] = useState("");
+  const [libraryValue, setLibraryValue] = useState("");
+  const [libraryData, setLibraryData] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/libraries")
+      .then((result) => {
+        setLibraryData(result.data.data);
+      });
+  }, []);
 
   const onSelect = (e) => {
     const { value } = e.target;
@@ -24,6 +36,13 @@ const LendingPage = () => {
     setText(e.target.value);
   };
 
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setLibraryValue(libraryData.filter((d) => d.name === value)[0].id);
+  };
+
+  console.log(libraryValue);
+
   return (
     <div>
       <LendingStatusFilter
@@ -31,9 +50,17 @@ const LendingPage = () => {
         STATUS_DATA={STATUS_DATA}
         onSelect={onSelect}
       />
-
-      <SearchFilter onChange={onChange} text={text} />
-      <LendingListForm dropValue={dropValue} text={text} />
+      <SearchFilter text={text} onChange={onChange} />
+      <LibraryFilter
+        libraryValue={libraryValue}
+        handleChange={handleChange}
+        libraryData={libraryData}
+      />
+      <LendingListForm
+        dropValue={dropValue}
+        text={text}
+        libraryValue={libraryValue}
+      />
     </div>
   );
 };

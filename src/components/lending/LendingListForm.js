@@ -14,7 +14,7 @@ const mergeArrayObjects = (arr1, arr2) => {
   return merge;
 };
 
-const LendingListForm = ({ dropValue, text }) => {
+const LendingListForm = ({ dropValue, text, libraryValue }) => {
   const [listItem, setListItem] = useState([]);
 
   useEffect(() => {
@@ -39,10 +39,12 @@ const LendingListForm = ({ dropValue, text }) => {
         const filtedByText = text
           ? filtedByDropValue.filter((i) => i.uid === Number(text))
           : filtedByDropValue;
-
-        setListItem(filtedByText);
+        const filtedByLibrary = libraryValue
+          ? filtedByText.filter((i) => i.bookId === libraryValue)
+          : filtedByText;
+        setListItem(filtedByLibrary);
       });
-  }, [dropValue, text]);
+  }, [dropValue, text, libraryValue]);
 
   return (
     <div className="lending-list">
