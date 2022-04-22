@@ -29,7 +29,7 @@ const BooksEditForm = () => {
     rfid: location.state.rfid,
   });
 
-  const {
+  let {
     libraryName,
     isbn,
     title,
@@ -46,6 +46,36 @@ const BooksEditForm = () => {
     rid,
     rfid,
   } = inputs;
+
+  if (bookType === "도서") {
+    bookType = "BOOK";
+  } else if (bookType === "비도서") {
+    bookType = "NON_BOOK";
+  }
+
+  if (genre === "액션") {
+    genre = "ACTION";
+  } else if (genre === "SF/판타지") {
+    genre = "SF_AND_FANTASY";
+  } else if (genre === "코미디") {
+    genre = "COMEDY";
+  } else if (genre === "로맨스") {
+    genre = "ROMANCE";
+  } else if (genre === "공포/스릴러") {
+    genre = "HORROR_AND_THRILLER";
+  } else if (genre === "기타") {
+    genre = "OTHERS";
+  }
+
+  if (bookStatus === "대여가능") {
+    bookStatus = "AVAILABLE";
+  } else if (bookStatus === "창고보관") {
+    bookStatus = "STORAGE";
+  } else if (bookStatus === "분실") {
+    bookStatus = "LOST";
+  } else if (bookStatus === "폐기") {
+    bookStatus = "DISCARD";
+  }
 
   const onChange = (e) => {
     setInputs({
@@ -92,8 +122,8 @@ const BooksEditForm = () => {
   ];
 
   const BookStatusOptionArray = [
-    { value: "AVAILABLE", label: "대여 가능" },
-    { value: "STORAGE", label: "창고 보관" },
+    { value: "AVAILABLE", label: "대여가능" },
+    { value: "STORAGE", label: "창고보관" },
     { value: "LOST", label: "분실" },
     { value: "DISCARD", label: "폐기" },
   ];
