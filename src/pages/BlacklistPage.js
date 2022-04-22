@@ -1,8 +1,7 @@
+import BlacklistForm from "../components/blacklist/BlacklistForm";
 
 const BlacklistPage = () => {
-    return (
-    <div>블랙리스트</div>
-    )
+  return <BlacklistForm />;
 };
 
 export default BlacklistPage;

@@ -13,7 +13,7 @@ const Home = () => {
       <Link to={"/lending"}>
         <button>대출 관리</button>
       </Link>
-      <Link to={"/admin"}>
+      <Link to={"/profile"}>
         <button>마이 페이지</button>
       </Link>
       <Link to={"/lending/blacklist"}>

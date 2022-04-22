@@ -1,0 +1,47 @@
+/* Config */
+@import "./config/_reset.scss";
+
+/* Admin */
+@import "./components/auth/LoginForm.scss";
+@import "./components/auth/FindIdForm.scss";
+@import "./components/auth/FindPwForm.scss";
+@import "./components/auth/ProfileForm.scss";
+
+/* Board */
+@import "./components/board/NoticesList.scss";
+@import "./components/board/NoticesListItem.scss";
+@import "./components/board/NoticeDetail.scss";
+@import "./components/board/GuideForm.scss";
+@import "./components/board/BoardList.scss";
+@import "./components/board/BoardListItem.scss";
+@import "./components/board/BoardInfo.scss";
+@import "./components/board/BoardSideBar.scss";
+@import "./components/board/BoardWriteForm.scss";
+@import "./components/board/BoardDetail.scss";
+@import "./components/board/BoardDetailForm.scss";
+@import "./components/board/BoardEditForm.scss";
+
+/* Books */
+@import "./components/books/BooksWriteForm.scss";
+@import "./components/books/BooksDetail.scss";
+@import "./components/books/BooksList.scss";
+@import "./components/books/BooksListItem.scss";
+@import "./components/books/BooksEditForm.scss";
+
+/* Libraries */
+@import "./components/libraries/LibrariesList.scss";
+@import "./components/libraries/LibrariesListItem.scss";
+@import "./components/libraries/LibrariesDetail.scss";
+@import "./components/libraries/LibrariesEdit.scss";
+@import "./components/libraries/LibrariesRuleForm.scss";
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap");
+
+/* Defaults */
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,75 @@
+#libraries-detail {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  .info-area {
+    position: relative;
+    margin-top: 10rem;
+    .library-name {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .detail-area {
+      margin-top: 3rem;
+      background-color: azure;
+      .detail-text {
+        .tag {
+          width: auto;
+          font-size: 1.3rem;
+          font-weight: 700;
+        }
+        .value {
+          width: auto;
+          font-size: 1.3rem;
+          margin-left: 2rem;
+          padding-left: 4rem;
+        }
+      }
+    }
+  }
+  .btn-area {
+    .list-btn {
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      margin-top: 0.7rem;
+      margin-right: 1rem;
+      width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        background-color: #2b3c4e;
+      }
+    }
+  }
+  .btn-area {
+    .edit-btn {
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      margin-top: 0.7rem;
+      margin-left: 1rem;
+      width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        background-color: #2b3c4e;
+      }
+    }
+  }
+}

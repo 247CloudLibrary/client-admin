@@ -1,0 +1,46 @@
+#sidebar {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  right: 15rem;
+  border-radius: 1rem;
+  z-index: 1;
+  .label-btn input[type="radio"] {
+    display: none;
+  }
+  .label-btn input[type="radio"] + span {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .label-btn input[type="radio"]:checked + span {
+    background-color: #afcddf;
+  }
+  .notice {
+    background-color: #fff;
+    width: 15rem;
+    height: 5rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .information {
+    background-color: #fff;
+    width: 15rem;
+    height: 5rem;
+    border: 1px solid #d8d8d8;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .map {
+    background-color: #fff;
+    width: 15rem;
+    height: 5rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 0 0 1rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

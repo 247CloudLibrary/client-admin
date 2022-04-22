@@ -1,0 +1,81 @@
+#libraries-item {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60rem;
+  .library-name {
+    display: flex;
+    margin-left: 3rem;
+    position: relative;
+    width: 23rem;
+    font-size: 1.7rem;
+    padding: 1rem;
+    padding-right: 45rem;
+    .name {
+      color: #1e272bc5;
+      &:hover {
+        cursor: pointer;
+        text-decoration: 1px solid underline;
+      }
+    }
+  }
+  .library-listItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    color: #1f2a30c5;
+    border-top: 1px solid #d8d8d8;
+    font-weight: 500;
+    .library-id-tag,
+    .address-tag,
+    .email-tag,
+    .tel-tag,
+    .operating-time-tag,
+    .holiday-tag {
+      font-weight: 550;
+    }
+    .library-id {
+      position: relative;
+      margin-top: 1rem;
+      margin-left: 3.5rem;
+      text-align: center;
+      min-width: 10rem;
+    }
+
+    .address {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 25rem;
+    }
+
+    .email {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 20rem;
+    }
+    .tel {
+      position: relative;
+      margin-top: 1rem;
+      margin-left: 3.5rem;
+      text-align: center;
+      width: 10rem;
+    }
+    .operating-time {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 25rem;
+    }
+    .holiday {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 20rem;
+    }
+  }
+}
