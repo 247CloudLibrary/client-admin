@@ -45,10 +45,10 @@ const LibrariesListItem = ({
       </div>
       <div className="library-listItem">
         {LibrariesListItemArray.map((llia) => (
-          <span
-            className={llia.className}
-            key={llia.value}
-          >{`${llia.name}: ${llia.value}`}</span>
+          <span className={llia.className} key={llia.value}>
+            <span className={`${llia.className}-tag`}>{llia.name}</span>{" "}
+            {llia.value}
+          </span>
         ))}
       </div>
     </div>
