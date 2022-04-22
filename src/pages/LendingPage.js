@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LendingListForm from "../components/lending/LendingListForm";
 import LendingStatusFilter from "../components/lending/LendingStatusFilter";
+import SearchFilter from "../components/lending/SearchFilter";
 
 const STATUS_DATA = [
   { id: "", value: "대출 상태 조회" },
@@ -11,11 +12,16 @@ const STATUS_DATA = [
 ];
 
 const LendingPage = () => {
-  const [dropValue, setDropValue] = useState("대출 상태 조회");
+  const [dropValue, setDropValue] = useState("");
+  const [text, setText] = useState("");
 
   const onSelect = (e) => {
     const { value } = e.target;
     setDropValue(STATUS_DATA.filter((d) => d.value === value)[0].id);
+  };
+
+  const onChange = (e) => {
+    setText(e.target.value);
   };
 
   return (
@@ -25,7 +31,9 @@ const LendingPage = () => {
         STATUS_DATA={STATUS_DATA}
         onSelect={onSelect}
       />
-      <LendingListForm dropValue={dropValue} />
+
+      <SearchFilter onChange={onChange} text={text} />
+      <LendingListForm dropValue={dropValue} text={text} />
     </div>
   );
 };

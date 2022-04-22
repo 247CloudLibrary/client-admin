@@ -14,10 +14,9 @@ const mergeArrayObjects = (arr1, arr2) => {
   return merge;
 };
 
-const LendingListForm = ({ dropValue }) => {
+const LendingListForm = ({ dropValue, text }) => {
   const [listItem, setListItem] = useState([]);
 
-  console.log(dropValue);
   useEffect(() => {
     axios
       .all([
@@ -34,16 +33,16 @@ const LendingListForm = ({ dropValue }) => {
           result[1].data.data
         );
 
-        console.log(dropValue);
+        const filtedByDropValue = dropValue
+          ? resultArray.filter((i) => i.lendingStatus === dropValue)
+          : resultArray;
+        const filtedByText = text
+          ? filtedByDropValue.filter((i) => i.uid === Number(text))
+          : filtedByDropValue;
 
-        const filted =
-          dropValue !== ""
-            ? resultArray.filter((i) => i.lendingStatus === dropValue)
-            : resultArray;
-        console.log(filted);
-        setListItem(filted);
+        setListItem(filtedByText);
       });
-  }, [dropValue]);
+  }, [dropValue, text]);
 
   return (
     <div className="lending-list">

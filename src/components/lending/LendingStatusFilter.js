@@ -1,4 +1,4 @@
-const LendingStatusFilter = ({ dropValue, STATUS_DATA, onSelect }) => {
+const LendingStatusFilter = ({ STATUS_DATA, onSelect }) => {
   return (
     <div>
       <select onChange={onSelect}>
