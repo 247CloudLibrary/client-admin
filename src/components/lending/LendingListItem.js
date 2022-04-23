@@ -24,6 +24,7 @@ const LendingListItem = ({
       <div className="bookStatusBar">
         <span>상태: {lendingStatus}</span>
         <span>연체 일수: </span>
+        <span>연체 일수: 어떻게하징 </span>
       </div>
     </div>
   );

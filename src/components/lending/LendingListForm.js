@@ -6,7 +6,7 @@ const mergeArrayObjects = (arr1, arr2) => {
   let start = 0;
   let merge = [];
   while (start < arr1.length) {
-    if (arr1[start].id === arr2[start].bookId) {
+    if (arr1[start].bookId === arr2[start].id) {
       merge.push({ ...arr1[start], ...arr2[start] });
     }
     start = start + 1;
@@ -14,23 +14,40 @@ const mergeArrayObjects = (arr1, arr2) => {
   return merge;
 };
 
-const LendingListForm = () => {
+const LendingListForm = ({ dropValue, text, libraryValue }) => {
   const [listItem, setListItem] = useState([]);
 
   useEffect(() => {
-    axios.all([axios.get("/books"), axios.get("/lending")]).then((result) => {
-      const resultArray = mergeArrayObjects(
-        result[0].data.data,
-        result[1].data.data
-      );
-      console.log(resultArray);
-      setListItem(resultArray);
-    });
-  }, []);
+    axios
+      .all([
+        axios.get(
+          "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending"
+        ),
+        axios.get(
+          "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books"
+        ),
+      ])
+      .then((result) => {
+        const resultArray = mergeArrayObjects(
+          result[0].data.data,
+          result[1].data.data
+        );
+
+        const filtedByDropValue = dropValue
+          ? resultArray.filter((i) => i.lendingStatus === dropValue)
+          : resultArray;
+        const filtedByText = text
+          ? filtedByDropValue.filter((i) => i.uid === Number(text))
+          : filtedByDropValue;
+        const filtedByLibrary = libraryValue
+          ? filtedByText.filter((i) => i.bookId === libraryValue)
+          : filtedByText;
+        setListItem(filtedByLibrary);
+      });
+  }, [dropValue, text, libraryValue]);
 
   return (
     <div className="lending-list">
-      <div className="lendingListItem">검 색</div>
       {listItem &&
         listItem.map((data) => (
           <LendingListItem
@@ -46,6 +63,7 @@ const LendingListForm = () => {
             returnDateTime={data.returnDateTime}
           />
         ))}
+      ;
     </div>
   );
 };
