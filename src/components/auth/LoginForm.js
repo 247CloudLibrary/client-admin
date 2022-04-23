@@ -9,7 +9,7 @@ const LoginForm = ({ onChange, onSubmit, form }) => {
   };
   return (
     <div className="loginForm">
-      <Link to={'/clientAdmin-service'} className="logo">
+      <Link to={'/'} className="logo">
         <WiCloud />
         <span>Cloud Library</span>
       </Link>

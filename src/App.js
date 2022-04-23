@@ -34,7 +34,7 @@ import ProfilePage from './pages/auth/ProfilePage';
 const App = () => {
   return (
     <Routes>
-      <Route path="/clientAdmin-service" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
