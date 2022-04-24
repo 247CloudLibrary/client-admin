@@ -30,7 +30,9 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
       .then((result) => {
         const resultArray = mergeArrayObjects(
           result[0].data.data,
-          result[1].data.data
+          result[1].data.data,
+          console.log(result[0].data.data),
+          console.log(result[1].data.data)
         );
 
         const filtedByDropValue = dropValue
