@@ -39,11 +39,11 @@ const App = () => {
       <Route path="/lending/blacklist" element={<BlacklistPage />} />
       <Route path="/boards" element={<BoardsPage />} />
       <Route path="/notices" element={<NoticesPage />} />
-      <Route path="/notices/detail" element={<NoticesDetail />} />
+      <Route path="/notices/detail/:id" element={<NoticesDetail />} />
       <Route path="/guide" element={<GuidePage />} />
       <Route path="/boards/list" element={<BoardListPage />} />
-      <Route path="/boards/detail" element={<BoardDetailPage />} />
-      <Route path="/boards/edit" element={<BoardEditPage />} />
+      <Route path="/boards/detail/:id" element={<BoardDetailPage />} />
+      <Route path="/boards/edit/:id" element={<BoardEditPage />} />
       <Route path="/boards/write" element={<BoardWritePage />} />
       <Route path="/books" element={<BooksListPage />} />
       <Route path="/books/write" element={<BooksWritePage />} />

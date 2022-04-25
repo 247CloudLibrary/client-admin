@@ -1,9 +1,9 @@
-import BoardDetail from "../../components/board/BoardDetail";
+import BoardDetailForm from "../../components/board/BoardDetailForm";
 
 const BoardDetailPage = () => {
   return (
     <div>
-      <BoardDetail />
+      <BoardDetailForm />
     </div>
   );
 };

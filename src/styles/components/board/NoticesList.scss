@@ -68,17 +68,20 @@
       }
     }
   }
-  .item-box {
+  .item-area {
     display: flex;
-    width: 100%;
-    flex-direction: row;
-    position: relative;
     justify-content: center;
-    .listitem-box {
+    .item-box {
+      display: flex;
+      width: 60rem;
+      flex-direction: column;
       position: relative;
-      justify-content: center;
-      height: 3rem;
-      border-bottom: 1px solid #57707cc5;
+      .listitem-box {
+        position: relative;
+        justify-content: center;
+        height: 3rem;
+        border-bottom: 1px solid #57707cc5;
+      }
     }
   }
 }
