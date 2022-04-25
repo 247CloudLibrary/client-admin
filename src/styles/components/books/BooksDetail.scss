@@ -76,6 +76,7 @@
             .category,
             .isbn,
             .publisher,
+            .barcode,
             .publishDate,
             .libraryName {
               padding-left: 10rem;
@@ -97,6 +98,9 @@
             }
             .publishDate {
               padding-left: 8.8rem;
+            }
+            .barcode {
+              padding-left: 7.8rem;
             }
             .libraryName {
               padding-left: 8.75rem;
