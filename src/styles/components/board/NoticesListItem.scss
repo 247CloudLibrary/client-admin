@@ -4,6 +4,7 @@
   pointer-events: none;
   .list {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     .list-value {
       position: relative;
@@ -18,7 +19,7 @@
         display: inline;
         position: relative;
         width: 3rem;
-        left: 3.5rem;
+        left: 3.2rem;
       }
       .title {
         display: flex;
@@ -44,7 +45,7 @@
       .createdAt {
         display: inline;
         position: relative;
-        left: 8.2rem;
+        left: 8rem;
         width: 10rem;
       }
       .updatedAt {

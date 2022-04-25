@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useState } from "react";
-
-const LibraryName = "OOO 도서관";
+import axios from "axios";
 
 const BoardWriteForm = () => {
+  const navigate = useNavigate();
   const [boardContent, setBoardContent] = useState({
     type: "Notice",
     title: "",
     contents: "",
   });
-
+  const libraryName = "임시 도서관";
   const { type, title, contents } = boardContent;
 
   const getValue = (e) => {
@@ -24,8 +24,27 @@ const BoardWriteForm = () => {
 
   return (
     <div className="BoardWrite">
-      <form>
-        <h1 className="library-name">{LibraryName}</h1>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          axios
+            .post(
+              "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards",
+              {
+                libraryName: libraryName,
+                type: type,
+                title: title,
+                contents: contents,
+              }
+            )
+            .then(function (response) {
+              console.log(response);
+              alert("게시글이 등록되었습니다.");
+              navigate(-1);
+            });
+        }}
+      >
+        <h1 className="library-name">{libraryName}</h1>
         <div className="type">
           <select
             value={type}
@@ -79,13 +98,11 @@ const BoardWriteForm = () => {
             </div>
           </div>
         </div>
-        <Link to="/boards/list" style={{ textDecoration: "none" }}>
-          <div className="btn">
-            <button className="submit-btn" type="submit">
-              게시글 등록
-            </button>
-          </div>
-        </Link>
+        <div className="btn">
+          <button type="submit" className="submit-btn">
+            게시글 등록
+          </button>
+        </div>
       </form>
     </div>
   );

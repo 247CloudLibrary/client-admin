@@ -10,7 +10,8 @@ const BoardList = () => {
   const [content, setContent] = useState("");
   const [btn, setBtn] = useState(false);
   const [head, setHead] = useState(false);
-  // const [boardData, setBoardData] = useState([]);
+  const [noticeData, setNoticeData] = useState([]);
+  const [infoData, setInfoData] = useState([{}]);
   const [mode, setMode] = useState("공지사항");
 
   const getMode = (mode) => {
@@ -30,13 +31,27 @@ const BoardList = () => {
     }
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
-  //     .then((response) => {
-  //       setBoardData(response.data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
+      .then((response) => {
+        const noticeArr = response.data.data;
+        const infoArr = response.data.data;
+
+        console.log(noticeArr);
+        const filtedByNoticeData =
+          noticeArr.type !== "공지사항"
+            ? noticeArr.filter((i) => i.type === "공지사항")
+            : noticeArr;
+        setNoticeData(filtedByNoticeData);
+
+        const filtedByInfoData =
+          infoArr.type !== "안내사항"
+            ? infoArr.filter((i) => i.type === "안내사항")
+            : infoArr;
+        setInfoData(filtedByInfoData);
+      });
+  }, []);
 
   const ListArray = [
     { listName: "번호", className: "id" },
@@ -75,26 +90,27 @@ const BoardList = () => {
 
         {mode === "공지사항" && (
           <div className="item-box">
-            {/* {boardData.data &&
-              boardData.data.map((data) => ( */}
-            <div
-              className="listitem-box"
-              // key={data.id}
-            >
-              <BoardNoticeListItem
-              // id={data.id}
-              // title={data.title}
-              // adminName={data.adminName}
-              // createdAt={data.createdAt}
-              // readCounts={data.readCounts}
-              />
-            </div>
-            {/* ))} */}
+            {noticeData &&
+              noticeData.map((data) => (
+                <div className="listitem-box" key={data.id}>
+                  <BoardNoticeListItem
+                    id={data.id}
+                    title={data.title}
+                    adminName={data.adminName}
+                    createdAt={data.createdAt}
+                    readCounts={data.readCounts}
+                  />
+                </div>
+              ))}
           </div>
         )}
         {mode === "이용안내" && (
           <div className="info-box">
-            <BoardInfo />
+            <BoardInfo
+              id={infoData[0].id}
+              title={infoData[0].title}
+              contents={infoData[0].contents}
+            />
           </div>
         )}
         {mode === "오시는 길" && (
