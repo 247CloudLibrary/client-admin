@@ -9,8 +9,11 @@
   justify-content: center;
   .list-item {
     display: flex;
+    pointer-events: none;
     .image-area {
       position: relative;
+      cursor: pointer;
+      pointer-events: all;
       .image {
         height: 140px;
         width: 100px;
@@ -32,6 +35,8 @@
           display: inline-block;
           font-size: 1.3rem;
           width: 30rem;
+          cursor: pointer;
+          pointer-events: all;
         }
       }
     }

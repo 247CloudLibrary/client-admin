@@ -47,34 +47,46 @@ const BooksEditForm = () => {
     rfid,
   } = inputs;
 
-  if (bookType === "도서") {
-    bookType = "BOOK";
-  } else if (bookType === "비도서") {
-    bookType = "NON_BOOK";
+  switch (bookType) {
+    case "도서":
+      bookType = "BOOK";
+      break;
+    default:
+      bookType = "NON_BOOK";
   }
 
-  if (genre === "액션") {
-    genre = "ACTION";
-  } else if (genre === "SF/판타지") {
-    genre = "SF_AND_FANTASY";
-  } else if (genre === "코미디") {
-    genre = "COMEDY";
-  } else if (genre === "로맨스") {
-    genre = "ROMANCE";
-  } else if (genre === "공포/스릴러") {
-    genre = "HORROR_AND_THRILLER";
-  } else if (genre === "기타") {
-    genre = "OTHERS";
+  switch (genre) {
+    case "액션":
+      genre = "ACTION";
+      break;
+    case "SF/판타지":
+      genre = "SF_AND_FANTASY";
+      break;
+    case "코미디":
+      genre = "COMEDY";
+      break;
+    case "로맨스":
+      genre = "ROMANCE";
+      break;
+    case "공포/스릴러":
+      genre = "HORROR_AND_THRILLER";
+      break;
+    default:
+      genre = "OTHERS";
   }
 
-  if (bookStatus === "대여가능") {
-    bookStatus = "AVAILABLE";
-  } else if (bookStatus === "창고보관") {
-    bookStatus = "STORAGE";
-  } else if (bookStatus === "분실") {
-    bookStatus = "LOST";
-  } else if (bookStatus === "폐기") {
-    bookStatus = "DISCARD";
+  switch (bookStatus) {
+    case "대여가능":
+      bookStatus = "AVAILABLE";
+      break;
+    case "창고보관":
+      bookStatus = "STORAGE";
+      break;
+    case "분실":
+      bookStatus = "LOST";
+      break;
+    default:
+      bookStatus = "DISCARD";
   }
 
   const onChange = (e) => {
