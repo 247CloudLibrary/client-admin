@@ -10,7 +10,8 @@ const BoardList = () => {
   const [content, setContent] = useState("");
   const [btn, setBtn] = useState(false);
   const [head, setHead] = useState(false);
-  const [boardData, setBoardData] = useState([]);
+  const [noticeData, setNoticeData] = useState([]);
+  const [infoData, setInfoData] = useState([{}]);
   const [mode, setMode] = useState("공지사항");
 
   const getMode = (mode) => {
@@ -34,7 +35,15 @@ const BoardList = () => {
     axios
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
       .then((response) => {
-        setBoardData(response.data);
+        const noticeArr = response.data.data;
+        const infoArr = response.data.data;
+
+        console.log(noticeArr);
+        const filtedByNoticeData =
+          noticeArr.type !== "공지사항"
+            ? noticeArr.filter((i) => onabort.type === "공지사항")
+            : noticeArr;
+        setNoticeData(filtedByNoticeData);
       });
   }, []);
 
@@ -75,8 +84,8 @@ const BoardList = () => {
 
         {mode === "공지사항" && (
           <div className="item-box">
-            {boardData.data &&
-              boardData.data.map((data) => (
+            {noticeData &&
+              noticeData.map((data) => (
                 <div className="listitem-box" key={data.id}>
                   <BoardNoticeListItem
                     id={data.id}

@@ -5,13 +5,23 @@ import NoticesListItem from "./NoticesListItem";
 
 const NoticesList = () => {
   const [noticesData, setNoticesData] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
       .then((response) => {
-        setNoticesData(response.data);
+        const noticesArr = response.data.data;
+
+        console.log(noticesArr);
+        const filtedByNoticesData =
+          noticesArr.type !== "공지사항"
+            ? noticesArr.filter((i) => i.type === "공지사항")
+            : noticesArr;
+        setNoticesData(filtedByNoticesData);
       });
   }, []);
+
+  console.log(noticesData);
 
   const BoardListArray = [
     { listName: "번호", className: "id" },
@@ -42,8 +52,8 @@ const NoticesList = () => {
       </table>
       <div className="item-area">
         <div className="item-box">
-          {noticesData.data &&
-            noticesData.data.map((data) => (
+          {noticesData &&
+            noticesData.map((data) => (
               <div className="listitem-box" key={data.id}>
                 <NoticesListItem
                   id={data.id}

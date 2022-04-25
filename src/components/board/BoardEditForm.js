@@ -33,6 +33,23 @@ const BoardEditForm = () => {
     });
   };
   console.log(type, title, contents);
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    if (window.confirm("게시글을 삭제하시겠습니까?") === false) {
+      return;
+    } else {
+      axios
+        .delete(
+          `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards/${id}`
+        )
+        .then(function (boardDelete) {
+          console.log(boardDelete);
+          alert("게시글이 삭제되었습니다.");
+          navigate(-2);
+        });
+    }
+  };
   return (
     <div className="BoardEdit">
       <form
@@ -110,6 +127,9 @@ const BoardEditForm = () => {
         <div className="btn">
           <button className="save-btn" type="submit">
             저장
+          </button>
+          <button className="delete-btn" type="button" onClick={handleDelete}>
+            삭제
           </button>
         </div>
       </form>

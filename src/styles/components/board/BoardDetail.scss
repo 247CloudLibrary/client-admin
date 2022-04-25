@@ -1,0 +1,26 @@
+#BoardDetail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fffdf6d0;
+  .form-box {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    .sidebar-area {
+      position: absolute;
+      margin-right: 30rem;
+      float: left;
+    }
+    .contents-box {
+      position: absolute;
+      justify-content: center;
+      height: 3rem;
+      border-bottom: 1px solid #57707cc5;
+    }
+  }
+}
