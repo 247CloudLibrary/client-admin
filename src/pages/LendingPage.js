@@ -4,6 +4,8 @@ import LendingListForm from "../components/lending/LendingListForm";
 import LendingStatusFilter from "../components/lending/LendingStatusFilter";
 import SearchFilter from "../components/lending/SearchFilter";
 import LibraryFilter from "../components/lending/LibraryFilter";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/common/Button";
 
 const STATUS_DATA = [
   { id: "", value: "대출 상태 조회" },
@@ -41,10 +43,36 @@ const LendingPage = () => {
     setLibraryValue(libraryData.filter((d) => d.name === value)[0].id);
   };
 
-  console.log(libraryValue);
+  const navigate = useNavigate();
+
+  const onClickUid = () => {
+    //TODO GET으로 UID조회
+  };
+  const onClickCreateLending = () => {
+    //TODO POST로 대출 처리
+  };
+  const onClickCreateReturn = () => {
+    //TODO POST로 반납 처리
+  };
+  const onClickCreateBlacklist = () => {
+    //TODO POST로 블랙리스트 등록
+  };
+  const onClickReadBlacklist = () => {
+    navigate(`/lending/blacklist`);
+  };
+  const onClickReadAuth = () => {
+    navigate(`/auth`);
+  };
 
   return (
     <div>
+      <Button onClick={onClickUid} text="회원증 확인" />
+      <Button onClick={onClickCreateLending} text="대출 처리" />
+      <Button onClick={onClickCreateReturn} text="반납 처리" />
+      <Button onClick={onClickCreateBlacklist} text="블랙리스트 등록" />
+      <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
+      <Button onClick={onClickReadAuth} text="유저 조회" />
+
       <LendingStatusFilter
         dropValue={dropValue}
         STATUS_DATA={STATUS_DATA}
