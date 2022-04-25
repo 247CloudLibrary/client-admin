@@ -41,9 +41,15 @@ const BoardList = () => {
         console.log(noticeArr);
         const filtedByNoticeData =
           noticeArr.type !== "공지사항"
-            ? noticeArr.filter((i) => onabort.type === "공지사항")
+            ? noticeArr.filter((i) => i.type === "공지사항")
             : noticeArr;
         setNoticeData(filtedByNoticeData);
+
+        const filtedByInfoData =
+          infoArr.type !== "안내사항"
+            ? infoArr.filter((i) => i.type === "안내사항")
+            : infoArr;
+        setInfoData(filtedByInfoData);
       });
   }, []);
 
@@ -100,7 +106,11 @@ const BoardList = () => {
         )}
         {mode === "이용안내" && (
           <div className="info-box">
-            <BoardInfo />
+            <BoardInfo
+              id={infoData[0].id}
+              title={infoData[0].title}
+              contents={infoData[0].contents}
+            />
           </div>
         )}
         {mode === "오시는 길" && (

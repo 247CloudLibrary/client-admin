@@ -1,9 +1,11 @@
 import axios from "axios";
 import HTMLReactParser from "html-react-parser";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const GuideForm = () => {
   const [guideData, setGuideData] = useState([{}]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -19,6 +21,11 @@ const GuideForm = () => {
         setGuideData(filtedByGuideData);
       });
   }, []);
+  const id = guideData[0].id;
+
+  const toGuideEdit = () => {
+    navigate(`/boards/edit/${id}`);
+  };
 
   console.log(guideData);
   return (
@@ -29,6 +36,11 @@ const GuideForm = () => {
         <div className="contents-form">
           {HTMLReactParser(`${guideData[0].contents}`)}
         </div>
+      </div>
+      <div className="edit-btn">
+        <button className="edit" onClick={toGuideEdit}>
+          수정
+        </button>
       </div>
     </div>
   );
