@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const GuideForm = () => {
-  const [guideData, setGuideData] = useState([{}]);
+  const [guideData, setGuideData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,22 +19,29 @@ const GuideForm = () => {
         filtedByLibraryName.type !== "안내사항"
           ? filtedByLibraryName.filter((i) => i.type === "안내사항")
           : filtedByLibraryName;
-      setGuideData(filtedByGuideData);
+      setGuideData(filtedByGuideData[0]);
     });
   }, []);
-  const id = guideData[0].id;
+  console.log(guideData);
 
   const toGuideEdit = () => {
-    navigate(`/boards/edit/${id}`);
+    navigate(`/boards/edit/${guideData.id}`, {
+      state: {
+        id: guideData.id,
+        defaultTitle: guideData.title,
+        defaultType: guideData.type,
+        defaultContents: guideData.contents,
+      },
+    });
   };
 
   return (
     <div id="guide-form">
       <div className="board-guide">이용안내</div>
       <div className="text-form">
-        <div className="title-form">{guideData[0].title}</div>
+        <div className="title-form">{guideData.title}</div>
         <div className="contents-form">
-          {HTMLReactParser(`${guideData[0].contents}`)}
+          {HTMLReactParser(`${guideData.contents}`)}
         </div>
       </div>
       <div className="edit-btn">

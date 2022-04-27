@@ -11,7 +11,7 @@ const BoardList = () => {
   const [btn, setBtn] = useState(false);
   const [head, setHead] = useState(false);
   const [noticeData, setNoticeData] = useState([]);
-  const [infoData, setInfoData] = useState([{}]);
+  const [infoData, setInfoData] = useState([]);
   const [mode, setMode] = useState("공지사항");
 
   const libraryName = "임시도서관";
@@ -38,21 +38,21 @@ const BoardList = () => {
       const boardArr = response.data.data;
 
       console.log(boardArr);
-      // const filtedByLibraryName =
-      //   boardArr.libraryName !== libraryName
-      //     ? boardArr.filter((i) => i.libraryName === libraryName)
-      //     : boardArr;
+      const filtedByLibraryName =
+        boardArr.libraryName !== libraryName
+          ? boardArr.filter((i) => i.libraryName === libraryName)
+          : boardArr;
 
       const filtedByNoticeData =
-        boardArr.type !== "공지사항"
-          ? boardArr.filter((i) => i.type === "공지사항")
-          : boardArr;
+        filtedByLibraryName.type !== "공지사항"
+          ? filtedByLibraryName.filter((i) => i.type === "공지사항")
+          : filtedByLibraryName;
       setNoticeData(filtedByNoticeData);
 
       const filtedByInfoData =
-        boardArr.type !== "안내사항"
-          ? boardArr.filter((i) => i.type === "안내사항")
-          : boardArr;
+        filtedByLibraryName.type !== "안내사항"
+          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+          : filtedByLibraryName;
       setInfoData(filtedByInfoData);
     });
   }, []);
@@ -110,11 +110,7 @@ const BoardList = () => {
         )}
         {mode === "이용안내" && (
           <div className="info-box">
-            <BoardInfo
-              id={infoData[0].id}
-              title={infoData[0].title}
-              contents={infoData[0].contents}
-            />
+            <BoardInfo infoData={infoData[0]} />
           </div>
         )}
         {mode === "오시는 길" && (
