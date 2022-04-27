@@ -68,7 +68,7 @@ const BoardWriteForm = () => {
         </div>
         <div className="content-box">
           <div className="content">
-            <div className="content-quill">
+            <div>
               <CKEditor
                 editor={ClassicEditor}
                 config={{
