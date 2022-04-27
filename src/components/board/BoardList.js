@@ -14,6 +14,8 @@ const BoardList = () => {
   const [infoData, setInfoData] = useState([{}]);
   const [mode, setMode] = useState("공지사항");
 
+  const libraryName = "임시도서관";
+
   const getMode = (mode) => {
     setMode(mode);
     if (mode === "공지사항") {
@@ -35,20 +37,24 @@ const BoardList = () => {
     axios
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
       .then((response) => {
-        const noticeArr = response.data.data;
-        const infoArr = response.data.data;
+        const boardArr = response.data.data;
 
-        console.log(noticeArr);
+        console.log(boardArr);
+        const filtedByLibraryName =
+          boardArr.libraryName !== libraryName
+            ? boardArr.filter((i) => i.libraryName === libraryName)
+            : boardArr;
+
         const filtedByNoticeData =
-          noticeArr.type !== "공지사항"
-            ? noticeArr.filter((i) => i.type === "공지사항")
-            : noticeArr;
+          filtedByLibraryName.type !== "공지사항"
+            ? filtedByLibraryName.filter((i) => i.type === "공지사항")
+            : filtedByLibraryName;
         setNoticeData(filtedByNoticeData);
 
         const filtedByInfoData =
-          infoArr.type !== "안내사항"
-            ? infoArr.filter((i) => i.type === "안내사항")
-            : infoArr;
+          filtedByLibraryName.type !== "안내사항"
+            ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+            : filtedByLibraryName;
         setInfoData(filtedByInfoData);
       });
   }, []);

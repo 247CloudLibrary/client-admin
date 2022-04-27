@@ -10,13 +10,17 @@ const NoticesList = () => {
     axios
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
       .then((response) => {
-        const noticesArr = response.data.data;
+        const boardArr = response.data.data;
 
-        console.log(noticesArr);
+        console.log(boardArr);
+        const filtedByLibraryName =
+          boardArr.libraryName !== ""
+            ? boardArr.filter((i) => i.libraryName === "")
+            : boardArr;
         const filtedByNoticesData =
-          noticesArr.type !== "공지사항"
-            ? noticesArr.filter((i) => i.type === "공지사항")
-            : noticesArr;
+          filtedByLibraryName.type !== "공지사항"
+            ? filtedByLibraryName.filter((i) => i.type === "공지사항")
+            : filtedByLibraryName;
         setNoticesData(filtedByNoticesData);
       });
   }, []);

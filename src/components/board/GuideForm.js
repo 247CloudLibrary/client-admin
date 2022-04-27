@@ -11,13 +11,17 @@ const GuideForm = () => {
     axios
       .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
       .then((guide) => {
-        const guideArr = guide.data.data;
+        const boardArr = guide.data.data;
 
-        console.log(guideArr);
+        console.log(boardArr);
+        const filtedByLibraryName =
+          boardArr.libraryName !== ""
+            ? boardArr.filter((i) => i.libraryName === "")
+            : boardArr;
         const filtedByGuideData =
-          guideArr.type !== "안내사항"
-            ? guideArr.filter((i) => i.type === "안내사항")
-            : guideArr;
+          filtedByLibraryName.type !== "안내사항"
+            ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+            : filtedByLibraryName;
         setGuideData(filtedByGuideData);
       });
   }, []);
