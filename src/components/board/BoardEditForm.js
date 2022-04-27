@@ -4,8 +4,6 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 
-const libraryName = "OOO 도서관";
-
 const BoardEditForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +12,7 @@ const BoardEditForm = () => {
     title: "",
     contents: "",
   });
-
+  const libraryName = "도곡정보문화도서관";
   const id = location.state.id;
   const defaultType = location.state.defaultType;
   const defaultTitle = location.state.defaultTitle;

@@ -37,23 +37,23 @@ const BoardList = () => {
     axios.get("https://www.cloudlibrary.shop/v1/boards").then((response) => {
       const boardArr = response.data.data;
 
-      // console.log(boardArr);
+      console.log(boardArr);
       // const filtedByLibraryName =
       //   boardArr.libraryName !== libraryName
       //     ? boardArr.filter((i) => i.libraryName === libraryName)
       //     : boardArr;
 
-      // const filtedByNoticeData =
-      //   filtedByLibraryName.type !== "공지사항"
-      //     ? filtedByLibraryName.filter((i) => i.type === "공지사항")
-      //     : filtedByLibraryName;
-      setNoticeData(boardArr);
+      const filtedByNoticeData =
+        boardArr.type !== "공지사항"
+          ? boardArr.filter((i) => i.type === "공지사항")
+          : boardArr;
+      setNoticeData(filtedByNoticeData);
 
-      // const filtedByInfoData =
-      //   filtedByLibraryName.type !== "안내사항"
-      //     ? filtedByLibraryName.filter((i) => i.type === "안내사항")
-      //     : filtedByLibraryName;
-      setInfoData(boardArr);
+      const filtedByInfoData =
+        boardArr.type !== "안내사항"
+          ? boardArr.filter((i) => i.type === "안내사항")
+          : boardArr;
+      setInfoData(filtedByInfoData);
     });
   }, []);
 
