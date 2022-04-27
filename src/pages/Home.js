@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <h1>OOO 도서관</h1>
+      <h1>도서관 관리자</h1>
       <Link to={"/boards"}>
         <button>공지사항 관리</button>
       </Link>
@@ -24,6 +24,9 @@ const Home = () => {
       </Link>
       <Link to={"/auth"}>
         <button>회원 조회</button>
+      </Link>
+      <Link to={"/libraries/list"}>
+        <button>도서관 목록</button>
       </Link>
     </div>
   );
