@@ -23,7 +23,7 @@ const LendingPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/libraries")
+      .get("https://www.cloudlibrary.shop/v1/libraries")
       .then((result) => {
         setLibraryData(result.data.data);
       });
