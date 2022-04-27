@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, initializeForm } from "../../modules/auth";
+import { changeField, initializeForm, login } from "../../modules/auth";
 import LoginForm from "../../components/auth/LoginForm";
 import { check } from "../../modules/user";
 import { useNavigate } from "react-router-dom";
@@ -29,11 +29,8 @@ const AuthForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     navigate("/main");
-    /*
-    로그인 코드 
     const { userId, password } = form;
     dispatch(login({ userId, password }));
-    */
   };
 
   useEffect(() => {
