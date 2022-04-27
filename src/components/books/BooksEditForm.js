@@ -162,10 +162,7 @@ const BooksEditForm = () => {
       return;
     } else {
       axios
-        .patch(
-          `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books/${id}`,
-          { id: id }
-        )
+        .patch(`https://www.cloudlibrary.shop/v1/books/${id}`, { id: id })
         .then(() => {
           alert("도서관이 삭제되었습니다.");
         });
@@ -178,28 +175,25 @@ const BooksEditForm = () => {
           e.preventDefault();
 
           axios
-            .put(
-              `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books/${id}`,
-              {
-                thumbNailImage: thumbNailImage,
-                coverImage: coverImage,
-                libraryName: libraryName,
-                title: title,
-                author: author,
-                translator: translator,
-                publisher: publisher,
-                barcode: barcode,
-                isbn: isbn,
-                publishDate: publishDate,
-                bookType: bookType,
-                genre: genre,
-                rid: rid,
-                rfid: rfid,
-                bookStatus: bookStatus,
-                category: category,
-                contents: contents,
-              }
-            )
+            .put(`https://www.cloudlibrary.shop/v1/books/${id}`, {
+              thumbNailImage: thumbNailImage,
+              coverImage: coverImage,
+              libraryName: libraryName,
+              title: title,
+              author: author,
+              translator: translator,
+              publisher: publisher,
+              barcode: barcode,
+              isbn: isbn,
+              publishDate: publishDate,
+              bookType: bookType,
+              genre: genre,
+              rid: rid,
+              rfid: rfid,
+              bookStatus: bookStatus,
+              category: category,
+              contents: contents,
+            })
             .then(function (response) {
               console.log(response);
               navigate("/books");

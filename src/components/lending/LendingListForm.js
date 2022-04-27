@@ -20,12 +20,8 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
   useEffect(() => {
     axios
       .all([
-        axios.get(
-          "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending"
-        ),
-        axios.get(
-          "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books"
-        ),
+        axios.get("https://www.cloudlibrary.shop/v1/lending"),
+        axios.get("https://www.cloudlibrary.shop/v1/books"),
       ])
       .then((result) => {
         const resultArray = mergeArrayObjects(

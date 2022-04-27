@@ -1,33 +1,179 @@
 #libraries-detail {
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  height: auto;
+  position: relative;
   align-items: center;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  .header {
+    width: 100%;
+    height: 15rem;
+  }
+  .library-name {
+    font-family: "Nanum Gothic Coding";
+    font-size: 2rem;
+    text-align: center;
+  }
   .info-area {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
     position: relative;
-    margin-top: 10rem;
-    .library-name {
-      font-size: 2rem;
+    .detail-info {
       text-align: center;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      font-family: "Nanum Gothic Coding";
     }
     .detail-area {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15rem;
       margin-top: 3rem;
-      background-color: azure;
-      .detail-text {
-        .tag {
-          width: auto;
-          font-size: 1.3rem;
-          font-weight: 700;
+      .detail-box {
+        display: flex;
+        .detail-text {
+          display: flex;
+          margin-top: 1rem;
+          font-family: "Lexend Deca", sans-serif;
+          .td-icon {
+            font-size: 1.3rem;
+          }
+          .tag {
+            width: auto;
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
+          .address,
+          .email,
+          .tel,
+          .holiday,
+          .operatingTime,
+          .createdAt,
+          .updatedAt {
+            width: auto;
+            font-size: 1.3rem;
+          }
+          .address {
+            margin-left: 8rem;
+          }
+          .tel {
+            margin-left: 8.27rem;
+          }
+          .email {
+            margin-left: 6.69rem;
+          }
+          .holiday {
+            margin-left: 6.69rem;
+          }
+          .operatingTime {
+            margin-left: 5.39rem;
+          }
+          .createdAt {
+            margin-left: 6.69rem;
+          }
+          .updatedAt {
+            margin-left: 6.69rem;
+          }
         }
-        .value {
-          width: auto;
-          font-size: 1.3rem;
-          margin-left: 2rem;
-          padding-left: 4rem;
+      }
+    }
+  }
+  .rule-area {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+    text-align: center;
+    justify-content: space-between;
+    .detail-info {
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: "Nanum Gothic Coding";
+    }
+    .up-rule {
+      display: flex;
+      justify-content: center;
+      .library-rule {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        font-family: "Lexend Deca", sans-serif;
+
+        .icon-num {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .label {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: rgb(66, 64, 64);
+          font-size: 1.5rem;
+        }
+        .content {
+          display: inline-block;
+          color: white;
+
+          width: 5rem;
+          height: 1rem;
+        }
+        .icon {
+          font-size: 2.5rem;
+          color: rgb(51, 61, 65);
+        }
+        .text {
+          padding-bottom: 0.5rem;
+          margin-left: 1.5rem;
+          font-size: 4rem;
+          font-weight: 700;
+          color: lightskyblue;
+          text-shadow: 1px 1px 2px rgb(24, 7, 97);
+        }
+      }
+    }
+    .down-rule {
+      display: flex;
+      margin-top: 2rem;
+      .library-rule {
+        font-family: "Lexend Deca", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+
+        .icon-num {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .label {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: rgb(66, 64, 64);
+          font-size: 1.2rem;
+        }
+
+        .icon {
+          font-size: 2.5rem;
+          color: rgb(51, 61, 65);
+        }
+        .text {
+          padding-bottom: 0.5rem;
+          margin-left: 1.5rem;
+          font-size: 4rem;
+          font-weight: 700;
+          color: lightskyblue;
+          text-shadow: 1px 1px 2px rgb(24, 7, 97);
         }
       }
     }
@@ -38,7 +184,7 @@
       font-size: 1.125rem;
       font-weight: bold;
       padding: 1rem 1rem;
-      margin-top: 0.7rem;
+      margin-top: 3rem;
       margin-right: 1rem;
       width: auto;
       border-radius: 4px;
@@ -51,15 +197,13 @@
         background-color: #2b3c4e;
       }
     }
-  }
-  .btn-area {
     .edit-btn {
       border: none;
       font-size: 1.125rem;
       font-weight: bold;
       padding: 1rem 1rem;
-      margin-top: 0.7rem;
       margin-left: 1rem;
+      margin-top: 3rem;
       width: auto;
       border-radius: 4px;
       background-color: #435769;

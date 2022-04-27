@@ -20,9 +20,7 @@ const BoardDetailForm = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards/${id}`
-      )
+      .get(`https://www.cloudlibrary.shop/v1/boards/${id}`)
       .then(function (notice) {
         setNoData(notice.data.data);
       });

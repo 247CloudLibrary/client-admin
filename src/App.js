@@ -1,35 +1,36 @@
-import { Route, Routes } from 'react-router-dom';
-import BlacklistPage from './pages/BlacklistPage';
+import { Route, Routes } from "react-router-dom";
+import BlacklistPage from "./pages/BlacklistPage";
 
 /*Board*/
-import BoardsPage from './pages/board/BoardsPage';
-import NoticesPage from './pages/board/NoticesPage';
-import NoticesDetail from './components/board/NoticesDetail';
-import GuidePage from './pages/board/GuidePage';
-import BoardListPage from './pages/board/BoardListPage';
-import BoardDetailPage from './pages/board/BoardDetailPage';
-import BoardEditPage from './pages/board/BoardEditPage';
-import BoardWritePage from './pages/board/BoardWritePage';
+import BoardsPage from "./pages/board/BoardsPage";
+import NoticesPage from "./pages/board/NoticesPage";
+import NoticesDetail from "./components/board/NoticesDetail";
+import GuidePage from "./pages/board/GuidePage";
+import BoardListPage from "./pages/board/BoardListPage";
+import BoardDetailPage from "./pages/board/BoardDetailPage";
+import BoardEditPage from "./pages/board/BoardEditPage";
+import BoardWritePage from "./pages/board/BoardWritePage";
 
 /* Book */
-import BooksEditPage from './pages/books/BooksEditPage';
-import BooksListPage from './pages/books/BooksListPage';
-import BooksWritePage from './pages/books/BooksWritePage';
-import BooksDetailPage from './pages/books/BooksDetailPage';
+import BooksEditPage from "./pages/books/BooksEditPage";
+import BooksListPage from "./pages/books/BooksListPage";
+import BooksWritePage from "./pages/books/BooksWritePage";
+import BooksDetailPage from "./pages/books/BooksDetailPage";
 
 /* Libraries */
-import LibrariesListPage from './pages/libraries/LibrariesListPage';
-import LibrariesDetailPage from './pages/libraries/LibrariesDetailPage';
-import LibrariesRulePage from './pages/libraries/LibrariesRulePage';
-import LibrariesEditPage from './pages/libraries/LibrariesEditPage';
+import LibrariesListPage from "./pages/libraries/LibrariesListPage";
+import LibrariesDetailPage from "./pages/libraries/LibrariesDetailPage";
+import LibrariesWritePage from "./pages/libraries/LibrariesWritePage";
+import LibrariesRulePage from "./pages/libraries/LibrariesRulePage";
+import LibrariesEditPage from "./pages/libraries/LibrariesEditPage";
 
-import FindIdPage from './pages/auth/FindIdPage';
-import FindPwPage from './pages/auth/FindPwPage';
-import Home from './pages/Home';
-import LendingPage from './pages/LendingPage';
-import UserListPage from './pages/UserListPage';
-import LoginPage from './pages/auth/LoginPage';
-import ProfilePage from './pages/auth/ProfilePage';
+import FindIdPage from "./pages/auth/FindIdPage";
+import FindPwPage from "./pages/auth/FindPwPage";
+import Home from "./pages/Home";
+import LendingPage from "./pages/LendingPage";
+import UserListPage from "./pages/UserListPage";
+import LoginPage from "./pages/auth/LoginPage";
+import ProfilePage from "./pages/auth/ProfilePage";
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
       <Route path="/books/edit/:id" element={<BooksEditPage />} />
       <Route path="/books/detail/:id" element={<BooksDetailPage />} />
       <Route path="/libraries/list" element={<LibrariesListPage />} />
+      <Route path="/libraries/write" element={<LibrariesWritePage />} />
       <Route path="/libraries/detail/:id" element={<LibrariesDetailPage />} />
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
       <Route path="/libraries/edit/:id" element={<LibrariesEditPage />} />

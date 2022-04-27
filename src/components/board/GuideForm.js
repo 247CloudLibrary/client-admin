@@ -8,22 +8,19 @@ const GuideForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
-      .then((guide) => {
-        const boardArr = guide.data.data;
+    axios.get("https://www.cloudlibrary.shop/v1/boards").then((guide) => {
+      const boardArr = guide.data.data;
 
-        console.log(boardArr);
-        const filtedByLibraryName =
-          boardArr.libraryName !== ""
-            ? boardArr.filter((i) => i.libraryName === "")
-            : boardArr;
-        const filtedByGuideData =
-          filtedByLibraryName.type !== "안내사항"
-            ? filtedByLibraryName.filter((i) => i.type === "안내사항")
-            : filtedByLibraryName;
-        setGuideData(filtedByGuideData);
-      });
+      const filtedByLibraryName =
+        boardArr.libraryName !== ""
+          ? boardArr.filter((i) => i.libraryName === "")
+          : boardArr;
+      const filtedByGuideData =
+        filtedByLibraryName.type !== "안내사항"
+          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+          : filtedByLibraryName;
+      setGuideData(filtedByGuideData);
+    });
   }, []);
   const id = guideData[0].id;
 
@@ -31,7 +28,6 @@ const GuideForm = () => {
     navigate(`/boards/edit/${id}`);
   };
 
-  console.log(guideData);
   return (
     <div id="guide-form">
       <div className="board-guide">이용안내</div>

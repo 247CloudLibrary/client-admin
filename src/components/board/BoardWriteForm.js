@@ -28,15 +28,12 @@ const BoardWriteForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post(
-              "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards",
-              {
-                libraryName: libraryName,
-                type: type,
-                title: title,
-                contents: contents,
-              }
-            )
+            .post("https://www.cloudlibrary.shop/v1/boards", {
+              libraryName: libraryName,
+              type: type,
+              title: title,
+              contents: contents,
+            })
             .then(function (response) {
               console.log(response);
               alert("게시글이 등록되었습니다.");

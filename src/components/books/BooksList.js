@@ -8,7 +8,7 @@ const BooksList = () => {
 
   useEffect(() => {
     axios
-      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books")
+      .get("https://www.cloudlibrary.shop/v1/books")
       .then((response) => setBookList(response.data));
   }, [setBookList]);
   return (
