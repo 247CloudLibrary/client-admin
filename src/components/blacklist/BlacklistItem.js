@@ -10,9 +10,7 @@ const BlacklistItem = ({ uid, libraryName }) => {
       return;
     } else {
       axios
-        .delete(
-          `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending/blacklist?uid=${uid}`
-        )
+        .delete(`https://www.cloudlibrary.shop/v1/lending/blacklist?uid=${uid}`)
         .then((response) => {
           console.log(response);
         });

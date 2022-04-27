@@ -101,27 +101,24 @@ const BooksWriteForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post(
-              "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/books",
-              {
-                libraryName: libraryName,
-                isbn: isbn,
-                title: title,
-                author: author,
-                translator: translator,
-                contents: contents,
-                publisher: publisher,
-                publishDate: publishDate,
-                thumbNailImage: thumbNailImage,
-                coverImage: coverImage,
-                bookType: bookType,
-                genre: genre,
-                rfid: rfid,
-                barcode: barcode,
-                bookStatus: bookStatus,
-                category: category,
-              }
-            )
+            .post("https://www.cloudlibrary.shop/v1/books", {
+              libraryName: libraryName,
+              isbn: isbn,
+              title: title,
+              author: author,
+              translator: translator,
+              contents: contents,
+              publisher: publisher,
+              publishDate: publishDate,
+              thumbNailImage: thumbNailImage,
+              coverImage: coverImage,
+              bookType: bookType,
+              genre: genre,
+              rfid: rfid,
+              barcode: barcode,
+              bookStatus: bookStatus,
+              category: category,
+            })
             .then(function (response) {
               console.log(response);
               alert("도서가 등록되었습니다.");

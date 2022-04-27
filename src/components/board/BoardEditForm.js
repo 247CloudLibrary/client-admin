@@ -4,8 +4,6 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 
-const libraryName = "OOO 도서관";
-
 const BoardEditForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +12,7 @@ const BoardEditForm = () => {
     title: "",
     contents: "",
   });
-
+  const libraryName = "도곡정보문화도서관";
   const id = location.state.id;
   const defaultType = location.state.defaultType;
   const defaultTitle = location.state.defaultTitle;
@@ -40,9 +38,7 @@ const BoardEditForm = () => {
       return;
     } else {
       axios
-        .delete(
-          `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards/${id}`
-        )
+        .delete(`https://www.cloudlibrary.shop/v1/boards/${id}`)
         .then(function (boardDelete) {
           console.log(boardDelete);
           alert("게시글이 삭제되었습니다.");
@@ -56,15 +52,12 @@ const BoardEditForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .put(
-              `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards/${id}`,
-              {
-                type: type,
-                title: title,
-                contents: contents,
-                libraryName: libraryName,
-              }
-            )
+            .put(`https://www.cloudlibrary.shop/v1/boards/${id}`, {
+              type: type,
+              title: title,
+              contents: contents,
+              libraryName: libraryName,
+            })
             .then(function (response) {
               console.log(response);
               alert("게시글이 수정되었습니다.");

@@ -34,29 +34,27 @@ const BoardList = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards")
-      .then((response) => {
-        const boardArr = response.data.data;
+    axios.get("https://www.cloudlibrary.shop/v1/boards").then((response) => {
+      const boardArr = response.data.data;
 
-        console.log(boardArr);
-        const filtedByLibraryName =
-          boardArr.libraryName !== libraryName
-            ? boardArr.filter((i) => i.libraryName === libraryName)
-            : boardArr;
+      console.log(boardArr);
+      // const filtedByLibraryName =
+      //   boardArr.libraryName !== libraryName
+      //     ? boardArr.filter((i) => i.libraryName === libraryName)
+      //     : boardArr;
 
-        const filtedByNoticeData =
-          filtedByLibraryName.type !== "공지사항"
-            ? filtedByLibraryName.filter((i) => i.type === "공지사항")
-            : filtedByLibraryName;
-        setNoticeData(filtedByNoticeData);
+      const filtedByNoticeData =
+        boardArr.type !== "공지사항"
+          ? boardArr.filter((i) => i.type === "공지사항")
+          : boardArr;
+      setNoticeData(filtedByNoticeData);
 
-        const filtedByInfoData =
-          filtedByLibraryName.type !== "안내사항"
-            ? filtedByLibraryName.filter((i) => i.type === "안내사항")
-            : filtedByLibraryName;
-        setInfoData(filtedByInfoData);
-      });
+      const filtedByInfoData =
+        boardArr.type !== "안내사항"
+          ? boardArr.filter((i) => i.type === "안내사항")
+          : boardArr;
+      setInfoData(filtedByInfoData);
+    });
   }, []);
 
   const ListArray = [

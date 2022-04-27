@@ -7,9 +7,7 @@ const BlacklistForm = ({}) => {
 
   useEffect(() => {
     axios
-      .get(
-        "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/lending/blacklist"
-      )
+      .get("https://www.cloudlibrary.shop/v1/lending/blacklist")
       .then((result) => {
         console.log(result.data.data);
         setListItem(result.data.data);

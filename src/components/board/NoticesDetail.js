@@ -17,18 +17,14 @@ const NoticesDetail = () => {
   const location = useLocation();
 
   const id = location.state.id;
-  console.log(id);
 
   useEffect(() => {
     axios
-      .get(
-        `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/boards/${id}`
-      )
+      .get(`https://www.cloudlibrary.shop/v1/boards/${id}`)
       .then(function (detail) {
         setNoticeDetail(detail.data.data);
       });
   }, []);
-  console.log(noticeDetail);
 
   const toNoticesEdit = () => {
     navigate(`/boards/edit/${id}`, {
