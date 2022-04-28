@@ -9,6 +9,7 @@ const BooksListItem = ({
   translator,
   publishDate,
   publisher,
+  barcode,
   isbn,
   genre,
   libraryName,
@@ -23,6 +24,7 @@ const BooksListItem = ({
     { value: translator, className: "translator", label: "옮긴이: " },
     { value: publisher, className: "publisher", label: "발행처: " },
     { value: publishDate, className: "publish-date", label: "발행일: " },
+    { value: barcode, className: "barcode", label: "청구기호: " },
     { value: isbn, className: "isbn", label: "ISBN: " },
     { value: libraryName, className: "library-name", label: "도서관: " },
   ];
