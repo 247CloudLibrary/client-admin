@@ -1,35 +1,43 @@
+import axios from "axios";
 import HTMLReactParser from "html-react-parser";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BoardInfo = ({ infoData }) => {
+const BoardInfo = ({ id, title, contents, type }) => {
   const navigate = useNavigate();
+  // const [info, setInfo] = useState([]);
+
+  const infoArray = [{ key: id, title: title, contents: contents }];
 
   const toInfoDetail = () => {
-    navigate(`/boards/edit/${infoData.id}`, {
+    navigate(`/boards/edit/${id}`, {
       state: {
-        id: infoData.id,
-        defaultTitle: infoData.title,
-        defaultType: infoData.type,
-        defaultContents: infoData.contents,
+        id: id,
+        defaultTitle: title,
+        defaultType: type,
+        defaultContents: contents,
       },
     });
   };
-  console.log(infoData);
+
   return (
     <div id="board-info">
-      <div className="info-form">
-        <div className="text-form">
-          <div className="title-form">{infoData.title}</div>
-          <div className="contents-form">
-            {HTMLReactParser(`${infoData.contents}`)}
+      {infoArray &&
+        infoArray.map((ia) => (
+          <div className="info-form" key={ia.key}>
+            <div className="text-form">
+              <div className="title-form">{ia.title}</div>
+              <div className="contents-form">
+                {HTMLReactParser(`${ia.contents}`)}
+              </div>
+            </div>
+            <div className="edit-btn">
+              <button className="edit" onClick={toInfoDetail}>
+                수정
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="edit-btn">
-          <button className="edit" onClick={toInfoDetail}>
-            수정
-          </button>
-        </div>
-      </div>
+        ))}
     </div>
   );
 };
