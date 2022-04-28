@@ -28,9 +28,11 @@ const AuthForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    navigate("/main");
+    navigate("/home");
+    /*
     const { userId, password } = form;
     dispatch(login({ userId, password }));
+     */
   };
 
   useEffect(() => {
