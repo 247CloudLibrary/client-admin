@@ -1,6 +1,6 @@
 import { FaUser } from "react-icons/fa";
 import { ImLibrary } from "react-icons/im";
-import { BsJournalText } from "react-icons/bs";
+import { BsJournalText, BsJournalCheck } from "react-icons/bs";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { IoSearch, IoBanOutline, IoFileTrayFullOutline } from "react-icons/io5";
 import { WiCloud } from "react-icons/wi";
@@ -12,7 +12,7 @@ const MainForm = ({ props }) => {
     <>
       <div className="main">
         <div className="header">
-          <Link to="/main" className="logo">
+          <Link to="/home" className="logo">
             <WiCloud />
             <span>Cloud Library</span>
           </Link>
@@ -27,7 +27,12 @@ const MainForm = ({ props }) => {
               <IoFileTrayFullOutline className="icon" />
               <span className="text">도서 관리</span>
             </div>
+            <div onClick={props.onLending}>
+              <BsJournalCheck className="icon" />
+              <span className="text">대출 관리</span>
+            </div>
           </div>
+
           <div className="feature">
             <div onClick={props.onProfile}>
               <FaUser className="icon" />
