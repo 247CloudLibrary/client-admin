@@ -26,12 +26,16 @@ const BooksList = () => {
   return (
     <div id="BookList">
       <div className="book-list">
-        <Link to="/books/write">
-          <button type="button" className="create-btn">
-            도서 등록
-          </button>
-        </Link>
-        <BookSearchFilter text={text} onChange={onchange} />
+        <div className="search">
+          <BookSearchFilter text={text} onChange={onchange} />
+        </div>
+        <div className="btn">
+          <Link to="/books/write">
+            <button type="button" className="create-btn">
+              도서 등록
+            </button>
+          </Link>
+        </div>
       </div>
       {bookList &&
         bookList.map((data) => (
