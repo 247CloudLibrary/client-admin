@@ -1,26 +1,49 @@
-import { Link } from 'react-router-dom';
-import { WiCloud } from 'react-icons/wi';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { WiCloud } from "react-icons/wi";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({ onChange, onSubmit, form }) => {
   const navigate = useNavigate();
   const onClick = () => {
-    navigate('/home');
+    navigate("/home");
   };
   return (
     <div className="loginForm">
-      <Link to={'/'} className="logo">
+      <Link to={"/"} className="logo">
         <WiCloud />
         <span>Cloud Library</span>
       </Link>
       <form onSubmit={onSubmit}>
-        <input type="text" placeholder="아이디" name="userId" onChange={onChange} value={form.userId} />
-        <input onChange={onChange} value={form.password} name="password" type="password" placeholder="비밀번호" />
-        <button className="login-btn" onClick={onClick}>
-          로그인
-        </button>
+        <div className="input-form">
+          <input
+            type="text"
+            id="login-id-input"
+            name="userId"
+            onChange={onChange}
+            value={form.userId}
+            autoComplete="off"
+            required
+          />
+          <label htmlFor="login-id-input" className="input-label">
+            <span className="content-text">아이디</span>
+          </label>
+        </div>
+        <div className="input-form">
+          <input
+            id="login-password-input"
+            onChange={onChange}
+            value={form.password}
+            name="password"
+            type="password"
+            required
+          />
+          <label htmlFor="login-password-input" className="input-label">
+            <span className="content-text">비밀번호</span>
+          </label>
+        </div>
+        <button className="login-btn">로그인</button>
       </form>
-      <footer>
+      <footer className="login-footer">
         <Link to="/find-id">
           <span>아이디찾기</span>
         </Link>
