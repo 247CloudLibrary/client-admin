@@ -20,7 +20,7 @@ const BooksDetail = () => {
 
   const BookDetailArray = [
     { value: bookData.author, key: "author", tag: "저자" },
-    { value: bookData.translator, key: "translator", tag: "역자" },
+    { value: bookData.translator, key: "translator", tag: "옮긴이" },
     { value: bookData.genre, key: "genre", tag: "장르" },
     { value: `${bookData.category}${code}`, key: "category", tag: "카테고리" },
     { value: bookData.isbn, key: "isbn", tag: "ISBN" },

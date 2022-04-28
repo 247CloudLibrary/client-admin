@@ -116,7 +116,7 @@ const BooksEditForm = () => {
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
     { value: title, name: "title", label: "책 제목" },
     { value: author, name: "author", label: "저자" },
-    { value: translator, name: "translator", label: "번역" },
+    { value: translator, name: "translator", label: "옮긴이" },
     { value: publisher, name: "publisher", label: "출판사" },
     { value: barcode, name: "barcode", label: "바코드" },
     { value: rid, name: "rid", label: "rid" },
