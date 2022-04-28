@@ -15,56 +15,53 @@ const BooksDetail = () => {
       .then(function (response) {
         setBookData(response.data.data);
         console.log(response);
+        switch (response.data.data.category) {
+          case "철학":
+            setCode("(100)");
+            break;
+          case "종교":
+            setCode("(200)");
+            break;
+          case "사회과학":
+            setCode("(300)");
+            break;
+          case "순수과학":
+            setCode("(400)");
+            break;
+          case "기술과학":
+            setCode("(500)");
+            break;
+          case "예술":
+            setCode("(600)");
+            break;
+          case "언어":
+            setCode("(700)");
+            break;
+          case "문학":
+            setCode("(800)");
+            break;
+          case "역사":
+            setCode("(900)");
+            break;
+          default:
+            setCode(code);
+        }
       });
   }, []);
 
   const BookDetailArray = [
     { value: bookData.author, key: "author", tag: "저자" },
-    { value: bookData.translator, key: "translator", tag: "역자" },
+    { value: bookData.translator, key: "translator", tag: "옮긴이" },
     { value: bookData.genre, key: "genre", tag: "장르" },
     { value: `${bookData.category}${code}`, key: "category", tag: "카테고리" },
     { value: bookData.isbn, key: "isbn", tag: "ISBN" },
-    { value: bookData.publisher, key: "publisher", tag: "출판사" },
-    { value: bookData.publishDate, key: "publishDate", tag: "출판일" },
+    { value: bookData.publisher, key: "publisher", tag: "발행처" },
+    { value: bookData.publishDate, key: "publishDate", tag: "발행일" },
     { value: bookData.barcode, key: "barcode", tag: "청구기호" },
     { value: bookData.libraryName, key: "libraryName", tag: "도서관" },
     { value: bookData.rid, key: "rid", tag: "rid" },
     { value: bookData.rfid, key: "rfid", tag: "rfid" },
   ];
-
-  useEffect(() => {
-    switch (bookData.category) {
-      case "철학":
-        setCode("(100)");
-        break;
-      case "종교":
-        setCode("(200)");
-        break;
-      case "사회과학":
-        setCode("(300)");
-        break;
-      case "순수과학":
-        setCode("(400)");
-        break;
-      case "기술과학":
-        setCode("(500)");
-        break;
-      case "예술":
-        setCode("(600)");
-        break;
-      case "언어":
-        setCode("(700)");
-        break;
-      case "문학":
-        setCode("(800)");
-        break;
-      case "역사":
-        setCode("(900)");
-        break;
-      default:
-        setCode(code);
-    }
-  }, []);
 
   const handleBtn = (e) => {
     navigate(`/books/edit/${id}`, {

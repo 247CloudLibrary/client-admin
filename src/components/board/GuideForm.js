@@ -11,14 +11,15 @@ const GuideForm = () => {
     axios.get("https://www.cloudlibrary.shop/v1/boards").then((guide) => {
       const boardArr = guide.data.data;
 
-      const filtedByLibraryName =
-        boardArr.libraryName !== ""
-          ? boardArr.filter((i) => i.libraryName === "")
-          : boardArr;
+      // const filtedByLibraryName =
+      //   boardArr.libraryName !== ""
+      //     ? boardArr.filter((i) => i.libraryName === "")
+      //     : boardArr;
+
       const filtedByGuideData =
-        filtedByLibraryName.type !== "안내사항"
-          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
-          : filtedByLibraryName;
+        boardArr.type !== "안내사항"
+          ? boardArr.filter((i) => i.type === "안내사항")
+          : boardArr;
       setGuideData(filtedByGuideData[0]);
     });
   }, []);
@@ -34,22 +35,30 @@ const GuideForm = () => {
       },
     });
   };
-
-  return (
-    <div id="guide-form">
-      <div className="board-guide">이용안내</div>
-      <div className="text-form">
-        <div className="title-form">{guideData.title}</div>
-        <div className="contents-form">
-          {HTMLReactParser(`${guideData.contents}`)}
+  if (guideData !== undefined) {
+    return (
+      <div id="guide-form">
+        <div className="board-guide">이용안내</div>
+        <div className="text-form">
+          <div className="title-form">{guideData.title}</div>
+          <div className="contents-form">
+            {HTMLReactParser(`${guideData.contents}`)}
+          </div>
+        </div>
+        <div className="edit-btn">
+          <button className="edit" onClick={toGuideEdit}>
+            수정
+          </button>
         </div>
       </div>
-      <div className="edit-btn">
-        <button className="edit" onClick={toGuideEdit}>
-          수정
-        </button>
+    );
+  } else {
+    return (
+      <div id="guide-form">
+        <div className="board-guide">이용안내</div>
+        <div className="text-form">등록된 내용이 없습니다.</div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 export default GuideForm;

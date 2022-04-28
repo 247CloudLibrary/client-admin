@@ -1,12 +1,12 @@
 #booksListItem {
   display: flex;
-  position: relative;
-  width: 40rem;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  width: 70rem;
+  height: 13rem;
+  margin: 1rem;
+  padding: 1rem;
   justify-content: center;
+  pointer-events: none;
+  border-top: solid 1px rgb(235, 235, 235);
   .list-item {
     display: flex;
     pointer-events: none;
@@ -15,8 +15,8 @@
       cursor: pointer;
       pointer-events: all;
       .image {
-        height: 140px;
-        width: 100px;
+        height: 200px;
+        width: 140px;
       }
     }
     .list {
@@ -26,17 +26,66 @@
       align-items: center;
       position: relative;
       flex-wrap: wrap;
-      .items {
+      .book-tag {
+        display: flex;
+        justify-content: space-between;
+        width: 13rem;
         .type {
           font-size: 1.3rem;
+          padding: 0.3rem;
+          background-color: rgb(235, 235, 235);
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 10px;
+          font-family: "Nanum Gothic Coding";
         }
-        .title {
-          position: relative;
-          display: inline-block;
+        .genre {
           font-size: 1.3rem;
-          width: 30rem;
-          cursor: pointer;
+          padding: 0.3rem;
+          background-color: rgb(235, 235, 235);
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 10px;
+          font-family: "Nanum Gothic Coding";
+        }
+        .category {
+          font-size: 1.3rem;
+          padding: 0.3rem;
+          background-color: rgb(235, 235, 235);
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 10px;
+          font-family: "Nanum Gothic Coding";
+        }
+      }
+      .items {
+        display: flex;
+        font-family: "Nanum Gothic Coding";
+        .title {
+          display: flex;
+          width: 60rem;
+          font-size: 1.7rem;
           pointer-events: all;
+          cursor: pointer;
+        }
+        .author,
+        .translator,
+        .publisher,
+        .publish-date,
+        .barcode,
+        .isbn,
+        .library-name {
+          font-size: 1.1rem;
+          padding: 0.3rem;
+          margin-right: 0.5rem;
+        }
+      }
+      .status {
+        display: flex;
+        width: 60rem;
+        background-color: rgb(235, 235, 235);
+        .book-status {
+          font-size: 1.3rem;
+          padding: 0.3rem;
+          margin-right: 4rem;
+          font-weight: bold;
         }
       }
     }

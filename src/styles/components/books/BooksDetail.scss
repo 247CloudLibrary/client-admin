@@ -4,6 +4,7 @@
   right: 0;
   top: 0;
   bottom: 0;
+  height: 100vh;
   background-color: aliceblue;
   .head {
     font-size: 3rem;
@@ -17,13 +18,19 @@
     .title-area {
       display: flex;
       justify-content: center;
+      font-family: "Nanum Gothic Coding";
       .title-box {
         display: flex;
         width: 50rem;
         position: relative;
         height: 3rem;
         align-items: center;
-        background-color: rgb(205, 248, 245);
+        background: rgb(227, 253, 255);
+        background: linear-gradient(
+          90deg,
+          rgb(204, 249, 255) 0%,
+          rgb(214, 250, 255) 100%
+        );
         border-bottom: none;
         .type {
           font-size: 1.3rem;
@@ -52,8 +59,8 @@
 
         .image-box {
           .coverImage {
-            width: 190px;
-            height: 260px;
+            width: 270px;
+            height: 350px;
 
             box-shadow: 0.1rem 0.1rem 0.1rem rgb(108, 156, 175);
           }
@@ -62,8 +69,9 @@
           display: flex;
           width: 40rem;
           flex-direction: column;
-          font-size: 1.1rem;
+          font-size: 1.2rem;
           margin: auto 0 auto 3rem;
+          font-family: "Lexend Deca", sans-serif;
           .label {
             margin-top: 0.5rem;
             .label-tag {
@@ -79,38 +87,41 @@
             .barcode,
             .publishDate,
             .libraryName {
-              padding-left: 10rem;
+              padding-left: 5rem;
             }
             .author {
+              padding-left: 9.7rem;
             }
             .translator {
+              padding-left: 8.5rem;
             }
             .genre {
+              padding-left: 9.7rem;
             }
             .category {
-              padding-left: 7.8rem;
+              padding-left: 7.3rem;
             }
             .isbn {
-              padding-left: 9.65rem;
+              padding-left: 9rem;
             }
             .publisher {
-              padding-left: 8.85rem;
+              padding-left: 8.5rem;
             }
             .publishDate {
-              padding-left: 8.8rem;
+              padding-left: 8.5rem;
             }
             .barcode {
-              padding-left: 7.8rem;
+              padding-left: 7.3rem;
             }
             .libraryName {
-              padding-left: 8.75rem;
+              padding-left: 8.5rem;
             }
             .rid {
-              padding-left: 10.6rem;
+              padding-left: 10.5rem;
               text-align: left;
             }
             .rfid {
-              padding-left: 10.2rem;
+              padding-left: 10.03rem;
             }
           }
         }
@@ -125,6 +136,7 @@
         font-size: 2rem;
         margin-top: 2rem;
         font-weight: 600;
+        font-family: "Nanum Gothic Coding";
       }
     }
     .contents-area {

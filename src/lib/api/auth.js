@@ -1,7 +1,10 @@
 import client from "./client";
 
 export const login = ({ userId, password }) => {
-  client.post("/auth/signin", { userId, password });
+  client.post(
+    "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/admin/signin",
+    { userId, password }
+  );
 };
 
 export const profile = () => {
