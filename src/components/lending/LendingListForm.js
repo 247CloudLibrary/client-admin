@@ -54,6 +54,7 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
             thumbnailImage={data.thumbnailImage}
             bookId={data.bookId}
             title={data.title}
+            libraryId={data.libraryId}
             libraryName={data.libraryName}
             lendingId={data.lendingId}
             barcode={data.barcode}

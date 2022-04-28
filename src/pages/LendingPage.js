@@ -45,34 +45,6 @@ const LendingPage = () => {
   console.log(libraryValue);
   const navigate = useNavigate();
 
-  const onClickUid = () => {
-    //TODO GET으로 UID조회
-  };
-  const onClickCreateLending = (e) => {
-    e.target
-      ? axios
-          .post(`https://www.cloudlibrary.shop/v1/lending/${lendingId}`, {
-            libraryId: libraryId,
-            bookId: bookId,
-            uid: uid,
-            barcode: barcode,
-            rfid: rfid,
-            lendingStatus: "OUT",
-          })
-          .then(function (response) {
-            console.log(response);
-            alert("대출이 완료되었습니다");
-          })
-      : alert("대출 할 수 없습니다");
-    console.log(LendingListItem);
-  };
-
-  const onClickCreateReturn = () => {
-    //TODO POST로 반납 처리
-  };
-  const onClickCreateBlacklist = () => {
-    //TODO POST로 블랙리스트 등록
-  };
   const onClickReadBlacklist = () => {
     navigate(`/lending/blacklist`);
   };
@@ -82,7 +54,6 @@ const LendingPage = () => {
 
   return (
     <div>
-      <Button onClick={onClickCreateBlacklist} text="블랙리스트 등록" />
       <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
       <Button onClick={onClickReadAuth} text="유저 조회" />
 

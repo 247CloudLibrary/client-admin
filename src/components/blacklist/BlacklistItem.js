@@ -14,7 +14,6 @@ const BlacklistItem = ({ uid, libraryName }) => {
         .then((response) => {
           console.log(response);
         });
-      window.location.reload();
     }
   };
 

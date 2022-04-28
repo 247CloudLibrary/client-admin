@@ -1,4 +1,13 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GrBook } from "react-icons/gr";
+
+const LENDINGSTATUS_DATA = [
+  { value: "OVERDUE", tag: "연체중" },
+  { value: "OUT", tag: "대출중" },
+  { value: "LOSS", tag: "분실" },
+  { value: "RETURN", tag: "대출 가능" },
+];
 
 const LendingListItem = ({
   uid,
@@ -6,6 +15,7 @@ const LendingListItem = ({
   lendingId,
   bookId,
   title,
+  libraryId,
   libraryName,
   barcode,
   lendingStatus,
@@ -14,6 +24,23 @@ const LendingListItem = ({
 }) => {
   const navigate = useNavigate();
 
+  const [lendingStatusValue, setLendingStatusValue] = useState();
+  const [returnDateValue, setReturnDateValue] = useState();
+
+  useEffect(() => {
+    const lendingFilted = lendingStatus
+      ? LENDINGSTATUS_DATA.filter((i) => i.value === lendingStatus)[0].tag
+      : lendingStatus;
+    setLendingStatusValue(lendingFilted);
+  }, []);
+
+  useEffect(() => {
+    const returnDateFilted =
+      returnDateTime !== "" ? `반납예정일+ ${returnDateTime}` : "";
+
+    setReturnDateValue(returnDateFilted);
+  }, []);
+
   const handlePath = () => {
     navigate(`/lending/detail/${bookId}`, {
       state: { bookId: bookId },
@@ -21,23 +48,30 @@ const LendingListItem = ({
   };
 
   return (
-    <div className="lening-items" onClick={handlePath}>
-      <div className="thumbnailImage">{thumbnailImage}</div>
-      <div className="bookData">
-        <span>책 제목: {title}</span>
-        <span>도서관: {libraryName}</span>
-        <span>빌린이: {uid}</span>
-        <span>청구기호: {barcode}</span>
-        <span>대출일: {lendingDateTime}</span>
-        <span>반납예정일: {returnDateTime}</span>
+    <div className="lending-items" key={lendingId} onClick={handlePath}>
+      <div className="image-area">
+        <img src={thumbnailImage} alt={title} className="thumbnailImage" />
       </div>
-      <div className="bookStatusBar">
-        <span id={lendingStatus}>상태: {lendingStatus}</span>
-        <span>연체 일수: </span>
-        <span>연체 일수: 어떻게하징 </span>
+      <div className="lendingWrap">
+        <div className="lendingTitle">책 제목: {title}</div>
+        <div className="lendingUser">
+          <span className="uid">빌린이: {uid}</span>
+          <span className="lendingDateTime">대출일: {lendingDateTime}</span>
+        </div>
+        <div className="lendingData">
+          <span className="barcode">청구기호: {barcode}</span>
+          <span id={libraryId} className="libraryName">
+            도서관: {libraryName}
+          </span>
+        </div>
+        <div className="lendingStatusBar">
+          <span className="lendingStatus">대출 상태: {lendingStatusValue}</span>
+          <span className="lendingReturn">
+            <GrBook /> {returnDateValue}
+          </span>
+        </div>
       </div>
     </div>
   );
 };
-
 export default LendingListItem;

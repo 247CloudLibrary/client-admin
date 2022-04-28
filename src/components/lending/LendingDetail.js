@@ -94,7 +94,6 @@ const LendingDetail = () => {
         .then(() => {
           alert("대출이 완료되었습니다.");
         });
-      window.location.reload();
     }
   };
 
@@ -121,7 +120,6 @@ const LendingDetail = () => {
           alert("반납이 완료되었습니다.");
           lendingData.lendingUid = "";
         });
-      window.location.reload();
     }
   };
 
@@ -140,7 +138,6 @@ const LendingDetail = () => {
         .then(() => {
           alert("등록이 완료되었습니다.");
         });
-      window.location.reload();
     }
   };
 

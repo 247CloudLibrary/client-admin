@@ -38,6 +38,11 @@
 @import "./components/libraries/LibrariesEdit.scss";
 @import "./components/libraries/LibrariesRuleForm.scss";
 
+/* Lending */
+@import "./components/lending/LendingListForm.scss";
+@import "./components/lending/LendingDetail.scss";
+@import "./components/lending/LendingListItem.scss";
+
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");

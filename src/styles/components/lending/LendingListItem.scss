@@ -1,0 +1,84 @@
+.lending-items {
+    display: flex;
+    width: 80rem;
+    height: 20rem;
+    margin: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    pointer-events: none;
+    border-top: solid 1px rgb(235, 235, 235);
+      .image-area {
+          pointer-events: all;
+          display: flex;
+          margin-right: 2rem;
+          cursor: pointer;
+        .thumbnailImage {
+          width: 15rem;
+        }
+      }
+      .lendingWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .lendingTitle {
+            display: flex;
+            width: 60rem;
+            font-size: 3rem;
+            pointer-events: all;
+            cursor: pointer;
+        }
+        .lendingUser {
+            display: flex;
+            width: 60rem;
+          .uid {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+          .lendingDateTime {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+        }
+        .lendingData {
+            display: flex;
+            width: 60rem;
+          .barcode {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+          .libraryName {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+        }
+        .lendingStatusBar {
+            display: flex;
+            width: 60rem;
+            background-color: rgb(235, 235, 235);
+          .lendingStatus {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 4rem;
+            color: slateblue;
+            font-weight: bold;
+
+          }
+          .lendingReturn {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+            font-weight: bold;
+            color: red;
+          }
+        }
+
+
+    }
+  
+    }
