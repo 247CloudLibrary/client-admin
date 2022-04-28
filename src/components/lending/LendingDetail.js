@@ -70,7 +70,7 @@ const LendingDetail = () => {
     },
   ];
 
-  const createLendingClick = () => {
+  const createLendingClick = (e) => {
     e.preventDefault();
     if (lendingData.lendingStatus === "OUT") {
       window.alert("이미 대출된 도서입니다.");
@@ -94,10 +94,11 @@ const LendingDetail = () => {
         .then(() => {
           alert("대출이 완료되었습니다.");
         });
+      window.location.reload();
     }
   };
 
-  const createRentalClick = () => {
+  const createRentalClick = (e) => {
     e.preventDefault();
     if (window.confirm("반납 하시겠습니까?") === false) {
       return;
@@ -120,6 +121,7 @@ const LendingDetail = () => {
           alert("반납이 완료되었습니다.");
           lendingData.lendingUid = "";
         });
+      window.location.reload();
     }
   };
 
@@ -138,6 +140,7 @@ const LendingDetail = () => {
         .then(() => {
           alert("등록이 완료되었습니다.");
         });
+      window.location.reload();
     }
   };
 
@@ -176,9 +179,15 @@ const LendingDetail = () => {
           </div>
         </div>
       </div>
-      <button onClick={createLendingClick}>대출</button>
-      <button onClick={createRentalClick}>반납</button>
-      <button onClick={updateBlacklistClick}>블랙리스트 등록</button>
+      <button onClick={createLendingClick} type="submit">
+        대출
+      </button>
+      <button onClick={createRentalClick} type="submit">
+        반납
+      </button>
+      <button onClick={updateBlacklistClick} type="submit">
+        블랙리스트 등록
+      </button>
     </div>
   );
 };
