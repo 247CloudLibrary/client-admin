@@ -71,6 +71,7 @@ const LendingDetail = () => {
   ];
 
   const createLendingClick = () => {
+    e.preventDefault();
     if (lendingData.lendingStatus === "OUT") {
       window.alert("이미 대출된 도서입니다.");
     } else if (window.confirm("대출 하시겠습니까?") === false) {
@@ -97,6 +98,7 @@ const LendingDetail = () => {
   };
 
   const createRentalClick = () => {
+    e.preventDefault();
     if (window.confirm("반납 하시겠습니까?") === false) {
       return;
     } else {
