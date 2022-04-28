@@ -8,21 +8,22 @@ const BoardEditForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [editContent, setEditContent] = useState({
-    type: "Notice",
-    title: "",
-    contents: "",
+    type: location.state.defaultType,
+    title: location.state.defaultTitle,
+    contents: location.state.defaultContents,
   });
   const libraryName = "도곡정보문화도서관";
   const id = location.state.id;
-  const defaultType = location.state.defaultType;
-  const defaultTitle = location.state.defaultTitle;
-  const defaultContents = location.state.defaultContents;
-  console.log(defaultType);
-  console.log(defaultTitle);
-  console.log(defaultContents);
-  console.log(id);
 
-  const { type, title, contents } = editContent;
+  console.log(id);
+  let { type, title, contents } = editContent;
+  switch (type) {
+    case "안내사항":
+      type = "INFO";
+      break;
+    default:
+      type = "NOTICE";
+  }
 
   const getValue = (e) => {
     setEditContent({
@@ -68,21 +69,21 @@ const BoardEditForm = () => {
         <h1 className="library-name">{libraryName}</h1>
         <div className="type">
           <select
-            defaultChecked={defaultType}
-            value={type}
+            defaultValue={type}
+            defaultinputvalue={type}
             name="type"
             className="type-item"
             onChange={getValue}
           >
-            <option value="Notice">공지사항 게시판</option>
-            <option value="Info">이용안내 게시판</option>
+            <option value="NOTICE">공지사항 게시판</option>
+            <option value="INFO">이용안내 게시판</option>
           </select>
         </div>
         <div className="title">
           <input
             type="text"
             className="title-input"
-            defaultValue={defaultTitle}
+            defaultValue={title}
             name="title"
             onChange={getValue}
           />
@@ -103,7 +104,7 @@ const BoardEditForm = () => {
                   ],
                   placeholder: "내용을 작성해주세요...",
                 }}
-                onReady={(editor) => editor.data.set(defaultContents)}
+                onReady={(editor) => editor.data.set(contents)}
                 onChange={(event, editor) => {
                   const data = editor.getData();
                   setEditContent({

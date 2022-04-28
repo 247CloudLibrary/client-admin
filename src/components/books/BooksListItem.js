@@ -18,15 +18,12 @@ const BooksListItem = ({
 }) => {
   const [num, setNum] = useState("(0)");
   const BookListItemArray = [
-    { value: bookType, className: "type", label: "" },
     { value: title, className: "title", label: "" },
     { value: author, className: "author", label: "저자: " },
-    { value: translator, className: "translator", label: "역자: " },
+    { value: translator, className: "translator", label: "옮긴이: " },
     { value: publisher, className: "publisher", label: "발행처: " },
     { value: publishDate, className: "publish-date", label: "발행일: " },
     { value: isbn, className: "isbn", label: "ISBN: " },
-    { value: genre, className: "genre", label: "장르: " },
-    { value: `${category}${num}`, className: "category", label: "카테고리: " },
     { value: libraryName, className: "library-name", label: "도서관: " },
     { value: bookStatus, className: "book-status", label: "" },
   ];
@@ -69,6 +66,11 @@ const BooksListItem = ({
           <img src={thumbNailImage} alt="" className="image" />
         </div>
         <div className="list">
+          <div className="book-tag">
+            <span className="type">{bookType}</span>
+            <span className="genre">{genre}</span>
+            <span className="category">{category}</span>
+          </div>
           {BookListItemArray.map((blia) => (
             <div key={blia.className} className="items">
               <label>

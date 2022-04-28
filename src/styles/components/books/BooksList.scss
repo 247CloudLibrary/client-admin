@@ -1,19 +1,39 @@
 #BookList {
-  .create-btn {
-    border: none;
-    font-size: 1.125rem;
-    font-weight: bold;
-    padding: 1rem 1rem;
-    margin-top: 0.7rem;
-    width: auto;
-    border-radius: 4px;
-    background-color: #435769;
-    color: azure;
-    outline: none;
-    cursor: pointer;
-    transition: 0.8s;
-    &:hover {
-      background-color: #2b3c4e;
+  background-color: aliceblue;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .book-list {
+    .search {
+      display: flex;
+      justify-content: center;
+    }
+    .btn {
+      display: flex;
+      justify-content: flex-end;
+      width: 60rem;
+      .create-btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-top: 0.7rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          background-color: #2b3c4e;
+        }
+      }
     }
   }
 }
