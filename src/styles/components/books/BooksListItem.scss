@@ -1,6 +1,6 @@
 #booksListItem {
   display: flex;
-  width: 50rem;
+  width: 70rem;
   height: 13rem;
   margin: 1rem;
   padding: 1rem;
@@ -15,8 +15,8 @@
       cursor: pointer;
       pointer-events: all;
       .image {
-        height: 240px;
-        width: 180px;
+        height: 200px;
+        width: 140px;
       }
     }
     .list {
@@ -29,13 +29,26 @@
       .book-tag {
         display: flex;
         justify-content: space-between;
-        width: 15rem;
-        .type,
-        .genre,
+        width: 13rem;
+        .type {
+          font-size: 1.3rem;
+          padding: 0.3rem;
+          background-color: rgb(235, 235, 235);
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 10px;
+          font-family: "Nanum Gothic Coding";
+        }
+        .genre {
+          font-size: 1.3rem;
+          padding: 0.3rem;
+          background-color: rgb(235, 235, 235);
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 10px;
+          font-family: "Nanum Gothic Coding";
+        }
         .category {
           font-size: 1.3rem;
           padding: 0.3rem;
-          margin-left: 1rem;
           background-color: rgb(235, 235, 235);
           border: 1px solid rgb(255, 255, 255);
           border-radius: 10px;
@@ -45,22 +58,34 @@
       .items {
         display: flex;
         font-family: "Nanum Gothic Coding";
-        .type {
-          font-size: 1.3rem;
-          padding: 0.3rem;
-          margin-left: 1rem;
-          background-color: rgb(235, 235, 235);
-          border: 1px solid rgb(255, 255, 255);
-          border-radius: 10px;
-        }
         .title {
           display: flex;
-          margin-left: 1rem;
           width: 60rem;
-          font-size: 1.5rem;
+          font-size: 1.7rem;
           pointer-events: all;
           cursor: pointer;
-          font-family: "Lexend Deca", sans-serif;
+        }
+        .author,
+        .translator,
+        .publisher,
+        .publish-date,
+        .barcode,
+        .isbn,
+        .library-name {
+          font-size: 1.1rem;
+          padding: 0.3rem;
+          margin-right: 0.5rem;
+        }
+      }
+      .status {
+        display: flex;
+        width: 60rem;
+        background-color: rgb(235, 235, 235);
+        .book-status {
+          font-size: 1.3rem;
+          padding: 0.3rem;
+          margin-right: 4rem;
+          font-weight: bold;
         }
       }
     }

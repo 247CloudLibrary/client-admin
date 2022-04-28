@@ -8,7 +8,12 @@
   .library-name {
     display: flex;
     flex-direction: row;
-    background-color: #e8f8ff;
+    background: rgb(227, 253, 255);
+    background: linear-gradient(
+      90deg,
+      rgb(204, 249, 255) 0%,
+      rgb(214, 250, 255) 100%
+    );
     position: relative;
     font-size: 1.7rem;
     padding: 1rem;
@@ -31,7 +36,12 @@
     padding-bottom: 2.23rem;
     position: relative;
     color: #1f2a30c5;
-    background-color: #f8feff;
+    background: rgb(237, 251, 254);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgb(246, 254, 255) 100%
+    );
     border-top: 1px solid #d8d8d8;
     font-weight: 500;
     .library-id-tag,

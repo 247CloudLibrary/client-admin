@@ -9,6 +9,7 @@ const BooksListItem = ({
   translator,
   publishDate,
   publisher,
+  barcode,
   isbn,
   genre,
   libraryName,
@@ -23,10 +24,24 @@ const BooksListItem = ({
     { value: translator, className: "translator", label: "옮긴이: " },
     { value: publisher, className: "publisher", label: "발행처: " },
     { value: publishDate, className: "publish-date", label: "발행일: " },
+    { value: barcode, className: "barcode", label: "청구기호: " },
     { value: isbn, className: "isbn", label: "ISBN: " },
     { value: libraryName, className: "library-name", label: "도서관: " },
-    { value: bookStatus, className: "book-status", label: "" },
   ];
+
+  let color = "";
+
+  switch (bookStatus) {
+    case "대여가능":
+      color = "slateblue";
+      break;
+    case "창고보관":
+      color = "gray";
+      break;
+    default:
+      color = "red";
+  }
+
   useEffect(() => {
     if (category === "철학") {
       setNum("(100)");
@@ -73,12 +88,17 @@ const BooksListItem = ({
           </div>
           {BookListItemArray.map((blia) => (
             <div key={blia.className} className="items">
-              <label>
+              <label className={blia.className}>
                 {blia.label}
-                <span className={blia.className}>{blia.value}</span>
+                <span>{blia.value}</span>
               </label>
             </div>
           ))}
+          <div className="status">
+            <label className="book-status" style={{ color: color }}>
+              {bookStatus}
+            </label>
+          </div>
         </div>
       </div>
     </div>

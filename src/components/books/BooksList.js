@@ -49,6 +49,7 @@ const BooksList = () => {
               translator={data.translator}
               publisher={data.publisher}
               publishDate={data.publishDate}
+              barcode={data.barcode}
               isbn={data.isbn}
               genre={data.genre}
               category={data.category}
