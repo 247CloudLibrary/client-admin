@@ -47,7 +47,6 @@ const LendingDetail = () => {
       key: "uid",
       tag: "빌린이",
     },
-
     { value: lendingData.isbn, key: "isbn", tag: "ISBN" },
     { value: lendingData.publisher, key: "publisher", tag: "출판사" },
     { value: lendingData.publishDate, key: "publishDate", tag: "출판일" },
@@ -104,20 +103,21 @@ const LendingDetail = () => {
     } else {
       axios
         .patch(
-          `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus="RETURN"`,
+          `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus=RETURN`,
           {
             lendingId: lendingData.lendingId,
             bookId: lendingData.bookId,
             uid: lendingData.uid,
             libraryId: lendingData.libraryId,
             libraryName: lendingData.libraryName,
-            lendingStatus: lendingData.lendingStatus,
+            lendingStatus: "RETURN",
             barcode: lendingData.barcode,
             rfid: lendingData.rfid,
           }
         )
         .then(() => {
           alert("반납이 완료되었습니다.");
+          lendingData.lendingUid = "";
         });
       window.location.reload();
     }
