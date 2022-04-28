@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import LendingListItem from "./LendingListItem";
 
 const mergeArrayObjects = (arr1, arr2) => {
-  let start = 0;
   let merge = [];
-  while (start < arr1.length) {
-    if (arr1[start].bookId === arr2[start].id) {
-      merge.push({ ...arr1[start], ...arr2[start] });
-    }
-    start = start + 1;
+  for (let i = 0; i < arr1.length; i++) {
+    merge.push({
+      ...arr1[i],
+      ...arr2.find((d) => d.id === arr1[i].bookId),
+    });
   }
   return merge;
 };
@@ -26,10 +25,11 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
       .then((result) => {
         const resultArray = mergeArrayObjects(
           result[0].data.data,
-          result[1].data.data,
-          console.log(result[0].data.data),
-          console.log(result[1].data.data)
+          result[1].data.data
         );
+
+        console.log(result[0].data.data.length);
+        console.log(result[1].data.data);
 
         const filtedByDropValue = dropValue
           ? resultArray.filter((i) => i.lendingStatus === dropValue)
@@ -47,21 +47,21 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
   return (
     <div className="lending-list">
       {listItem &&
-        listItem.map((data) => (
+        listItem.map((data, index) => (
           <LendingListItem
-            key={data.bookId}
+            key={index}
             uid={data.uid}
-            thumnailImage={data.thumnailImage}
-            bookid={data.bookId}
+            thumbnailImage={data.thumbnailImage}
+            bookId={data.bookId}
             title={data.title}
             libraryName={data.libraryName}
+            lendingId={data.lendingId}
             barcode={data.barcode}
             lendingStatus={data.lendingStatus}
             lendingDateTime={data.lendingDateTime}
             returnDateTime={data.returnDateTime}
           />
         ))}
-      ;
     </div>
   );
 };

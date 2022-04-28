@@ -6,6 +6,7 @@ import SearchFilter from "../components/lending/SearchFilter";
 import LibraryFilter from "../components/lending/LibraryFilter";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/common/Button";
+import LendingListItem from "../components/lending/LendingListItem";
 
 const STATUS_DATA = [
   { id: "", value: "대출 상태 조회" },
@@ -22,11 +23,9 @@ const LendingPage = () => {
   const [libraryData, setLibraryData] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://www.cloudlibrary.shop/v1/libraries")
-      .then((result) => {
-        setLibraryData(result.data.data);
-      });
+    axios.get("https://www.cloudlibrary.shop/v1/libraries").then((result) => {
+      setLibraryData(result.data.data);
+    });
   }, []);
 
   const onSelect = (e) => {
@@ -43,14 +42,31 @@ const LendingPage = () => {
     setLibraryValue(libraryData.filter((d) => d.name === value)[0].id);
   };
 
+  console.log(libraryValue);
   const navigate = useNavigate();
 
   const onClickUid = () => {
     //TODO GET으로 UID조회
   };
-  const onClickCreateLending = () => {
-    //TODO POST로 대출 처리
+  const onClickCreateLending = (e) => {
+    e.target
+      ? axios
+          .post(`https://www.cloudlibrary.shop/v1/lending/${lendingId}`, {
+            libraryId: libraryId,
+            bookId: bookId,
+            uid: uid,
+            barcode: barcode,
+            rfid: rfid,
+            lendingStatus: "OUT",
+          })
+          .then(function (response) {
+            console.log(response);
+            alert("대출이 완료되었습니다");
+          })
+      : alert("대출 할 수 없습니다");
+    console.log(LendingListItem);
   };
+
   const onClickCreateReturn = () => {
     //TODO POST로 반납 처리
   };
@@ -66,9 +82,6 @@ const LendingPage = () => {
 
   return (
     <div>
-      <Button onClick={onClickUid} text="회원증 확인" />
-      <Button onClick={onClickCreateLending} text="대출 처리" />
-      <Button onClick={onClickCreateReturn} text="반납 처리" />
       <Button onClick={onClickCreateBlacklist} text="블랙리스트 등록" />
       <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
       <Button onClick={onClickReadAuth} text="유저 조회" />

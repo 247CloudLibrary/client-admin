@@ -28,6 +28,7 @@ import FindIdPage from "./pages/auth/FindIdPage";
 import FindPwPage from "./pages/auth/FindPwPage";
 import Home from "./pages/Home";
 import LendingPage from "./pages/LendingPage";
+import LendingDetailPage from "./pages/lending/LendingDetailPage";
 import UserListPage from "./pages/UserListPage";
 import LoginPage from "./pages/auth/LoginPage";
 import ProfilePage from "./pages/auth/ProfilePage";
@@ -56,6 +57,7 @@ const App = () => {
       <Route path="/lending/libraries/rules" element={<LibrariesRulePage />} />
       <Route path="/libraries/edit/:id" element={<LibrariesEditPage />} />
       <Route path="/lending" element={<LendingPage />} />
+      <Route path="/lending/detail/:id" element={<LendingDetailPage />} />
       <Route path="/auth" element={<UserListPage />} />
       <Route path="/find-id" element={<FindIdPage />} />
       <Route path="/find-pw" element={<FindPwPage />} />

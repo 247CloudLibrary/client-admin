@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 const LendingListItem = ({
   uid,
-  thumnailImage,
+  thumbnailImage,
+  lendingId,
   bookId,
   title,
   libraryName,
@@ -9,10 +12,17 @@ const LendingListItem = ({
   lendingDateTime,
   returnDateTime,
 }) => {
+  const navigate = useNavigate();
+
+  const handlePath = () => {
+    navigate(`/lending/detail/${bookId}`, {
+      state: { bookId: bookId },
+    });
+  };
+
   return (
-    <div className="lening-items">
-      <input type="checkbox" value={bookId} />
-      <div className="thumnailImage">{thumnailImage}</div>
+    <div className="lening-items" onClick={handlePath}>
+      <div className="thumbnailImage">{thumbnailImage}</div>
       <div className="bookData">
         <span>책 제목: {title}</span>
         <span>도서관: {libraryName}</span>
@@ -22,7 +32,7 @@ const LendingListItem = ({
         <span>반납예정일: {returnDateTime}</span>
       </div>
       <div className="bookStatusBar">
-        <span>상태: {lendingStatus}</span>
+        <span id={lendingStatus}>상태: {lendingStatus}</span>
         <span>연체 일수: </span>
         <span>연체 일수: 어떻게하징 </span>
       </div>
