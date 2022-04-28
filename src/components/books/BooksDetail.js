@@ -15,6 +15,37 @@ const BooksDetail = () => {
       .then(function (response) {
         setBookData(response.data.data);
         console.log(response);
+        switch (response.data.data.category) {
+          case "철학":
+            setCode("(100)");
+            break;
+          case "종교":
+            setCode("(200)");
+            break;
+          case "사회과학":
+            setCode("(300)");
+            break;
+          case "순수과학":
+            setCode("(400)");
+            break;
+          case "기술과학":
+            setCode("(500)");
+            break;
+          case "예술":
+            setCode("(600)");
+            break;
+          case "언어":
+            setCode("(700)");
+            break;
+          case "문학":
+            setCode("(800)");
+            break;
+          case "역사":
+            setCode("(900)");
+            break;
+          default:
+            setCode(code);
+        }
       });
   }, []);
 
@@ -31,40 +62,6 @@ const BooksDetail = () => {
     { value: bookData.rid, key: "rid", tag: "rid" },
     { value: bookData.rfid, key: "rfid", tag: "rfid" },
   ];
-
-  useEffect(() => {
-    switch (bookData.category) {
-      case "철학":
-        setCode("(100)");
-        break;
-      case "종교":
-        setCode("(200)");
-        break;
-      case "사회과학":
-        setCode("(300)");
-        break;
-      case "순수과학":
-        setCode("(400)");
-        break;
-      case "기술과학":
-        setCode("(500)");
-        break;
-      case "예술":
-        setCode("(600)");
-        break;
-      case "언어":
-        setCode("(700)");
-        break;
-      case "문학":
-        setCode("(800)");
-        break;
-      case "역사":
-        setCode("(900)");
-        break;
-      default:
-        setCode(code);
-    }
-  }, []);
 
   const handleBtn = (e) => {
     navigate(`/books/edit/${id}`, {
