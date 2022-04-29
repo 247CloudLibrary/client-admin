@@ -108,7 +108,7 @@ const BoardList = () => {
           </div>
         )}
         {mode === "이용안내" && (
-          <div>
+          <div className="info-box">
             {infoData &&
               infoData.map((info) => (
                 <div className="info-box" key={info.id}>
@@ -118,7 +118,7 @@ const BoardList = () => {
           </div>
         )}
         {mode === "오시는 길" && (
-          <div>
+          <div className="map-box">
             <BoardMap />
           </div>
         )}

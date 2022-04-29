@@ -75,20 +75,24 @@
 
   .form-box {
     display: flex;
-    width: 100%;
     flex-direction: row;
     position: relative;
     justify-content: center;
 
     .sidebar-box {
       position: relative;
-      margin-right: 30rem;
       float: left;
     }
-    .map-box {
+    .map-box,
+    .info-box {
+      width: 60rem;
+      margin-right: 20rem;
+      display: flex;
       position: relative;
     }
     .listitem-box {
+      width: 60rem;
+      margin-right: 20rem;
       position: relative;
       justify-content: center;
       height: 3rem;
