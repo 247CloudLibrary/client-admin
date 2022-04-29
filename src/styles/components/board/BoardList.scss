@@ -86,17 +86,22 @@
     .map-box,
     .info-box {
       width: 60rem;
+      min-width: 60rem;
       margin-right: 20rem;
       display: flex;
-      position: relative;
     }
-    .listitem-box {
+    .item-box {
       width: 60rem;
+      min-width: 60rem;
       margin-right: 20rem;
-      position: relative;
-      justify-content: center;
-      height: 3rem;
-      border-bottom: 1px solid #57707cc5;
+      display: flex;
+      .listitem-box {
+        width: 60rem;
+        position: relative;
+        justify-content: center;
+        height: 3rem;
+        border-bottom: 1px solid #57707cc5;
+      }
     }
   }
 }
