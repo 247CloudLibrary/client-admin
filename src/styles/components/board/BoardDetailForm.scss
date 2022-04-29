@@ -1,11 +1,11 @@
 #BoardDetailForm {
   display: flex;
-  position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 5rem;
   justify-content: center;
   .detail-form {
     width: 60rem;

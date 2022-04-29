@@ -26,7 +26,6 @@ const LibrariesRuleForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(inputs);
 
   const holidayArray = [
     { day: "월" },

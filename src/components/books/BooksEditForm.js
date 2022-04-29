@@ -103,8 +103,6 @@ const BooksEditForm = () => {
     setCoverImage(URL.createObjectURL(e.target.files[0]));
   };
 
-  console.log(thumbNailImage, coverImage);
-
   imageChange1.onload = () => {
     URL.revokeObjectURL(thumbNailImage);
   };
@@ -152,8 +150,6 @@ const BooksEditForm = () => {
     { value: "문학", label: "문학" },
     { value: "역사", label: "역사" },
   ];
-
-  console.log(inputs);
 
   const deleteClick = (e) => {
     e.preventDefault();

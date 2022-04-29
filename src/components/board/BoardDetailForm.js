@@ -25,7 +25,6 @@ const BoardDetailForm = () => {
         setNoData(notice.data.data);
       });
   }, []);
-  console.log(noData);
 
   const toBoardEdit = () => {
     navigate(`/boards/edit/${id}`, {

@@ -7,7 +7,7 @@ const BoardInfo = (infoDatas) => {
   const navigate = useNavigate();
   // const [info, setInfo] = useState([]);
 
-  const infoData = infoDatas ? infoDatas.infoData[0] : undefined;
+  const infoData = infoDatas.infoData[0] ? infoDatas.infoData[0] : undefined;
 
   const toInfoDetail = () => {
     navigate(`/boards/edit/${infoData.id}`, {

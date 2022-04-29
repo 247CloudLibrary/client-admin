@@ -11,19 +11,18 @@ const GuideForm = () => {
     axios.get("https://www.cloudlibrary.shop/v1/boards").then((guide) => {
       const boardArr = guide.data.data;
 
-      // const filtedByLibraryName =
-      //   boardArr.libraryName !== ""
-      //     ? boardArr.filter((i) => i.libraryName === "")
-      //     : boardArr;
+      const filtedByLibraryName =
+        boardArr.libraryName !== ""
+          ? boardArr.filter((i) => i.libraryName === "")
+          : boardArr;
 
       const filtedByGuideData =
         boardArr.type !== "안내사항"
-          ? boardArr.filter((i) => i.type === "안내사항")
-          : boardArr;
+          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+          : filtedByLibraryName;
       setGuideData(filtedByGuideData[0]);
     });
   }, []);
-  console.log(guideData);
 
   const toGuideEdit = () => {
     navigate(`/boards/edit/${guideData.id}`, {

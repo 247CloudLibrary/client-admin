@@ -15,7 +15,6 @@ const BoardEditForm = () => {
   const libraryName = "도곡정보문화도서관";
   const id = location.state.id;
 
-  console.log(id);
   let { type, title, contents } = editContent;
   switch (type) {
     case "안내사항":
@@ -31,7 +30,6 @@ const BoardEditForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(type, title, contents);
 
   const handleDelete = (e) => {
     e.preventDefault();

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const BoardsPage = () => {
   return (
@@ -12,6 +13,7 @@ const BoardsPage = () => {
       <Link to={"/guide"}>
         <button>통합 이용안내</button>
       </Link>
+      <Footer />
     </div>
   );
 };

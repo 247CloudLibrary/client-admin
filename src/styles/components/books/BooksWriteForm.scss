@@ -2,11 +2,12 @@
   position: relative;
   display: flex;
   background-color: aliceblue;
-  height: 100vh;
+  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  padding-bottom: 5rem;
   text-align: center;
   justify-content: center;
   .input-form {
@@ -29,12 +30,17 @@
           justify-content: center;
           height: 15rem;
 
-          .thumbnailImage {
+          .thumbNailImage {
+            display: flex;
+            flex-direction: column;
           }
           .coverImage {
+            display: flex;
+            text-align: center;
           }
           .preview {
             display: flex;
+            justify-content: center;
 
             .image {
               height: 140px;
@@ -62,83 +68,97 @@
         display: flex;
         position: relative;
         flex-wrap: wrap;
-        width: 50rem;
+        width: 60rem;
         justify-content: center;
         input,
-        select {
+        select,
+        textarea {
           position: relative;
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           width: 10rem;
           margin-left: 3rem;
+          resize: none;
         }
         label {
           position: relative;
-          width: 20rem;
+          width: 30rem;
           font-size: 1.2rem;
           margin-top: 3rem;
         }
         .libraryName {
+          width: 20rem;
         }
         .title {
+          width: 20rem;
         }
         .author {
+          width: 20rem;
           margin-left: 7rem;
         }
         .translator {
-          margin-left: 4.6rem;
+          width: 20rem;
+          margin-left: 3.4rem;
         }
         .publisher {
+          width: 20rem;
           margin-left: 5.8rem;
         }
         .barcode {
+          width: 20rem;
           margin-left: 3.4rem;
         }
-        .isbn {
-          margin-left: 6.8rem;
+        .rid {
+          width: 20rem;
+          margin-left: 7.8rem;
         }
         .rfid {
-          margin-left: 5.2rem;
+          width: 20rem;
+          margin-left: 5.1rem;
+        }
+        .isbn {
+          width: 20rem;
+          margin-left: 6.8rem;
         }
         .publishDate {
-          margin-left: 6rem;
+          width: 20rem;
+          margin-left: 5.5rem;
         }
         .type {
+          width: 20rem;
           margin-left: 5rem;
         }
         .genre {
-          margin-left: 7.5rem;
+          width: 20rem;
+          margin-left: 6.8rem;
         }
         .bookStatus {
-          margin-left: 2.2rem;
+          width: 20rem;
+          margin-left: 2.1rem;
         }
-        .category-box {
-          width: 100%;
-          text-align: center;
-          .category {
-            margin-left: 5rem;
-          }
-        }
-        textarea {
-          resize: none;
+        .category {
+          width: 20rem;
+          margin-left: 2.5rem;
         }
         .contents {
           position: relative;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           width: 40rem;
-          height: 15rem;
+          height: 10rem;
           margin-left: 0;
-          margin-top: 3rem;
+          margin-top: 1rem;
+          font-family: "Nanum Gothic Coding";
         }
       }
     }
 
     .btn-box {
-      margin-top: 10rem;
+      margin-top: 5rem;
       .edit-btn {
         border: none;
         font-size: 1.125rem;
         font-weight: bold;
         padding: 1rem 1rem;
+        margin-right: 1rem;
         width: auto;
         border-radius: 4px;
         background-color: #435769;
