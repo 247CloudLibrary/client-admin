@@ -20,12 +20,14 @@ const BlacklistItem = ({ uid, libraryName }) => {
   return (
     <div className="blacklist-items">
       <div className="blacklistData">
-        <span> 제재 회원: {uid}</span>
-        <span> 제재 도서관: {libraryName}</span>
+        <span className="uid"> 제재 회원: {uid}</span>
+        <span className="libraryName"> 제재 도서관: {libraryName}</span>
       </div>
-      <button type="submit" onClick={onClick}>
-        등록 해제
-      </button>
+      <div className="btn">
+        <button className="button" type="submit" onClick={onClick}>
+          등록 해제
+        </button>
+      </div>
     </div>
   );
 };

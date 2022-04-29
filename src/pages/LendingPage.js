@@ -7,6 +7,7 @@ import LibraryFilter from "../components/lending/LibraryFilter";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/common/Button";
 import LendingListItem from "../components/lending/LendingListItem";
+import Footer from "../components/Footer";
 
 const STATUS_DATA = [
   { id: "", value: "대출 상태 조회" },
@@ -53,38 +54,41 @@ const LendingPage = () => {
   };
 
   return (
-    <div className="lendingList">
-      <SearchFilter
-        className="home__search-bar "
-        text={text}
-        onChange={onChange}
-      />
-      <div className="lendingData">
-        <div className="lendingFilterWrap">
-          <LendingStatusFilter
-            dropValue={dropValue}
-            STATUS_DATA={STATUS_DATA}
-            onSelect={onSelect}
-          />
-          <LibraryFilter
-            libraryValue={libraryValue}
-            handleChange={handleChange}
-            libraryData={libraryData}
-          />
-        </div>
-        <div className="lendingListForm">
-          <LendingListForm
-            dropValue={dropValue}
-            text={text}
-            libraryValue={libraryValue}
-          />
-        </div>
-        <div className="btn">
-          <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
-          <Button onClick={onClickReadAuth} text="유저 조회" />
+    <>
+      <div className="lendingList">
+        <SearchFilter
+          className="home__search-bar "
+          text={text}
+          onChange={onChange}
+        />
+        <div className="lendingData">
+          <div className="lendingFilterWrap">
+            <LendingStatusFilter
+              dropValue={dropValue}
+              STATUS_DATA={STATUS_DATA}
+              onSelect={onSelect}
+            />
+            <LibraryFilter
+              libraryValue={libraryValue}
+              handleChange={handleChange}
+              libraryData={libraryData}
+            />
+          </div>
+          <div className="lendingListForm">
+            <LendingListForm
+              dropValue={dropValue}
+              text={text}
+              libraryValue={libraryValue}
+            />
+          </div>
+          <div className="btn">
+            <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
+            <Button onClick={onClickReadAuth} text="유저 조회" />
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

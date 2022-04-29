@@ -1,0 +1,31 @@
+
+.blacklist-list {
+    width: 100%;
+    min-width: 70rem;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+    background-clip: border-box;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: 2s;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    background-position: 30% 50%;
+    animation: background-action 50s infinite ease-in-out;
+    flex-direction: column;
+  
+    .blacklistItem {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      min-width: 45rem;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+      background-color: white;
+      opacity: 0.9;
+      border-radius: 40PX;
+      margin-left: 5vw;
+      padding: 2rem;
+      }};

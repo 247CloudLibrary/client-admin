@@ -1,0 +1,49 @@
+.blacklist-items {
+    display: flex;
+    width: 40rem;
+    margin: 1rem;
+    padding: 1rem;
+    justify-content: flex-start;
+    border-top: solid 1px rgb(235, 235, 235);
+    .blacklistData {
+            display: flex;
+            width: 30rem;
+            margin-right: 5rem;
+          .uid {
+            width: 15rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+          .libraryName {
+            width: 25rem;
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+        }
+        .btn {
+            display: flex;
+            .button {
+                display: flex;
+                border: 0.2rem solid aliceblue;
+                border-radius: 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                padding: 1rem 1rem;
+                margin-bottom: 1rem;
+                width: auto;
+                border-radius: 4px;
+                background-color: #3636365d;
+                color: azure;
+                outline: none;
+                cursor: pointer;
+                transition: 0.8s;
+                &:hover {
+                background-color: #208cff;
+                  }
+            }
+        }
+    };
+  

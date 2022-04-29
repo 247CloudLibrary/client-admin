@@ -53,7 +53,7 @@ const LendingListItem = ({
         <img src={thumbNailImage} alt={title} className="thumbNailImage" />
       </div>
       <div className="lendingWrap">
-        <div className="lendingTitle">책 제목: {title}</div>
+        <div className="lendingTitle">{title}</div>
         <div className="lendingUser">
           <span className="uid">빌린이: {uid}</span>
           <span className="lendingDateTime">대출일: {lendingDateTime}</span>

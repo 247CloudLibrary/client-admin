@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BlacklistItem from "./BlacklistItem";
+import Footer from "../Footer";
 
 const BlacklistForm = ({}) => {
   const [listItem, setListItem] = useState([]);
@@ -15,17 +16,21 @@ const BlacklistForm = ({}) => {
   }, []);
 
   return (
-    <div className="lending-list">
-      <div className="lendingListItem">블랙리스트 목록</div>
-      {listItem &&
-        listItem.map((data) => (
-          <BlacklistItem
-            key={data.uid}
-            uid={data.uid}
-            libraryName={data.libraryName}
-          />
-        ))}
-    </div>
+    <>
+      <div className="blacklist-list">
+        <div className="blacklistItem">
+          {listItem &&
+            listItem.map((data) => (
+              <BlacklistItem
+                key={data.uid}
+                uid={data.uid}
+                libraryName={data.libraryName}
+              />
+            ))}
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
