@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const mergeArrayObjects = (arr1, arr2) => {
   let merge = [];
@@ -17,6 +17,7 @@ const LendingDetail = () => {
   const [lendingData, setLendingData] = useState([]);
   const location = useLocation();
   const bookId = location.state.bookId;
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -94,6 +95,7 @@ const LendingDetail = () => {
         .then(() => {
           alert("대출이 완료되었습니다.");
         });
+      navigate(`/lending`);
     }
   };
 
@@ -102,6 +104,8 @@ const LendingDetail = () => {
     if (window.confirm("반납 하시겠습니까?") === false) {
       return;
     } else {
+      const id = lendingData.bookId;
+      const uid = lendingData.lendingUid;
       axios
         .patch(
           `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus=RETURN`,
@@ -120,6 +124,7 @@ const LendingDetail = () => {
           alert("반납이 완료되었습니다.");
           lendingData.lendingUid = "";
         });
+      navigate(`/lending`);
     }
   };
 
@@ -138,6 +143,7 @@ const LendingDetail = () => {
         .then(() => {
           alert("등록이 완료되었습니다.");
         });
+      navigate(`/lending`);
     }
   };
 
