@@ -65,9 +65,9 @@ const LendingDetail = () => {
       tag: "대출 상태",
     },
     {
-      value: lendingData.reservationDateTime !== "" ? " 예약중" : " 예약 가능",
-      key: "reservationDateTime",
-      tag: "예약 상태",
+      value: lendingData.returnTime !== "" ? lendingData.returnDateTime : "",
+      key: "returnDateTime",
+      tag: "반납예정일",
     },
   ];
 
@@ -104,8 +104,6 @@ const LendingDetail = () => {
     if (window.confirm("반납 하시겠습니까?") === false) {
       return;
     } else {
-      const id = lendingData.bookId;
-      const uid = lendingData.lendingUid;
       axios
         .patch(
           `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus=RETURN`,

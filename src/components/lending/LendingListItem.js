@@ -11,7 +11,7 @@ const LENDINGSTATUS_DATA = [
 
 const LendingListItem = ({
   uid,
-  thumbnailImage,
+  thumbNailImage,
   lendingId,
   bookId,
   title,
@@ -50,7 +50,7 @@ const LendingListItem = ({
   return (
     <div className="lending-items" key={lendingId} onClick={handlePath}>
       <div className="image-area">
-        <img src={thumbnailImage} alt={title} className="thumbnailImage" />
+        <img src={thumbNailImage} alt={title} className="thumbNailImage" />
       </div>
       <div className="lendingWrap">
         <div className="lendingTitle">책 제목: {title}</div>

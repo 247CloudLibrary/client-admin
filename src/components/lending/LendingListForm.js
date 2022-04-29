@@ -51,7 +51,7 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
           <LendingListItem
             key={index}
             uid={data.uid}
-            thumbnailImage={data.thumbnailImage}
+            thumbNailImage={data.thumbNailImage}
             bookId={data.bookId}
             title={data.title}
             libraryId={data.libraryId}
