@@ -70,7 +70,10 @@ const BoardList = () => {
       <h1 className="content">{content}</h1>
       <div className="write">
         <Link to="/boards/write" style={{ textDecoration: "none", width: "0" }}>
-          <button className="write-btn" style={btn ? { opacity: 0 } : null}>
+          <button
+            className="write-btn"
+            style={btn ? { display: "none" } : null}
+          >
             게시글 등록
           </button>
         </Link>
