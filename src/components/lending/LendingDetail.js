@@ -147,6 +147,17 @@ const LendingDetail = () => {
 
   return (
     <div id="lending-detail">
+      <div className="btns">
+        <button className="btn" onClick={createLendingClick} type="submit">
+          대출
+        </button>
+        <button className="btn" onClick={createRentalClick} type="submit">
+          반납
+        </button>
+        <button className="btn" onClick={updateBlacklistClick} type="submit">
+          블랙리스트 등록
+        </button>
+      </div>
       <div className="detail-box">
         <div className="title-area">
           <div className="title-box">
@@ -180,15 +191,6 @@ const LendingDetail = () => {
           </div>
         </div>
       </div>
-      <button onClick={createLendingClick} type="submit">
-        대출
-      </button>
-      <button onClick={createRentalClick} type="submit">
-        반납
-      </button>
-      <button onClick={updateBlacklistClick} type="submit">
-        블랙리스트 등록
-      </button>
     </div>
   );
 };

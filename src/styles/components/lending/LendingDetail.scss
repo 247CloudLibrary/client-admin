@@ -1,0 +1,147 @@
+#lending-detail {
+    display: flex;
+    background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+    background-clip: border-box;
+    background-attachment: fixed;
+    transition: 2s;
+    background-position: 30%;
+    animation: background-action 50s infinite ease-in-out;
+    width: 100vw;
+    height: 100vh;
+    min-width: 80rem;
+    min-height: 80rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    opacity: 0.9;
+    .detail-box {
+      display: flex;
+      background-color: white;
+      opacity: 0.8;
+      margin-top: 5vh;
+      width: 45vw;
+      height: 90vh;
+      min-width: 60rem;
+      min-height: 75rem;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 40px;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      .title-area {
+        display: flex;
+        justify-content: center;
+        .title-box {
+          display: flex;
+          width: 50rem;
+          position: relative;
+          margin-top: 3rem;
+          height: 5rem;
+          align-items: center;
+          .type {
+            font-size: 2rem;
+            padding: 0.5rem;
+            margin-left: 2rem;
+            border-radius: 20px;
+            color: white;
+            background-color: rgb(0,0,0,);
+            border: 1px solid rgb(71, 71, 71);
+          }
+          .title {
+            font-weight: bolder;
+            top: 0;
+            font-size: 2.9rem; 
+            margin-left: 1rem;
+          }
+        }
+      }
+  
+      .info-area {
+        display: flex;
+        width: 45rem;
+        min-width: 50rem;
+        .info-box {
+          display: flex;
+          padding-top: 2rem;
+          .image-box {
+            .coverImage {
+              width: 15rem;
+              height: 19rem;
+              box-shadow: 0.3rem 0.3rem 0.3rem rgb(0,0,0);
+            }
+          }
+          .text-box {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5rem;
+            margin: 0 0 auto 5rem;
+            width: 35rem;
+            .label {
+              display: flex;
+              margin-bottom: 0.5rem;
+              .label-tag {
+                width: 10rem;
+                display: inline-flex;
+                font-weight: 600;
+                margin-right: 1rem;
+                border-radius: 10px;
+                color: black;
+                margin-bottom: 0.5rem;
+              }
+              .label-value {
+                display: inline-flex;
+                width: 20rem;
+              }
+            }
+          }
+        }
+      }
+      .minititle-box {
+        display: flex;
+        justify-content: center;
+        min-width: 50rem;
+        .minititle {
+          display: flex;
+          width: 50rem;
+          font-size: 2rem;
+          margin-top: 2rem;
+          font-weight: 600;
+        }
+      }
+      .contents-area {
+        display: flex;
+        margin-top: 2rem;
+        min-width: 50rem;
+        .contents-box {
+          min-width: 50rem;
+          text-align: left;
+          width: 35vw;
+          font-size: 1.5rem;
+          line-height: 2.5rem;
+        }
+      }
+    }
+    .btns {
+        display: flex;
+        flex-direction: column;
+        margin-right: 3rem;
+        .btn {
+        border: none;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+        background-color: #2b3c4e;
+        }
+    }}
+
+  }
