@@ -1,14 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, initializeForm, login } from "../../modules/auth";
+import { changeField, initializeForm } from "../../modules/auth";
 import LoginForm from "../../components/auth/LoginForm";
-import { check } from "../../modules/user";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AuthForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
+  const [user, setUser] = useState();
+  const login = async (id, password) =>
+    await axios.post("https://www.cloudlibrary.shop/v1/admin/signin", {
+      id: id,
+      pw: password,
+    });
+  const { form, auth, authError } = useSelector(({ auth, user }) => ({
     form: auth.login,
     auth: auth.auth,
     authError: auth.authError,
@@ -28,11 +34,11 @@ const AuthForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    navigate("/home");
-    /*
     const { userId, password } = form;
-    dispatch(login({ userId, password }));
-     */
+    login(userId, password).then((response) => {
+      setUser(response);
+      console.log(response.status);
+    });
   };
 
   useEffect(() => {
@@ -47,13 +53,20 @@ const AuthForm = () => {
     }
     if (auth) {
       console.log("로그인 성공");
-      dispatch(check());
     }
   }, [auth, authError, dispatch]);
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      console.log(user);
+      navigate("/home");
+      try {
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log(localStorage.getItem("user"));
+        console.log(user);
+      } catch (e) {
+        console.log("localStorage is not working");
+      }
     }
   }, [navigate, user]);
 

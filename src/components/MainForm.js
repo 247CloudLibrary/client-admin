@@ -15,6 +15,7 @@ const MainForm = ({ props }) => {
           <Link to="/home" className="logo">
             <WiCloud />
             <span>Cloud Library</span>
+            <button onClick={props.onLogout}>로그아웃</button>
           </Link>
         </div>
         <div className="feature-box">
