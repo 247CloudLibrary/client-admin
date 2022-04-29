@@ -28,6 +28,16 @@ const Main = () => {
     navigate("/libraries/list");
   };
 
+  const onLogout = () => {
+    if (localStorage.getItem("user")) {
+      localStorage.removeItem("user");
+
+      window.location.href = "https://www.cloudlibrary.shop:444/";
+    } else {
+      console.log("Local Storage is null");
+    }
+  };
+
   const props = {
     onBoards,
     onBooks,
@@ -37,6 +47,7 @@ const Main = () => {
     onRules,
     onSearchUser,
     onLibraryList,
+    onLogout,
   };
   return <MainForm props={props} />;
 };

@@ -4,7 +4,11 @@ import Main from "../container/Main";
 const Home = () => {
   return (
     <div id="main">
-      <Main />
+      {localStorage.getItem("user") === null ? (
+        <Link to={"/"}>로그인</Link>
+      ) : (
+        <Main />
+      )}
     </div>
   );
 };

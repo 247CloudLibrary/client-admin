@@ -1,12 +1,11 @@
 import client from "./client";
 
-export const login = ({ userId, password }) => {
-  client.post(
-    "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/admin/signin",
-    { userId, password }
-  );
+export const login = async (userId, password) => {
+  await client.post("/admin/signin", {
+    id: userId,
+    pw: password,
+  });
 };
-
 export const profile = () => {
   client.get("/auth");
 };
@@ -42,5 +41,4 @@ export const findPassword = ({ userId, email }) => {
   client.post("/auth/findPw", { userId, email });
 };
 
-// 로그인 상태 확인
-export const check = () => client.get("/auth/check");
+export const check = () => console.log(localStorage.get("user"));
