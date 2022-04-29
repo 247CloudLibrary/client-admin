@@ -5,7 +5,6 @@ const BoardsPage = () => {
   return (
     <>
       <Board />
-      <Footer />
     </>
   );
 };

@@ -79,12 +79,13 @@
       }
       .status {
         display: flex;
+        justify-content: flex-end;
         width: 60rem;
         background-color: rgb(235, 235, 235);
         .book-status {
           font-size: 1.3rem;
           padding: 0.3rem;
-          margin-right: 4rem;
+          margin-right: 1rem;
           font-weight: bold;
         }
       }

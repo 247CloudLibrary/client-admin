@@ -17,6 +17,11 @@
       margin-left: auto;
       margin-right: auto;
       .input-area {
+        margin-top: 5rem;
+        .write-info {
+          font-size: 2.5rem;
+          font-family: "Nanum Gothic Coding";
+        }
         .input-box {
           margin-top: 3rem;
           width: 40rem;
@@ -52,6 +57,10 @@
         flex-direction: column;
         margin-top: 3rem;
         align-items: center;
+        .write-rule {
+          font-size: 2.5rem;
+          font-family: "Nanum Gothic Coding";
+        }
         .number-box {
           display: flex;
           margin-top: 3rem;
@@ -96,7 +105,13 @@
       cursor: pointer;
       transition: 0.8s;
       &:hover {
-        background-color: #2b3c4e;
+        color: #435769;
+        background: rgb(227, 253, 255);
+        background: linear-gradient(
+          90deg,
+          rgb(55, 182, 255) 0%,
+          rgb(164, 244, 253) 100%
+        );
       }
     }
   }
