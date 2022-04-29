@@ -45,14 +45,12 @@ const BooksWriteForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(inputs);
   const imageChange1 = (e) => {
     setThumbnailImage(URL.createObjectURL(e.target.files[0]));
   };
   const imageChange2 = (e) => {
     setCoverImage(URL.createObjectURL(e.target.files[0]));
   };
-  // console.log(thumbNailImage, coverImage);
 
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
@@ -94,7 +92,6 @@ const BooksWriteForm = () => {
     { value: "역사", label: "역사" },
   ];
 
-  // console.log(inputs);
   return (
     <div id="BookWriteForm">
       <form

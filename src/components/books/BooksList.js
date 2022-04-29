@@ -13,7 +13,7 @@ const BooksList = () => {
       const responseArr = response.data.data;
 
       const filtedByText = text
-        ? responseArr.filter((i) => i.title.indexOf(text) === 0)
+        ? responseArr.filter((i) => i.title.includes(text))
         : responseArr;
 
       setBookList(filtedByText);

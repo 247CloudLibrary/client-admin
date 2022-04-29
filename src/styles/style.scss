@@ -11,6 +11,7 @@
 @import "./common/footer.scss";
 
 /* Board */
+@import "./components/board/Board.scss";
 @import "./components/board/NoticesList.scss";
 @import "./components/board/NoticesListItem.scss";
 @import "./components/board/NoticeDetail.scss";
@@ -32,6 +33,7 @@
 @import "./components/books/BooksEditForm.scss";
 
 /* Libraries */
+@import "./components/libraries/LibrariesWrite.scss";
 @import "./components/libraries/LibrariesList.scss";
 @import "./components/libraries/LibrariesListItem.scss";
 @import "./components/libraries/LibrariesDetail.scss";

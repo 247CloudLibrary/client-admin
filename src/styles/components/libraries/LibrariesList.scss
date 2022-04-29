@@ -6,7 +6,9 @@
   left: 0;
   right: 0;
   top: 0;
+  padding-bottom: 5rem;
   bottom: 0;
+  height: 100%;
   text-align: center;
   align-items: center;
   .page-title {
@@ -33,7 +35,13 @@
       cursor: pointer;
       transition: 0.8s;
       &:hover {
-        background-color: #2b3c4e;
+        color: #435769;
+        background: rgb(227, 253, 255);
+        background: linear-gradient(
+          90deg,
+          rgb(55, 182, 255) 0%,
+          rgb(164, 244, 253) 100%
+        );
       }
     }
   }
@@ -41,7 +49,8 @@
     position: relative;
     width: 60rem;
     height: 10rem;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     border-top: 1px solid #b6b6b6;
     box-shadow: 1px 1px 3px #1a375e;
     font-family: "Lexend Deca", sans-serif;

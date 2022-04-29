@@ -37,22 +37,21 @@ const BoardList = () => {
     axios.get("https://www.cloudlibrary.shop/v1/boards").then((response) => {
       const boardArr = response.data.data;
 
-      // console.log(boardArr);
-      // const filtedByLibraryName =
-      //   boardArr.libraryName !== libraryName
-      //     ? boardArr.filter((i) => i.libraryName === libraryName)
-      //     : boardArr;
+      const filtedByLibraryName =
+        boardArr.libraryName !== libraryName
+          ? boardArr.filter((i) => i.libraryName === libraryName)
+          : boardArr;
 
-      // const filtedByNoticeData =
-      //   filtedByLibraryName.type !== "공지사항"
-      //     ? filtedByLibraryName.filter((i) => i.type === "공지사항")
-      //     : filtedByLibraryName;
-      // setNoticeData(filtedByNoticeData);
+      const filtedByNoticeData =
+        filtedByLibraryName.type !== "공지사항"
+          ? filtedByLibraryName.filter((i) => i.type === "공지사항")
+          : filtedByLibraryName;
+      setNoticeData(filtedByNoticeData);
 
       const filtedByInfoData =
-        boardArr.type !== "안내사항"
-          ? boardArr.filter((i) => i.type === "안내사항")
-          : boardArr;
+        filtedByLibraryName.type !== "안내사항"
+          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+          : filtedByLibraryName;
       setInfoData(filtedByInfoData);
     });
   }, []);
@@ -109,7 +108,7 @@ const BoardList = () => {
           </div>
         )}
         {mode === "이용안내" && (
-          <div>
+          <div className="info-box">
             {infoData &&
               infoData.map((info) => (
                 <div className="info-box" key={info.id}>
@@ -119,7 +118,7 @@ const BoardList = () => {
           </div>
         )}
         {mode === "오시는 길" && (
-          <div>
+          <div className="map-box">
             <BoardMap />
           </div>
         )}

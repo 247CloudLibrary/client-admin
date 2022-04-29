@@ -20,7 +20,6 @@ const BoardWriteForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(type, title, contents);
 
   return (
     <div className="BoardWrite">
@@ -87,7 +86,6 @@ const BoardWriteForm = () => {
                     ...boardContent,
                     contents: data,
                   });
-                  console.log(boardContent);
                 }}
                 onBlur={(event, editor) => {}}
                 onFocus={(event, editor) => {}}

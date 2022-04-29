@@ -18,7 +18,7 @@ const BoardNoticeListItem = ({
   const BoardNoticeListItemArray = [
     { value: id, className: "num" },
     { value: title, className: "title" },
-    { value: adminName, className: "adminName" },
+    { value: "관리자", className: "adminName" },
     { value: createdAt, className: "createdAt" },
     // { value: updatedAt, className: "updatedAt" },
     { value: readCounts, className: "readCounts" },

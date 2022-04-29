@@ -7,7 +7,7 @@ const BoardInfo = (infoDatas) => {
   const navigate = useNavigate();
   // const [info, setInfo] = useState([]);
 
-  const infoData = infoDatas ? infoDatas.infoData[0] : undefined;
+  const infoData = infoDatas.infoData[0] ? infoDatas.infoData[0] : undefined;
 
   const toInfoDetail = () => {
     navigate(`/boards/edit/${infoData.id}`, {
@@ -39,7 +39,13 @@ const BoardInfo = (infoDatas) => {
       </div>
     );
   } else {
-    return <div id="board-info">등록된 내용이 없습니다.</div>;
+    return (
+      <div id="board-info">
+        <div style={{ fontSize: "1.5rem", marginTop: "3rem" }}>
+          등록된 내용이 없습니다.
+        </div>
+      </div>
+    );
   }
 };
 
