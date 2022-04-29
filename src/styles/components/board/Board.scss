@@ -1,0 +1,52 @@
+#Board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-width: 50rem;
+  height: 100%;
+  min-height: 90vh;
+  background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 30% 50%;
+  background-color: aliceblue;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  .btn {
+    width: 80rem;
+    display: flex;
+    justify-content: space-between;
+    div {
+      height: 15rem;
+      width: 15rem;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      background-color: #30303077;
+      box-shadow: 1px 1px 3px;
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: #000000de;
+      }
+    }
+    .icon {
+      padding-top: 1rem;
+      font-size: 5rem;
+      color: #e8f8ff;
+    }
+    .tag {
+      font-size: 2rem;
+      font-family: Jua;
+      margin-top: 1rem;
+      color: #e8f8ff;
+    }
+  }
+}

@@ -4,7 +4,10 @@
   right: 0;
   top: 0;
   bottom: 0;
+  height: 100%;
+  min-height: 90vh;
   padding-bottom: 5rem;
+  background-color: aliceblue;
   justify-content: center;
   .detail-form {
     width: 60rem;

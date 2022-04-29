@@ -11,6 +11,7 @@
 @import "./common/footer.scss";
 
 /* Board */
+@import "./components/board/Board.scss";
 @import "./components/board/NoticesList.scss";
 @import "./components/board/NoticesListItem.scss";
 @import "./components/board/NoticeDetail.scss";
