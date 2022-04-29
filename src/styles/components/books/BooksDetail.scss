@@ -1,11 +1,13 @@
 #book-detail {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
+  width: 100vw;
+  min-width: 50rem;
+  height: 100%;
+  background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 30% 50%;
   background-color: aliceblue;
+  padding-bottom: 5rem;
   .head {
     font-size: 3rem;
     text-align: center;
@@ -28,8 +30,8 @@
         background: rgb(227, 253, 255);
         background: linear-gradient(
           90deg,
-          rgb(204, 249, 255) 0%,
-          rgb(214, 250, 255) 100%
+          rgb(223, 247, 250) 0%,
+          rgb(244, 252, 253) 100%
         );
         border-bottom: none;
         .type {
@@ -153,7 +155,8 @@
         font-size: 1.125rem;
         font-weight: bold;
         padding: 1rem 1rem;
-        margin-top: 0.7rem;
+        margin-top: 3rem;
+        margin-right: 1rem;
         width: auto;
         border-radius: 4px;
         background-color: #435769;
@@ -162,7 +165,37 @@
         cursor: pointer;
         transition: 0.8s;
         &:hover {
-          background-color: #2b3c4e;
+          color: #435769;
+          background: rgb(227, 253, 255);
+          background: linear-gradient(
+            90deg,
+            rgb(55, 182, 255) 0%,
+            rgb(164, 244, 253) 100%
+          );
+        }
+      }
+      .return-btn {
+        border: none;
+        font-size: 1.125rem;
+        font-weight: bold;
+        padding: 1rem 1rem;
+        margin-left: 1rem;
+        margin-top: 3rem;
+        width: auto;
+        border-radius: 4px;
+        background-color: #435769;
+        color: azure;
+        outline: none;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+          color: #435769;
+          background: rgb(227, 253, 255);
+          background: linear-gradient(
+            90deg,
+            rgb(55, 182, 255) 0%,
+            rgb(164, 244, 253) 100%
+          );
         }
       }
     }

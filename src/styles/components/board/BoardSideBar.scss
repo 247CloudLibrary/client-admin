@@ -1,10 +1,8 @@
 #sidebar {
   display: flex;
   flex-direction: column;
-  position: absolute;
   width: 20rem;
   height: 20rem;
-  right: 15rem;
   border-radius: 1rem;
   z-index: 1;
   .label-btn input[type="radio"] {
@@ -17,7 +15,12 @@
     align-items: center;
   }
   .label-btn input[type="radio"]:checked + span {
-    background-color: #afcddf;
+    background: rgb(227, 253, 255);
+    background: linear-gradient(
+      90deg,
+      rgb(55, 182, 255) 0%,
+      rgb(164, 244, 253) 100%
+    );
   }
   .notice {
     background-color: #fff;

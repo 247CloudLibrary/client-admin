@@ -6,7 +6,6 @@ const LibrariesEdit = () => {
   const [edit, setEdit] = useState([]);
   const [num, setNum] = useState([]);
   const location = useLocation();
-  console.log("state", location.state.id);
   const id = location.state.id;
   const navigate = useNavigate();
 
@@ -32,12 +31,10 @@ const LibrariesEdit = () => {
       [e.target.name]: e.target.valueAsNumber,
     });
   };
-  console.log(edit);
+
   useEffect(() => {
     axios
-      .get(
-        `https://www.cloudlibrary.shop/v1/libraries/${id}`
-      )
+      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`)
       .then(function (response) {
         setEdit(response.data.data);
         setNum(response.data.data);

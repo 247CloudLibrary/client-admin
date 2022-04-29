@@ -1,0 +1,118 @@
+#LibrariesWrite {
+  background-color: aliceblue;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-bottom: 5rem;
+  .library-write {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    .write-form {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      .input-area {
+        margin-top: 5rem;
+        .write-info {
+          font-size: 2.5rem;
+          font-family: "Nanum Gothic Coding";
+        }
+        .input-box {
+          margin-top: 3rem;
+          width: 40rem;
+          display: flex;
+          font-size: 1.5rem;
+          justify-content: space-between;
+          font-family: "Nanum Gothic Coding";
+          .name,
+          .address,
+          .operatingTime,
+          .holiday,
+          .email,
+          .tel {
+            width: 25rem;
+            font-size: 1.2rem;
+          }
+          .name {
+          }
+          .address {
+          }
+          .operatingTime {
+          }
+          .holiday {
+          }
+          .email {
+          }
+          .tel {
+          }
+        }
+      }
+      .number-area {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+        align-items: center;
+        .write-rule {
+          font-size: 2.5rem;
+          font-family: "Nanum Gothic Coding";
+        }
+        .number-box {
+          display: flex;
+          margin-top: 3rem;
+          width: 20rem;
+          font-size: 1.5rem;
+          justify-content: space-between;
+          font-family: "Nanum Gothic Coding";
+          .lendingAvailableCount,
+          .lendingAvailableDays,
+          .overdueCount,
+          .longtermOverdueDays,
+          .lendingLimitDays {
+            width: 5rem;
+            font-size: 1.3rem;
+          }
+          .lendingAvailableCount {
+          }
+          .lendingAvailableDays {
+          }
+          .overdueCount {
+          }
+          .longtermOverdueDays {
+          }
+          .lendingLimitDays {
+          }
+        }
+      }
+    }
+  }
+  .btn {
+    .write-btn {
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      margin-top: 3rem;
+      width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        color: #435769;
+        background: rgb(227, 253, 255);
+        background: linear-gradient(
+          90deg,
+          rgb(55, 182, 255) 0%,
+          rgb(164, 244, 253) 100%
+        );
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ const LibrariesList = () => {
       const responseArr = response.data.data;
 
       const filtedBySearch = text
-        ? responseArr.filter((i) => i.name.indexOf(text) === 0)
+        ? responseArr.filter((i) => i.name.includes(text))
         : responseArr;
 
       setListData(filtedBySearch);

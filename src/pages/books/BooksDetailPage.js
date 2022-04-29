@@ -1,9 +1,11 @@
 import BooksDetail from "../../components/books/BooksDetail";
+import Footer from "../../components/Footer";
 
 const BooksDetailPage = () => {
   return (
     <>
       <BooksDetail />
+      <Footer />
     </>
   );
 };

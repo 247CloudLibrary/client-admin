@@ -20,10 +20,6 @@ const BoardSidebar = ({ getMode }) => {
     getMode(mode);
   }, [mode, getMode]);
 
-  useEffect(() => {
-    console.log("Mode:", mode);
-  }, [mode]);
-
   const BoardSidebarList = [
     { value: notice, className: "notice" },
     { value: information, className: "information" },

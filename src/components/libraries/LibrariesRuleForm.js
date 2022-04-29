@@ -1,4 +1,12 @@
 import { useState } from "react";
+import { RiZzzLine } from "react-icons/ri";
+import {
+  IoCalendarNumberOutline,
+  IoTimeOutline,
+  IoLibraryOutline,
+} from "react-icons/io5";
+import { FaSortNumericUpAlt, FaRegCalendarTimes } from "react-icons/fa";
+import { AiOutlineWarning } from "react-icons/ai";
 
 const LibrariesRuleForm = () => {
   const [inputs, setInputs] = useState({
@@ -26,7 +34,6 @@ const LibrariesRuleForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(inputs);
 
   const holidayArray = [
     { day: "월" },
@@ -44,30 +51,35 @@ const LibrariesRuleForm = () => {
       name: "lendingAvailableCount",
       tag: "대출 가능 권수",
       key: "lac",
+      icon: <IoLibraryOutline className="icon" />,
     },
     {
       v: lendingAvailableDays,
       name: "lendingAvailableDays",
       tag: "대출 가능 일수",
       key: "lad",
+      icon: <IoCalendarNumberOutline className="icon" />,
     },
     {
       v: overdueCount,
       name: "overdueCount",
       tag: "대출 제한 연체 횟수",
       key: "odc",
+      icon: <FaSortNumericUpAlt className="icon" />,
     },
     {
       v: longtermOverdueDays,
       name: "longtermOverdueDays",
       tag: "장기 연체 구분 일수",
       key: "ltod",
+      icon: <FaRegCalendarTimes className="icon" />,
     },
     {
       v: lendingLimitDays,
       name: "lendingLimitDays",
       tag: "대출 제한 일수",
       key: "lld",
+      icon: <AiOutlineWarning className="icon" />,
     },
   ];
 
@@ -75,7 +87,8 @@ const LibrariesRuleForm = () => {
     <div id="libraries-rule">
       <h1 className="libraries-text">도서관 이용 규정 </h1>
       <form className="form-box">
-        <label>
+        <label className="label">
+          <AiOutlineWarning className="icon" />
           <span className="otcls">운영시간</span>
           <input
             type="text"
@@ -85,7 +98,8 @@ const LibrariesRuleForm = () => {
             onChange={inputChange}
           />
         </label>
-        <label>
+        <label className="label">
+          <AiOutlineWarning className="icon" />
           <span className="hdcls">휴관일</span>
           <select
             id="holiday"
@@ -103,7 +117,8 @@ const LibrariesRuleForm = () => {
           </select>
         </label>
         {LibrariesRuleArray.map((lra) => (
-          <label key={lra.key}>
+          <label key={lra.key} className="label">
+            {lra.icon}
             <span className={`${lra.key}cls`}>{lra.tag}</span>
             <input
               type="number"

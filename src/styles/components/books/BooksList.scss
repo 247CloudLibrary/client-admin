@@ -1,10 +1,11 @@
 #BookList {
   background-color: aliceblue;
-  height: 100vh;
+  height: 100%;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +32,13 @@
         cursor: pointer;
         transition: 0.8s;
         &:hover {
-          background-color: #2b3c4e;
+          color: #435769;
+          background: rgb(227, 253, 255);
+          background: linear-gradient(
+            90deg,
+            rgb(55, 182, 255) 0%,
+            rgb(164, 244, 253) 100%
+          );
         }
       }
     }

@@ -22,12 +22,9 @@ const LibrariesDetail = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://www.cloudlibrary.shop/v1/libraries/${id}`
-      )
+      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`)
       .then(function (response) {
         setLibraryData(response.data.data);
-        console.log(response.data.data);
       });
   }, []);
 

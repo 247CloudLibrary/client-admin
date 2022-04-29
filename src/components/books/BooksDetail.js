@@ -14,7 +14,6 @@ const BooksDetail = () => {
       .get(`https://www.cloudlibrary.shop/v1/books/${id}`)
       .then(function (response) {
         setBookData(response.data.data);
-        console.log(response);
         switch (response.data.data.category) {
           case "철학":
             setCode("(100)");
@@ -87,6 +86,9 @@ const BooksDetail = () => {
       },
     });
   };
+  const returnBtn = () => {
+    navigate(-1);
+  };
 
   return (
     <div id="book-detail">
@@ -126,6 +128,9 @@ const BooksDetail = () => {
         <div className="btn-box">
           <button type="button" className="btn" onClick={handleBtn}>
             도서 수정
+          </button>
+          <button type="button" className="return-btn" onClick={returnBtn}>
+            목록으로
           </button>
         </div>
       </div>
