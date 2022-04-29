@@ -10,7 +10,7 @@ const AuthForm = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState();
   const login = async (id, password) =>
-    await axios.post("/admin/signin", {
+    await axios.post("/v1/admin/signin", {
       id: id,
       pw: password,
     });
@@ -37,7 +37,6 @@ const AuthForm = () => {
     const { userId, password } = form;
     login(userId, password).then((response) => {
       setUser(response);
-      console.log(response.status);
     });
   };
 
@@ -58,12 +57,9 @@ const AuthForm = () => {
 
   useEffect(() => {
     if (user) {
-      console.log(user);
       navigate("/home");
       try {
         localStorage.setItem("user", JSON.stringify(user));
-        console.log(localStorage.getItem("user"));
-        console.log(user);
       } catch (e) {
         console.log("localStorage is not working");
       }
