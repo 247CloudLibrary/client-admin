@@ -55,7 +55,9 @@ const GuideForm = () => {
     return (
       <div id="guide-form">
         <div className="board-guide">이용안내</div>
-        <div className="text-form">등록된 내용이 없습니다.</div>
+        <div style={{ fontSize: "1.5rem", marginTop: "3rem" }}>
+          등록된 내용이 없습니다.
+        </div>
       </div>
     );
   }

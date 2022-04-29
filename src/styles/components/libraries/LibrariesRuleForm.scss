@@ -5,7 +5,6 @@
   top: 0;
   bottom: 0;
   height: 100%;
-  min-height: 90vh;
   background-color: aliceblue;
   padding-bottom: 5rem;
   justify-content: center;
@@ -16,70 +15,82 @@
     text-align: center;
   }
   .form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     text-align: center;
-    width: 30rem;
+    width: 32rem;
     margin: auto;
     margin-top: 5rem;
-    .otcls {
-      position: relative;
-      margin-right: 14.2rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    .hdcls {
-      position: relative;
-      margin-right: 16rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .laccls,
-    .ladcls,
-    .lldcls {
-      position: relative;
-      margin-right: 10.75rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .odccls,
-    .ltodcls {
-      position: relative;
-      margin-right: 7.7rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    .ot,
-    .hd,
-    .lac,
-    .lad,
-    .odc,
-    .ltod,
-    .lld {
-      position: relative;
-      width: 10rem;
-      height: 2rem;
-      font-size: 1.3rem;
+    .label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 3rem;
-    }
-    .save-btn {
-      border: none;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 1rem 1rem;
-      margin: auto;
-      margin-top: 2rem;
-      width: auto;
-      border-radius: 4px;
-      background-color: #435769;
-      color: azure;
-      outline: none;
-      cursor: pointer;
-      transition: 0.8s;
-      &:hover {
-        background-color: #2b3c4e;
+      .icon {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
       }
+      .otcls {
+        position: relative;
+        margin-right: 14.2rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+      .hdcls {
+        position: relative;
+        margin-right: 16rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .laccls,
+      .ladcls,
+      .lldcls {
+        position: relative;
+        margin-right: 10.75rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .odccls,
+      .ltodcls {
+        position: relative;
+        margin-right: 7.7rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+      .ot,
+      .hd,
+      .lac,
+      .lad,
+      .odc,
+      .ltod,
+      .lld {
+        position: relative;
+        width: 10rem;
+        height: 2rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .save-btn {
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    margin: auto;
+    margin-top: 2rem;
+    width: auto;
+    border-radius: 4px;
+    background-color: #435769;
+    color: azure;
+    outline: none;
+    cursor: pointer;
+    transition: 0.8s;
+    &:hover {
+      background-color: #2b3c4e;
     }
   }
 }

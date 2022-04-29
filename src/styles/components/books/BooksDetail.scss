@@ -2,7 +2,6 @@
   width: 100vw;
   min-width: 50rem;
   height: 100%;
-  min-height: 90vh;
   background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
   background-size: cover;
   background-attachment: fixed;
@@ -31,8 +30,8 @@
         background: rgb(227, 253, 255);
         background: linear-gradient(
           90deg,
-          rgb(204, 249, 255) 0%,
-          rgb(214, 250, 255) 100%
+          rgb(100, 237, 255) 0%,
+          rgb(216, 251, 255) 100%
         );
         border-bottom: none;
         .type {

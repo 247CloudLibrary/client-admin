@@ -15,7 +15,12 @@
     align-items: center;
   }
   .label-btn input[type="radio"]:checked + span {
-    background-color: #afcddf;
+    background: rgb(227, 253, 255);
+    background: linear-gradient(
+      90deg,
+      rgb(100, 237, 255) 0%,
+      rgb(216, 251, 255) 100%
+    );
   }
   .notice {
     background-color: #fff;
