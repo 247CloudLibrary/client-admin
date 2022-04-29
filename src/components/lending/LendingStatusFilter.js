@@ -1,6 +1,6 @@
 const LendingStatusFilter = ({ STATUS_DATA, onSelect }) => {
   return (
-    <div>
+    <div className="lendingStatusFilter">
       <select onChange={onSelect}>
         {STATUS_DATA.map((data) => {
           return <option key={data.id}>{data.value}</option>;

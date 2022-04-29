@@ -1,7 +1,7 @@
 const Button = ({ onClick, text }) => {
   return (
-    <div onClick={onClick}>
-      <button>{text}</button>
+    <div className="btn" onClick={onClick}>
+      <button className="button">{text}</button>
     </div>
   );
 };

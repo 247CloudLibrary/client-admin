@@ -53,26 +53,37 @@ const LendingPage = () => {
   };
 
   return (
-    <div>
-      <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
-      <Button onClick={onClickReadAuth} text="유저 조회" />
-
-      <LendingStatusFilter
-        dropValue={dropValue}
-        STATUS_DATA={STATUS_DATA}
-        onSelect={onSelect}
-      />
-      <SearchFilter text={text} onChange={onChange} />
-      <LibraryFilter
-        libraryValue={libraryValue}
-        handleChange={handleChange}
-        libraryData={libraryData}
-      />
-      <LendingListForm
-        dropValue={dropValue}
+    <div className="lendingList">
+      <SearchFilter
+        className="home__search-bar "
         text={text}
-        libraryValue={libraryValue}
+        onChange={onChange}
       />
+      <div className="lendingData">
+        <div className="lendingFilterWrap">
+          <LendingStatusFilter
+            dropValue={dropValue}
+            STATUS_DATA={STATUS_DATA}
+            onSelect={onSelect}
+          />
+          <LibraryFilter
+            libraryValue={libraryValue}
+            handleChange={handleChange}
+            libraryData={libraryData}
+          />
+        </div>
+        <div className="lendingListForm">
+          <LendingListForm
+            dropValue={dropValue}
+            text={text}
+            libraryValue={libraryValue}
+          />
+        </div>
+        <div className="btn">
+          <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
+          <Button onClick={onClickReadAuth} text="유저 조회" />
+        </div>
+      </div>
     </div>
   );
 };
