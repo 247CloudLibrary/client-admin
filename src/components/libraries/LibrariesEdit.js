@@ -47,9 +47,7 @@ const LibrariesEdit = () => {
       return;
     } else {
       axios
-        .delete(
-          `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/libraries/${id}`
-        )
+        .delete(`https://www.cloudlibrary.shop/v1/libraries/${id}`)
         .then((response) => {
           console.log(response);
           alert("도서관이 삭제되었습니다.");
@@ -103,23 +101,20 @@ const LibrariesEdit = () => {
           onSubmit={(e) => {
             e.preventDefault();
             axios
-              .put(
-                `http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/libraries/${id}`,
-                {
-                  id: id,
-                  name: name,
-                  address: address,
-                  email: email,
-                  tel: tel,
-                  holiday: holiday,
-                  operatingTime: operatingTime,
-                  lendingAvailableCount: lendingAvailableCount,
-                  lendingAvailableDays: lendingAvailableDays,
-                  overdueCount: overdueCount,
-                  longtermOverdueDays: longtermOverdueDays,
-                  lendingLimitDays: lendingLimitDays,
-                }
-              )
+              .put(`https://www.cloudlibrary.shop/v1/libraries/${id}`, {
+                id: id,
+                name: name,
+                address: address,
+                email: email,
+                tel: tel,
+                holiday: holiday,
+                operatingTime: operatingTime,
+                lendingAvailableCount: lendingAvailableCount,
+                lendingAvailableDays: lendingAvailableDays,
+                overdueCount: overdueCount,
+                longtermOverdueDays: longtermOverdueDays,
+                lendingLimitDays: lendingLimitDays,
+              })
               .then(function (response) {
                 console.log(response);
                 navigate("/libraries/list");

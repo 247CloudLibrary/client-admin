@@ -46,7 +46,7 @@ const LibrariesWrite = () => {
     { val: name, key: "name", tag: "도서관 이름" },
     { val: address, key: "address", tag: "도서관 주소" },
     { val: operatingTime, key: "operatingTime", tag: "운영시간" },
-    { val: operatingTime, key: "holiday", tag: "휴관일" },
+    { val: holiday, key: "holiday", tag: "휴관일" },
   ];
 
   const LibrariesNumArray = [
@@ -84,22 +84,19 @@ const LibrariesWrite = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post(
-              "http://ecs-alb-167470959.us-east-1.elb.amazonaws.com/v1/libraries",
-              {
-                address: address,
-                email: email,
-                holiday: holiday,
-                lendingAvailableCount: lendingAvailableCount,
-                lendingAvailableDays: lendingAvailableDays,
-                longtermOverdueDays: longtermOverdueDays,
-                name: name,
-                operatingTime: operatingTime,
-                overdueCount: overdueCount,
-                lendingLimitDays: lendingLimitDays,
-                tel: tel,
-              }
-            )
+            .post("https://www.cloudlibrary.shop/v1/libraries", {
+              address: address,
+              email: email,
+              holiday: holiday,
+              lendingAvailableCount: lendingAvailableCount,
+              lendingAvailableDays: lendingAvailableDays,
+              longtermOverdueDays: longtermOverdueDays,
+              name: name,
+              operatingTime: operatingTime,
+              overdueCount: overdueCount,
+              lendingLimitDays: lendingLimitDays,
+              tel: tel,
+            })
             .then(function (response) {
               console.log(response);
               alert("도서관이 등록되었습니다.");
