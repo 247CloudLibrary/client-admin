@@ -10,7 +10,7 @@ const AuthForm = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState();
   const login = async (id, password) =>
-    await axios.post("https://www.cloudlibrary.shop/v1/admin/signin", {
+    await axios.post("/admin/signin", {
       id: id,
       pw: password,
     });

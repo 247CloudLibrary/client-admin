@@ -3,6 +3,7 @@ import { ImLibrary } from "react-icons/im";
 import { BsJournalText, BsJournalCheck } from "react-icons/bs";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { IoSearch, IoBanOutline, IoFileTrayFullOutline } from "react-icons/io5";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 import { WiCloud } from "react-icons/wi";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -15,7 +16,9 @@ const MainForm = ({ props }) => {
           <Link to="/home" className="logo">
             <WiCloud />
             <span>Cloud Library</span>
-            <button onClick={props.onLogout}>로그아웃</button>
+            <button onClick={props.onLogout} className="logout">
+              <RiLogoutBoxRLine />
+            </button>
           </Link>
         </div>
         <div className="feature-box">
