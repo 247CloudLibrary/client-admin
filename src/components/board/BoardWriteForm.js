@@ -11,7 +11,11 @@ const BoardWriteForm = () => {
     title: "",
     contents: "",
   });
-  const libraryName = "임시 도서관";
+  const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
+
+  const libraryName = storage.libraryName;
+  console.log(libraryName);
   const { type, title, contents } = boardContent;
 
   const getValue = (e) => {
