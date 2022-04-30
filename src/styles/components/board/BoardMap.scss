@@ -1,11 +1,30 @@
 #BoardMap {
-  display: flex;
   position: relative;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   justify-content: center;
+  .name {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Nanum Gothic Coding";
+    margin-bottom: 1rem;
+  }
+  .address-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    font-family: "Nanum Gothic Coding";
+    .icon {
+      color: red;
+      font-size: 2rem;
+    }
+  }
   #map {
     width: 60rem;
     height: 600px;

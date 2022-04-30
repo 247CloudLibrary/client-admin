@@ -129,7 +129,7 @@ const BoardList = () => {
         )}
         {mode === "오시는 길" && (
           <div className="map-box">
-            <BoardMap libraryAddress={address} />
+            <BoardMap libraryAddress={address} libraryName={libraryName} />
           </div>
         )}
       </div>
@@ -137,7 +137,7 @@ const BoardList = () => {
         <button
           className="return-btn"
           onClick={() => {
-            navigate("/boards");
+            navigate("/home");
           }}
         >
           돌아가기

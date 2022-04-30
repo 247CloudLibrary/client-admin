@@ -1,7 +1,8 @@
 /* global kakao */
+import { MdLocationPin } from "react-icons/md";
 import React, { useEffect } from "react";
 
-const BoardMap = ({ libraryAddress }) => {
+const BoardMap = ({ libraryAddress, libraryName }) => {
   useEffect(() => {
     var container = document.getElementById("map");
     var options = {
@@ -46,6 +47,11 @@ const BoardMap = ({ libraryAddress }) => {
   }, []);
   return (
     <div id="BoardMap">
+      <div className="name">{libraryName}</div>
+      <div className="address-info">
+        <MdLocationPin className="icon" />
+        {libraryAddress}
+      </div>
       <div id="map"></div>
     </div>
   );
