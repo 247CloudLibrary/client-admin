@@ -12,6 +12,7 @@ const BooksList = () => {
   const storage = json.data;
 
   const libraryName = storage.libraryName;
+  console.log(libraryName);
 
   useEffect(() => {
     axios.get("https://www.cloudlibrary.shop/v1/books").then((response) => {
