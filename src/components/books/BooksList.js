@@ -8,20 +8,23 @@ const BooksList = () => {
   const [bookList, setBookList] = useState([]);
   const [text, setText] = useState("");
 
-  const libraryName = "청담도서관";
+  const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
+
+  const libraryName = storage.libraryName;
 
   useEffect(() => {
     axios.get("https://www.cloudlibrary.shop/v1/books").then((response) => {
       const responseArr = response.data.data;
 
-      // const filtedByLibraryName =
-      //   responseArr.libraryName !== libraryName
-      //     ? responseArr.filter((i) => i.libraryName === libraryName)
-      //     : responseArr;
+      const filtedByLibraryName =
+        responseArr.libraryName !== libraryName
+          ? responseArr.filter((i) => i.libraryName === libraryName)
+          : responseArr;
 
       const filtedByText = text
-        ? responseArr.filter((i) => i.title.includes(text))
-        : responseArr;
+        ? filtedByLibraryName.filter((i) => i.title.includes(text))
+        : filtedByLibraryName;
 
       setBookList(filtedByText);
     });
