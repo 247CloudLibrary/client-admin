@@ -104,6 +104,7 @@
       min-width: 60rem;
       margin-right: 20rem;
       display: flex;
+      flex-direction: column;
       .listitem-box {
         width: 60rem;
         position: relative;
