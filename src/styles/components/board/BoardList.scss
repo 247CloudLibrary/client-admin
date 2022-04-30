@@ -113,4 +113,31 @@
       }
     }
   }
+  .return {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    .return-btn {
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        color: #435769;
+        background: rgb(227, 253, 255);
+        background: linear-gradient(
+          90deg,
+          rgb(55, 182, 255) 0%,
+          rgb(164, 244, 253) 100%
+        );
+      }
+    }
+  }
 }

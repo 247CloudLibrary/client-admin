@@ -8,9 +8,16 @@ const BooksList = () => {
   const [bookList, setBookList] = useState([]);
   const [text, setText] = useState("");
 
+  const libraryName = "청담도서관";
+
   useEffect(() => {
     axios.get("https://www.cloudlibrary.shop/v1/books").then((response) => {
       const responseArr = response.data.data;
+
+      // const filtedByLibraryName =
+      //   responseArr.libraryName !== libraryName
+      //     ? responseArr.filter((i) => i.libraryName === libraryName)
+      //     : responseArr;
 
       const filtedByText = text
         ? responseArr.filter((i) => i.title.includes(text))

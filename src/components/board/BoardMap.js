@@ -1,7 +1,7 @@
 /* global kakao */
 import React, { useEffect } from "react";
 
-const BoardMap = () => {
+const BoardMap = (LibraryAddress) => {
   useEffect(() => {
     var container = document.getElementById("map");
     var options = {
@@ -16,7 +16,7 @@ const BoardMap = () => {
     var geocoder = new kakao.maps.services.Geocoder();
 
     //디폴트 주소: 주소가 안찍혀있을 때 보여지는 지도
-    var address = "서울 금천구 가산로 70 서울디자인직업전문학교";
+    var address = LibraryAddress;
 
     // 주소로 좌표를 검색합니다
     geocoder.addressSearch(address, function (result, status) {

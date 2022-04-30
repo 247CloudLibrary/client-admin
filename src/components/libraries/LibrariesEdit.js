@@ -156,7 +156,7 @@ const LibrariesEdit = () => {
                   type="tel"
                   className="tel"
                   name="tel"
-                  pattern="[0-9]{2}-[0-9]{3}-[0-9]{4}"
+                  pattern="[0-9]{2,3}-[0-9]{3}-[0-9]{4}"
                   onChange={onChange}
                   defaultValue={tel}
                 />

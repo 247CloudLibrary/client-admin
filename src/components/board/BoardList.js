@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BoardSidebar from "./BoardSideBar";
 import BoardNoticeListItem from "./BoardNoticeListItem";
 import BoardInfo from "./BoardInfo";
@@ -14,7 +14,13 @@ const BoardList = () => {
   const [infoData, setInfoData] = useState([]);
   const [mode, setMode] = useState("공지사항");
 
-  const libraryName = "임시도서관";
+  const navigate = useNavigate();
+
+  const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
+
+  const libraryName = storage.libraryName;
+  const address = storage.address;
 
   const getMode = (mode) => {
     setMode(mode);
@@ -72,7 +78,7 @@ const BoardList = () => {
         <Link to="/boards/write" style={{ textDecoration: "none", width: "0" }}>
           <button
             className="write-btn"
-            style={btn ? { display: "none" } : null}
+            style={btn ? { opacity: 0, pointerEvents: "none" } : null}
           >
             게시글 등록
           </button>
@@ -122,9 +128,19 @@ const BoardList = () => {
         )}
         {mode === "오시는 길" && (
           <div className="map-box">
-            <BoardMap />
+            <BoardMap libraryAddress={address} />
           </div>
         )}
+      </div>
+      <div className="return">
+        <button
+          className="return-btn"
+          onClick={() => {
+            navigate("/boards");
+          }}
+        >
+          돌아가기
+        </button>
       </div>
     </main>
   );
