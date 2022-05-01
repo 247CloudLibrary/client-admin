@@ -12,7 +12,10 @@ const BoardEditForm = () => {
     title: location.state.defaultTitle,
     contents: location.state.defaultContents,
   });
-  const libraryName = "도곡정보문화도서관";
+  const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
+
+  const libraryName = storage.libraryName;
   const id = location.state.id;
 
   let { type, title, contents } = editContent;

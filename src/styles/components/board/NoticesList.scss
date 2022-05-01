@@ -1,18 +1,21 @@
 #board-superadmin {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  padding-bottom: 5rem;
+  width: 100%;
+  min-width: 60rem;
   height: 100%;
+  min-height: 100vh;
+  padding-bottom: 5rem;
   background-color: aliceblue;
   .content {
     position: relative;
     font-size: 2.5rem;
-    margin: auto;
     text-align: center;
-    font-family: "Nanum Gothic Coding";
+    font-family: "Lexend Deca", sans-serif;
   }
   .write {
     display: flex;
@@ -48,6 +51,7 @@
     display: flex;
     text-align: center;
     justify-content: center;
+
     .list-title {
       display: flex;
       position: relative;
@@ -78,15 +82,32 @@
       }
     }
   }
-  .item-area {
+
+  .form-box {
     display: flex;
+    flex-direction: row;
+    position: relative;
     justify-content: center;
-    .item-box {
-      display: flex;
-      width: 60rem;
-      flex-direction: column;
+
+    .sidebar-box {
       position: relative;
+      float: left;
+    }
+    .map-box,
+    .info-box {
+      width: 60rem;
+      min-width: 60rem;
+      margin-right: 20rem;
+      display: flex;
+    }
+    .item-box {
+      width: 60rem;
+      min-width: 60rem;
+      margin-right: 20rem;
+      display: flex;
+      flex-direction: column;
       .listitem-box {
+        width: 60rem;
         position: relative;
         justify-content: center;
         height: 3rem;
