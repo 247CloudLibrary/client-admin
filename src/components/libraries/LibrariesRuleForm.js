@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiZzzLine } from "react-icons/ri";
 import {
   IoCalendarNumberOutline,
@@ -7,17 +7,16 @@ import {
 } from "react-icons/io5";
 import { FaSortNumericUpAlt, FaRegCalendarTimes } from "react-icons/fa";
 import { AiOutlineWarning } from "react-icons/ai";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LibrariesRuleForm = () => {
-  const [inputs, setInputs] = useState({
-    operatingTime: "09:00 - 22:00",
-    holiday: "월",
-    lendingAvailableCount: 1,
-    lendingAvailableDays: 1,
-    lendingLimitDays: 1,
-    overdueCount: 1,
-    longtermOverdueDays: 1,
-  });
+  const navigate = useNavigate();
+  const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
+
+  const [inputs, setInputs] = useState([]);
+
   const {
     operatingTime,
     holiday,
@@ -28,22 +27,18 @@ const LibrariesRuleForm = () => {
     longtermOverdueDays,
   } = inputs;
 
+  useEffect(() => {
+    axios
+      .get(`https://www.cloudlibrary.shop/v1/libraries/${storage.libraryId}`)
+      .then((response) => setInputs(response.data.data));
+  }, []);
+
   const inputChange = (e) => {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
     });
   };
-
-  const holidayArray = [
-    { day: "월" },
-    { day: "화" },
-    { day: "수" },
-    { day: "목" },
-    { day: "금" },
-    { day: "토" },
-    { day: "일" },
-  ];
 
   const LibrariesRuleArray = [
     {
@@ -86,9 +81,37 @@ const LibrariesRuleForm = () => {
   return (
     <div id="libraries-rule">
       <h1 className="libraries-text">도서관 이용 규정 </h1>
-      <form className="form-box">
+      <form
+        className="form-box"
+        onSubmit={(e) => {
+          e.preventDefault();
+          axios
+            .put(
+              `https://www.cloudlibrary.shop/v1/libraries/${storage.libraryId}`,
+              {
+                id: storage.libraryId,
+                address: inputs.address,
+                email: inputs.email,
+                holiday: holiday,
+                name: inputs.name,
+                tel: inputs.tel,
+                operatingTime: operatingTime,
+                lendingAvailableCount: lendingAvailableCount,
+                lendingAvailableDays: lendingAvailableDays,
+                lendingLimitDays: lendingLimitDays,
+                overdueCount: overdueCount,
+                longtermOverdueDays: longtermOverdueDays,
+              }
+            )
+            .then(function (result) {
+              console.log(result);
+              alert("이용 규정이 수정되었습니다.");
+              navigate(-1);
+            });
+        }}
+      >
         <label className="label">
-          <AiOutlineWarning className="icon" />
+          <IoTimeOutline className="icon" />
           <span className="otcls">운영시간</span>
           <input
             type="text"
@@ -101,20 +124,13 @@ const LibrariesRuleForm = () => {
         <label className="label">
           <AiOutlineWarning className="icon" />
           <span className="hdcls">휴관일</span>
-          <select
-            id="holiday"
+          <input
+            type="text"
             name="holiday"
             className="hd"
             defaultValue={holiday}
-            defaultinputvalue={holiday}
             onChange={inputChange}
-          >
-            {holidayArray.map((ha) => (
-              <option value={ha.day} key={ha.day}>
-                {ha.day}
-              </option>
-            ))}
-          </select>
+          ></input>
         </label>
         {LibrariesRuleArray.map((lra) => (
           <label key={lra.key} className="label">
@@ -124,6 +140,7 @@ const LibrariesRuleForm = () => {
               type="number"
               min={0}
               className={lra.key}
+              name={lra.name}
               defaultValue={lra.v}
               onChange={inputChange}
             />

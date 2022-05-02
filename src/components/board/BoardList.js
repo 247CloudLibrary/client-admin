@@ -20,9 +20,8 @@ const BoardList = () => {
   const storage = json.data;
 
   const libraryName = storage.libraryName;
-
   const address = storage.address;
-  console.log(address);
+
   const getMode = (mode) => {
     setMode(mode);
     if (mode === "공지사항") {
