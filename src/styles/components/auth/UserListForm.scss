@@ -1,0 +1,66 @@
+#user-list {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  min-width: 55rem;
+  min-height: 90rem;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../../public/img/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .user-list {
+    width: 80%;
+    min-width: 50rem;
+    background-color: #4e3513de;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #title {
+      font-weight: bold;
+      font-family: "Nanum Gothic Coding";
+      letter-spacing: 0.2rem;
+    }
+    .user-list-title {
+      font-size: 5.5rem;
+      padding-bottom: 8rem;
+      font-weight: bold;
+      font-family: "Antonio";
+      letter-spacing: 0.2rem;
+      color: #fff9e5;
+      text-shadow: 1px 1px 3px #2e2e2e;
+    }
+
+    .user-list-container {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      animation: slide-bottom-up 1s 1s both;
+    }
+    span {
+      display: inline-block;
+      width: 20%;
+      text-align: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-size: 1.3rem;
+      overflow-x: hidden;
+      border-bottom: 0.125rem solid #b6b6b6c9;
+      color: #fff9e5;
+      text-shadow: 1px 1px 3px #2e2e2e;
+    }
+    .tel {
+      width: 30%;
+    }
+    .email {
+      width: 30%;
+    }
+  }
+}

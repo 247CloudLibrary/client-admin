@@ -1,5 +1,7 @@
 /* Config */
 @import "./config/_reset.scss";
+@import "./common/footer.scss";
+@import "./common/header.scss";
 
 /* Admin */
 @import "./components/auth/LoginForm.scss";
@@ -8,7 +10,7 @@
 @import "./components/auth/ProfileForm.scss";
 @import "./components/auth/inputForm.scss";
 @import "./components/mainForm.scss";
-@import "./common/footer.scss";
+@import "./components/auth/UserListForm.scss";
 
 /* Board */
 @import "./components/board/Board.scss";
@@ -51,6 +53,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Nanum+Gothic+Coding:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Square+Peg&display=swap");
 
 /* Defaults */
 a {
@@ -60,7 +64,58 @@ a {
 
 body {
   content: url("../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg")
-    url("../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+    url("../../public/img/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+}
+
+@keyframes img-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right-to-left {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left-to-right {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-bottom-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 @keyframes background-action {
