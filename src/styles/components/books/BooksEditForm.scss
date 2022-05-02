@@ -15,139 +15,145 @@
     display: flex;
     position: relative;
     flex-direction: column;
+    margin-top: 5rem;
     flex-wrap: wrap;
-    width: 80rem;
-    .input-box {
-      display: flex;
-      position: relative;
-      justify-content: center;
-      .image-area {
+    .input-area {
+      background-color: white;
+      width: 60rem;
+      border-radius: 20px;
+      padding: 2rem;
+      .input-box {
         display: flex;
         position: relative;
         justify-content: center;
-        width: 50rem;
-        .image-box {
+        .image-area {
+          display: flex;
           position: relative;
           justify-content: center;
-          height: 15rem;
-
-          .thumbNailImage {
-            display: flex;
-            flex-direction: column;
-          }
-          .coverImage {
-            display: flex;
-            text-align: center;
-          }
-          .preview {
-            display: flex;
+          width: 50rem;
+          .image-box {
+            position: relative;
             justify-content: center;
+            height: 15rem;
 
-            .image {
-              height: 140px;
-              width: 100px;
-              border: 1px solid black;
+            .thumbNailImage {
+              display: flex;
+              flex-direction: column;
             }
-            .image-remove {
+            .coverImage {
+              display: flex;
+              text-align: center;
             }
-          }
-          .thumbnail-label {
-            position: relative;
-          }
-          .cover-label {
-            position: relative;
+            .preview {
+              display: flex;
+              justify-content: center;
+
+              .image {
+                height: 140px;
+                width: 100px;
+                border: 1px solid black;
+              }
+              .image-remove {
+              }
+            }
+            .thumbnail-label {
+              position: relative;
+            }
+            .cover-label {
+              position: relative;
+            }
           }
         }
       }
-    }
-    .text {
-      display: flex;
-      position: relative;
-      text-align: center;
-      justify-content: center;
-      .text-form {
+      .text {
         display: flex;
         position: relative;
-        flex-wrap: wrap;
-        width: 60rem;
+        text-align: center;
         justify-content: center;
-        input,
-        select,
-        textarea {
+        .text-form {
+          display: flex;
           position: relative;
-          font-size: 1.3rem;
-          width: 10rem;
-          margin-left: 3rem;
-          resize: none;
-        }
-        label {
-          position: relative;
-          width: 30rem;
-          font-size: 1.2rem;
-          margin-top: 3rem;
-        }
-        .libraryName {
-          width: 20rem;
-        }
-        .title {
-          width: 20rem;
-        }
-        .author {
-          width: 20rem;
-          margin-left: 7rem;
-        }
-        .translator {
-          width: 20rem;
-          margin-left: 3.4rem;
-        }
-        .publisher {
-          width: 20rem;
-          margin-left: 5.8rem;
-        }
-        .barcode {
-          width: 20rem;
-          margin-left: 3.4rem;
-        }
-        .rid {
-          width: 20rem;
-          margin-left: 7.8rem;
-        }
-        .rfid {
-          width: 20rem;
-          margin-left: 5.1rem;
-        }
-        .isbn {
-          width: 20rem;
-          margin-left: 6.8rem;
-        }
-        .publishDate {
-          width: 20rem;
-          margin-left: 3.5rem;
-        }
-        .type {
-          width: 20rem;
-          margin-left: 7rem;
-        }
-        .genre {
-          width: 20rem;
-          margin-left: 4.8rem;
-        }
-        .bookStatus {
-          width: 20rem;
-          margin-left: 4.1rem;
-        }
-        .category {
-          width: 20rem;
-          margin-left: 2.5rem;
-        }
-        .contents {
-          position: relative;
-          font-size: 1.2rem;
-          width: 50rem;
-          height: 10rem;
-          margin-left: 0;
-          margin-top: 1rem;
-          font-family: "Nanum Gothic Coding";
+          flex-wrap: wrap;
+          width: 60rem;
+          justify-content: center;
+          input,
+          select,
+          textarea {
+            position: relative;
+            font-size: 1.3rem;
+            width: 10rem;
+            margin-left: 3rem;
+            resize: none;
+          }
+          label {
+            position: relative;
+            width: 30rem;
+            font-size: 1.2rem;
+            margin-top: 3rem;
+          }
+          .libraryName {
+            width: 20rem;
+          }
+          .title {
+            width: 20rem;
+          }
+          .author {
+            width: 20rem;
+            margin-left: 7rem;
+          }
+          .translator {
+            width: 20rem;
+            margin-left: 3.4rem;
+          }
+          .publisher {
+            width: 20rem;
+            margin-left: 5.8rem;
+          }
+          .barcode {
+            width: 20rem;
+            margin-left: 3.4rem;
+          }
+          .rid {
+            width: 20rem;
+            margin-left: 7.9rem;
+          }
+          .rfid {
+            width: 20rem;
+            margin-left: 5.2rem;
+          }
+          .isbn {
+            width: 20rem;
+            margin-left: 6.8rem;
+          }
+          .publishDate {
+            width: 20rem;
+            margin-left: 3.6rem;
+          }
+          .type {
+            width: 20rem;
+            margin-left: 7.5rem;
+          }
+          .genre {
+            width: 20rem;
+            margin-left: 5.1rem;
+          }
+          .bookStatus {
+            width: 20rem;
+            margin-left: 4.6rem;
+          }
+          .category {
+            width: 20rem;
+            margin-left: 2.7rem;
+          }
+          .contents {
+            position: relative;
+            font-size: 1.2rem;
+            width: 40rem;
+            height: 10rem;
+            margin-left: 0;
+            margin-top: 1rem;
+            font-family: "Nanum Gothic Coding";
+          }
         }
       }
     }

@@ -9,6 +9,11 @@ const LibrariesEdit = () => {
   const id = location.state.id;
   const navigate = useNavigate();
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = { Authorization: `Bearer ${token}` };
+
   const { name, address, holiday, operatingTime, email, tel } = edit;
   const {
     lendingAvailableCount,
@@ -34,7 +39,9 @@ const LibrariesEdit = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`)
+      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`, {
+        headers: headers,
+      })
       .then(function (response) {
         setEdit(response.data.data);
         setNum(response.data.data);

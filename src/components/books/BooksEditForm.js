@@ -159,7 +159,7 @@ const BooksEditForm = () => {
       axios
         .patch(`https://www.cloudlibrary.shop/v1/books/${id}`, { id: id })
         .then(() => {
-          alert("도서관이 삭제되었습니다.");
+          alert("도서가 삭제되었습니다.");
         });
     }
   };
@@ -196,148 +196,154 @@ const BooksEditForm = () => {
         }}
       >
         <div className="input-form">
-          <div className="input-box">
-            <div className="image-area">
-              <div className="image-box">
-                <div className="preview">
-                  {thumbNailImage && (
-                    <div>
-                      <img className="image" src={thumbNailImage} alt="Thumb" />
-                    </div>
-                  )}
+          <div className="input-area">
+            <div className="input-box">
+              <div className="image-area">
+                <div className="image-box">
+                  <div className="preview">
+                    {thumbNailImage && (
+                      <div>
+                        <img
+                          className="image"
+                          src={thumbNailImage}
+                          alt="Thumb"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <label className="thumbnail-label">
+                    썸네일 이미지
+                    <input
+                      type="file"
+                      accept="image/*"
+                      name="thumbNailImage"
+                      className="thumbNailImage"
+                      onChange={imageChange1}
+                    />
+                  </label>
                 </div>
-                <label className="thumbnail-label">
-                  썸네일 이미지
-                  <input
-                    type="file"
-                    accept="image/*"
-                    name="thumbNailImage"
-                    className="thumbNailImage"
-                    onChange={imageChange1}
-                  />
-                </label>
-              </div>
 
-              <div className="image-box">
-                <div className="preview">
-                  {coverImage && (
-                    <div>
-                      <img className="image" src={coverImage} alt="Thumb" />
-                    </div>
-                  )}
+                <div className="image-box">
+                  <div className="preview">
+                    {coverImage && (
+                      <div>
+                        <img className="image" src={coverImage} alt="Thumb" />
+                      </div>
+                    )}
+                  </div>
+                  <label className="cover-label">
+                    커버 이미지
+                    <input
+                      type="file"
+                      accept="image/*"
+                      name="coverImage"
+                      className="coverImage"
+                      onChange={imageChange2}
+                    />
+                  </label>
                 </div>
-                <label className="cover-label">
-                  커버 이미지
-                  <input
-                    type="file"
-                    accept="image/*"
-                    name="coverImage"
-                    className="coverImage"
-                    onChange={imageChange2}
-                  />
-                </label>
               </div>
             </div>
-          </div>
-          <div className="text">
-            <div className="text-form">
-              {TextFormArray.map((tfa, index) => (
-                <label key={tfa.name}>
-                  {tfa.label}
+            <div className="text">
+              <div className="text-form">
+                {TextFormArray.map((tfa, index) => (
+                  <label key={tfa.name}>
+                    {tfa.label}
+                    <input
+                      type="text"
+                      name={tfa.name}
+                      className={tfa.name}
+                      defaultValue={tfa.value}
+                      onChange={onChange}
+                      disabled={index === 6}
+                    />
+                  </label>
+                ))}
+                <label>
+                  출판일
                   <input
-                    type="text"
-                    name={tfa.name}
-                    className={tfa.name}
-                    defaultValue={tfa.value}
+                    type="date"
+                    name="publishDate"
+                    className="publishDate"
+                    value={publishDate}
                     onChange={onChange}
-                    disabled={index === 6}
                   />
                 </label>
-              ))}
-              <label>
-                출판일
-                <input
-                  type="date"
-                  name="publishDate"
-                  className="publishDate"
-                  value={publishDate}
-                  onChange={onChange}
-                />
-              </label>
-              <label>
-                타입
-                <select
-                  id="types"
-                  name="bookType"
-                  defaultValue={bookType}
-                  defaultinputvalue={bookType}
-                  className="type"
-                  onChange={onChange}
-                >
-                  <option value="BOOK">도서</option>
-                  <option value="NON_BOOK">비도서</option>
-                </select>
-              </label>
-              <label>
-                장르
-                <select
-                  id="genres"
-                  name="genre"
-                  defaultValue={genre}
-                  defaultinputvalue={genre}
-                  className="genre"
-                  onChange={onChange}
-                >
-                  {GenreOptionArray.map((goa) => (
-                    <option key={goa.value} value={goa.value}>
-                      {goa.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                도서 상태
-                <select
-                  id="bookStatuses"
-                  name="bookStatus"
-                  defaultValue={bookStatus}
-                  defaultinputvalue={bookStatus}
-                  className="bookStatus"
-                  onChange={onChange}
-                >
-                  {BookStatusOptionArray.map((bsoa) => (
-                    <option key={bsoa.value} value={bsoa.value}>
-                      {bsoa.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                카테고리
-                <select
-                  name="category"
-                  id="categories"
-                  defaultValue={category}
-                  defaultinputvalue={category}
-                  className="category"
-                  onChange={onChange}
-                >
-                  {CategoryOptionArray.map((coa) => (
-                    <option key={coa.value} value={coa.value}>
-                      {coa.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                <label>
+                  타입
+                  <select
+                    id="types"
+                    name="bookType"
+                    defaultValue={bookType}
+                    defaultinputvalue={bookType}
+                    className="type"
+                    onChange={onChange}
+                  >
+                    <option value="BOOK">도서</option>
+                    <option value="NON_BOOK">비도서</option>
+                  </select>
+                </label>
+                <label>
+                  장르
+                  <select
+                    id="genres"
+                    name="genre"
+                    defaultValue={genre}
+                    defaultinputvalue={genre}
+                    className="genre"
+                    onChange={onChange}
+                  >
+                    {GenreOptionArray.map((goa) => (
+                      <option key={goa.value} value={goa.value}>
+                        {goa.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  도서 상태
+                  <select
+                    id="bookStatuses"
+                    name="bookStatus"
+                    defaultValue={bookStatus}
+                    defaultinputvalue={bookStatus}
+                    className="bookStatus"
+                    onChange={onChange}
+                  >
+                    {BookStatusOptionArray.map((bsoa) => (
+                      <option key={bsoa.value} value={bsoa.value}>
+                        {bsoa.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  카테고리
+                  <select
+                    name="category"
+                    id="categories"
+                    defaultValue={category}
+                    defaultinputvalue={category}
+                    className="category"
+                    onChange={onChange}
+                  >
+                    {CategoryOptionArray.map((coa) => (
+                      <option key={coa.value} value={coa.value}>
+                        {coa.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
 
-              <div className="contents">
-                <textarea
-                  name="contents"
-                  id="contents"
-                  defaultValue={contents}
-                  className="contents"
-                  onChange={onChange}
-                ></textarea>
+                <div className="contents">
+                  <textarea
+                    name="contents"
+                    id="contents"
+                    defaultValue={contents}
+                    className="contents"
+                    onChange={onChange}
+                  ></textarea>
+                </div>
               </div>
             </div>
           </div>

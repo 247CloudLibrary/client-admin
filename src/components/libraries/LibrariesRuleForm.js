@@ -14,6 +14,11 @@ const LibrariesRuleForm = () => {
   const navigate = useNavigate();
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const [inputs, setInputs] = useState([]);
 
@@ -29,7 +34,9 @@ const LibrariesRuleForm = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/libraries/${storage.libraryId}`)
+      .get(`https://www.cloudlibrary.shop/v1/libraries/${storage.libraryId}`, {
+        headers: headers,
+      })
       .then((response) => setInputs(response.data.data));
   }, []);
 

@@ -20,9 +20,16 @@ const LibrariesDetail = () => {
   const navigate = useNavigate();
   const id = location.state.id;
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = { Authorization: `Bearer ${token}` };
+
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`)
+      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`, {
+        headers: headers,
+      })
       .then(function (response) {
         setLibraryData(response.data.data);
       });

@@ -8,16 +8,23 @@ const LibrariesList = () => {
   const [listData, setListData] = useState([]);
   const [text, setText] = useState("");
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = { Authorization: `Bearer ${token}` };
+
   useEffect(() => {
-    axios.get("https://www.cloudlibrary.shop/v1/libraries").then((response) => {
-      const responseArr = response.data.data;
+    axios
+      .get("https://www.cloudlibrary.shop/v1/libraries", { headers: headers })
+      .then((response) => {
+        const responseArr = response.data.data;
 
-      const filtedBySearch = text
-        ? responseArr.filter((i) => i.name.includes(text))
-        : responseArr;
+        const filtedBySearch = text
+          ? responseArr.filter((i) => i.name.includes(text))
+          : responseArr;
 
-      setListData(filtedBySearch);
-    });
+        setListData(filtedBySearch);
+      });
   }, [text]);
 
   const onSubmit = (e) => {
