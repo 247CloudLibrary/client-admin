@@ -105,8 +105,8 @@ const LibrariesWrite = () => {
         }}
       >
         <div className="write-form">
+          <span className="write-info">도서관 정보</span>
           <div className="input-area">
-            <span className="write-info">도서관 정보</span>
             {LibrariesWriteArray.map((lwa) => (
               <div key={lwa.key}>
                 <label name={lwa.key} className="input-box">
@@ -152,8 +152,8 @@ const LibrariesWrite = () => {
               </label>
             </div>
           </div>
+          <span className="write-rule">이용 규정 정보</span>
           <div className="number-area">
-            <span className="write-rule">이용 규정 정보</span>
             {LibrariesNumArray.map((lna) => (
               <div key={lna.key}>
                 <label name={lna.key} className="number-box">

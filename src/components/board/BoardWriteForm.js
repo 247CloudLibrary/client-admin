@@ -15,7 +15,6 @@ const BoardWriteForm = () => {
   const storage = json.data;
 
   const libraryName = storage.libraryName;
-  console.log(libraryName);
   const { type, title, contents } = boardContent;
 
   const getValue = (e) => {
@@ -32,6 +31,7 @@ const BoardWriteForm = () => {
           e.preventDefault();
           axios
             .post("https://www.cloudlibrary.shop/v1/boards", {
+              adminId: storage.adminId,
               libraryName: libraryName,
               type: type,
               title: title,

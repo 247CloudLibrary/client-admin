@@ -124,6 +124,7 @@ const BooksWriteForm = () => {
       >
         <div className="input-form">
           <div className="input-box">
+            <div className="input"></div>
             <div className="image-area">
               <div className="image-box">
                 <div className="preview">

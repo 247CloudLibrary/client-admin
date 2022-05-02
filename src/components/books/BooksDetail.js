@@ -94,35 +94,37 @@ const BooksDetail = () => {
     <div id="book-detail">
       <div className="head">도서 상세페이지</div>
       <div className="detail-box">
-        <div className="title-area">
-          <div className="title-box">
-            <span className="type">{bookData.bookType}</span>
-            <span className="title">{bookData.title}</span>
-          </div>
-        </div>
-        <div className="info-area">
-          <div className="info-box">
-            <div className="image-box">
-              <img className="coverImage" src={bookData.coverImage} alt="" />
+        <div className="detail-area">
+          <div className="title-area">
+            <div className="title-box">
+              <span className="type">{bookData.bookType}</span>
+              <span className="title">{bookData.title}</span>
             </div>
-            <table className="text-box">
-              {BookDetailArray.map((bda) => (
-                <thead className="label" key={bda.key}>
-                  <tr>
-                    <td className="label-tag">{bda.tag}</td>
-                    <td className={bda.key}>{bda.value}</td>
-                  </tr>
-                </thead>
-              ))}
-            </table>
           </div>
-        </div>
-        <div className="minititle-box">
-          <div className="minititle">상세정보</div>
-        </div>
-        <div className="contents-area">
-          <div className="contents-box">
-            <p>{bookData.contents}</p>
+          <div className="info-area">
+            <div className="info-box">
+              <div className="image-box">
+                <img className="coverImage" src={bookData.coverImage} alt="" />
+              </div>
+              <table className="text-box">
+                {BookDetailArray.map((bda) => (
+                  <thead className="label" key={bda.key}>
+                    <tr>
+                      <td className="label-tag">{bda.tag}</td>
+                      <td className={bda.key}>{bda.value}</td>
+                    </tr>
+                  </thead>
+                ))}
+              </table>
+            </div>
+          </div>
+          <div className="minititle-box">
+            <div className="minititle">상세정보</div>
+          </div>
+          <div className="contents-area">
+            <div className="contents-box">
+              <p>{bookData.contents}</p>
+            </div>
           </div>
         </div>
         <div className="btn-box">
