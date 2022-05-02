@@ -19,7 +19,10 @@
     .edit-form {
       display: flex;
       flex-wrap: wrap;
-      width: 61rem;
+      width: 57rem;
+      border-radius: 20px;
+      background-color: white;
+      padding: 1.5rem;
       .input-box {
         position: relative;
         width: 20rem;

@@ -111,7 +111,7 @@ const LibrariesRuleForm = () => {
         }}
       >
         <label className="label">
-          <AiOutlineWarning className="icon" />
+          <IoTimeOutline className="icon" />
           <span className="otcls">운영시간</span>
           <input
             type="text"

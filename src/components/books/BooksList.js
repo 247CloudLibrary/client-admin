@@ -48,27 +48,29 @@ const BooksList = () => {
           </Link>
         </div>
       </div>
-      {bookList &&
-        bookList.map((data) => (
-          <div className="BooksList-body" key={data.id}>
-            <BooksListItem
-              id={data.id}
-              thumbNailImage={data.thumbNailImage}
-              title={data.title}
-              bookType={data.bookType}
-              author={data.author}
-              translator={data.translator}
-              publisher={data.publisher}
-              publishDate={data.publishDate}
-              barcode={data.barcode}
-              isbn={data.isbn}
-              genre={data.genre}
-              category={data.category}
-              libraryName={data.libraryName}
-              bookStatus={data.bookStatus}
-            />
-          </div>
-        ))}
+      <div className="bookList">
+        {bookList &&
+          bookList.map((data) => (
+            <div className="booksList-body" key={data.id}>
+              <BooksListItem
+                id={data.id}
+                thumbNailImage={data.thumbNailImage}
+                title={data.title}
+                bookType={data.bookType}
+                author={data.author}
+                translator={data.translator}
+                publisher={data.publisher}
+                publishDate={data.publishDate}
+                barcode={data.barcode}
+                isbn={data.isbn}
+                genre={data.genre}
+                category={data.category}
+                libraryName={data.libraryName}
+                bookStatus={data.bookStatus}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
