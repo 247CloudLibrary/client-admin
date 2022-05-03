@@ -1,5 +1,5 @@
 import LibrariesWrite from "../../components/libraries/LibrariesWrite";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const LibrariesWritePage = () => {
   return (

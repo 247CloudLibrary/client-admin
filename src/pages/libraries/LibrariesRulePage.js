@@ -1,5 +1,5 @@
 import LibrariesRuleForm from "../../components/libraries/LibrariesRuleForm";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const LibrariesRulePage = () => {
   return (

@@ -1,5 +1,5 @@
 import BooksEditForm from "../../components/books/BooksEditForm";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const BooksEditPage = () => {
   return (

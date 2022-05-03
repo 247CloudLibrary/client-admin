@@ -1,5 +1,5 @@
 import BooksWriteForm from "../../components/books/BooksWriteForm";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const BooksRegistPage = () => {
   return (

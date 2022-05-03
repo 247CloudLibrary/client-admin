@@ -1,5 +1,5 @@
 import LibrariesDetail from "../../components/libraries/LibrariesDetail";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const LibrariesDetailPage = () => {
   return (

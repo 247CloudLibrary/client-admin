@@ -1,5 +1,5 @@
 import LibrariesEdit from "../../components/libraries/LibrariesEdit";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const LibrariesEditPage = () => {
   return (
