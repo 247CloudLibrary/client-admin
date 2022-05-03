@@ -148,7 +148,7 @@ const LendingDetail = () => {
   return (
     <div id="lending-detail">
       <div className="btns">
-        <button className="btn" onClick={createLendingClick} type="submit">
+        <button className="btn" onClick={createLendingClick} type="click">
           대출
         </button>
         <button className="btn" onClick={createRentalClick} type="submit">

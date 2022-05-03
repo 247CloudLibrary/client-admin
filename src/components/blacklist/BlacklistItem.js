@@ -1,11 +1,11 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const BlacklistItem = ({ uid, libraryName }) => {
-  console.log(uid);
+  const navigate = useNavigate();
 
   const onClick = (e) => {
     e.preventDefault();
-
     if (window.confirm("등록을 해제하시겠습니까?") === false) {
       return;
     } else {
@@ -14,6 +14,8 @@ const BlacklistItem = ({ uid, libraryName }) => {
         .then((response) => {
           console.log(response);
         });
+      alert("등록이 해제되었습니다");
+      navigate(`/lending/blacklist`);
     }
   };
 
