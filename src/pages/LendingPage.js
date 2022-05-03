@@ -73,6 +73,10 @@ const LendingPage = () => {
               handleChange={handleChange}
               libraryData={libraryData}
             />
+            <div>
+              <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
+              <Button onClick={onClickReadAuth} text="유저 조회" />
+            </div>
           </div>
           <div className="lendingListForm">
             <LendingListForm
@@ -80,10 +84,6 @@ const LendingPage = () => {
               text={text}
               libraryValue={libraryValue}
             />
-          </div>
-          <div className="btn">
-            <Button onClick={onClickReadBlacklist} text="블랙리스트 조회" />
-            <Button onClick={onClickReadAuth} text="유저 조회" />
           </div>
         </div>
       </div>

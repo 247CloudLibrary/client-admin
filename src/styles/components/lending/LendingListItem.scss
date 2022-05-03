@@ -1,17 +1,19 @@
 .lending-items {
-    display: flex;
-    width: 80rem;
-    height: 20rem;
-    margin: 1rem;
-    padding: 1rem;
-    justify-content: center;
-    pointer-events: none;
-    border-top: solid 1px rgb(235, 235, 235);
+  display: flex;
+  width: 60rem;
+  min-width: 40rem;
+  height: 18rem;
+  padding: 1rem;
+  justify-content: space-between;
+  pointer-events: none;
+  border-top: solid 1px rgb(235, 235, 235);
+  overflow: hidden;
       .image-area {
           pointer-events: all;
           display: flex;
           margin-right: 2rem;
           cursor: pointer;
+          width: 20rem;
         .thumbNailImage {
           width: 15rem;
         }
@@ -21,7 +23,6 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-
         .lendingTitle {
             display: flex;
             width: 60rem;
