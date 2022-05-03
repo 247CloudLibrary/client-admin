@@ -23,7 +23,7 @@ const BlacklistItem = ({ uid, libraryName }) => {
     <div className="blacklist-items">
       <div className="blacklistData">
         <span className="uid"> 제재 회원: {uid}</span>
-        <span className="libraryName"> 제재 도서관: {libraryName}</span>
+        <span className="libraryName"> {libraryName}</span>
       </div>
       <div className="btn">
         <button className="button" type="submit" onClick={onClick}>

@@ -6,7 +6,7 @@ import SearchFilter from "../components/lending/SearchFilter";
 import LibraryFilter from "../components/lending/LibraryFilter";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/common/Button";
-import LendingListItem from "../components/lending/LendingListItem";
+import Header from "../components/common/Header";
 import Footer from "../components/Footer";
 
 const STATUS_DATA = [
@@ -56,6 +56,8 @@ const LendingPage = () => {
   return (
     <>
       <div className="lendingList">
+        <Header />
+        <div className="lending-list-title">Lending List</div>
         <SearchFilter
           className="home__search-bar "
           text={text}

@@ -75,12 +75,9 @@ const LendingDetail = () => {
     e.preventDefault();
     if (lendingData.lendingStatus === "OUT") {
       window.alert("이미 대출된 도서입니다.");
-    } else if (window.confirm("대출 하시겠습니까?") === false) {
-      return;
-    } else {
+    } else if (window.confirm("대출 하시겠습니까?")) {
       const lendingUid = Number(window.prompt("회원 번호를 입력하세요", ""));
-
-      lendingUid;
+      lending;
       axios
         .post(`https://www.cloudlibrary.shop/v1/lending`, {
           lendingId: lendingData.lendingId,
@@ -96,6 +93,8 @@ const LendingDetail = () => {
           alert("대출이 완료되었습니다.");
         });
       navigate(`/lending`);
+    } else {
+      return;
     }
   };
 

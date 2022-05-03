@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BlacklistItem from "./BlacklistItem";
-import Footer from "../Footer";
+import Header from "../../components/common/Header";
+import Footer from "../../components/Footer";
 
 const BlacklistForm = ({}) => {
   const [listItem, setListItem] = useState([]);
@@ -18,6 +19,8 @@ const BlacklistForm = ({}) => {
   return (
     <>
       <div className="blacklist-list">
+        <Header />
+        <div className="blacklist-title">Blacklist</div>
         <div className="blacklistItem">
           {listItem &&
             listItem.map((data) => (
