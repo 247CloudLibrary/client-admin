@@ -13,6 +13,7 @@ import { BsTelephone } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiZzzLine } from "react-icons/ri";
 import { MdOutlineCreate, MdUpdate } from "react-icons/md";
+import Header from "../common/Header";
 
 const LibrariesDetail = () => {
   const [libraryData, setLibraryData] = useState([]);
@@ -84,7 +85,7 @@ const LibrariesDetail = () => {
 
   return (
     <div id="libraries-detail">
-      <div className="header"></div>
+      <Header />
       <div className="libraries-box">
         <div className="library-name">{`${libraryData.name}(ID: ${id})`}</div>
         <div className="info-area">

@@ -2,6 +2,7 @@ import axios from "axios";
 import HTMLReactParser from "html-react-parser";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../common/Header";
 
 const GuideForm = () => {
   const [guideData, setGuideData] = useState([]);
@@ -50,6 +51,7 @@ const GuideForm = () => {
   if (guide !== undefined) {
     return (
       <div id="guide-form">
+        <Header />
         <div className="board-guide">이용안내</div>
         <div className="text-form">
           <div className="title-form">{guide.title}</div>
@@ -67,6 +69,7 @@ const GuideForm = () => {
   } else {
     return (
       <div id="guide-form">
+        <Header />
         <div className="board-guide">이용안내</div>
         <div style={{ fontSize: "1.5rem", marginTop: "3rem" }}>
           등록된 내용이 없습니다.

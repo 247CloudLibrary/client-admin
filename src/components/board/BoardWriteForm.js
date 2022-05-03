@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useState } from "react";
+import Header from "../common/Header";
 import axios from "axios";
 
 const BoardWriteForm = () => {
@@ -26,6 +27,7 @@ const BoardWriteForm = () => {
 
   return (
     <div className="BoardWrite">
+      <Header />
       <form
         onSubmit={(e) => {
           e.preventDefault();

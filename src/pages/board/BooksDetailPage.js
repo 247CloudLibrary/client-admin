@@ -1,5 +1,5 @@
 import BooksDetail from "../../components/books/BooksDetail";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const BooksDetailPage = () => {
   return (

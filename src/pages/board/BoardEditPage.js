@@ -1,5 +1,5 @@
 import BoardEditForm from "../../components/board/BoardEditForm";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const BoardEditPage = () => {
   return (

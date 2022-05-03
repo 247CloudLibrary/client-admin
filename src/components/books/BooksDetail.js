@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import Header from "../common/Header";
 
 const BooksDetail = () => {
   const [code, setCode] = useState("(0)");
@@ -99,7 +100,7 @@ const BooksDetail = () => {
 
   return (
     <div id="book-detail">
-      <div className="head">도서 상세페이지</div>
+      <Header />
       <div className="detail-box">
         <div className="detail-area">
           <div className="title-area">

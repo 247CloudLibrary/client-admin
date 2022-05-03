@@ -1,7 +1,8 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { BsMegaphone, BsInfoCircle } from "react-icons/bs";
 import { IoLibraryOutline } from "react-icons/io5";
-import Footer from "../Footer";
+import Header from "../common/Header";
+import Footer from "../common/Footer";
 
 const Board = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Board = () => {
 
   return (
     <div id="Board">
+      <Header />
       <div className="btn">
         <div onClick={toLibNotice}>
           <IoLibraryOutline className="icon" />

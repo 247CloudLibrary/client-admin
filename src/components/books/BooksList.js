@@ -3,6 +3,7 @@ import BooksListItem from "./BooksListItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BookSearchFilter from "./BookSearchFilter";
+import Header from "../common/Header";
 
 const BooksList = () => {
   const [bookList, setBookList] = useState([]);
@@ -40,6 +41,7 @@ const BooksList = () => {
   };
   return (
     <div id="BookList">
+      <Header />
       <div className="book-list">
         <div className="search">
           <BookSearchFilter text={text} onChange={onchange} />

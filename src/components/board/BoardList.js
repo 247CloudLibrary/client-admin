@@ -4,6 +4,7 @@ import BoardNoticeListItem from "./BoardNoticeListItem";
 import BoardInfo from "./BoardInfo";
 import BoardMap from "./BoardMap";
 import { useEffect, useState } from "react";
+import Header from "../common/Header";
 import axios from "axios";
 
 const BoardList = () => {
@@ -82,6 +83,7 @@ const BoardList = () => {
 
   return (
     <main id="board-list">
+      <Header />
       <h1 className="content">{content}</h1>
       <div className="write">
         <Link to="/boards/write" style={{ textDecoration: "none", width: "0" }}>

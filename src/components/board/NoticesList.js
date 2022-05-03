@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import NoticesListItem from "./NoticesListItem";
+import Header from "../common/Header";
 
 const NoticesList = () => {
   const [noticesData, setNoticesData] = useState([]);
@@ -43,6 +44,7 @@ const NoticesList = () => {
   ];
   return (
     <div id="board-superadmin">
+      <Header />
       <h1 className="content">통합 공지사항</h1>
       <div className="write">
         <Link to="/boards/write" style={{ textDecoration: "none", width: "0" }}>

@@ -3,6 +3,7 @@ import axios from "axios";
 import LibrariesSearchFilter from "./LibrariesSearchFilter";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Header from "../common/Header";
 
 const LibrariesList = () => {
   const [listData, setListData] = useState([]);
@@ -31,6 +32,7 @@ const LibrariesList = () => {
 
   return (
     <div id="libraries-list">
+      <Header />
       <div className="page-title">도서관 목록</div>
       <LibrariesSearchFilter onSubmit={onSubmit} text={text} />
       <div className="btn">

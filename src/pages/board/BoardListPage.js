@@ -1,5 +1,5 @@
 import BoardList from "../../components/board/BoardList";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const BoardListPage = () => {
   return (
