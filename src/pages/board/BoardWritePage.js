@@ -1,5 +1,5 @@
 import BoardWriteForm from "../../components/board/BoardWriteForm";
-import Footer from "../../components/Footer";
+import Footer from "../../components/common/Footer";
 
 const BoardWritePage = () => {
   return (

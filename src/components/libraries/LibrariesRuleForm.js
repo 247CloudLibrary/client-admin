@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { RiZzzLine } from "react-icons/ri";
 import {
   IoCalendarNumberOutline,
   IoTimeOutline,
@@ -9,6 +8,7 @@ import { FaSortNumericUpAlt, FaRegCalendarTimes } from "react-icons/fa";
 import { AiOutlineWarning } from "react-icons/ai";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Header from "../common/Header";
 
 const LibrariesRuleForm = () => {
   const navigate = useNavigate();
@@ -87,6 +87,7 @@ const LibrariesRuleForm = () => {
 
   return (
     <div id="libraries-rule">
+      <Header />
       <h1 className="libraries-text">도서관 이용 규정 </h1>
       <form
         className="form-box"

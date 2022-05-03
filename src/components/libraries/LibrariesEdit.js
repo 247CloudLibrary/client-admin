@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from "../common/Header";
 
 const LibrariesEdit = () => {
   const [edit, setEdit] = useState([]);
@@ -100,99 +101,106 @@ const LibrariesEdit = () => {
 
   return (
     <div id="libraries-edit">
-      <div className="edit-contents">
-        <h1 className="library-name">{edit.name}</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            axios
-              .put(`/v1/libraries/${id}`, {
-                id: id,
-                name: name,
-                address: address,
-                email: email,
-                tel: tel,
-                holiday: holiday,
-                operatingTime: operatingTime,
-                lendingAvailableCount: lendingAvailableCount,
-                lendingAvailableDays: lendingAvailableDays,
-                overdueCount: overdueCount,
-                longtermOverdueDays: longtermOverdueDays,
-                lendingLimitDays: lendingLimitDays,
-              })
-              .then(function (response) {
-                console.log(response);
-                alert("도서관 정보가 수정되었습니다.");
-                navigate("/libraries/list");
-              });
-          }}
-        >
-          <div className="edit-form">
-            {LibrariesEditArray.map((lda, index) => (
-              <div key={lda.key}>
-                <label name={lda.key} className="input-box">
-                  {`${lda.tag}  `}
+      <Header />
+      <div className="form-area">
+        <div className="edit-contents">
+          <h1 className="library-name">{edit.name}</h1>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              axios
+                .put(`/v1/libraries/${id}`, {
+                  id: id,
+                  name: name,
+                  address: address,
+                  email: email,
+                  tel: tel,
+                  holiday: holiday,
+                  operatingTime: operatingTime,
+                  lendingAvailableCount: lendingAvailableCount,
+                  lendingAvailableDays: lendingAvailableDays,
+                  overdueCount: overdueCount,
+                  longtermOverdueDays: longtermOverdueDays,
+                  lendingLimitDays: lendingLimitDays,
+                })
+                .then(function (response) {
+                  console.log(response);
+                  alert("도서관 정보가 수정되었습니다.");
+                  navigate("/libraries/list");
+                });
+            }}
+          >
+            <div className="edit-form">
+              {LibrariesEditArray.map((lda, index) => (
+                <div key={lda.key}>
+                  <label name={lda.key} className="input-box">
+                    {`${lda.tag}  `}
+                    <input
+                      className={lda.key}
+                      type="text"
+                      defaultValue={lda.val}
+                      name={lda.key}
+                      onChange={onChange}
+                      disabled={index === 4 || index === 5}
+                    />
+                  </label>
+                </div>
+              ))}
+              <div>
+                <label className="input-box">
+                  이메일&nbsp;&nbsp;
                   <input
-                    className={lda.key}
-                    type="text"
-                    defaultValue={lda.val}
-                    name={lda.key}
+                    className="email"
+                    type="email"
+                    name="email"
                     onChange={onChange}
-                    disabled={index === 4 || index === 5}
+                    defaultValue={email}
                   />
                 </label>
               </div>
-            ))}
-            <div>
-              <label className="input-box">
-                이메일&nbsp;&nbsp;
-                <input
-                  className="email"
-                  type="email"
-                  name="email"
-                  onChange={onChange}
-                  defaultValue={email}
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-box">
-                전화번호&nbsp;&nbsp;
-                <input
-                  type="tel"
-                  className="tel"
-                  name="tel"
-                  pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
-                  onChange={onChange}
-                  defaultValue={tel}
-                />
-              </label>
-            </div>
-            {LibrariesNumArray.map((lna) => (
-              <div key={lna.key}>
-                <label name={lna.key} className="number-box">
-                  {`${lna.tag}  `}
+              <div>
+                <label className="input-box">
+                  전화번호&nbsp;&nbsp;
                   <input
-                    className={lna.key}
-                    type="number"
-                    defaultValue={lna.val}
-                    name={lna.key}
-                    min="0"
-                    onChange={onNumChange}
+                    type="tel"
+                    className="tel"
+                    name="tel"
+                    pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
+                    onChange={onChange}
+                    defaultValue={tel}
                   />
                 </label>
               </div>
-            ))}
-          </div>
-          <div className="edit-btn">
-            <button className="edit-btn" type="submit">
-              수정
-            </button>
-            <button className="delete-btn" type="button" onClick={handleDelete}>
-              삭제
-            </button>
-          </div>
-        </form>
+              {LibrariesNumArray.map((lna) => (
+                <div key={lna.key}>
+                  <label name={lna.key} className="number-box">
+                    {`${lna.tag}  `}
+                    <input
+                      className={lna.key}
+                      type="number"
+                      defaultValue={lna.val}
+                      name={lna.key}
+                      min="0"
+                      onChange={onNumChange}
+                    />
+                  </label>
+                </div>
+              ))}
+            </div>
+            <div className="edit-btn">
+              <button className="edit-btn" type="submit">
+                수정
+              </button>
+              <button
+                className="delete-btn"
+                type="button"
+                onClick={handleDelete}
+              >
+                삭제
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

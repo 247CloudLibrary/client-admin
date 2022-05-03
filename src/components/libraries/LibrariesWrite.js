@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../common/Header";
 
 const LibrariesWrite = () => {
   const [inputs, setInputs] = useState({
@@ -79,6 +80,7 @@ const LibrariesWrite = () => {
 
   return (
     <div id="LibrariesWrite">
+      <Header />
       <form
         className="library-write"
         onSubmit={(e) => {

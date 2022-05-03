@@ -1,6 +1,5 @@
 import axios from "axios";
 import HTMLReactParser from "html-react-parser";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const BoardInfo = (infoDatas) => {
