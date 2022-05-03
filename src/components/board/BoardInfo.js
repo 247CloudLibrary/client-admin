@@ -29,11 +29,11 @@ const BoardInfo = (infoDatas) => {
               {HTMLReactParser(`${infoData.contents}`)}
             </div>
           </div>
-          <div className="edit-btn">
-            <button className="edit" onClick={toInfoDetail}>
-              수정
-            </button>
-          </div>
+        </div>
+        <div className="edit-btn">
+          <button className="edit" onClick={toInfoDetail}>
+            수정
+          </button>
         </div>
       </div>
     );
