@@ -7,21 +7,34 @@ const GuideForm = () => {
   const [guideData, setGuideData] = useState([]);
   const navigate = useNavigate();
 
+  const guide = guideData[0] ? guideData[0] : undefined;
+
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   useEffect(() => {
-    axios.get("https://www.cloudlibrary.shop/v1/boards").then((guide) => {
-      const boardArr = guide.data.data;
+    axios
+      .get("/v1/boards", {
+        headers: headers,
+      })
+      .then((guide) => {
+        const boardArr = guide.data.data;
 
-      const filtedByLibraryName =
-        boardArr.libraryName !== ""
-          ? boardArr.filter((i) => i.libraryName === "")
-          : boardArr;
+        const filtedByLibraryName =
+          boardArr.libraryName !== ""
+            ? boardArr.filter((i) => i.libraryName === "")
+            : boardArr;
 
-      const filtedByGuideData =
-        boardArr.type !== "안내사항"
-          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
-          : filtedByLibraryName;
-      setGuideData(filtedByGuideData[0]);
-    });
+        const filtedByGuideData =
+          boardArr.type !== "안내사항"
+            ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+            : filtedByLibraryName;
+        setGuideData(filtedByGuideData);
+      });
   }, []);
 
   const toGuideEdit = () => {
@@ -34,14 +47,14 @@ const GuideForm = () => {
       },
     });
   };
-  if (guideData !== undefined) {
+  if (guide !== undefined) {
     return (
       <div id="guide-form">
         <div className="board-guide">이용안내</div>
         <div className="text-form">
-          <div className="title-form">{guideData.title}</div>
+          <div className="title-form">{guide.title}</div>
           <div className="contents-form">
-            {HTMLReactParser(`${guideData.contents}`)}
+            {HTMLReactParser(`${guide.contents}`)}
           </div>
         </div>
         <div className="edit-btn">

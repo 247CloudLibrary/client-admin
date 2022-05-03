@@ -30,7 +30,7 @@ const BoardWriteForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post("https://www.cloudlibrary.shop/v1/boards", {
+            .post("/v1/boards", {
               adminId: storage.adminId,
               libraryName: libraryName,
               type: type,

@@ -18,9 +18,16 @@ const NoticesDetail = () => {
 
   const id = location.state.id;
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = { Authorization: `Bearer ${token}` };
+
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/boards/${id}`)
+      .get(`/v1/boards/${id}`, {
+        headers: headers,
+      })
       .then(function (detail) {
         setNoticeDetail(detail.data.data);
       });

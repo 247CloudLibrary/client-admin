@@ -9,9 +9,16 @@ const BooksDetail = () => {
   const id = location.state.id;
   const navigate = useNavigate();
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = { Authorization: `Bearer ${token}` };
+
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/books/${id}`)
+      .get(`/v1/books/${id}`, {
+        headers: headers,
+      })
       .then(function (response) {
         setBookData(response.data.data);
         switch (response.data.data.category) {

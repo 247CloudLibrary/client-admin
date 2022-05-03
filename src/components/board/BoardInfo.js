@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const BoardInfo = (infoDatas) => {
   const navigate = useNavigate();
-  // const [info, setInfo] = useState([]);
 
   const infoData = infoDatas.infoData[0] ? infoDatas.infoData[0] : undefined;
 
@@ -30,11 +29,11 @@ const BoardInfo = (infoDatas) => {
               {HTMLReactParser(`${infoData.contents}`)}
             </div>
           </div>
-          <div className="edit-btn">
-            <button className="edit" onClick={toInfoDetail}>
-              수정
-            </button>
-          </div>
+        </div>
+        <div className="edit-btn">
+          <button className="edit" onClick={toInfoDetail}>
+            수정
+          </button>
         </div>
       </div>
     );

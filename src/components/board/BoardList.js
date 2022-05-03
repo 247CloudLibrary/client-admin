@@ -18,6 +18,11 @@ const BoardList = () => {
 
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const libraryName = storage.libraryName;
   const address = storage.address;
@@ -40,26 +45,30 @@ const BoardList = () => {
   };
 
   useEffect(() => {
-    axios.get("https://www.cloudlibrary.shop/v1/boards").then((response) => {
-      const boardArr = response.data.data;
+    axios
+      .get("/v1/boards", {
+        headers: headers,
+      })
+      .then((response) => {
+        const boardArr = response.data.data;
 
-      const filtedByLibraryName =
-        boardArr.libraryName !== libraryName
-          ? boardArr.filter((i) => i.libraryName === libraryName)
-          : boardArr;
+        const filtedByLibraryName =
+          boardArr.libraryName !== libraryName
+            ? boardArr.filter((i) => i.libraryName === libraryName)
+            : boardArr;
 
-      const filtedByNoticeData =
-        filtedByLibraryName.type !== "공지사항"
-          ? filtedByLibraryName.filter((i) => i.type === "공지사항")
-          : filtedByLibraryName;
-      setNoticeData(filtedByNoticeData);
+        const filtedByNoticeData =
+          filtedByLibraryName.type !== "공지사항"
+            ? filtedByLibraryName.filter((i) => i.type === "공지사항")
+            : filtedByLibraryName;
+        setNoticeData(filtedByNoticeData);
 
-      const filtedByInfoData =
-        filtedByLibraryName.type !== "안내사항"
-          ? filtedByLibraryName.filter((i) => i.type === "안내사항")
-          : filtedByLibraryName;
-      setInfoData(filtedByInfoData);
-    });
+        const filtedByInfoData =
+          filtedByLibraryName.type !== "안내사항"
+            ? filtedByLibraryName.filter((i) => i.type === "안내사항")
+            : filtedByLibraryName;
+        setInfoData(filtedByInfoData);
+      });
   }, []);
 
   const ListArray = [

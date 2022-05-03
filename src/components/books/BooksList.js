@@ -10,12 +10,16 @@ const BooksList = () => {
 
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const libraryName = storage.libraryName;
-  console.log(libraryName);
 
   useEffect(() => {
-    axios.get("https://www.cloudlibrary.shop/v1/books").then((response) => {
+    axios.get("/v1/books", { headers: headers }).then((response) => {
       const responseArr = response.data.data;
 
       const filtedByLibraryName =

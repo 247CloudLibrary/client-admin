@@ -39,13 +39,11 @@ const BoardEditForm = () => {
     if (window.confirm("게시글을 삭제하시겠습니까?") === false) {
       return;
     } else {
-      axios
-        .delete(`https://www.cloudlibrary.shop/v1/boards/${id}`)
-        .then(function (boardDelete) {
-          console.log(boardDelete);
-          alert("게시글이 삭제되었습니다.");
-          navigate(-2);
-        });
+      axios.delete(`/v1/boards/${id}`).then(function (boardDelete) {
+        console.log(boardDelete);
+        alert("게시글이 삭제되었습니다.");
+        navigate(-2);
+      });
     }
   };
   return (
@@ -54,7 +52,7 @@ const BoardEditForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .put(`https://www.cloudlibrary.shop/v1/boards/${id}`, {
+            .put(`/v1/boards/${id}`, {
               type: type,
               title: title,
               contents: contents,

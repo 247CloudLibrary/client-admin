@@ -6,20 +6,31 @@ import NoticesListItem from "./NoticesListItem";
 const NoticesList = () => {
   const [noticesData, setNoticesData] = useState([]);
 
-  useEffect(() => {
-    axios.get("https://www.cloudlibrary.shop/v1/boards").then((response) => {
-      const boardArr = response.data.data;
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
 
-      const filtedByLibraryName =
-        boardArr.libraryName !== ""
-          ? boardArr.filter((i) => i.libraryName === "")
-          : boardArr;
-      const filtedByNoticesData =
-        filtedByLibraryName.type !== "공지사항"
-          ? filtedByLibraryName.filter((i) => i.type === "공지사항")
-          : filtedByLibraryName;
-      setNoticesData(filtedByNoticesData);
-    });
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  useEffect(() => {
+    axios
+      .get("/v1/boards", {
+        headers: headers,
+      })
+      .then((response) => {
+        const boardArr = response.data.data;
+
+        const filtedByLibraryName =
+          boardArr.libraryName !== ""
+            ? boardArr.filter((i) => i.libraryName === "")
+            : boardArr;
+        const filtedByNoticesData =
+          filtedByLibraryName.type !== "공지사항"
+            ? filtedByLibraryName.filter((i) => i.type === "공지사항")
+            : filtedByLibraryName;
+        setNoticesData(filtedByNoticesData);
+      });
   }, []);
 
   const BoardListArray = [
