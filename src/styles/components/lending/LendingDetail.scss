@@ -1,6 +1,6 @@
 #lending-detail {
-    display: flex;
-    background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  display: flex;
     background-clip: border-box;
     background-attachment: fixed;
     transition: 2s;
@@ -13,6 +13,19 @@
     text-align: center;
     align-items: center;
     opacity: 0.9;
+    flex-direction: column;
+    .lending-detail-title {
+      font-size: 5.5rem;
+      padding-bottom: 8rem;
+      font-weight: bold;
+      font-family: "Antonio";
+      letter-spacing: 0.2rem;
+      color: #fff9e5;
+      text-shadow: 1px 1px 3px #2e2e2e;
+    }
+    .lending-detail-position{
+      display: flex;
+      flex-direction: row;
     .detail-box {
       display: flex;
       background-color: white;
@@ -125,6 +138,7 @@
         display: flex;
         flex-direction: column;
         margin-right: 3rem;
+        margin-top: 10rem;
         .btn {
         border: none;
         font-size: 2rem;
@@ -142,5 +156,5 @@
         background-color: #2b3c4e;
         }
     }}
-
+  }
   }

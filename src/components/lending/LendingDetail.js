@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
 
 const mergeArrayObjects = (arr1, arr2) => {
   let merge = [];
@@ -144,52 +146,67 @@ const LendingDetail = () => {
   };
 
   return (
-    <div id="lending-detail">
-      <div className="btns">
-        <button className="btn" onClick={createLendingClick} type="click">
-          대출
-        </button>
-        <button className="btn" onClick={createRentalClick} type="submit">
-          반납
-        </button>
-        <button className="btn" onClick={updateBlacklistClick} type="submit">
-          블랙리스트 등록
-        </button>
-      </div>
-      <div className="detail-box">
-        <div className="title-area">
-          <div className="title-box">
-            <span className="type">{lendingData.bookType}</span>
-            <span className="title">{lendingData.title}</span>
+    <>
+      <div id="lending-detail">
+        <Header />
+        <div className="lending-detail-title">Lending Detail</div>
+        <div className="lending-detail-position">
+          <div className="btns">
+            <button className="btn" onClick={createLendingClick} type="click">
+              대출
+            </button>
+            <button className="btn" onClick={createRentalClick} type="submit">
+              반납
+            </button>
+            <button
+              className="btn"
+              onClick={updateBlacklistClick}
+              type="submit"
+            >
+              블랙리스트 등록
+            </button>
           </div>
-        </div>
-        <div className="info-area">
-          <div className="info-box">
-            <div className="image-box">
-              <img className="coverImage" src={lendingData.coverImage} alt="" />
+          <div className="detail-box">
+            <div className="title-area">
+              <div className="title-box">
+                <span className="type">{lendingData.bookType}</span>
+                <span className="title">{lendingData.title}</span>
+              </div>
             </div>
-            <table className="text-box">
-              {LendingDetailArray.map((data, index) => (
-                <thead className="label" key={index}>
-                  <tr>
-                    <td className="label-tag">{data.tag}</td>
-                    <td className="label-value">{data.value}</td>
-                  </tr>
-                </thead>
-              ))}
-            </table>
-          </div>
-        </div>
-        <div className="minititle-box">
-          <div className="minititle">상세정보</div>
-        </div>
-        <div className="contents-area">
-          <div className="contents-box">
-            <p>{lendingData.contents}</p>
+            <div className="info-area">
+              <div className="info-box">
+                <div className="image-box">
+                  <img
+                    className="coverImage"
+                    src={lendingData.coverImage}
+                    alt=""
+                  />
+                </div>
+                <table className="text-box">
+                  {LendingDetailArray.map((data, index) => (
+                    <thead className="label" key={index}>
+                      <tr>
+                        <td className="label-tag">{data.tag}</td>
+                        <td className="label-value">{data.value}</td>
+                      </tr>
+                    </thead>
+                  ))}
+                </table>
+              </div>
+            </div>
+            <div className="minititle-box">
+              <div className="minititle">상세정보</div>
+            </div>
+            <div className="contents-area">
+              <div className="contents-box">
+                <p>{lendingData.contents}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 export default LendingDetail;
