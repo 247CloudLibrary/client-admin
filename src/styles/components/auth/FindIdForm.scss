@@ -12,7 +12,9 @@
   .findIdForm {
     width: 340px;
     min-width: 340px;
-    background-color: #afcddf;
+    background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     border-radius: 2px;
     padding: 2rem;
     box-shadow: 1px 1px 7px #809399;
@@ -22,7 +24,10 @@
       &:first-child {
         font-size: 3.5rem;
         padding-bottom: 3rem;
-        color: #18222c;
+        color: white;
+        svg {
+          filter: drop-shadow(1px 1px 1px #2e2e2e);
+        }
       }
       span {
         padding-top: 0.5rem;
@@ -30,7 +35,8 @@
         font-family: "Lexend Deca", sans-serif;
         font-size: 2.25rem;
         font-weight: bold;
-        text-shadow: 1px 1px 3px #5f5f5f;
+        color: white;
+        text-shadow: 1px 1px 3px #000000;
       }
     }
     form {
@@ -75,6 +81,20 @@
       &:hover {
         background-color: #2b3c4e;
       }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .text {
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px black;
     }
   }
 }
