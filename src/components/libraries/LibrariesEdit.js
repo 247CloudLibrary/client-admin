@@ -39,7 +39,7 @@ const LibrariesEdit = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`, {
+      .get(`/v1/libraries/${id}`, {
         headers: headers,
       })
       .then(function (response) {
@@ -53,13 +53,11 @@ const LibrariesEdit = () => {
     if (window.confirm("정말 삭제하시겠습니까?") === false) {
       return;
     } else {
-      axios
-        .delete(`https://www.cloudlibrary.shop/v1/libraries/${id}`)
-        .then((response) => {
-          console.log(response);
-          alert("도서관이 삭제되었습니다.");
-          navigate("/libraries/list");
-        });
+      axios.delete(`/v1/libraries/${id}`).then((response) => {
+        console.log(response);
+        alert("도서관이 삭제되었습니다.");
+        navigate("/libraries/list");
+      });
     }
   };
 
@@ -108,7 +106,7 @@ const LibrariesEdit = () => {
           onSubmit={(e) => {
             e.preventDefault();
             axios
-              .put(`https://www.cloudlibrary.shop/v1/libraries/${id}`, {
+              .put(`/v1/libraries/${id}`, {
                 id: id,
                 name: name,
                 address: address,
@@ -124,6 +122,7 @@ const LibrariesEdit = () => {
               })
               .then(function (response) {
                 console.log(response);
+                alert("도서관 정보가 수정되었습니다.");
                 navigate("/libraries/list");
               });
           }}
@@ -163,7 +162,7 @@ const LibrariesEdit = () => {
                   type="tel"
                   className="tel"
                   name="tel"
-                  pattern="[0-9]{2,3}-[0-9]{3}-[0-9]{4}"
+                  pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
                   onChange={onChange}
                   defaultValue={tel}
                 />

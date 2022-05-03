@@ -1,7 +1,12 @@
 #BookEditForm {
+  width: 100vw;
+  min-width: max-content;
+  background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 30% 50%;
   position: relative;
   display: flex;
-  background-color: aliceblue;
   height: 100%;
   min-height: 100vh;
   top: 0;
@@ -18,7 +23,7 @@
     margin-top: 5rem;
     flex-wrap: wrap;
     .input-area {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.788);
       width: 60rem;
       border-radius: 20px;
       padding: 2rem;

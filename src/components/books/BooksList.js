@@ -17,25 +17,22 @@ const BooksList = () => {
   };
 
   const libraryName = storage.libraryName;
-  console.log(libraryName);
 
   useEffect(() => {
-    axios
-      .get("https://www.cloudlibrary.shop/v1/books", { headers: headers })
-      .then((response) => {
-        const responseArr = response.data.data;
+    axios.get("/v1/books", { headers: headers }).then((response) => {
+      const responseArr = response.data.data;
 
-        const filtedByLibraryName =
-          responseArr.libraryName !== libraryName
-            ? responseArr.filter((i) => i.libraryName === libraryName)
-            : responseArr;
+      const filtedByLibraryName =
+        responseArr.libraryName !== libraryName
+          ? responseArr.filter((i) => i.libraryName === libraryName)
+          : responseArr;
 
-        const filtedByText = text
-          ? filtedByLibraryName.filter((i) => i.title.includes(text))
-          : filtedByLibraryName;
+      const filtedByText = text
+        ? filtedByLibraryName.filter((i) => i.title.includes(text))
+        : filtedByLibraryName;
 
-        setBookList(filtedByText);
-      });
+      setBookList(filtedByText);
+    });
   }, [text]);
 
   const onchange = (e) => {

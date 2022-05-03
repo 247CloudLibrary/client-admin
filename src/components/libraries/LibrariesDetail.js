@@ -27,7 +27,7 @@ const LibrariesDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/libraries/${id}`, {
+      .get(`/v1/libraries/${id}`, {
         headers: headers,
       })
       .then(function (response) {

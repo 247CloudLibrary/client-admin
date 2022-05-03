@@ -10,6 +10,13 @@ const BooksEditForm = () => {
   );
   const [coverImage, setCoverImage] = useState(location.state.coverImage);
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   const id = location.state.id;
   const [inputs, setInputs] = useState({
     libraryName: location.state.libraryName,
@@ -157,7 +164,7 @@ const BooksEditForm = () => {
       return;
     } else {
       axios
-        .patch(`https://www.cloudlibrary.shop/v1/books/${id}`, { id: id })
+        .patch(`/v1/books/${id}`, { id: id }, { headers: headers })
         .then(() => {
           alert("도서가 삭제되었습니다.");
         });
@@ -170,7 +177,7 @@ const BooksEditForm = () => {
           e.preventDefault();
 
           axios
-            .put(`https://www.cloudlibrary.shop/v1/books/${id}`, {
+            .put(`/v1/books/${id}`, {
               thumbNailImage: thumbNailImage,
               coverImage: coverImage,
               libraryName: libraryName,
@@ -191,6 +198,7 @@ const BooksEditForm = () => {
             })
             .then(function (response) {
               console.log(response);
+              alert("도서 정보가 수정되었습니다.");
               navigate("/books");
             });
         }}

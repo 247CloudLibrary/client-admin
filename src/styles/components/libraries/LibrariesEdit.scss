@@ -1,4 +1,10 @@
 #libraries-edit {
+  width: 100vw;
+  min-width: max-content;
+  background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 30% 50%;
   display: flex;
   left: 0;
   right: 0;
@@ -7,7 +13,6 @@
   min-height: 100vh;
   padding-bottom: 5rem;
   bottom: 0;
-  background-color: aliceblue;
   text-align: center;
   justify-content: center;
   .edit-contents {
@@ -21,7 +26,7 @@
       flex-wrap: wrap;
       width: 57rem;
       border-radius: 20px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.788);
       padding: 1.5rem;
       .input-box {
         position: relative;
@@ -123,7 +128,6 @@
         font-size: 1.125rem;
         font-weight: bold;
         padding: 1rem 1rem;
-        margin-top: 0.7rem;
         margin-right: 1rem;
         width: auto;
         border-radius: 4px;
@@ -147,7 +151,6 @@
         font-size: 1.125rem;
         font-weight: bold;
         padding: 1rem 1rem;
-        margin-top: 0.7rem;
         margin-left: 1rem;
         width: auto;
         border-radius: 4px;

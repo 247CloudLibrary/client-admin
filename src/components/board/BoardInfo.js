@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const BoardInfo = (infoDatas) => {
   const navigate = useNavigate();
-  // const [info, setInfo] = useState([]);
 
   const infoData = infoDatas.infoData[0] ? infoDatas.infoData[0] : undefined;
 

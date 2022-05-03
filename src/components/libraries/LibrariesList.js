@@ -14,17 +14,15 @@ const LibrariesList = () => {
   const headers = { Authorization: `Bearer ${token}` };
 
   useEffect(() => {
-    axios
-      .get("https://www.cloudlibrary.shop/v1/libraries", { headers: headers })
-      .then((response) => {
-        const responseArr = response.data.data;
+    axios.get("/v1/libraries", { headers: headers }).then((response) => {
+      const responseArr = response.data.data;
 
-        const filtedBySearch = text
-          ? responseArr.filter((i) => i.name.includes(text))
-          : responseArr;
+      const filtedBySearch = text
+        ? responseArr.filter((i) => i.name.includes(text))
+        : responseArr;
 
-        setListData(filtedBySearch);
-      });
+      setListData(filtedBySearch);
+    });
   }, [text]);
 
   const onSubmit = (e) => {

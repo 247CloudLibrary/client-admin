@@ -17,14 +17,11 @@ const BoardMap = ({ libraryAddress, libraryName }) => {
     var geocoder = new kakao.maps.services.Geocoder();
 
     //디폴트 주소: 주소가 안찍혀있을 때 보여지는 지도
-    console.log(libraryAddress);
     var address = libraryAddress;
 
     // 주소로 좌표를 검색합니다
     geocoder.addressSearch(address, function (result, status) {
       // 정상적으로 검색이 완료됐으면
-      console.log(result);
-      console.log(status);
       if (status === kakao.maps.services.Status.OK) {
         let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 

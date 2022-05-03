@@ -15,7 +15,7 @@ const NoticesList = () => {
 
   useEffect(() => {
     axios
-      .get("https://www.cloudlibrary.shop/v1/boards", {
+      .get("/v1/boards", {
         headers: headers,
       })
       .then((response) => {

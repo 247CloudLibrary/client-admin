@@ -16,7 +16,7 @@ const BooksDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/books/${id}`, {
+      .get(`/v1/books/${id}`, {
         headers: headers,
       })
       .then(function (response) {

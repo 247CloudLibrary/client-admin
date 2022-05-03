@@ -46,11 +46,12 @@ const BooksWriteForm = () => {
     });
   };
   const imageChange1 = (e) => {
-    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
+    setThumbnailImage(e.target.files[0]);
   };
   const imageChange2 = (e) => {
-    setCoverImage(URL.createObjectURL(e.target.files[0]));
+    setCoverImage(e.target.files[0]);
   };
+  console.log(thumbNailImage, coverImage);
 
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
@@ -98,7 +99,7 @@ const BooksWriteForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post("https://www.cloudlibrary.shop/v1/books", {
+            .post("/v1/books", {
               libraryName: libraryName,
               isbn: isbn,
               title: title,
@@ -132,7 +133,7 @@ const BooksWriteForm = () => {
                       <div>
                         <img
                           className="image"
-                          src={thumbNailImage}
+                          src={URL.createObjectURL(thumbNailImage)}
                           alt="Thumb"
                         />
                       </div>
@@ -154,7 +155,11 @@ const BooksWriteForm = () => {
                   <div className="preview">
                     {coverImage && (
                       <div>
-                        <img className="image" src={coverImage} alt="Thumb" />
+                        <img
+                          className="image"
+                          src={URL.createObjectURL(coverImage)}
+                          alt="Thumb"
+                        />
                       </div>
                     )}
                   </div>

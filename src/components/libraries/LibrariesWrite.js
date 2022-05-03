@@ -84,7 +84,7 @@ const LibrariesWrite = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post("https://www.cloudlibrary.shop/v1/libraries", {
+            .post("/v1/libraries", {
               address: address,
               email: email,
               holiday: holiday,
@@ -144,7 +144,7 @@ const LibrariesWrite = () => {
                   type="tel"
                   className="tel"
                   name="tel"
-                  pattern="[0-9]{2,3}-[0-9]{3}-[0-9]{4}"
+                  pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
                   onChange={onChange}
                   defaultValue={tel}
                   placeholder="전화번호"

@@ -34,7 +34,7 @@ const LibrariesRuleForm = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.cloudlibrary.shop/v1/libraries/${storage.libraryId}`, {
+      .get(`/v1/libraries/${storage.libraryId}`, {
         headers: headers,
       })
       .then((response) => setInputs(response.data.data));
@@ -93,23 +93,20 @@ const LibrariesRuleForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .put(
-              `https://www.cloudlibrary.shop/v1/libraries/${storage.libraryId}`,
-              {
-                id: storage.libraryId,
-                address: inputs.address,
-                email: inputs.email,
-                holiday: holiday,
-                name: inputs.name,
-                tel: inputs.tel,
-                operatingTime: operatingTime,
-                lendingAvailableCount: lendingAvailableCount,
-                lendingAvailableDays: lendingAvailableDays,
-                lendingLimitDays: lendingLimitDays,
-                overdueCount: overdueCount,
-                longtermOverdueDays: longtermOverdueDays,
-              }
-            )
+            .put(`/v1/libraries/${storage.libraryId}`, {
+              id: storage.libraryId,
+              address: inputs.address,
+              email: inputs.email,
+              holiday: holiday,
+              name: inputs.name,
+              tel: inputs.tel,
+              operatingTime: operatingTime,
+              lendingAvailableCount: lendingAvailableCount,
+              lendingAvailableDays: lendingAvailableDays,
+              lendingLimitDays: lendingLimitDays,
+              overdueCount: overdueCount,
+              longtermOverdueDays: longtermOverdueDays,
+            })
             .then(function (result) {
               console.log(result);
               alert("이용 규정이 수정되었습니다.");
