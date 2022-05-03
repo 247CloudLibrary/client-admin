@@ -1,14 +1,29 @@
+.blacklist-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .blacklist-title {
+    font-size: 5.5rem;
+    padding-bottom: 8rem;
+    font-weight: bold;
+    font-family: "Antonio";
+    letter-spacing: 0.2rem;
+    color: #fff9e5;
+    text-shadow: 1px 1px 3px #2e2e2e;
+  }
 .blacklist-items {
     display: flex;
     width: 40rem;
     margin: 1rem;
-    padding: 1rem;
-    justify-content: flex-start;
+    padding: 1rem;  
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border-top: solid 1px rgb(235, 235, 235);
     .blacklistData {
             display: flex;
             width: 30rem;
-            margin-right: 5rem;
           .uid {
             width: 15rem;
             font-size: 1.5rem;
@@ -45,5 +60,5 @@
                   }
             }
         }
-    };
-  
+    }
+};
