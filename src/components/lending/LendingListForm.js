@@ -47,9 +47,9 @@ const LendingListForm = ({ dropValue, text, libraryValue }) => {
   return (
     <div className="lending-list">
       {listItem &&
-        listItem.map((data, index) => (
+        listItem.map((data) => (
           <LendingListItem
-            key={index}
+            key={data.lendingId}
             uid={data.uid}
             thumbNailImage={data.thumbNailImage}
             bookId={data.bookId}

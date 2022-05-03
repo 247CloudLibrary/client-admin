@@ -76,8 +76,7 @@ const LendingDetail = () => {
     if (lendingData.lendingStatus === "OUT") {
       window.alert("이미 대출된 도서입니다.");
     } else if (window.confirm("대출 하시겠습니까?")) {
-      const lendingUid = Number(window.prompt("회원 번호를 입력하세요", ""));
-      lending;
+      const lendingUid = Number(window.prompt("회원 번호를 입력하세요"));
       axios
         .post(`https://www.cloudlibrary.shop/v1/lending`, {
           lendingId: lendingData.lendingId,
@@ -100,9 +99,7 @@ const LendingDetail = () => {
 
   const createRentalClick = (e) => {
     e.preventDefault();
-    if (window.confirm("반납 하시겠습니까?") === false) {
-      return;
-    } else {
+    if (window.confirm("반납 하시겠습니까?")) {
       axios
         .patch(
           `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus=RETURN`,
@@ -122,15 +119,15 @@ const LendingDetail = () => {
           lendingData.lendingUid = "";
         });
       navigate(`/lending`);
+    } else {
+      return;
     }
   };
 
   const updateBlacklistClick = (e) => {
     e.preventDefault();
 
-    if (window.confirm("등록 하시겠습니까?") === false) {
-      return;
-    } else {
+    if (window.confirm("등록 하시겠습니까?")) {
       axios
         .put(`https://www.cloudlibrary.shop/v1/lending/blacklist`, {
           uid: lendingData.uid,
@@ -141,6 +138,8 @@ const LendingDetail = () => {
           alert("등록이 완료되었습니다.");
         });
       navigate(`/lending`);
+    } else {
+      return;
     }
   };
 
