@@ -63,7 +63,7 @@ const LendingPage = () => {
           text={text}
           onChange={onChange}
         />
-        <div className="lendingData">
+        <div className="lending-Data">
           <div className="lendingFilterWrap">
             <LendingStatusFilter
               dropValue={dropValue}

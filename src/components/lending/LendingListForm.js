@@ -16,11 +16,22 @@ const mergeArrayObjects = (arr1, arr2) => {
 const LendingListForm = ({ dropValue, text, libraryValue }) => {
   const [listItem, setListItem] = useState([]);
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   useEffect(() => {
     axios
       .all([
-        axios.get("https://www.cloudlibrary.shop/v1/lending"),
-        axios.get("https://www.cloudlibrary.shop/v1/books"),
+        axios.get("/v1/lending", {
+          headers: headers,
+        }),
+        axios.get("/v1/books", {
+          headers: headers,
+        }),
       ])
       .then((result) => {
         const resultArray = mergeArrayObjects(

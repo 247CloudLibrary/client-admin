@@ -22,11 +22,21 @@ const LendingDetail = () => {
   const bookId = location.state.bookId;
   const navigate = useNavigate();
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   useEffect(() => {
     axios
       .all([
-        axios.get("https://www.cloudlibrary.shop/v1/lending"),
-        axios.get(`https://www.cloudlibrary.shop/v1/books`),
+        axios.get("/v1/lending", {
+          headers: headers,
+        }),
+        axios.get(`/v1/books`, {
+          headers: headers,
+        }),
       ])
       .then((result) => {
         const resultArray = mergeArrayObjects(
@@ -39,7 +49,7 @@ const LendingDetail = () => {
 
   const LendingDetailArray = [
     { value: lendingData.author, key: "author", tag: "저자" },
-    { value: lendingData.translator, key: "translator", tag: "역자" },
+    { value: lendingData.translator, key: "translator", tag: "옮긴이" },
     { value: lendingData.genre, key: "genre", tag: "장르" },
     {
       value: lendingData.category,
