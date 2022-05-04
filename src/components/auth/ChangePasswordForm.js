@@ -94,6 +94,7 @@ const ChangePasswordForm = () => {
             type={toggle ? "text" : "password"}
             onChange={handleNewPassword}
             value={password}
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}"
             required
           />
 
@@ -103,6 +104,7 @@ const ChangePasswordForm = () => {
             type="password"
             onChange={handlePwConfirm}
             value={pwConfirm}
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}"
             required
           />
           {password !== pwConfirm ? (
