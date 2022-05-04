@@ -1,13 +1,22 @@
 import { useState } from "react";
 import axios from "axios";
 import Header from "../common/Header";
+import ImgUpload from "./ImgUpload";
+import AWS from "aws-sdk";
 
-// libraryid
 const BooksWriteForm = () => {
   const [thumbNailImage, setThumbnailImage] = useState();
   const [coverImage, setCoverImage] = useState();
+  const [loaded1, setLoaded1] = useState(false);
+  const [fileURL1, setFileURL1] = useState("");
+  const [loaded2, setLoaded2] = useState(false);
+  const [fileURL2, setFileURL2] = useState("");
+
+  const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
+
   const [inputs, setInputs] = useState({
-    libraryName: "",
+    libraryName: storage.libraryName,
     isbn: "",
     title: "",
     author: "",
@@ -46,14 +55,90 @@ const BooksWriteForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  AWS.config.update({
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
+    region: process.env.REACT_APP_REGION,
+  });
+
   const imageChange1 = (e) => {
-    setThumbnailImage(e.target.files[0]);
+    e.preventDefault();
+    const fileReader = new FileReader();
+    const file = e.target.files[0];
+    if (file) {
+      setLoaded1("loading");
+      fileReader.readAsDataURL(file);
+    }
+    fileReader.onload = () => {
+      setFileURL1(fileReader.result);
+      setLoaded1(true);
+    };
   };
   const imageChange2 = (e) => {
-    setCoverImage(e.target.files[0]);
+    e.preventDefault();
+    const fileReader = new FileReader();
+    const file = e.target.files[0];
+    if (file) {
+      setLoaded2("loading");
+      fileReader.readAsDataURL(file);
+    }
+    fileReader.onload = () => {
+      setFileURL2(fileReader.result);
+      setLoaded2(true);
+    };
   };
-  console.log(thumbNailImage, coverImage);
 
+  const handleImgUpload1 = (e) => {
+    const file = e.target.files[0];
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        ACL: "public-read",
+        Body: file,
+        Bucket: process.env.REACT_APP_S3_BUCKET,
+        Key: "menu/" + file.name,
+      },
+    });
+
+    const promise = upload.promise();
+
+    promise.then(
+      function (data) {
+        setThumbnailImage(data.Location);
+        console.log(data.Location + "업로드 성공");
+      },
+
+      function (err) {
+        console.log(err);
+        return console.log("오류가 발생했습니다");
+      }
+    );
+  };
+  const handleImgUpload2 = (e) => {
+    const file = e.target.files[0];
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        ACL: "public-read",
+        Body: file,
+        Bucket: process.env.REACT_APP_S3_BUCKET,
+        Key: "menu/" + file.name,
+      },
+    });
+
+    const promise = upload.promise();
+
+    promise.then(
+      function (data) {
+        setCoverImage(data.Location);
+        console.log(data.Location + "업로드 성공");
+      },
+
+      function (err) {
+        console.log(err);
+        return console.log("오류가 발생했습니다");
+      }
+    );
+  };
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
     { value: title, name: "title", label: "책 제목" },
@@ -104,6 +189,7 @@ const BooksWriteForm = () => {
             axios
               .post("/v1/books", {
                 libraryName: libraryName,
+                libraryId: storage.libraryId,
                 isbn: isbn,
                 title: title,
                 author: author,
@@ -130,58 +216,22 @@ const BooksWriteForm = () => {
             <div className="input-area">
               <div className="input-box">
                 <div className="image-area">
-                  <div className="image-box">
-                    <div className="preview">
-                      {thumbNailImage && (
-                        <div>
-                          <img
-                            className="image"
-                            src={URL.createObjectURL(thumbNailImage)}
-                            alt="Thumb"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <label className="thumbnail-label">
-                      썸네일 이미지
-                      <input
-                        type="file"
-                        accept="image/*"
-                        name="thumbNailImage"
-                        className="thumbNailImage"
-                        onChange={imageChange1}
-                      />
-                    </label>
-                  </div>
-
-                  <div className="image-box">
-                    <div className="preview">
-                      {coverImage && (
-                        <div>
-                          <img
-                            className="image"
-                            src={URL.createObjectURL(coverImage)}
-                            alt="Thumb"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <label className="cover-label">
-                      커버 이미지
-                      <input
-                        type="file"
-                        accept="image/*"
-                        name="coverImage"
-                        className="coverImage"
-                        onChange={imageChange2}
-                      />
-                    </label>
-                  </div>
+                  <ImgUpload
+                    setState={setInputs}
+                    loaded1={loaded1}
+                    fileURL1={fileURL1}
+                    imageChange1={imageChange1}
+                    handleImgUpload1={handleImgUpload1}
+                    loaded2={loaded2}
+                    fileURL2={fileURL2}
+                    imageChange2={imageChange2}
+                    handleImgUpload2={handleImgUpload2}
+                  />
                 </div>
               </div>
               <div className="text">
                 <div className="text-form">
-                  {TextFormArray.map((tfa) => (
+                  {TextFormArray.map((tfa, index) => (
                     <label key={tfa.name}>
                       {tfa.label}
                       <input
@@ -190,6 +240,7 @@ const BooksWriteForm = () => {
                         className={tfa.name}
                         value={tfa.value}
                         onChange={onChange}
+                        disabled={index === 0}
                       />
                     </label>
                   ))}
