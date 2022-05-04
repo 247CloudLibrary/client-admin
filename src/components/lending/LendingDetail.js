@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/common/Header";
 import Footer from "../../components/common/Footer";
+import LendingListForm from "./LendingListForm";
 
 const mergeArrayObjects = (arr1, arr2) => {
   let merge = [];
@@ -21,11 +22,21 @@ const LendingDetail = () => {
   const bookId = location.state.bookId;
   const navigate = useNavigate();
 
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   useEffect(() => {
     axios
       .all([
-        axios.get("https://www.cloudlibrary.shop/v1/lending"),
-        axios.get(`https://www.cloudlibrary.shop/v1/books`),
+        axios.get("/v1/lending", {
+          headers: headers,
+        }),
+        axios.get(`/v1/books`, {
+          headers: headers,
+        }),
       ])
       .then((result) => {
         const resultArray = mergeArrayObjects(
@@ -38,7 +49,7 @@ const LendingDetail = () => {
 
   const LendingDetailArray = [
     { value: lendingData.author, key: "author", tag: "저자" },
-    { value: lendingData.translator, key: "translator", tag: "역자" },
+    { value: lendingData.translator, key: "translator", tag: "옮긴이" },
     { value: lendingData.genre, key: "genre", tag: "장르" },
     {
       value: lendingData.category,
@@ -94,6 +105,7 @@ const LendingDetail = () => {
           alert("대출이 완료되었습니다.");
         });
       navigate(`/lending`);
+      LendingListForm();
     } else {
       return;
     }
@@ -101,7 +113,9 @@ const LendingDetail = () => {
 
   const createRentalClick = (e) => {
     e.preventDefault();
-    if (window.confirm("반납 하시겠습니까?")) {
+    if (lendingData.lendingStatus === "RETURN") {
+      window.alert("이미 반납된 도서입니다.");
+    } else if (window.confirm("반납 하시겠습니까?")) {
       axios
         .patch(
           `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus=RETURN`,
@@ -121,6 +135,7 @@ const LendingDetail = () => {
           lendingData.lendingUid = "";
         });
       navigate(`/lending`);
+      LendingListForm();
     } else {
       return;
     }
@@ -128,7 +143,6 @@ const LendingDetail = () => {
 
   const updateBlacklistClick = (e) => {
     e.preventDefault();
-
     if (window.confirm("등록 하시겠습니까?")) {
       axios
         .put(`https://www.cloudlibrary.shop/v1/lending/blacklist`, {

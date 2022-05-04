@@ -20,25 +20,29 @@
       }
       .lendingWrap {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
         .lendingTitle {
             display: flex;
             width: 60rem;
-            font-size: 3rem;
+            font-size: 2rem;
             pointer-events: all;
             cursor: pointer;
+            margin-bottom: 2rem;
         }
         .lendingUser {
             display: flex;
             width: 60rem;
+            margin-bottom: 2rem;
           .uid {
+            display: flex;
             font-size: 1.5rem;
             padding: 0.3rem;
             margin-right: 0.5rem;
           }
           .lendingDateTime {
+            display: flex;
             font-size: 1.5rem;
             padding: 0.3rem;
             margin-right: 0.5rem;
@@ -47,12 +51,15 @@
         .lendingData {
             display: flex;
             width: 60rem;
+            margin-bottom: 2rem;
           .barcode {
+            display: flex;
             font-size: 1.5rem;
             padding: 0.3rem;
             margin-right: 0.5rem;
           }
           .libraryName {
+            display: flex;
             font-size: 1.5rem;
             padding: 0.3rem;
             margin-right: 0.5rem;
