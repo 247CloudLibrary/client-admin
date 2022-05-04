@@ -8,8 +8,6 @@ import Header from "../common/Header";
 const BooksList = () => {
   const [bookList, setBookList] = useState([]);
   const [text, setText] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [value, setValue] = useState("");
 
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
@@ -21,52 +19,22 @@ const BooksList = () => {
 
   const libraryName = storage.libraryName;
 
-  const getBooks = async () => {
-    const response = await axios
-      .get("/v1/books", { headers: headers })
-      .then((response) => {
-        const responseArr = response.data.data;
-
-        const filtedByLibraryName =
-          responseArr.libraryName !== libraryName
-            ? responseArr.filter((i) => i.libraryName === libraryName)
-            : responseArr;
-
-        const filtedByText = text
-          ? filtedByLibraryName.filter((i) => i.title.includes(text))
-          : filtedByLibraryName;
-
-        setBookList(filtedByText);
-        setLoading(false);
-      });
-    console.log(response);
-  };
-
-  const books = async (token) => {
-    const json = await (
-      await fetch("/v1/books", {
-        headers: { Authorization: `Bearer ` + token },
-      })
-    ).json();
-    const responseArr = json.data;
-    filtedByLibraryName(responseArr);
-    setLoading(false);
-  };
-
-  const filtedByLibraryName = (responseArr) => {
-    if (responseArr.libraryName !== libraryName) {
-      setBookList(responseArr.filter((i) => i.libraryName === libraryName));
-      console.log(value);
-    } else {
-      return;
-    }
-  };
-
-  useEffect(() => {}, [text]);
-
   useEffect(() => {
-    books(token);
-  }, []);
+    axios.get("/v1/books", { headers: headers }).then((response) => {
+      const responseArr = response.data.data;
+
+      const filtedByLibraryName =
+        responseArr.libraryName !== libraryName
+          ? responseArr.filter((i) => i.libraryName === libraryName)
+          : responseArr;
+
+      const filtedByText = text
+        ? filtedByLibraryName.filter((i) => i.title.includes(text))
+        : filtedByLibraryName;
+
+      setBookList(filtedByText);
+    });
+  }, [text]);
 
   const onchange = (e) => {
     setText(e.target.value);
@@ -87,10 +55,7 @@ const BooksList = () => {
         </div>
       </div>
       <div className="bookList">
-        {loading ? (
-          <div>Loading</div>
-        ) : (
-          bookList &&
+        {bookList &&
           bookList.map((data) => (
             <div className="booksList-body" key={data.id}>
               <BooksListItem
@@ -110,8 +75,7 @@ const BooksList = () => {
                 bookStatus={data.bookStatus}
               />
             </div>
-          ))
-        )}
+          ))}
       </div>
     </div>
   );
