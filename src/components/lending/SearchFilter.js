@@ -9,6 +9,8 @@ const SearchFilter = ({ text, onChange }) => {
         type="text"
         autoComplete="off"
         required
+        text={text}
+        onChange={onChange}
       />
       <label htmlFor="search-home" className="label-name">
         <span className="content-name">회원 번호</span>
