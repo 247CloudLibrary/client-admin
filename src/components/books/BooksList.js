@@ -19,8 +19,8 @@ const BooksList = () => {
 
   const libraryName = storage.libraryName;
 
-  useEffect(() => {
-    axios.get("/v1/books", { headers: headers }).then((response) => {
+  useEffect(async () => {
+    await axios.get("/v1/books", { headers: headers }).then((response) => {
       const responseArr = response.data.data;
 
       const filtedByLibraryName =
