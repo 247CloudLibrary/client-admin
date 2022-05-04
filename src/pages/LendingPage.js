@@ -58,11 +58,7 @@ const LendingPage = () => {
       <div className="lendingList">
         <Header />
         <div className="lending-list-title">Lending List</div>
-        <SearchFilter
-          className="home__search-bar "
-          text={text}
-          onChange={onChange}
-        />
+        <SearchFilter text={text} onChange={onChange} />
         <div className="lending-Data">
           <div className="lendingFilterWrap">
             <LendingStatusFilter
