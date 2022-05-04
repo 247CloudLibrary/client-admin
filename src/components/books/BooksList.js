@@ -8,7 +8,8 @@ import Header from "../common/Header";
 const BooksList = () => {
   const [bookList, setBookList] = useState([]);
   const [text, setText] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [value, setValue] = useState("");
 
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
@@ -36,7 +37,7 @@ const BooksList = () => {
           : filtedByLibraryName;
 
         setBookList(filtedByText);
-        setLoading(true);
+        setLoading(false);
       });
     console.log(response);
   };
@@ -47,15 +48,24 @@ const BooksList = () => {
         headers: { Authorization: `Bearer ` + token },
       })
     ).json();
-    console.log(json);
+    const responseArr = json.data;
+    filtedByLibraryName(responseArr);
+    setLoading(false);
   };
 
-  useEffect(() => {
-    getBooks();
-  }, [text]);
+  const filtedByLibraryName = (responseArr) => {
+    if (responseArr.libraryName !== libraryName) {
+      setBookList(responseArr.filter((i) => i.libraryName === libraryName));
+      console.log(value);
+    } else {
+      return;
+    }
+  };
+
+  useEffect(() => {}, [text]);
 
   useEffect(() => {
-    getBooks();
+    books(token);
   }, []);
 
   const onchange = (e) => {
@@ -77,7 +87,10 @@ const BooksList = () => {
         </div>
       </div>
       <div className="bookList">
-        {bookList &&
+        {loading ? (
+          <div>Loading</div>
+        ) : (
+          bookList &&
           bookList.map((data) => (
             <div className="booksList-body" key={data.id}>
               <BooksListItem
@@ -97,7 +110,8 @@ const BooksList = () => {
                 bookStatus={data.bookStatus}
               />
             </div>
-          ))}
+          ))
+        )}
       </div>
     </div>
   );
