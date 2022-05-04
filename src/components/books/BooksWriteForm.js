@@ -145,8 +145,8 @@ const BooksWriteForm = () => {
     );
   };
 
-  const thumbNail = thumbNailImage.replace(/(.jpg|.jpeg)$/, "");
-  const cover = coverImage.replace(/(.jpg|.jpeg)$/, "");
+  // const thumbNail = thumbNailImage.replace(/(.jpg|.jpeg)$/, "");
+  // const cover = coverImage.replace(/(.jpg|.jpeg)$/, "");
 
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
@@ -208,8 +208,8 @@ const BooksWriteForm = () => {
                   contents: contents,
                   publisher: publisher,
                   publishDate: publishDate,
-                  thumbNailImage: thumbNail,
-                  coverImage: cover,
+                  thumbNailImage: thumbNailImage,
+                  coverImage: coverImage,
                   bookType: bookType,
                   genre: genre,
                   rfid: rfid,
