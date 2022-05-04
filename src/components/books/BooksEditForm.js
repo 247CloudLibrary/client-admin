@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import AWS from "aws-sdk";
 import Header from "../common/Header";
 
 const BooksEditForm = () => {
@@ -10,6 +11,10 @@ const BooksEditForm = () => {
     location.state.thumbNailImage
   );
   const [coverImage, setCoverImage] = useState(location.state.coverImage);
+  const [loaded1, setLoaded1] = useState(false);
+  const [fileURL1, setFileURL1] = useState("");
+  const [loaded2, setLoaded2] = useState(false);
+  const [fileURL2, setFileURL2] = useState("");
 
   const json = JSON.parse(localStorage.getItem("user"));
   const token = json.headers.token;
@@ -104,18 +109,88 @@ const BooksEditForm = () => {
     });
   };
 
+  AWS.config.update({
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
+    region: process.env.REACT_APP_REGION,
+  });
+
   const imageChange1 = (e) => {
-    setThumbnailImage(URL.createObjectURL(e.target.files[0]));
+    e.preventDefault();
+    const fileReader = new FileReader();
+    const file = e.target.files[0];
+    if (file) {
+      setLoaded1("loading");
+      fileReader.readAsDataURL(file);
+    }
+    fileReader.onload = () => {
+      setFileURL1(fileReader.result);
+      setLoaded1(true);
+    };
   };
   const imageChange2 = (e) => {
-    setCoverImage(URL.createObjectURL(e.target.files[0]));
+    e.preventDefault();
+    const fileReader = new FileReader();
+    const file = e.target.files[0];
+    if (file) {
+      setLoaded2("loading");
+      fileReader.readAsDataURL(file);
+    }
+    fileReader.onload = () => {
+      setFileURL2(fileReader.result);
+      setLoaded2(true);
+    };
   };
 
-  imageChange1.onload = () => {
-    URL.revokeObjectURL(thumbNailImage);
+  const handleImgUpload1 = (e) => {
+    const file = e.target.files[0];
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        ACL: "public-read",
+        Body: file,
+        Bucket: process.env.REACT_APP_S3_BUCKET,
+        Key: "menu/" + file.name,
+      },
+    });
+
+    const promise = upload.promise();
+
+    promise.then(
+      function (data) {
+        setThumbnailImage(data.Location);
+        console.log(data.Location + "업로드 성공");
+      },
+
+      function (err) {
+        console.log(err);
+        return console.log("오류가 발생했습니다");
+      }
+    );
   };
-  imageChange2.onload = () => {
-    URL.revokeObjectURL(coverImage);
+  const handleImgUpload2 = (e) => {
+    const file = e.target.files[0];
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        ACL: "public-read",
+        Body: file,
+        Bucket: process.env.REACT_APP_S3_BUCKET,
+        Key: "menu/" + file.name,
+      },
+    });
+
+    const promise = upload.promise();
+
+    promise.then(
+      function (data) {
+        setCoverImage(data.Location);
+        console.log(data.Location + "업로드 성공");
+      },
+
+      function (err) {
+        console.log(err);
+        return console.log("오류가 발생했습니다");
+      }
+    );
   };
 
   const TextFormArray = [
@@ -210,49 +285,17 @@ const BooksEditForm = () => {
             <div className="input-area">
               <div className="input-box">
                 <div className="image-area">
-                  <div className="image-box">
-                    <div className="preview">
-                      {thumbNailImage && (
-                        <div>
-                          <img
-                            className="image"
-                            src={thumbNailImage}
-                            alt="Thumb"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <label className="thumbnail-label">
-                      썸네일 이미지
-                      <input
-                        type="file"
-                        accept="image/*"
-                        name="thumbNailImage"
-                        className="thumbNailImage"
-                        onChange={imageChange1}
-                      />
-                    </label>
-                  </div>
-
-                  <div className="image-box">
-                    <div className="preview">
-                      {coverImage && (
-                        <div>
-                          <img className="image" src={coverImage} alt="Thumb" />
-                        </div>
-                      )}
-                    </div>
-                    <label className="cover-label">
-                      커버 이미지
-                      <input
-                        type="file"
-                        accept="image/*"
-                        name="coverImage"
-                        className="coverImage"
-                        onChange={imageChange2}
-                      />
-                    </label>
-                  </div>
+                  <ImgUpload
+                    setState={setInputs}
+                    loaded1={loaded1}
+                    fileURL1={fileURL1}
+                    imageChange1={imageChange1}
+                    handleImgUpload1={handleImgUpload1}
+                    loaded2={loaded2}
+                    fileURL2={fileURL2}
+                    imageChange2={imageChange2}
+                    handleImgUpload2={handleImgUpload2}
+                  />
                 </div>
               </div>
               <div className="text">
@@ -266,7 +309,7 @@ const BooksEditForm = () => {
                         className={tfa.name}
                         defaultValue={tfa.value}
                         onChange={onChange}
-                        disabled={index === 6}
+                        disabled={index === 0 && 6}
                       />
                     </label>
                   ))}
