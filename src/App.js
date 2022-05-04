@@ -32,6 +32,7 @@ import LendingDetailPage from "./pages/lending/LendingDetailPage";
 import UserListPage from "./pages/UserListPage";
 import LoginPage from "./pages/auth/LoginPage";
 import ProfilePage from "./pages/auth/ProfilePage";
+import ChangePasswordPage from "./pages/auth/ChangePasswordPage";
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ const App = () => {
       <Route path="/find-id" element={<FindIdPage />} />
       <Route path="/find-pw" element={<FindPwPage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/change-pw" element={<ChangePasswordPage />} />
     </Routes>
   );
 };

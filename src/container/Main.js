@@ -38,6 +38,9 @@ const Main = () => {
     }
   };
 
+  const handlePasswordChange = () => {
+    navigate("/change-pw");
+  };
   const props = {
     onBoards,
     onBooks,
@@ -48,6 +51,7 @@ const Main = () => {
     onSearchUser,
     onLibraryList,
     onLogout,
+    handlePasswordChange,
   };
   return <MainForm props={props} />;
 };

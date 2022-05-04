@@ -1,4 +1,4 @@
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUserLock } from "react-icons/fa";
 import { ImLibrary } from "react-icons/im";
 import { BsJournalText, BsJournalCheck } from "react-icons/bs";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
@@ -7,6 +7,7 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import { WiCloud } from "react-icons/wi";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SearchBar from "./common/SearchBar";
 
 const MainForm = ({ props }) => {
   return (
@@ -21,6 +22,7 @@ const MainForm = ({ props }) => {
             </button>
           </Link>
         </div>
+        <SearchBar />
         <div className="feature-box">
           <div className="feature">
             <div onClick={props.onBoards}>
@@ -59,6 +61,10 @@ const MainForm = ({ props }) => {
             <div onClick={props.onLibraryList}>
               <ImLibrary className="icon" />
               <span className="text">도서관 목록</span>
+            </div>
+            <div onClick={props.handlePasswordChange}>
+              <FaUserLock className="icon" />
+              <span className="text">비밀번호변경</span>
             </div>
           </div>
         </div>
