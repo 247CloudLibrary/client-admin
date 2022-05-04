@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/common/Header";
 import Footer from "../../components/common/Footer";
+import LendingListForm from "./LendingListForm";
 
 const mergeArrayObjects = (arr1, arr2) => {
   let merge = [];
@@ -94,6 +95,7 @@ const LendingDetail = () => {
           alert("대출이 완료되었습니다.");
         });
       navigate(`/lending`);
+      LendingListForm();
     } else {
       return;
     }
@@ -101,7 +103,9 @@ const LendingDetail = () => {
 
   const createRentalClick = (e) => {
     e.preventDefault();
-    if (window.confirm("반납 하시겠습니까?")) {
+    if (lendingData.lendingStatus === "RETURN") {
+      window.alert("이미 반납된 도서입니다.");
+    } else if (window.confirm("반납 하시겠습니까?")) {
       axios
         .patch(
           `https://www.cloudlibrary.shop/v1/lending?lendingId=${lendingData.lendingId}&lendingStatus=RETURN`,
@@ -121,6 +125,7 @@ const LendingDetail = () => {
           lendingData.lendingUid = "";
         });
       navigate(`/lending`);
+      LendingListForm();
     } else {
       return;
     }
@@ -128,7 +133,6 @@ const LendingDetail = () => {
 
   const updateBlacklistClick = (e) => {
     e.preventDefault();
-
     if (window.confirm("등록 하시겠습니까?")) {
       axios
         .put(`https://www.cloudlibrary.shop/v1/lending/blacklist`, {
