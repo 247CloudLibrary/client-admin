@@ -5,8 +5,8 @@ import ImgUpload from "./ImgUpload";
 import AWS from "aws-sdk";
 
 const BooksWriteForm = () => {
-  const [thumbNailImage, setThumbnailImage] = useState();
-  const [coverImage, setCoverImage] = useState();
+  const [thumbNailImage, setThumbnailImage] = useState("");
+  const [coverImage, setCoverImage] = useState("");
   const [loaded1, setLoaded1] = useState(false);
   const [fileURL1, setFileURL1] = useState("");
   const [loaded2, setLoaded2] = useState(false);
@@ -101,7 +101,7 @@ const BooksWriteForm = () => {
         ACL: "public-read",
         Body: file,
         Bucket: "cloudlibrary-bookimage",
-        Key: "menu/" + file.name,
+        Key: "books/" + file.name,
       },
     });
 
@@ -144,6 +144,10 @@ const BooksWriteForm = () => {
       }
     );
   };
+
+  const thumbNail = thumbNailImage.replace(/(.jpg|.jpeg)$/, "");
+  const cover = coverImage.replace(/(.jpg|.jpeg)$/, "");
+
   const TextFormArray = [
     { value: libraryName, name: "libraryName", label: "도서관 이름" },
     { value: title, name: "title", label: "책 제목" },
@@ -204,8 +208,8 @@ const BooksWriteForm = () => {
                   contents: contents,
                   publisher: publisher,
                   publishDate: publishDate,
-                  thumbNailImage: thumbNailImage,
-                  coverImage: coverImage,
+                  thumbNailImage: thumbNail,
+                  coverImage: cover,
                   bookType: bookType,
                   genre: genre,
                   rfid: rfid,

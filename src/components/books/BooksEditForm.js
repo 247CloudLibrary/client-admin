@@ -8,14 +8,12 @@ import Header from "../common/Header";
 const BooksEditForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [thumbNailImage, setThumbnailImage] = useState(
-    location.state.thumbNailImage
-  );
-  const [coverImage, setCoverImage] = useState(location.state.coverImage);
+  const [thumbNailImage, setThumbnailImage] = useState("");
+  const [coverImage, setCoverImage] = useState("");
   const [loaded1, setLoaded1] = useState(false);
-  const [fileURL1, setFileURL1] = useState("");
+  const [fileURL1, setFileURL1] = useState(`${location.state.thumbNailImage}`);
   const [loaded2, setLoaded2] = useState(false);
-  const [fileURL2, setFileURL2] = useState("");
+  const [fileURL2, setFileURL2] = useState(`${location.state.coverImage}`);
 
   const json = JSON.parse(localStorage.getItem("user"));
   const token = json.headers.token;
@@ -23,7 +21,7 @@ const BooksEditForm = () => {
   const headers = {
     Authorization: `Bearer ${token}`,
   };
-
+  console.log(fileURL1, fileURL2);
   const id = location.state.id;
   const [inputs, setInputs] = useState({
     libraryName: location.state.libraryName,
@@ -150,7 +148,7 @@ const BooksEditForm = () => {
         ACL: "public-read",
         Body: file,
         Bucket: process.env.REACT_APP_S3_BUCKET,
-        Key: "menu/" + file.name,
+        Key: "books/" + file.name,
       },
     });
 
@@ -314,7 +312,7 @@ const BooksEditForm = () => {
                         className={tfa.name}
                         defaultValue={tfa.value}
                         onChange={onChange}
-                        disabled={index === 0 && 6}
+                        disabled={index === 0 || index === 6}
                       />
                     </label>
                   ))}
