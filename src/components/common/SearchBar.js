@@ -10,7 +10,13 @@ const SearchBar = () => {
 
   return (
     <form className="home__search-bar">
-      <input name="search-home" type="text" autoComplete="off" required />
+      <input
+        name="search-home"
+        id="search-input"
+        type="text"
+        autoComplete="off"
+        required
+      />
       <label htmlFor="search-home" className="label-name">
         <span className="content-name">Book Title</span>
       </label>
