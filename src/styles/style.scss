@@ -2,6 +2,7 @@
 @import "./config/_reset.scss";
 @import "./common/footer.scss";
 @import "./common/header.scss";
+@import "./common/serachBar.scss";
 
 /* Admin */
 @import "./components/auth/LoginForm.scss";
@@ -11,6 +12,7 @@
 @import "./components/auth/inputForm.scss";
 @import "./components/mainForm.scss";
 @import "./components/auth/UserListForm.scss";
+@import "./components/auth/ChangePassword.scss";
 
 /* Board */
 @import "./components/board/Board.scss";
