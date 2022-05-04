@@ -100,7 +100,7 @@ const BooksWriteForm = () => {
       params: {
         ACL: "public-read",
         Body: file,
-        Bucket: process.env.REACT_APP_S3_BUCKET,
+        Bucket: "cloudlibrary-bookimage",
         Key: "menu/" + file.name,
       },
     });
