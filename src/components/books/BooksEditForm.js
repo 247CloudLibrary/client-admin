@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import AWS from "aws-sdk";
+import ImgUpload from "./ImgUpload";
 import Header from "../common/Header";
 
 const BooksEditForm = () => {
