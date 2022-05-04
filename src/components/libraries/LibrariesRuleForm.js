@@ -94,20 +94,24 @@ const LibrariesRuleForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .put(`/v1/libraries/${storage.libraryId}`, {
-              id: storage.libraryId,
-              address: inputs.address,
-              email: inputs.email,
-              holiday: holiday,
-              name: inputs.name,
-              tel: inputs.tel,
-              operatingTime: operatingTime,
-              lendingAvailableCount: lendingAvailableCount,
-              lendingAvailableDays: lendingAvailableDays,
-              lendingLimitDays: lendingLimitDays,
-              overdueCount: overdueCount,
-              longtermOverdueDays: longtermOverdueDays,
-            })
+            .put(
+              `/v1/libraries/${storage.libraryId}`,
+              {
+                id: storage.libraryId,
+                address: inputs.address,
+                email: inputs.email,
+                holiday: holiday,
+                name: inputs.name,
+                tel: inputs.tel,
+                operatingTime: operatingTime,
+                lendingAvailableCount: lendingAvailableCount,
+                lendingAvailableDays: lendingAvailableDays,
+                lendingLimitDays: lendingLimitDays,
+                overdueCount: overdueCount,
+                longtermOverdueDays: longtermOverdueDays,
+              },
+              { headers: headers }
+            )
             .then(function (result) {
               console.log(result);
               alert("이용 규정이 수정되었습니다.");

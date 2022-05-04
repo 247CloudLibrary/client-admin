@@ -256,25 +256,29 @@ const BooksEditForm = () => {
             e.preventDefault();
 
             axios
-              .put(`/v1/books/${id}`, {
-                thumbNailImage: thumbNailImage,
-                coverImage: coverImage,
-                libraryName: libraryName,
-                title: title,
-                author: author,
-                translator: translator,
-                publisher: publisher,
-                barcode: barcode,
-                isbn: isbn,
-                publishDate: publishDate,
-                bookType: bookType,
-                genre: genre,
-                rid: rid,
-                rfid: rfid,
-                bookStatus: bookStatus,
-                category: category,
-                contents: contents,
-              })
+              .put(
+                `/v1/books/${id}`,
+                {
+                  thumbNailImage: thumbNailImage,
+                  coverImage: coverImage,
+                  libraryName: libraryName,
+                  title: title,
+                  author: author,
+                  translator: translator,
+                  publisher: publisher,
+                  barcode: barcode,
+                  isbn: isbn,
+                  publishDate: publishDate,
+                  bookType: bookType,
+                  genre: genre,
+                  rid: rid,
+                  rfid: rfid,
+                  bookStatus: bookStatus,
+                  category: category,
+                  contents: contents,
+                },
+                { headers: headers }
+              )
               .then(function (response) {
                 console.log(response);
                 alert("도서 정보가 수정되었습니다.");

@@ -27,6 +27,12 @@ const LibrariesWrite = () => {
     overdueCount,
     lendingLimitDays,
   } = num;
+  const json = JSON.parse(localStorage.getItem("user"));
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const onChange = (e) => {
     setInputs({
@@ -86,19 +92,23 @@ const LibrariesWrite = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post("/v1/libraries", {
-              address: address,
-              email: email,
-              holiday: holiday,
-              lendingAvailableCount: lendingAvailableCount,
-              lendingAvailableDays: lendingAvailableDays,
-              longtermOverdueDays: longtermOverdueDays,
-              name: name,
-              operatingTime: operatingTime,
-              overdueCount: overdueCount,
-              lendingLimitDays: lendingLimitDays,
-              tel: tel,
-            })
+            .post(
+              "/v1/libraries",
+              {
+                address: address,
+                email: email,
+                holiday: holiday,
+                lendingAvailableCount: lendingAvailableCount,
+                lendingAvailableDays: lendingAvailableDays,
+                longtermOverdueDays: longtermOverdueDays,
+                name: name,
+                operatingTime: operatingTime,
+                overdueCount: overdueCount,
+                lendingLimitDays: lendingLimitDays,
+                tel: tel,
+              },
+              { headers: headers }
+            )
             .then(function (response) {
               console.log(response);
               alert("도서관이 등록되었습니다.");

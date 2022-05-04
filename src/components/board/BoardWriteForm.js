@@ -14,6 +14,11 @@ const BoardWriteForm = () => {
   });
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const libraryName = storage.libraryName;
   const { type, title, contents } = boardContent;
@@ -32,13 +37,17 @@ const BoardWriteForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .post("/v1/boards", {
-              adminId: storage.adminId,
-              libraryName: libraryName,
-              type: type,
-              title: title,
-              contents: contents,
-            })
+            .post(
+              "/v1/boards",
+              {
+                adminId: storage.adminId,
+                libraryName: libraryName,
+                type: type,
+                title: title,
+                contents: contents,
+              },
+              { headers: headers }
+            )
             .then(function (response) {
               console.log(response);
               alert("게시글이 등록되었습니다.");

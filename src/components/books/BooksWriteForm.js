@@ -14,6 +14,11 @@ const BooksWriteForm = () => {
 
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const [inputs, setInputs] = useState({
     libraryName: storage.libraryName,
@@ -187,25 +192,29 @@ const BooksWriteForm = () => {
           onSubmit={(e) => {
             e.preventDefault();
             axios
-              .post("/v1/books", {
-                libraryName: libraryName,
-                libraryId: storage.libraryId,
-                isbn: isbn,
-                title: title,
-                author: author,
-                translator: translator,
-                contents: contents,
-                publisher: publisher,
-                publishDate: publishDate,
-                thumbNailImage: thumbNailImage,
-                coverImage: coverImage,
-                bookType: bookType,
-                genre: genre,
-                rfid: rfid,
-                barcode: barcode,
-                bookStatus: bookStatus,
-                category: category,
-              })
+              .post(
+                "/v1/books",
+                {
+                  libraryName: libraryName,
+                  libraryId: storage.libraryId,
+                  isbn: isbn,
+                  title: title,
+                  author: author,
+                  translator: translator,
+                  contents: contents,
+                  publisher: publisher,
+                  publishDate: publishDate,
+                  thumbNailImage: thumbNailImage,
+                  coverImage: coverImage,
+                  bookType: bookType,
+                  genre: genre,
+                  rfid: rfid,
+                  barcode: barcode,
+                  bookStatus: bookStatus,
+                  category: category,
+                },
+                { headers: headers }
+              )
               .then(function (response) {
                 console.log(response);
                 alert("도서가 등록되었습니다.");

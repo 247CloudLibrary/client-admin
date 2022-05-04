@@ -15,6 +15,11 @@ const BoardEditForm = () => {
   });
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
+  const token = json.headers.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
   const libraryName = storage.libraryName;
   const id = location.state.id;
@@ -40,11 +45,13 @@ const BoardEditForm = () => {
     if (window.confirm("게시글을 삭제하시겠습니까?") === false) {
       return;
     } else {
-      axios.delete(`/v1/boards/${id}`).then(function (boardDelete) {
-        console.log(boardDelete);
-        alert("게시글이 삭제되었습니다.");
-        navigate(-2);
-      });
+      axios
+        .delete(`/v1/boards/${id}`, { headers: headers })
+        .then(function (boardDelete) {
+          console.log(boardDelete);
+          alert("게시글이 삭제되었습니다.");
+          navigate(-2);
+        });
     }
   };
   return (
@@ -54,12 +61,16 @@ const BoardEditForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           axios
-            .put(`/v1/boards/${id}`, {
-              type: type,
-              title: title,
-              contents: contents,
-              libraryName: libraryName,
-            })
+            .put(
+              `/v1/boards/${id}`,
+              {
+                type: type,
+                title: title,
+                contents: contents,
+                libraryName: libraryName,
+              },
+              { headers: headers }
+            )
             .then(function (response) {
               console.log(response);
               alert("게시글이 수정되었습니다.");

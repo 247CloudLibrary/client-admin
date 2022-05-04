@@ -54,11 +54,13 @@ const LibrariesEdit = () => {
     if (window.confirm("정말 삭제하시겠습니까?") === false) {
       return;
     } else {
-      axios.delete(`/v1/libraries/${id}`).then((response) => {
-        console.log(response);
-        alert("도서관이 삭제되었습니다.");
-        navigate("/libraries/list");
-      });
+      axios
+        .delete(`/v1/libraries/${id}`, { headers: headers })
+        .then((response) => {
+          console.log(response);
+          alert("도서관이 삭제되었습니다.");
+          navigate("/libraries/list");
+        });
     }
   };
 
