@@ -64,6 +64,7 @@ const BoardEditForm = () => {
             .put(
               `/v1/boards/${id}`,
               {
+                adminId: storage.adminId,
                 type: type,
                 title: title,
                 contents: contents,

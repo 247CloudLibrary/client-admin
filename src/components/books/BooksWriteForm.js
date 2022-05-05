@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../common/Header";
 import ImgUpload from "./ImgUpload";
@@ -11,6 +12,8 @@ const BooksWriteForm = () => {
   const [fileURL1, setFileURL1] = useState("");
   const [loaded2, setLoaded2] = useState(false);
   const [fileURL2, setFileURL2] = useState("");
+
+  const navigate = useNavigate();
 
   const json = JSON.parse(localStorage.getItem("user"));
   const storage = json.data;
@@ -198,6 +201,7 @@ const BooksWriteForm = () => {
             axios
               .post(
                 "/v1/books",
+
                 {
                   libraryName: libraryName,
                   libraryId: storage.libraryId,
@@ -222,6 +226,7 @@ const BooksWriteForm = () => {
               .then(function (response) {
                 console.log(response);
                 alert("도서가 등록되었습니다.");
+                navigate(-1);
               });
           }}
         >

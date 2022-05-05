@@ -8,20 +8,23 @@ import Header from "../common/Header";
 const BooksEditForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [thumbNailImage, setThumbnailImage] = useState("");
-  const [coverImage, setCoverImage] = useState("");
+  const [thumbNailImage, setThumbnailImage] = useState(
+    `${location.state.thumbNailImage}`
+  );
+  const [coverImage, setCoverImage] = useState(`${location.state.coverImage}`);
   const [loaded1, setLoaded1] = useState(false);
   const [fileURL1, setFileURL1] = useState(`${location.state.thumbNailImage}`);
   const [loaded2, setLoaded2] = useState(false);
   const [fileURL2, setFileURL2] = useState(`${location.state.coverImage}`);
 
   const json = JSON.parse(localStorage.getItem("user"));
+  const storage = json.data;
   const token = json.headers.token;
 
   const headers = {
     Authorization: `Bearer ${token}`,
   };
-  console.log(fileURL1, fileURL2);
+
   const id = location.state.id;
   const [inputs, setInputs] = useState({
     libraryName: location.state.libraryName,
@@ -242,9 +245,11 @@ const BooksEditForm = () => {
         .patch(`/v1/books/${id}`, { id: id }, { headers: headers })
         .then(() => {
           alert("도서가 삭제되었습니다.");
+          navigate(-2);
         });
     }
   };
+
   return (
     <div id="BookEditForm">
       <Header />
@@ -257,30 +262,31 @@ const BooksEditForm = () => {
               .put(
                 `/v1/books/${id}`,
                 {
-                  thumbNailImage: thumbNailImage,
-                  coverImage: coverImage,
                   libraryName: libraryName,
+                  libraryId: storage.libraryId,
+                  isbn: isbn,
                   title: title,
                   author: author,
                   translator: translator,
+                  contents: contents,
                   publisher: publisher,
-                  barcode: barcode,
-                  isbn: isbn,
                   publishDate: publishDate,
+                  thumbNailImage: thumbNailImage,
+                  coverImage: coverImage,
                   bookType: bookType,
                   genre: genre,
                   rid: rid,
                   rfid: rfid,
+                  barcode: barcode,
                   bookStatus: bookStatus,
                   category: category,
-                  contents: contents,
                 },
                 { headers: headers }
               )
               .then(function (response) {
                 console.log(response);
                 alert("도서 정보가 수정되었습니다.");
-                navigate("/books");
+                navigate(-1);
               });
           }}
         >
