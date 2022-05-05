@@ -175,7 +175,6 @@ const BooksWriteForm = () => {
     { value: "AVAILABLE", label: "대여 가능" },
     { value: "STORAGE", label: "창고 보관" },
     { value: "LOST", label: "분실" },
-    { value: "DISCARD", label: "폐기" },
   ];
 
   const CategoryOptionArray = [
