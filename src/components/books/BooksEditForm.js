@@ -217,9 +217,9 @@ const BooksEditForm = () => {
   ];
 
   const BookStatusOptionArray = [
-    { value: "AVAILABLE", label: "대여가능" },
-    { value: "STORAGE", label: "창고보관" },
-    { value: "LOST", label: "분실" },
+    { value: "대여가능", label: "대여가능" },
+    { value: "창고보관", label: "창고보관" },
+    { value: "분실", label: "분실" },
   ];
 
   const CategoryOptionArray = [
@@ -249,7 +249,7 @@ const BooksEditForm = () => {
         });
     }
   };
-
+  console.log(inputs);
   return (
     <div id="BookEditForm">
       <Header />
