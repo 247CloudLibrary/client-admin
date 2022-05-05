@@ -129,12 +129,9 @@ const BoardList = () => {
         )}
         {mode === "이용안내" && (
           <div className="info-box">
-            {infoData &&
-              infoData.map((info) => (
-                <div className="info-box" key={info.id}>
-                  <BoardInfo infoData={infoData} />
-                </div>
-              ))}
+            <div className="info-box">
+              <BoardInfo infoData={infoData} />
+            </div>
           </div>
         )}
         {mode === "오시는 길" && (
