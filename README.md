@@ -1,12 +1,15 @@
 <div align="center">
   <h2>🔥24/7 Cloud Library client-admin🔥</h2>
-  |　<a href="https://www.notion.so/Cloud-Library-b9bb2c8ddbc241f5b4d8c160208cf108">노션</a>　|　
+  |　<a href="https://www.notion.so/Cloud-Library-b9bb2c8ddbc241f5b4d8c160208cf108">노션</a>　
+  |　<a href="https://metroretro.io/board/LB5JSXC2NCBV">Event Storming</a>　
+  |　<a href="https://www.marimba.team/board/7ffcfbc5-0bef-4c77-bb9f-a630a6f18ec6">Boris Diagram</a>　
+  |　<a href="https://www.figma.com/file/HHNzpgsiaHdkr8lDSwAQo5/Cloud-Library?node-id=0%3A1">Snap-E</a>　|　
   <br>
 </div>
 <br>
 <div align="center">
+  <img src="https://img.shields.io/badge/React-17.0.2-61DAFB?logo=React">
   <img src="https://img.shields.io/badge/node-16.15.0-339933?logo=node.js"> 
-  <img src="https://img.shields.io/badge/React-17.0.2-61DAFB?logo=React"> 
   <img src="https://img.shields.io/badge/Sass-7.01-009639?logo=Sass"> 
 </div>
 
@@ -21,13 +24,13 @@
   <tr>
     <th>
       <div>
-        <img src="그림1" width="300" height="180">
+        <img src="그림1" width="470" height="290">
       </div>
       공지사항 관리
     </th>
     <th>
       <div>
-        <img src="그림2" width="300" height="180">
+        <img src="그림2" width="470" height="290">
       </div>
       도서 / 도서관 등록
     </th>
@@ -36,13 +39,13 @@
   <tr>
     <th>
       <div>
-        <img src="그림3" width="300" height="180">
+        <img src="https://user-images.githubusercontent.com/93421415/168946409-0b3c1e27-e657-4fbe-bed0-3db40c214f8a.gif" width="470" height="290">
       </div>
       대출 / 반납 처리
     </th>
     <th>
       <div>
-       <img src="그림4" width="300" height="180">
+       <img src="그림4" width="470" height="290">
       </div>
        회원관리
     </th>
@@ -52,7 +55,6 @@
 
 | 김주상 | 김한휘 | 홍인수 |
 |:--------:|:--------:|:--------:|
-| ![img](김주상그림) | ![img](김한휘그림) | ![img](홍인수그림) |
 | [fable0831](https://github.com/fable0831) | [KimHanWhee](https://github.com/KimHanWhee) | [iinsue](https://github.com/iinsue) | |
 | Web Frontend | Web Frontend | Web Frontend |
   
@@ -93,27 +95,29 @@
 
 </details>
 
-## 페이지 구성 구조
-![main](관리자 메인 페이지 그림 들어가면 좋을듯)
+## client-admin main page
+![client-main-image](https://user-images.githubusercontent.com/93421415/168944389-570d4aed-6409-4a52-97e0-fa9b1432e7e8.gif)
 
-## 기술 특장점 🛠
+## 프로젝트 장점 🛠
 <details>
 <summary>🛠 프론트엔드 코드 통일성에 대한 지속적인 고민</summary>
 <br>
 
-**협업 및 분업**을 원활하게 하기 위해 개발 시 **통일성**을 부여하고자 많이 고민했어요.
+**협업 및 분업**을 원활하게 하기 위해 개발 시 다양한 방법을 고민
 
-- axios를 통한 **API 요청에 대한 처리**
-- 
+- **Git-flow** 전략을 토대로 issue 생성 -> branch 생성 -> PR -> 코드 리뷰 -> Merge 순으로 개발
+- **코드 리뷰**는 모든 FE 개발자들이 함께 Discord를 통해 소통
+- 매일 **Daily Scrum**을 통해 진행 방식 및 에러 사항 공유 -> Notion을 사용하여 회의 내용 정리
   
 </details>
 
 <details>
-<summary>🛠 통일된 API 규격 및 에러 처리</summary>
+<summary>🛠 DDD 방식을 통한 MSA 설계</summary>
 <br>
   
-클라이언트의 **효율적인 API 요청 처리**를 위해 서버는 **일관적인 형태의 API 응답**을 제공.
-- 모든 API 응답은 **상태 코드**, **API 결과**, **메세지**를 하나의 API 응답 형태로 정해 사용하고 있어요.
-- 
+Domain Driven Design 방식을 통해 MSA 프로젝트 기획.
+- client는 **client-admin**과 **client-user**로 인스턴스 분리
+- 다양한 **협업 tool**을 사용하여 DDD 단계별로 기획(MetroRetro / Marimba / Figma)
+- 전체 개발 기간 중 절반을 오롯히 기획에 투자 => **프로젝트 구조**의 완성도를 높임
   
 </details>
