@@ -46,7 +46,7 @@
     </th>
     <th>
       <div>
-       <img src="그림1" width="470" height="290">
+       <img src="https://user-images.githubusercontent.com/93421415/168946409-0b3c1e27-e657-4fbe-bed0-3db40c214f8a.gif" width="470" height="290">
       </div>
        관리자 정보 수정
     </th>
