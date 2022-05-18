@@ -46,9 +46,9 @@
     </th>
     <th>
       <div>
-       <img src="https://user-images.githubusercontent.com/93421415/168950313-6699f1f7-1b7a-4bce-b607-54b9b392aba5.gif" width="470" height="290">
+       <img src="그림1" width="470" height="290">
       </div>
-       도서 검색 필터 및 예약
+       관리자 정보 수정
     </th>
   </tr>
 </tbody>
