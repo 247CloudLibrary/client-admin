@@ -1,66 +1,25 @@
 import client from "./client";
 
-//게시글 등록
-export const writeInfoBoard = ({
-  boardId,
-  adminId,
-  adminName,
-  type,
-  title,
-  contents,
-  libraryId,
-  libraryName,
-  createdAt,
-  updatedAt,
-  readCounts,
-}) =>
+export const createInfoBoard = ({ id, type, title, libraryName, contents }) =>
   client.post("/boards", {
-    boardId,
-    adminId,
-    adminName,
+    id,
     type,
     title,
-    contents,
-    libraryId,
     libraryName,
-    createdAt,
-    updatedAt,
-    readCounts,
+    contents,
   });
 
-//게시판 목록 조회
-export const listInfoBoards = () => client.get("/boards");
+export const readInfoBoardList = () => client.get("/boards");
 
-//게시글 조회
-export const readInfoBoard = () => client.get(`/boards/${boardId}`);
+export const readInfoBoard = () => client.get(`/boards/${id}`);
 
-//게시글 수정
-export const updateInfoBoard = ({
-  boardId,
-  adminId,
-  adminName,
-  type,
-  title,
-  contents,
-  libraryId,
-  libraryName,
-  createdAt,
-  updatedAt,
-  readCounts,
-}) =>
-  client.put(`/boards/${boardId}`, {
-    boardId,
-    adminId,
-    adminName,
+export const updateInfoBoard = ({ id, type, title, libraryName, contents }) =>
+  client.put(`/boards/${id}`, {
+    id,
     type,
     title,
-    contents,
-    libraryId,
     libraryName,
-    createdAt,
-    updatedAt,
-    readCounts,
+    contents,
   });
 
-//게시글 삭제
-export const removeInfoBoard = (boardId) => client.delete(`/boards/${boardId}`);
+export const deleteInfoBoard = (id) => client.delete(`/boards/${id}`);

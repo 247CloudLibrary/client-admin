@@ -1,0 +1,26 @@
+
+.blacklist-list {
+  display: flex;
+  background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-clip: border-box;
+  background-attachment: fixed;
+  transition: 2s;
+  background-position: 30%;
+  animation: background-action 50s infinite ease-in-out;
+  width: 100%;
+  min-width: 80rem;
+  min-height: 80rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  opacity: 0.9;
+    .blacklistItem {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      min-width: 45rem;
+      background-color: white;
+      opacity: 0.9;
+      border-radius: 40PX;
+      padding: 2rem;
+      }};

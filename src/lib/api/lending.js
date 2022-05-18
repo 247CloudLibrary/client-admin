@@ -1,7 +1,6 @@
 import client from "./client";
 
-//대출 요청
-export const lendingRentalgPost = ({
+export const createLendingBook = ({
   uid,
   bookId,
   libraryId,
@@ -12,7 +11,7 @@ export const lendingRentalgPost = ({
   lendingDateTime,
   returnDateTime,
 }) => {
-  client.post("/lending", {
+  client.post("/v1/lending", {
     uid,
     bookId,
     libraryId,
@@ -25,8 +24,7 @@ export const lendingRentalgPost = ({
   });
 };
 
-//도서 반납 요청
-export const lendingReturnPost = ({
+export const createReturnBook = ({
   uid,
   bookId,
   libraryId,
@@ -37,7 +35,7 @@ export const lendingReturnPost = ({
   lendingDateTime,
   returnDateTime,
 }) => {
-  client.post(`/lending/${uid}`, {
+  client.patch(`/v1/lending?uid=${uid}&lendingStatus=${lendingStatus}`, {
     bookId,
     libraryId,
     libraryName,
@@ -49,48 +47,22 @@ export const lendingReturnPost = ({
   });
 };
 
-// 도서관 이용 규정 등록
-export const rulesPost = ({
-  libraryId,
-  libraryName,
-  lendingAvailableCount,
-  lendingAvailableDays,
-  overdueCount,
-  longtermOverdueDays,
-  lendingLimitDays,
-}) => {
-  client.post("/lending/libraries/rules", {
-    libraryId,
-    libraryName,
-    lendingAvailableCount,
-    lendingAvailableDays,
-    overdueCount,
-    longtermOverdueDays,
-    lendingLimitDays,
-  });
+export const readLendingList = () => {
+  client.get(`/v1/lending`);
 };
 
-// 대출 상태 조회
-export const lendingList = () => {
-  client.get(`/lending`);
+export const readLending = ({ uid }) => {
+  client.get(`/v1/lending?uid=${uid}`);
 };
 
-// 대출 가능 여부 및 기록 조회
-export const lendingGet = () => {
-  client.get(`/lending/${uid}`);
+export const readBlacklist = () => {
+  client.get("/v1/lending/blacklist");
 };
 
-// 블랙리스트 조회
-export const blacklistGet = () => {
-  client.get("/lending/blacklist");
+export const updateBlacklist = ({ uid, libraryId }) => {
+  client.patch("/v1/lending/blacklist", { uid, libraryId });
 };
 
-// 블랙리스트 등록
-export const blacklistPatch = ({ uid, libraryId }) => {
-  client.patch("/lending/blacklist", { uid, libraryId });
-};
-
-// 블랙리스트 제거
 export const deleteBlacklist = ({ uid }) => {
-  client.delete(`/lending/blacklist/${uid}`);
+  client.delete(`/v1/lending/blacklist?uid=${uid}`);
 };

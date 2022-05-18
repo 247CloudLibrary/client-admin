@@ -1,0 +1,45 @@
+.main-header {
+  .header {
+    height: 25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logout {
+      border: none;
+      background: none;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      color: #fff9e5;
+      cursor: pointer;
+      transition: 1.5s;
+      svg {
+        filter: drop-shadow(1px 1px 1px #2e2e2e);
+      }
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .logo {
+    display: flex;
+    &:first-child {
+      font-size: 8rem;
+      padding-bottom: 3rem;
+      color: #fff9e5;
+      svg {
+        filter: drop-shadow(1px 1px 1px #2e2e2e);
+      }
+    }
+    span {
+      padding-top: 0.5rem;
+      padding-right: 1rem;
+      letter-spacing: 1px;
+      font-family: "Lexend Deca", sans-serif;
+      font-size: 6rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #2e2e2e;
+    }
+  }
+}

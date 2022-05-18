@@ -1,0 +1,48 @@
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.801);
+  margin-top: 6rem;
+  .fotter-home {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    span {
+      padding-top: 1.5rem;
+      display: block;
+    }
+    .email {
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        padding-right: 0.5rem;
+        font-size: 1.3rem;
+        color: rgb(73, 73, 73);
+      }
+    }
+    .location {
+      padding-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        padding-right: 0.1rem;
+        font-size: 1.3rem;
+        color: rgb(73, 73, 73);
+      }
+    }
+    .copyright {
+      padding-top: 1rem;
+      color: gray;
+    }
+  }
+}

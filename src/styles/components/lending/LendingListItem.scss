@@ -1,0 +1,92 @@
+.lending-items {
+  display: flex;
+  width: 60rem;
+  min-width: 40rem;
+  height: 18rem;
+  padding: 1rem;
+  justify-content: space-between;
+  pointer-events: none;
+  border-top: solid 1px rgb(235, 235, 235);
+  overflow: hidden;
+      .image-area {
+          pointer-events: all;
+          display: flex;
+          margin-right: 2rem;
+          cursor: pointer;
+          width: 20rem;
+        .thumbNailImage {
+          width: 15rem;
+        }
+      }
+      .lendingWrap {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        .lendingTitle {
+            display: flex;
+            width: 60rem;
+            font-size: 2rem;
+            pointer-events: all;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+        .lendingUser {
+            display: flex;
+            width: 60rem;
+            margin-bottom: 2rem;
+          .uid {
+            display: flex;
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+          .lendingDateTime {
+            display: flex;
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+        }
+        .lendingData {
+            display: flex;
+            width: 60rem;
+            margin-bottom: 2rem;
+          .barcode {
+            display: flex;
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+          .libraryName {
+            display: flex;
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+          }
+        }
+        .lendingStatusBar {
+            display: flex;
+            width: 60rem;
+            background-color: rgb(235, 235, 235);
+          .lendingStatus {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 4rem;
+            color: slateblue;
+            font-weight: bold;
+
+          }
+          .lendingReturn {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            margin-right: 0.5rem;
+            font-weight: bold;
+            color: red;
+          }
+        }
+
+
+    }
+  
+    }

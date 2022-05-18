@@ -1,0 +1,59 @@
+#boardListItem {
+  display: flex;
+  position: relative;
+  pointer-events: none;
+  .list {
+    justify-content: flex-start;
+    .list-value {
+      position: relative;
+      display: flex;
+      color: #57707cc5;
+      width: 60rem;
+      justify-content: left;
+      font-weight: 550;
+      padding: 1rem 0;
+
+      .num {
+        display: inline;
+        position: relative;
+        width: 3rem;
+        left: 3.1rem;
+      }
+      .title {
+        display: flex;
+        position: relative;
+        left: 5rem;
+        width: 28rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        pointer-events: all;
+        &:hover {
+          text-decoration: underline;
+          color: #2b3c4e;
+        }
+      }
+      .adminName {
+        display: flex;
+        position: relative;
+        width: 3rem;
+        left: 7.1rem;
+      }
+      .createdAt {
+        display: inline;
+        position: relative;
+        left: 8rem;
+        width: 10rem;
+      }
+      .updatedAt {
+      }
+      .readCounts {
+        display: inline;
+        width: 5rem;
+        position: relative;
+        left: 7.7rem;
+      }
+    }
+  }
+}

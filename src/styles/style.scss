@@ -1,0 +1,130 @@
+/* Config */
+@import "./config/_reset.scss";
+@import "./common/footer.scss";
+@import "./common/header.scss";
+@import "./common/serachBar.scss";
+
+/* Admin */
+@import "./components/auth/LoginForm.scss";
+@import "./components/auth/FindIdForm.scss";
+@import "./components/auth/FindPwForm.scss";
+@import "./components/auth/ProfileForm.scss";
+@import "./components/auth/inputForm.scss";
+@import "./components/mainForm.scss";
+@import "./components/auth/UserListForm.scss";
+@import "./components/auth/ChangePassword.scss";
+
+/* Board */
+@import "./components/board/Board.scss";
+@import "./components/board/NoticesList.scss";
+@import "./components/board/NoticesListItem.scss";
+@import "./components/board/NoticeDetail.scss";
+@import "./components/board/GuideForm.scss";
+@import "./components/board/BoardList.scss";
+@import "./components/board/BoardListItem.scss";
+@import "./components/board/BoardInfo.scss";
+@import "./components/board/BoardMap.scss";
+@import "./components/board/BoardSideBar.scss";
+@import "./components/board/BoardWriteForm.scss";
+@import "./components/board/BoardDetailForm.scss";
+@import "./components/board/BoardEditForm.scss";
+
+/* Books */
+@import "./components/books/BooksWriteForm.scss";
+@import "./components/books/BooksDetail.scss";
+@import "./components/books/BooksList.scss";
+@import "./components/books/BooksListItem.scss";
+@import "./components/books/BooksEditForm.scss";
+
+/* Libraries */
+@import "./components/libraries/LibrariesWrite.scss";
+@import "./components/libraries/LibrariesList.scss";
+@import "./components/libraries/LibrariesListItem.scss";
+@import "./components/libraries/LibrariesDetail.scss";
+@import "./components/libraries/LibrariesEdit.scss";
+@import "./components/libraries/LibrariesRuleForm.scss";
+
+/* Lending */
+@import "./components/lending/LendingListForm.scss";
+@import "./components/lending/LendingDetail.scss";
+@import "./components/lending/LendingListItem.scss";
+@import "./components/lending/BlacklistForm.scss";
+@import "./components/lending/BlackListItem.scss";
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Nanum+Gothic+Coding:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Square+Peg&display=swap");
+
+/* Defaults */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  content: url("../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg")
+    url("../../public/img/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+}
+
+@keyframes img-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right-to-left {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left-to-right {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-bottom-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes background-action {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}

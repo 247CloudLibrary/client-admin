@@ -1,0 +1,78 @@
+.home__search-bar {
+  display: flex;
+  align-items: flex-end;
+  width: 26rem;
+  height: 4.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: 0.2rem solid aliceblue;
+  box-shadow: 1px 1px 10px aliceblue;
+  background-color: #3636365d;
+  margin-top: 2rem;
+  #search-input {
+    width: 26rem;
+    font-size: 1.3rem;
+    padding-bottom: 0.1rem;
+    color: aliceblue;
+    text-shadow: 1px 1px 3px black;
+    border: none;
+    background: none;
+    margin-bottom: 0.6rem;
+    &:focus {
+      outline: none;
+    }
+    &:focus + .label-name span,
+    &:valid + .label-name span {
+      transform: translateY(-120%);
+      font-size: 1.2rem;
+      color: aliceblue;
+    }
+    &:focus + .label-name::after,
+    &:valid + .label-name::after {
+      transform: translateX(0%);
+    }
+  }
+  .label-name {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    position: absolute;
+    bottom: 0px;
+    left: 1rem;
+    width: 24.5rem;
+    height: 4rem;
+    pointer-events: none;
+    border-bottom: 0.1rem solid white;
+    color: aliceblue;
+    text-shadow: 1px 1px 3px black;
+    margin-bottom: 1rem;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 24.5rem;
+      height: 100%;
+      border-bottom: 3px solid aliceblue;
+      transform: translateX(-110%);
+      transition: all 0.5s ease;
+    }
+  }
+  .content-name {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+  .icon {
+    padding-left: 0.1rem;
+    padding-bottom: 0.6rem;
+    font-size: 1.5rem;
+    color: aliceblue;
+    cursor: pointer;
+  }
+}

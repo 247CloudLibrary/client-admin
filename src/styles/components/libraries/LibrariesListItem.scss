@@ -1,0 +1,95 @@
+#libraries-item {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60rem;
+  .library-name {
+    display: flex;
+    flex-direction: row;
+    background: rgb(227, 253, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(143, 202, 241, 0.774) 0%,
+      rgba(214, 250, 255, 0.637) 100%
+    );
+    position: relative;
+    font-size: 1.7rem;
+    padding: 1rem;
+    font-family: "Nanum Gothic Coding";
+    .icons {
+      color: grey;
+    }
+    .name {
+      padding-left: 2rem;
+      color: #1e272bc5;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .library-listItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 2.23rem;
+    position: relative;
+    color: #1f2a30c5;
+    background: rgb(237, 251, 254);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.76) 0%,
+      rgb(246, 254, 255) 100%
+    );
+    border-top: 1px solid #d8d8d8;
+    font-weight: 500;
+    .library-id-tag,
+    .address-tag,
+    .email-tag,
+    .tel-tag,
+    .operating-time-tag,
+    .holiday-tag {
+      font-weight: 550;
+    }
+
+    .library-id {
+      position: relative;
+      margin-top: 1rem;
+      margin-left: 3.5rem;
+      text-align: center;
+      min-width: 10rem;
+    }
+    .address {
+      position: relative;
+      margin-top: 1rem;
+      width: 25rem;
+    }
+
+    .email {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 20rem;
+    }
+    .tel {
+      position: relative;
+      margin-top: 1rem;
+      margin-left: 3.5rem;
+      text-align: center;
+      width: 10rem;
+    }
+    .operating-time {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 25rem;
+    }
+    .holiday {
+      position: relative;
+      margin-top: 1rem;
+      text-align: center;
+      width: 20rem;
+    }
+  }
+}

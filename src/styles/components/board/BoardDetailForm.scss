@@ -1,0 +1,119 @@
+#BoardDetailForm {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  min-width: max-content;
+  height: 100%;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  justify-content: center;
+  .detail-area {
+    display: flex;
+    justify-content: center;
+    .detail-form {
+      width: 60rem;
+      .title-area {
+        width: 60rem;
+        .board-title {
+          font-size: 2.5rem;
+        }
+      }
+      .info-area {
+        display: flex;
+        position: relative;
+        width: 60rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px solid gray;
+        .board-writer {
+          margin-top: 1rem;
+          font-size: 1.3rem;
+          color: gray;
+        }
+        .board-created {
+          margin-top: 1rem;
+          margin-left: 0.3rem;
+          font-size: 1.1rem;
+          color: gray;
+        }
+        .board-readcounts {
+          margin-top: 1rem;
+          margin-left: 1rem;
+          font-size: 1.1rem;
+          color: gray;
+        }
+        .board-library {
+          position: relative;
+          margin-left: auto;
+          margin-top: 1rem;
+          font-size: 1.3rem;
+          color: gray;
+        }
+      }
+      .contents-area {
+        width: 60rem;
+        margin-top: 1rem;
+        border-bottom: 1px solid gray;
+        .board-contents {
+          min-height: 50vh;
+          padding: 0 1rem 0 1rem;
+        }
+      }
+      .return {
+        text-align: center;
+        .return-btn {
+          border: none;
+          font-size: 1.125rem;
+          font-weight: bold;
+          margin-right: 1rem;
+          padding: 1rem 1rem;
+          margin-top: 3rem;
+          width: auto;
+          border-radius: 4px;
+          background-color: #435769;
+          color: azure;
+          outline: none;
+          cursor: pointer;
+          transition: 0.8s;
+          &:hover {
+            color: #435769;
+            background: rgb(227, 253, 255);
+            background: linear-gradient(
+              90deg,
+              rgb(55, 182, 255) 0%,
+              rgb(164, 244, 253) 100%
+            );
+          }
+        }
+        .edit-btn {
+          border: none;
+          font-size: 1.125rem;
+          font-weight: bold;
+          margin-left: 1rem;
+          padding: 1rem 1rem;
+          margin-top: 3rem;
+          width: auto;
+          border-radius: 4px;
+          background-color: #435769;
+          color: azure;
+          outline: none;
+          cursor: pointer;
+          transition: 0.8s;
+          &:hover {
+            color: #435769;
+            background: rgb(227, 253, 255);
+            background: linear-gradient(
+              90deg,
+              rgb(55, 182, 255) 0%,
+              rgb(164, 244, 253) 100%
+            );
+          }
+        }
+      }
+    }
+  }
+}

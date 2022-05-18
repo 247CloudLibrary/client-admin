@@ -1,0 +1,61 @@
+#guide-form {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-bottom: 5rem;
+  width: 100vw;
+  min-width: max-content;
+  height: 100%;
+  min-height: 100vh;
+  background-color: aliceblue;
+  align-items: center;
+  text-align: center;
+  .board-guide {
+    font-size: 3rem;
+    font-family: "Nanum Gothic Coding";
+  }
+  .text-form {
+    position: relative;
+    margin-top: 5rem;
+    .title-form {
+      font-size: 2rem;
+    }
+    .contents-form {
+      margin-top: 5rem;
+      width: 60rem;
+      text-align: start;
+    }
+  }
+  .edit-btn {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: auto;
+    .edit {
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      margin-top: 0.7rem;
+      width: auto;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        color: #435769;
+        background: rgb(227, 253, 255);
+        background: linear-gradient(
+          90deg,
+          rgb(55, 182, 255) 0%,
+          rgb(164, 244, 253) 100%
+        );
+      }
+    }
+  }
+}

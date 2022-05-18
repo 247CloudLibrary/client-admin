@@ -1,0 +1,102 @@
+#findPw {
+  background-color: #dfdfdf;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 530px;
+  .findPwForm {
+    width: 340px;
+    min-width: 340px;
+    background-image: url("../../../../public/img/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 2px;
+    padding: 2rem;
+    box-shadow: 1px 1px 7px #809399;
+    .logo {
+      display: flex;
+      padding-left: 0.5rem;
+      color: white;
+      &:first-child {
+        font-size: 3.5rem;
+        padding-bottom: 2.3rem;
+        svg {
+          filter: drop-shadow(1px 1px 1px #2e2e2e);
+        }
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .btn {
+        margin-top: 3.5rem;
+      }
+    }
+
+    .title {
+      padding-top: 0.5rem;
+      letter-spacing: 1px;
+      font-family: "Lexend Deca", sans-serif;
+      font-size: 2.25rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 3px #000000;
+    }
+
+    input {
+      font-size: 1.25rem;
+      font-family: "Jua", sans-serif;
+      border: none;
+      border-bottom: 0.125rem solid #57707cc5;
+      outline: none;
+      background: none;
+      padding-bottom: 0.5rem;
+      width: 80%;
+      margin-top: 2rem;
+      transition: 1s;
+      &:focus {
+        color: #003953;
+        border-bottom: 0.125rem solid #3b3b3b;
+      }
+    }
+
+    button {
+      border: none;
+      font-size: 1.125rem;
+      font-weight: bold;
+      padding: 0.75rem 1rem;
+      margin-top: 0.7rem;
+      width: 90%;
+      border-radius: 4px;
+      background-color: #435769;
+      color: azure;
+      outline: none;
+      cursor: pointer;
+      transition: 0.8s;
+      &:hover {
+        background-color: #2b3c4e;
+      }
+    }
+    .pw-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      span {
+        margin-bottom: 3rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        text-align: center;
+      }
+    }
+  }
+}
